@@ -113,7 +113,7 @@ function Services() {
     }, [])
 
     return (
-        <section className="services section">
+        <section className="services section" id="services">
             <span className="section__subtitle">My Services</span>
             <h2 className="section__title">What I Offer</h2>
 

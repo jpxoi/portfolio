@@ -1,4 +1,5 @@
 import About from "../Containers/About";
+import Footer from "../Containers/Footer";
 import Header from "../Containers/Header";
 import Home from "../Containers/Home";
 import Services from "../Containers/Services";
@@ -14,6 +15,7 @@ function Landing() {
         <Services />
         <Work />
       </main>
+      <Footer />
     </>
   );
 }

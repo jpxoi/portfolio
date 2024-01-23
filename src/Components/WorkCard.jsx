@@ -3,13 +3,13 @@ import { useEffect } from "react"
 function WorkCard (props) {
 
     useEffect(() => {
-        const element = document.querySelector(".work__card")
+        const element = document.getElementById(props.id)
         const category = props.category
 
         element.classList.add(category)
     }, [props.category])
     return (
-        <div className="work__card mix web">
+        <div id={ props.id } className="work__card mix">
             <img loading="lazy" src={ props.img } alt={ props.alt } className="work__img" />
 
             <h3 className="work__title">{ props.title }</h3>

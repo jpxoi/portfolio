@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import NavItem from "../Atoms/NavItem"
+import Nav from "../Components/Nav"
 
 function NavMenu() {
 
@@ -8,8 +9,6 @@ function NavMenu() {
 
         function scrollActive() {
             const scrollY = window.scrollY
-
-            console.log(sections)
 
             sections.forEach(current => {
                 const sectionHeight = current.offsetHeight,
@@ -32,8 +31,9 @@ function NavMenu() {
             <ul className="nav__list">
                 <NavItem route="#home" alt="home button" icon="bx bx-home-alt" status="active" />
                 <NavItem route="#about" alt="about button" icon="bx bx-user" />
-                <NavItem route="#skills" alt="skills button" icon="bx bx-book" />
+                <NavItem route="#services" alt="services button" icon="bx bx-server" />
                 <NavItem route="#work" alt="work button" icon="bx bx-briefcase-alt-2" />
+                <NavItem route="#skills" alt="skills button" icon="bx bx-book" />
                 <NavItem route="#contact" alt="contact button" icon="bx bx-message-square-detail" />
             </ul>
         </div>
