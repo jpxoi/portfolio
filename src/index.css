@@ -1108,6 +1108,10 @@ body.light-theme {
     flex-direction: row;
     align-items: center;
   }
+  
+  .services__modal-content {
+    width: 600px;
+  }
 }
 
 /* For large devices */
@@ -1225,6 +1229,10 @@ body.light-theme {
     font-size: 1.25rem;
     padding: 0.4rem;
     border-radius: 0.5rem;
+  }
+
+  .services__modal-content {
+    width: 700px;
   }
 }
 

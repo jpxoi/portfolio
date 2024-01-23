@@ -1,5 +1,7 @@
+import About from "../Containers/About";
 import Header from "../Containers/Header";
 import Home from "../Containers/Home";
+import Services from "../Containers/Services";
 
 function Landing() {
   return (
@@ -7,6 +9,9 @@ function Landing() {
       <Header />
       <main className="main">
         <Home />
+        <About />
+        <Services />
+        
       </main>
     </>
   );
