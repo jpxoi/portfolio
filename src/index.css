@@ -228,6 +228,11 @@ body.light-theme {
   margin-right: 1rem;
 }
 
+.projects__container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .grid {
   display: grid;
   gap: 1.25rem;

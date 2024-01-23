@@ -4,7 +4,6 @@ function FooterLink({ id, route, target_blank, text }) {
 
     useEffect(() => {
         const link = document.getElementById(id)
-        console.log(link)
 
         if (target_blank === 1) {
             link.setAttribute("target", "_blank")
