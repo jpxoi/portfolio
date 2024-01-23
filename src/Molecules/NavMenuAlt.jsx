@@ -1,7 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import NavItem from "../Atoms/NavItem"
 
-function NavMenu() {
+function NavMenuAlt({ page }) {
+
+    const [isError, setIsError] = useState(false);
 
     useEffect(() => {
         const sections = document.querySelectorAll("section[id]")
@@ -22,21 +24,29 @@ function NavMenu() {
             })
         }
 
+        const navList = document.querySelector(".nav__list")
+        navList.classList.add("nav__list__alt")
+
         window.addEventListener("scroll", scrollActive)
+
+        if (page === "404Error") {
+            setIsError(true)
+        }
     }, [])
 
-    return (
-        <div className="nav__menu">
-            <ul className="nav__list">
-                <NavItem route="/#home" alt="home button" icon="bx bx-home-alt" status="active"/>
-                <NavItem route="/#about" alt="about button" icon="bx bx-user" />
-                <NavItem route="/#services" alt="services button" icon="bx bx-server" />
-                <NavItem route="/#work" alt="work button" icon="bx bx-briefcase-alt-2" />
-                <NavItem route="/#skills" alt="skills button" icon="bx bx-book" />
-                <NavItem route="/#contact" alt="contact button" icon="bx bx-message-square-detail" />
-            </ul>
-        </div>
-    )
+    if (isError) {
+        console.log(isError)
+    }
+
+    else {
+        return (
+            <div className="nav__menu">
+                <ul className="nav__list">
+                    <NavItem route="/" alt="home button" icon="bx bx-home-alt" type="return"/>
+                </ul>
+            </div>
+        )
+    }
 }
 
-export default NavMenu
+export default NavMenuAlt

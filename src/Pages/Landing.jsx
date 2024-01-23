@@ -11,7 +11,7 @@ import Work from "../Containers/Work";
 function Landing() {
   return (
     <>
-      <Header />
+      <Header page="Landing" />
       <main className="main">
         <Home />
         <About />

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Nav from "../Components/Nav";
 
-function Header() {
+function Header({ page }) {
 
     useEffect(() => {
         function scrollHeader(){
@@ -19,7 +19,7 @@ function Header() {
 
     return (
         <header className="header" id="header">
-            <Nav />
+            <Nav page={ page } />
         </header>
     );
 }
