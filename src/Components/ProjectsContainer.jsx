@@ -4,7 +4,7 @@ const projects = [
     {
         id: "portf1",
         title: "Bioeasy Galenos Landing Page",
-        description: "Landing page for Bioeasy Galenos, an academy for medical students in Peru that offers online and in-person courses",
+        description: " a fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
         img: "img/projects/portf1.webp",
         alt: "Screenshot of Bioeasy Galenos Landing Page",
         link: "https://bgmedicina.com",
@@ -14,7 +14,7 @@ const projects = [
     {
         id: "portf2",
         title: "Mokepon - Online Interactive Game",
-        description: "An online game based on the Pokémon franchise that I made for my final project in an online course",
+        description: "An web-based game that offers a dynamic cast of characters for players to select from, each with their own set of characteristics and powers. The game challenges players to strategically utilize these abilities in battles against computer-controlled opponents, providing a thrilling and engaging gameplay experience",
         img: "img/projects/portf2.webp",
         alt: "Screenshot of Mokepon",
         link: "https://mokepon.jpxoi.com",
@@ -34,7 +34,7 @@ const projects = [
     {
         id: "portf4",
         title: "Battery Level Indicator",
-        description: "An online battery level indicator that I made for my final project in an online course",
+        description: "Display the battery percentage of the device the webpage is being viewed on, using a liquid battery level that changes color based on the battery percentage",
         img: "img/projects/portf4.webp",
         alt: "Screenshot of Battery Level Indicator",
         link: "battery.jpxoi.com",
@@ -44,12 +44,22 @@ const projects = [
     {
         id: "portf5",
         title: "PAIDEIA Login Page",
-        description: "Login page for PAIDEIA, a school management system used by a Peruvian University.",
+        description: "Login page for PAIDEIA, a school management system used by a Peruvian University to manage their students, teachers, and courses",
         img: "img/projects/portf5.webp",
         alt: "Screenshot of PAIDEIA Login Page",
         link: "https://paideiademo.jpxoi.com",
         github: "https://github.com/jpxoi/paideialogin-demo",
         stack: ["HTML", "CSS", "JavaScript"],
+    },
+    {
+        id: "portf6",
+        title: "Chatsy - A Chat App built with Flask",
+        description: "A web-based chat application that enables real-time communication between multiple clients in a chat room environment. The application allows users to create new chat rooms or join existing ones, exchange messages with other participants, and stay engaged in dynamic conversations",
+        img: "img/projects/portf6.webp",
+        alt: "Screenshot of Chatsy",
+        link: "https://chatsy-alpha.vercel.app",
+        github: "https://github.com/jpxoi/chatsy",
+        stack: ["Flask", "Python"],
     }
 ]
 
