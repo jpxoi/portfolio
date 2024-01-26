@@ -4,8 +4,6 @@ This is the source code for my personal responsive website and portfolio, where 
 
 This project is a migration of the original website, which was built using HTML, CSS, and JavaScript. The original website was built as a static website, and was hosted on Netlify. The new website is built using ReactJS and TailwindCSS, and is hosted on Vercel.
 
-[![Vercel Status](https://vercelbadge.vercel.app/api/jpxoi/jpxoi.com)](https://vercel.com/jpxoi/jpxoi.com)
-
 ## What's New
 
 * Migrated of the website from HTML, CSS, and JavaScript to Vite and ReactJS.
@@ -22,6 +20,8 @@ This project is a migration of the original website, which was built using HTML,
 * Implement a custom blog section for future blog posts.
 
 ## Live Page
+
+[![Mockup of the website.](/public/img/social-card.webp)]
 
 You can check out the live version of this personal portfolio website by visiting [https://jpxoi.com](https://jpxoi.com). The website is hosted on Vercel, and provides a fast and reliable platform for deploying single page applications.
 
