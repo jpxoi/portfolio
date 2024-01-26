@@ -17,7 +17,7 @@ function P404() {
                 </div>
 
                 <div className="p404__img">
-                    <img src="img/404/ghost-img.webp" alt=""/>
+                    <img src="/img/404/ghost-img.webp" alt=""/>
                     <div className="p404__shadow"></div>
                 </div>
             </div>
