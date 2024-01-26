@@ -32,7 +32,7 @@ function NavMenu() {
                 <NavItem route="/#about" alt="about button" icon="bx bx-user" />
                 <NavItem route="/#projects" alt="projects button" icon="bx bx-code-alt" />
                 <NavItem route="/#skills" alt="skills button" icon="bx bx-book" />
-                <NavItem route="/#contact" alt="contact button" icon="bx bx-message-square-detail" />
+                <NavItem route="/#contact" alt="contact button" icon="bx bx-message-square" />
             </ul>
         </div>
     )
