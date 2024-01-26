@@ -1,6 +1,6 @@
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { useEffect } from 'react'
 import Landing from './Pages/Landing'
-import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Error404 from './Pages/Error404';
 import Privacy from './Pages/Privacy';
 import Pay from './Pages/Pay';
