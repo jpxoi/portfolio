@@ -6,7 +6,7 @@ function AboutData() {
             <AboutInfo />
 
             <p className="about__description text-pretty">
-                My name is Jean Paul Fernandez, but in the digital world I am known as <span className="text-first_color">@jpxoi</span>. My journey into the world of programming began at the age of 15, and since then I have accumulated vast experience in both web and application development.
+                My name is Jean Paul Fernandez, but in the digital world I am known as <span className="text-first_color cursor-pointer" title="@jpxoi is my username ffor most of my social media.">@jpxoi</span>. My journey into the world of programming began at the age of 15, and since then I have accumulated vast experience in both web and application development.
             </p>
             <p className="about__description text-pretty">
                 Currently, I&apos;m a first-year undergraduate student at the University of Manchester, proficient in software development, and an accomplished content creator. With a profound proficiency in crafting innovative solutions through coding, I bring a dynamic and forward-thinking approach to the world of technology.
