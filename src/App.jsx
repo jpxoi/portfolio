@@ -71,16 +71,14 @@ function App() {
 }, [])
 
   return (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/pay" element={<Pay />} />
-          <Route path="/privacy" element={<Privacy />} />     
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/pay" element={<Pay />} />
+        <Route path="/privacy" element={<Privacy />} />     
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </Router>
   )
 }
 
