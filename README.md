@@ -21,7 +21,7 @@ This project is a migration of the original website, which was built using HTML,
 
 ## Live Page
 
-[![Mockup of the website.](/public/img/social-card.webp)]
+![Mockup of the website.](/public/img/social-card.webp)
 
 You can check out the live version of this personal portfolio website by visiting [https://jpxoi.com](https://jpxoi.com). The website is hosted on Vercel, and provides a fast and reliable platform for deploying single page applications.
 
