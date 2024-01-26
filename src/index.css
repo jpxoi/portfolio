@@ -574,7 +574,7 @@ body.light-theme {
 }
 
 .about__description {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 /* Animate About Picture */
@@ -749,7 +749,7 @@ body.light-theme {
   visibility: visible;
 }
 
-/*=============== WORK ===============*/
+/*=============== PROJECTS ===============*/
 .projects__container {
   padding-top: 1rem;
 }
@@ -776,6 +776,17 @@ body.light-theme {
 .project__icon {
   font-size: 1rem;
   transition: 0.3s;
+}
+
+.light-theme .badge {
+  background-color: var(--first-color);
+  color: white;
+}
+
+.badge:hover {
+  background-color: var(--container-color);
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 /*=============== CONTACT ===============*/
@@ -1146,7 +1157,7 @@ body.light-theme {
 
   .about__description {
     padding: 0 0 0 0;
-    margin-bottom: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
   .skills__container {
