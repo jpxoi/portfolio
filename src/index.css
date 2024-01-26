@@ -841,7 +841,7 @@ body.light-theme {
 }
 
 .swiper-pagination-bullet-active {
-   background-color: var(--first-color)
+  background-color: var(--first-color)
 }
 
 /*=============== CONTACT ===============*/

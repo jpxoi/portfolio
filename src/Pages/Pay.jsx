@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import Header from "../Containers/Header";
-import P404 from "../Containers/P404";
+import Footer from "../Containers/Footer";
 import ScrollReveal from "scrollreveal";
+import PaymentContainer from "../Containers/PaymentContainer";
 
-function Error404() {
+function Pay() {
 
   useEffect (() => {
     const sr = ScrollReveal({
@@ -11,18 +12,17 @@ function Error404() {
       duration: 2000,
     })
   
-    sr.reveal(`.p404__data`, {origin: 'top', delay: 50})
-    sr.reveal(`.p404__img`, {origin: 'bottom', delay: 100})
-    sr.reveal(`.p404__footer`, {origin: 'bottom', delay: 200})
+    sr.reveal(`.main`, {origin: 'top', delay: 50})
   }, [])
   return (
     <>
       <Header page="404Error" />
       <main className="main">
-        <P404 />
+        <PaymentContainer />
       </main>
+    <Footer />
     </>
   );
 }
 
-export default Error404;
+export default Pay;

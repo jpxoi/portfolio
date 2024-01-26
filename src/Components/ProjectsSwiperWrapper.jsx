@@ -1,5 +1,8 @@
-import Swiper from 'swiper/bundle';
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import ProjectsCard from "./ProjectsCard";
 import { useEffect } from 'react';
 
@@ -42,6 +45,7 @@ function ProjectsSwiperWrapper() {
     
     useEffect(() => {
         new Swiper('.projects__container', {
+            modules: [Navigation, Pagination],
             spaceBetween: 24,
             loop: true,
             grabCursor: true,
