@@ -14,7 +14,7 @@ function NavItem(props) {
 
     return (
         <li className="nav__item">
-            <a href={ props.route } className="nav__link" alt={ props.alt }>
+            <a href={ props.route } className="nav__link" alt={ props.alt } aria-label={ props.alt }>
                 <i className={ props.icon }></i> { props.type === "return" ? <span className="return__button__text">Click Here to Return </span> : null }
             </a>
         </li>

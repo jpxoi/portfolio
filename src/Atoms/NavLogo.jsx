@@ -1,6 +1,6 @@
 function NavLogo() {
     return (
-        <a href="/" className="nav__logo" alt="Jean Paul Fernandez Official Logo">
+        <a href="/" className="nav__logo" alt="Jean Paul Fernandez Official Logo" aria-label="Return to Home Page">
             <svg xmlns="http://www.w3.org/2000/svg" className="img-fluid" alt="Jean Paul Fernandez Logo" viewBox="0 0 2000 250">
                 <g id="Logo_Black" data-name="Logo Black">
                     <g>
