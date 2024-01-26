@@ -298,12 +298,12 @@ body.light-theme {
 
 .img-fluid {
   height: 1.5rem;
-  fill: var(--first-color);
+  fill: var(--title-color);
   transition: 0.1s ease-in-out;
 }
 
 .img-fluid:hover {
-  fill: var(--first-color-alt);
+  fill: var(--first-color);
   transition: 0.1s ease-in-out;
 }
 
