@@ -31,7 +31,7 @@ function NavMenu() {
                 <NavItem route="/#home" alt="home button" icon="bx bx-home-alt" status="active"/>
                 <NavItem route="/#about" alt="about button" icon="bx bx-user" />
                 <NavItem route="/#services" alt="services button" icon="bx bx-server" />
-                <NavItem route="/#work" alt="work button" icon="bx bx-briefcase-alt-2" />
+                <NavItem route="/#projects" alt="projects button" icon="bx bx-code-alt" />
                 <NavItem route="/#skills" alt="skills button" icon="bx bx-book" />
                 <NavItem route="/#contact" alt="contact button" icon="bx bx-message-square-detail" />
             </ul>
