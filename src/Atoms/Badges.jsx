@@ -45,7 +45,7 @@ function JavaScriptBadge() {
 
 function FlaskBadge() {
     return (
-        <span className="badge flex gap-x-2 rounded-full text-xs bg-body_color text-[#000000] hover:text-[#000000] py-1 px-2 items-center">
+        <span className="badge flex gap-x-2 rounded-full text-xs bg-body_color text-[#ffffff] hover:text-[#000000] py-1 px-2 items-center">
             <i className="bx bxl-flask"></i>
             Flask
         </span>
