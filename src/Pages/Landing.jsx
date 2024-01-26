@@ -38,8 +38,6 @@ function Landing() {
     sr.reveal(".skills__content", {duration: 300, interval: 30, distance: "30px"})
     sr.reveal(".skills__data", {origin: "bottom", duration: 200, interval: 10, distance: "15px"})
 
-    sr.reveal(".services__card", {duration: 300, interval: 100, distance: "30px"})
-
     sr.reveal(".project__card", {delay: 100, duration: 200, interval: 20, distance: "15px"})
 
     sr.reveal("swiper-wrapper", {duration: 200})
