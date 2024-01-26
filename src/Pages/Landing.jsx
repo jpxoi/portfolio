@@ -4,10 +4,9 @@ import Contact from "../Containers/Contact";
 import Footer from "../Containers/Footer";
 import Header from "../Containers/Header";
 import Home from "../Containers/Home";
-import Projects from "../Containers/Projects";
 import Services from "../Containers/Services";
 import Skills from "../Containers/Skills";
-import Work from "../Containers/Work";
+import Projects from "../Containers/Projects";
 import ScrollReveal from 'scrollreveal';
 
 function Landing() {
@@ -41,8 +40,7 @@ function Landing() {
 
     sr.reveal(".services__card", {duration: 300, interval: 100, distance: "30px"})
 
-    sr.reveal(".work__filters", {duration: 200})
-    sr.reveal(".work__card", {delay: 100, duration: 200, interval: 20, distance: "15px"})
+    sr.reveal(".project__card", {delay: 100, duration: 200, interval: 20, distance: "15px"})
 
     sr.reveal("swiper-wrapper", {duration: 200})
     sr.reveal(".swiper-pagination", {delay: 50, duration: 200})
@@ -64,9 +62,8 @@ function Landing() {
         <Home />
         <About />
         <Services />
-        <Work />
-        <Skills />
         <Projects />
+        <Skills />
         <Contact />
       </main>
       <Footer />

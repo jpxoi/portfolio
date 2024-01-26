@@ -1,18 +1,13 @@
-import ProjectsSwiperWrapper from "../Components/ProjectsSwiperWrapper";
+import ProjectsContainer from "../Components/ProjectsContainer";
 
 function Projects() {
     return (
-        <section className="projects section">
-            <span className="section__subtitle">My Side Projects</span>
-            <h2 className="section__title">Personal Projects</h2>
-
-            <div className="projects__container container swiper">
-                <ProjectsSwiperWrapper />
-
-                <div className="swiper-pagination"></div>
-            </div>
+        <section className="projects section" id="projects">
+            <div className="span section__subtitle">My Work</div>
+            <h2 className="section__title">Projects</h2>
+            <ProjectsContainer />
         </section>
-    )
+    );
 }
 
 export default Projects;
