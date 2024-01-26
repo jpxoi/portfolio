@@ -7,7 +7,7 @@ function About() {
             <h2 className="section__title">About Me</h2>
 
             <div className="about__container container grid">
-                <img loading="lazy" src="img/about.webp" alt="Memoji of Jean Paul Fernandez" className="about__img" />
+                <img loading="lazy" src="img/about.webp" alt="Memoji of Jean Paul Fernandez" className="about__img" width={350} height={350} />
 
                 <AboutData />
             </div>

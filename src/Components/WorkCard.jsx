@@ -10,7 +10,7 @@ function WorkCard (props) {
     }, [props.category])
     return (
         <div id={ props.id } className="work__card mix">
-            <img loading="lazy" src={ props.img } alt={ props.alt } className="work__img" />
+            <img loading="lazy" src={ props.img } alt={ props.alt } className="work__img" width={511} height={287.4}/>
 
             <h3 className="work__title">{ props.title }</h3>
 

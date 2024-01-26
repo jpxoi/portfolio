@@ -2,7 +2,7 @@ function ProjectsCard({ name, description, link, img, cta }) {
 
     return (
         <div className="projects__card swiper-slide">
-            <img loading="lazy" src={ img } alt={ name } className="projects__img" />
+            <img loading="lazy" src={ img } alt={ name } className="projects__img" width={470} height={264.34} />
 
             <h3 className="projects__name">{ name}</h3>
             <p className="projects__description">

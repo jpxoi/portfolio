@@ -8,7 +8,7 @@ function Home() {
                 <HomeData />
 
                 <div className="home__handle">
-                    <img src="img/profile.webp" alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" />
+                    <img src="img/profile.webp" alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" width={220} height={381.05} />
                 </div>
 
                 <HomeSocial />
