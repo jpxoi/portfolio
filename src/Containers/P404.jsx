@@ -1,3 +1,4 @@
+import Ghost404 from '../assets/ghost-img.webp'
 import Footer404 from './Footer404'
 import './P404.css'
 
@@ -17,7 +18,7 @@ function P404() {
                 </div>
 
                 <div className="p404__img">
-                    <img src="/img/404/ghost-img.webp" alt=""/>
+                    <img src={Ghost404} alt=""/>
                     <div className="p404__shadow"></div>
                 </div>
             </div>
