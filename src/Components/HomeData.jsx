@@ -24,7 +24,7 @@ function HomeData() {
         <div className="home__data">
             <span className="home__greeting">Hello, I&apos;m</span>
             <h1 className="home__name">Jean Paul Fernandez</h1>
-            <h3 id="dynamic-header" className="home__education">Software Engineer</h3>
+            <h2 id="dynamic-header" className="home__education">Software Engineer</h2>
 
             <div className="home__buttons">
                 <a download="" href="pdf/resume.pdf" target="_blank" className="button button--ghost">
