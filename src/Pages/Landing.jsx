@@ -59,8 +59,8 @@ function Landing() {
       <main className="main">
         <Home />
         <About />
-        <Services />
         <Projects />
+        <Services />
         <Skills />
         <Contact />
       </main>

@@ -43,4 +43,22 @@ function JavaScriptBadge() {
     )
 }
 
-export { ReactBadge, TailwindBadge, HTMLBadge, CSSBadge, JavaScriptBadge }
+function FlaskBadge() {
+    return (
+        <span className="badge flex gap-x-2 rounded-full text-xs bg-body_color text-[#ffffff] hover:text-[#000000] py-1 px-2 items-center">
+            <i className="bx bxl-flask"></i>
+            Flask
+        </span>
+    )
+}
+
+function PythonBadge() {
+    return (
+        <span className="badge flex gap-x-2 rounded-full text-xs bg-body_color text-[#3776AB] hover:text-[#3776AB] py-1 px-2 items-center">
+            <i className="bx bxl-python"></i>
+            Python
+        </span>
+    )
+}
+
+export { ReactBadge, TailwindBadge, HTMLBadge, CSSBadge, JavaScriptBadge, FlaskBadge, PythonBadge }

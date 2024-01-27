@@ -1,4 +1,4 @@
-import { CSSBadge, HTMLBadge, JavaScriptBadge, ReactBadge, TailwindBadge } from "../Atoms/Badges";
+import { CSSBadge, FlaskBadge, HTMLBadge, JavaScriptBadge, PythonBadge, ReactBadge, TailwindBadge } from "../Atoms/Badges";
 
 function ProjectCard(props) {("HTML" in props.stack)
     
@@ -23,6 +23,12 @@ function ProjectCard(props) {("HTML" in props.stack)
                 }
                 {
                     (props.stack.includes("JavaScript")) ? <JavaScriptBadge /> : null
+                }
+                {
+                    (props.stack.includes("Flask")) ? <FlaskBadge /> : null
+                }
+                {
+                    (props.stack.includes("Python")) ? <PythonBadge /> : null
                 }
 
             </div>
