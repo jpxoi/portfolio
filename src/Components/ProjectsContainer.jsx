@@ -32,6 +32,16 @@ const projects = [
         stack: ["ReactJS"],
     },
     {
+        id: "portf6",
+        title: "Chatsy - A Chat App built with Flask",
+        description: "A web-based chat application that enables real-time communication between multiple clients in a chat room environment. The application allows users to create new chat rooms or join existing ones, exchange messages with other participants, and stay engaged in dynamic conversations",
+        img: "img/projects/portf6.webp",
+        alt: "Screenshot of Chatsy",
+        link: "https://chatsy-alpha.vercel.app",
+        github: "https://github.com/jpxoi/chatsy",
+        stack: ["Flask", "Python"],
+    },
+    {
         id: "portf4",
         title: "Battery Level Indicator",
         description: "Display the battery percentage of the device the webpage is being viewed on, using a liquid battery level that changes color based on the battery percentage",
@@ -50,16 +60,6 @@ const projects = [
         link: "https://paideiademo.jpxoi.com",
         github: "https://github.com/jpxoi/paideialogin-demo",
         stack: ["HTML", "CSS", "JavaScript"],
-    },
-    {
-        id: "portf6",
-        title: "Chatsy - A Chat App built with Flask",
-        description: "A web-based chat application that enables real-time communication between multiple clients in a chat room environment. The application allows users to create new chat rooms or join existing ones, exchange messages with other participants, and stay engaged in dynamic conversations",
-        img: "img/projects/portf6.webp",
-        alt: "Screenshot of Chatsy",
-        link: "https://chatsy-alpha.vercel.app",
-        github: "https://github.com/jpxoi/chatsy",
-        stack: ["Flask", "Python"],
     }
 ]
 
