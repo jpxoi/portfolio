@@ -6,28 +6,41 @@ const skillsData = [
         skills: [
             {
                 name: "HTML",
-                level: "Advanced"
+                icon: "/icons/html5.svg",
             },
             {
                 name: "CSS",
-                level: "Advanced"
+                icon: "/icons/css.svg",
             },
             {
                 name: "JavaScript",
-                level: "Advanced"
-            },
-            {
-                name: "React",
-                level: "Advanced"
+                icon: "/icons/javascript.svg",
             },
             {
                 name: "TailwindCSS",
-                level: "Advanced"
+                icon: "/icons/tailwindcss.svg",
             },
             {
                 name: "Bootstrap",
-                level: "Intermediate"
-            }
+                icon: "/icons/bootstrap.svg",
+            },
+            {
+                name: "React",
+                icon: "/icons/react.svg",
+            },
+            {
+                name: "NextJS",
+                icon: "/icons/nextjs.svg",
+            },
+            {
+                name: "Astro",
+                icon: "/icons/Astro_light.svg",
+                alticon: "/icons/Astro_dark.svg",
+            },
+            {
+                name: "Flutter",
+                icon: "/icons/flutter.svg",
+            },
         ]
     },
     {
@@ -35,23 +48,37 @@ const skillsData = [
         skills: [
             {
                 name: "NodeJS",
-                level: "Advanced"
+                icon: "/icons/nodejs.svg",
+            },
+            {
+                name: "ExpressJS",
+                icon: "/icons/Express.js_light.svg",
+                alticon: "/icons/Express.js_dark.svg",
             },
             {
                 name: "Flask",
-                level: "Advanced"
+                icon: "/icons/Flask_light.svg",
+                alticon: "/icons/Flask_dark.svg",
+            },
+            {
+                name: "Django",
+                icon: "/icons/django.svg",
+            },
+            {
+                name: "Laravel",
+                icon: "/icons/laravel.svg",
             },
             {
                 name: "MySQL",
-                level: "Advanced"
+                icon: "/icons/mysql.svg",
             },
             {
-                name: "PHP",
-                level: "Intermediate"
+                name: "MongoDB",
+                icon: "/icons/mongodb.svg",
             },
             {
                 name: "Firebase",
-                level: "Intermediate"
+                icon: "/icons/firebase.svg",
             }
         ]
     },
@@ -60,27 +87,36 @@ const skillsData = [
         skills: [
             {
                 name: "Python",
-                level: "Advanced"
-            },
-            {
-                name: "C/C++",
-                level: "Advanced"
+                icon: "/icons/python.svg",
             },
             {
                 name: "Java",
-                level: "Advanced"
+                icon: "/icons/java.svg",
             },
             {
-                name: "Swift",
-                level: "Intermediate"
+                name: "C",
+                icon: "/icons/c.svg",
+            },
+            {
+                name: "C#",
+                icon: "/icons/csharp.svg",
             },
             {
                 name: "Go",
-                level: "Intermediate"
+                icon: "/icons/go.svg",
+            },
+            {
+                name: "PHP",
+                icon: "/icons/Php_light.svg",
+                alticon: "/icons/Php_dark.svg",
+            },
+            {
+                name: "Swift",
+                icon: "/icons/swift.svg",
             },
             {
                 name: "Kotlin",
-                level: "Intermediate"
+                icon: "/icons/kotlin.svg",
             }
         ]
     },
@@ -89,27 +125,35 @@ const skillsData = [
         skills: [
             {
                 name: "Git",
-                level: "Advanced"
+                icon: "/icons/git.svg",
             },
             {
                 name: "Docker",
-                level: "Advanced"
+                icon: "/icons/docker.svg",
             },
             {
                 name: "Linux",
-                level: "Advanced"
+                icon: "/icons/linux.svg",
             },
             {
                 name: "AWS",
-                level: "Intermediate"
-            },
-            {
-                name: "Vercel",
-                level: "Intermediate"
+                icon: "/icons/aws.svg",
             },
             {
                 name: "Azure",
-                level: "Intermediate"
+                icon: "/icons/azure.svg",
+            },
+            {
+                name: "Cloudflare",
+                icon: "/icons/cloudflare.svg",
+            },
+            {
+                name: "VS Code",
+                icon: "/icons/vscode.svg",
+            },
+            {
+                name: "Figma",
+                icon: "/icons/figma.svg",
             }
         ]
     }

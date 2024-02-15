@@ -1,34 +1,43 @@
-import SkillsItem from "../Atoms/SkillsItem";
+import { useEffect, useState } from "react";
 
 function SkillsBox({ title, skills }) {
     const skillsData = skills;
 
-    function getSkillsGroups(skills) {
-        const half = Math.ceil(skills.length / 2);
-        const firstHalf = skills.slice(0, half);
-        const secondHalf = skills.slice(-half);
+    const [darkMode, setDarkMode] = useState(null);
 
-        return [firstHalf, secondHalf];
-    }
+    useEffect(() => {
+        function checkFirstTheme() {
+            localStorage.getItem("selected-theme") === "dark" ? setDarkMode(false) : setDarkMode(true);
+            console.log(localStorage.getItem("selected-theme"));
+        }
 
-    const [firstHalf, secondHalf] = skillsData ? getSkillsGroups(skillsData) : [[], []];
+        function checkTheme() {
+            localStorage.getItem("selected-theme") === "dark" ? setDarkMode(true) : setDarkMode(false);
+            console.log(localStorage.getItem("selected-theme"));
+        }
+
+        checkFirstTheme();
+
+        const themeElement = document.getElementById("theme-button");
+
+        themeElement.addEventListener("click", () => {
+            checkTheme();
+        }
+        );
+    }, []);
 
     return (
         <div className="skills__content">
             <h3 className="skills__title">{title}</h3>
 
-            <div className="skills__box">
-                <div className="skills__group">
-                    {firstHalf.map((item) => (
-                        <SkillsItem key={item.name} name={item.name} level={item.level} />
-                    ))}
-                </div>
-
-                <div className="skills__group">
-                    {secondHalf.map((item) => (
-                        <SkillsItem key={item.name} name={item.name} level={item.level} />
-                    ))}
-                </div>
+            <div className="skills__box flex flex-wrap">
+                {skillsData.map((skill, index) => (
+                    <div key={index} id={skill.name} className="skills__data flex justify-center items-center mt-8 w-12 h-12 group">
+                        <div className="skills__icon">
+                            <img src={ darkMode ? skill.alticon || skill.icon : skill.icon } alt={skill.name} className="skills__img w-10 h-10 drop-shadow-sm group-hover:drop-shadow-xl" />
+                        </div>
+                    </div>
+                ))}
             </div>
         </div>
     );
