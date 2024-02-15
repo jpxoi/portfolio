@@ -47,7 +47,7 @@ const projects = [
         description: "Display the battery percentage of the device the webpage is being viewed on, using a liquid battery level that changes color based on the battery percentage",
         img: "img/projects/portf5.webp",
         alt: "Screenshot of Battery Level Indicator",
-        link: "battery.jpxoi.com",
+        link: "https://battery.jpxoi.com",
         github: "https://github.com/jpxoi/battery-level-indicator",
         stack: ["HTML", "CSS", "JavaScript"],
     },
