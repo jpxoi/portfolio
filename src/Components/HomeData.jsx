@@ -28,7 +28,7 @@ function HomeData() {
 
             <div className="home__buttons">
                 <a download="" href="pdf/resume.pdf" target="_blank" className="button button--ghost">
-                    Download Resume
+                    Download CV
                 </a>
 
                 <a href="#about" className="button">About Me</a>
