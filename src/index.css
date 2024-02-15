@@ -603,7 +603,6 @@ body.light-theme {
   font-weight: var(--font-medium);
   color: var(--first-color);
   text-align: center;
-  margin-bottom: 1.5rem;
 }
 
 .skills__box {
@@ -1033,7 +1032,7 @@ body.light-theme {
   }
 
   .skills__content {
-    padding: 2rem 4rem;
+    padding: 2rem;
   }
 
   .services__container {
