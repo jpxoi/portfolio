@@ -1,4 +1,3 @@
-import ProfileImg from '../assets/profile.webp'
 import HomeData from "../Components/HomeData";
 import HomeSocial from "../Components/HomeSocial";
 
@@ -9,7 +8,7 @@ function Home() {
                 <HomeData />
 
                 <div className="home__handle">
-                    <img src={ProfileImg} alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" width={220} height={381.05} />
+                    <img src="https://static.jpxoi.com/media/uploads/profile.webp" alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" width={220} height={381.05} />
                 </div>
 
                 <HomeSocial />

@@ -1,4 +1,3 @@
-import Ghost404 from '../assets/ghost-img.webp'
 import Footer404 from './Footer404'
 import './P404.css'
 
@@ -18,7 +17,7 @@ function P404() {
                 </div>
 
                 <div className="p404__img">
-                    <img src={Ghost404} alt=""/>
+                    <img src="https://static.jpxoi.com/media/uploads/ghost-img.webp" alt=""/>
                     <div className="p404__shadow"></div>
                 </div>
             </div>
@@ -28,4 +27,4 @@ function P404() {
     )
 }
 
-export default P404
+export default P404;

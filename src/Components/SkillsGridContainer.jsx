@@ -6,40 +6,40 @@ const skillsData = [
         skills: [
             {
                 name: "HTML",
-                icon: "/icons/html5.svg",
+                icon: "https://static.jpxoi.com/icons/html5.svg",
             },
             {
                 name: "CSS",
-                icon: "/icons/css.svg",
+                icon: "https://static.jpxoi.com/icons/css.svg",
             },
             {
                 name: "JavaScript",
-                icon: "/icons/javascript.svg",
+                icon: "https://static.jpxoi.com/icons/javascript.svg",
             },
             {
                 name: "TailwindCSS",
-                icon: "/icons/tailwindcss.svg",
+                icon: "https://static.jpxoi.com/icons/tailwindcss.svg",
             },
             {
                 name: "Bootstrap",
-                icon: "/icons/bootstrap.svg",
+                icon: "https://static.jpxoi.com/icons/bootstrap.svg",
             },
             {
                 name: "React",
-                icon: "/icons/react.svg",
+                icon: "https://static.jpxoi.com/icons/react.svg",
             },
             {
                 name: "NextJS",
-                icon: "/icons/nextjs.svg",
+                icon: "https://static.jpxoi.com/icons/nextjs.svg",
             },
             {
                 name: "Astro",
-                icon: "/icons/Astro_light.svg",
-                alticon: "/icons/Astro_dark.svg",
+                icon: "https://static.jpxoi.com/icons/Astro_light.svg",
+                alticon: "https://static.jpxoi.com/icons/Astro_dark.svg",
             },
             {
                 name: "Flutter",
-                icon: "/icons/flutter.svg",
+                icon: "https://static.jpxoi.com/icons/flutter.svg",
             },
         ]
     },
@@ -48,37 +48,37 @@ const skillsData = [
         skills: [
             {
                 name: "NodeJS",
-                icon: "/icons/nodejs.svg",
+                icon: "https://static.jpxoi.com/icons/nodejs.svg",
             },
             {
                 name: "ExpressJS",
-                icon: "/icons/Express.js_light.svg",
-                alticon: "/icons/Express.js_dark.svg",
+                icon: "https://static.jpxoi.com/icons/Express.js_light.svg",
+                alticon: "https://static.jpxoi.com/icons/Express.js_dark.svg",
             },
             {
                 name: "Flask",
-                icon: "/icons/Flask_light.svg",
-                alticon: "/icons/Flask_dark.svg",
+                icon: "https://static.jpxoi.com/icons/Flask_light.svg",
+                alticon: "https://static.jpxoi.com/icons/Flask_dark.svg",
             },
             {
                 name: "Django",
-                icon: "/icons/django.svg",
+                icon: "https://static.jpxoi.com/icons/django.svg",
             },
             {
                 name: "Laravel",
-                icon: "/icons/laravel.svg",
+                icon: "https://static.jpxoi.com/icons/laravel.svg",
             },
             {
                 name: "MySQL",
-                icon: "/icons/mysql.svg",
+                icon: "https://static.jpxoi.com/icons/mysql.svg",
             },
             {
                 name: "MongoDB",
-                icon: "/icons/mongodb.svg",
+                icon: "https://static.jpxoi.com/icons/mongodb.svg",
             },
             {
                 name: "Firebase",
-                icon: "/icons/firebase.svg",
+                icon: "https://static.jpxoi.com/icons/firebase.svg",
             }
         ]
     },
@@ -87,36 +87,36 @@ const skillsData = [
         skills: [
             {
                 name: "Python",
-                icon: "/icons/python.svg",
+                icon: "https://static.jpxoi.com/icons/python.svg",
             },
             {
                 name: "Java",
-                icon: "/icons/java.svg",
+                icon: "https://static.jpxoi.com/icons/java.svg",
             },
             {
                 name: "C",
-                icon: "/icons/c.svg",
+                icon: "https://static.jpxoi.com/icons/c.svg",
             },
             {
                 name: "C#",
-                icon: "/icons/csharp.svg",
+                icon: "https://static.jpxoi.com/icons/csharp.svg",
             },
             {
                 name: "Go",
-                icon: "/icons/go.svg",
+                icon: "https://static.jpxoi.com/icons/go.svg",
             },
             {
                 name: "PHP",
-                icon: "/icons/Php_light.svg",
-                alticon: "/icons/Php_dark.svg",
+                icon: "https://static.jpxoi.com/icons/Php_light.svg",
+                alticon: "https://static.jpxoi.com/icons/Php_dark.svg",
             },
             {
                 name: "Swift",
-                icon: "/icons/swift.svg",
+                icon: "https://static.jpxoi.com/icons/swift.svg",
             },
             {
                 name: "Kotlin",
-                icon: "/icons/kotlin.svg",
+                icon: "https://static.jpxoi.com/icons/kotlin.svg",
             }
         ]
     },
@@ -125,35 +125,35 @@ const skillsData = [
         skills: [
             {
                 name: "Git",
-                icon: "/icons/git.svg",
+                icon: "https://static.jpxoi.com/icons/git.svg",
             },
             {
                 name: "Docker",
-                icon: "/icons/docker.svg",
+                icon: "https://static.jpxoi.com/icons/docker.svg",
             },
             {
                 name: "Linux",
-                icon: "/icons/linux.svg",
+                icon: "https://static.jpxoi.com/icons/linux.svg",
             },
             {
                 name: "AWS",
-                icon: "/icons/aws.svg",
+                icon: "https://static.jpxoi.com/icons/aws.svg",
             },
             {
                 name: "Azure",
-                icon: "/icons/azure.svg",
+                icon: "https://static.jpxoi.com/icons/azure.svg",
             },
             {
                 name: "Cloudflare",
-                icon: "/icons/cloudflare.svg",
+                icon: "https://static.jpxoi.com/icons/cloudflare.svg",
             },
             {
                 name: "VS Code",
-                icon: "/icons/vscode.svg",
+                icon: "https://static.jpxoi.com/icons/vscode.svg",
             },
             {
                 name: "Figma",
-                icon: "/icons/figma.svg",
+                icon: "https://static.jpxoi.com/icons/figma.svg",
             }
         ]
     }
