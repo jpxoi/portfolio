@@ -2,7 +2,7 @@
 
 This is the source code for my personal responsive website and portfolio, where I showcase my work and projects. The website features a minimalist design, with a focus on functionality and ease of use. This project was completely built using Vite and ReactJS.
 
-![Mockup of the website.](/public/img/social-card.webp)
+![Mockup of the website.](https://static.jpxoi.com/media/uploads/social-card.webp)
 
 This project is a migration of the original website, which was built using HTML, CSS, and JavaScript. The original website was built as a static website, and was hosted on Netlify. The new website is built using ReactJS and TailwindCSS, and is hosted on Vercel.
 
