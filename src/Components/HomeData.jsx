@@ -27,7 +27,7 @@ function HomeData() {
             <h2 id="dynamic-header" className="home__education">Software Engineer</h2>
 
             <div className="home__buttons">
-                <a download="" href="pdf/resume.pdf" target="_blank" className="button button--ghost">
+                <a download="" href="https://static.jpxoi.com/media/pdf/resume.pdf" target="_blank" rel='noreferrer' className="button button--ghost">
                     Download CV
                 </a>
 
