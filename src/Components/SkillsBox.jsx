@@ -34,7 +34,7 @@ function SkillsBox({ title, skills }) {
                 {skillsData.map((skill, index) => (
                     <div key={index} id={skill.name} className="skills__data flex justify-center items-center mt-8 w-12 h-12 group">
                         <div className="skills__icon">
-                            <img src={ darkMode ? skill.alticon || skill.icon : skill.icon } alt={skill.name} className="skills__img w-10 h-10 drop-shadow-sm group-hover:drop-shadow-xl" />
+                            <img loading="lazy" src={ darkMode ? skill.alticon || skill.icon : skill.icon } alt={skill.name} className="skills__img w-10 h-10 drop-shadow-sm group-hover:drop-shadow-xl" />
                         </div>
                     </div>
                 ))}
