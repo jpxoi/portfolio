@@ -33,7 +33,11 @@ function ProjectCard(props) {("HTML" in props.stack)
 
             </div>
             <div className="project__card__img">
-                <img loading="lazy" className="rounded-lg shadow-2xl shadow-black/10 dark:shadow-white/10 aspect-video" src={props.img} alt={props.alt} width={700} height={393.75} />
+                <picture className="rounded-lg shadow-2xl shadow-black/10 dark:shadow-white/10 aspect-video">
+                    <source srcSet={props.imgavif} type="image/avif" />
+                    <source srcSet={props.img} type="image/webp" />
+                    <img loading="lazy" className="rounded-lg shadow-2xl shadow-black/10 dark:shadow-white/10 aspect-video" src={props.img} alt={props.alt} width={700} height={393.75} />
+                </picture>
             </div>
             <div className="project-card__links flex gap-x-4 items-end justify-start mt-4">
                 <a href={ props.link } target="_blank" rel="noreferrer" className="project__button">
