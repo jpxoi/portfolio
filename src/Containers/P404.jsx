@@ -17,7 +17,11 @@ function P404() {
                 </div>
 
                 <div className="p404__img">
-                    <img src="https://static.jpxoi.com/media/uploads/ghost-img.webp" alt=""/>
+                    <picture>
+                        <source srcSet="https://static.jpxoi.com/media/uploads/ghost-img.avif" type="image/avif" />
+                        <source srcSet="https://static.jpxoi.com/media/uploads/ghost-img.webp" type="image/webp" />
+                        <img src="https://static.jpxoi.com/media/uploads/ghost-img.webp" alt="Ghost Image"/>
+                    </picture>
                     <div className="p404__shadow"></div>
                 </div>
             </div>
