@@ -1,7 +1,7 @@
 import Footer404 from './Footer404'
 import './P404.css'
 
-function P404() {
+export default function P404() {
     return (
         <section className="p404">
             <div className="p404__container container">
@@ -30,5 +30,3 @@ function P404() {
         </section>
     )
 }
-
-export default P404;
