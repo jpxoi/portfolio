@@ -11,7 +11,7 @@ function ContactCard({ id, title, data, link, cta, icon }) {
     return (
         <div className="contact__card">
             <i id={id} className="contact__card-icon bx"></i>
-            <h3 className="contact__card-title">{ title }</h3>
+            <h4 className="contact__card-title">{ title }</h4>
             <span className="contact__card-data">{ data }</span>
 
             <a href={ link } target="_blank" rel="noreferrer" className="contact__button">

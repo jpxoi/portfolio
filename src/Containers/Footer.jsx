@@ -5,7 +5,7 @@ function Footer() {
     return (
         <footer className="footer">
             <div className="footer__container container grid">
-                <h1 className="footer__title">Jean Paul Fernandez</h1>
+                <h2 className="footer__title">Jean Paul Fernandez</h2>
 
                 <FooterList />
 
