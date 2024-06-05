@@ -7,7 +7,7 @@ function ServicesModal(props) {
             <div className="services__modal-content max-h-[90dvh]">
                 <i className="bx bx-x services__modal-close"></i>
                 <div className="max-h-[75dvh] overflow-scroll">
-                    <h3 className="services__modal-title">{ props.title }</h3>
+                    <h4 className="services__modal-title">{ props.title }</h4>
 
                     <p className="services__modal-description text-pretty">{ props.description }</p>
 
