@@ -1,3 +1,4 @@
+import { STATIC_CONTENT_URL } from '../../env'
 import Footer404 from './Footer404'
 import './P404.css'
 
@@ -18,9 +19,9 @@ export default function P404() {
 
                 <div className="p404__img">
                     <picture>
-                        <source srcSet="https://static.jpxoi.com/media/uploads/ghost-img.avif" type="image/avif" />
-                        <source srcSet="https://static.jpxoi.com/media/uploads/ghost-img.webp" type="image/webp" />
-                        <img src="https://static.jpxoi.com/media/uploads/ghost-img.webp" alt="Ghost Image"/>
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.avif`} type="image/avif" />
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.webp`} type="image/webp" />
+                        <img src={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.webp`} alt="Ghost Image"/>
                     </picture>
                     <div className="p404__shadow"></div>
                 </div>

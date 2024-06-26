@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 import HomeData from "../Components/HomeData";
 import HomeSocial from "../Components/HomeSocial";
+import { STATIC_CONTENT_URL } from "../../env";
 
 function Home() {
     return (
@@ -10,9 +11,9 @@ function Home() {
 
                 <div className="home__handle">
                     <picture className="home__img">
-                        <source srcSet="https://static.jpxoi.com/media/uploads/profile.avif" type="image/avif" />
-                        <source srcSet="https://static.jpxoi.com/media/uploads/profile.webp" type="image/webp" />
-                        <img rel="preload" fetchpriority="high" as="image" src="https://static.jpxoi.com/media/uploads/profile.webp" alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" width={220} height={381.05} />
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/profile.avif`} type="image/avif" />
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/profile.webp`} type="image/webp" />
+                        <img rel="preload" fetchpriority="high" as="image" src={`${STATIC_CONTENT_URL}/media/uploads/profile.webp`} alt="Stand up Memoji of Jean Paul Fernandez" className="home__img" width={220} height={381.05} />
                     </picture>
                 </div>
 
