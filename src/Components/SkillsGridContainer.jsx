@@ -7,40 +7,40 @@ const skillsData = [
         skills: [
             {
                 name: "HTML",
-                icon: `${STATIC_CONTENT_URL}icons/html5.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/html5.svg`,
             },
             {
                 name: "CSS",
-                icon: `${STATIC_CONTENT_URL}icons/css.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/css.svg`,
             },
             {
                 name: "JavaScript",
-                icon: `${STATIC_CONTENT_URL}icons/javascript.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/javascript.svg`,
             },
             {
                 name: "TailwindCSS",
-                icon: `${STATIC_CONTENT_URL}icons/tailwindcss.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/tailwindcss.svg`,
             },
             {
                 name: "Bootstrap",
-                icon: `${STATIC_CONTENT_URL}icons/bootstrap.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/bootstrap.svg`,
             },
             {
                 name: "React",
-                icon: `${STATIC_CONTENT_URL}icons/react.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/react.svg`,
             },
             {
                 name: "NextJS",
-                icon: `${STATIC_CONTENT_URL}icons/nextjs.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/nextjs.svg`,
             },
             {
                 name: "Astro",
-                icon: `${STATIC_CONTENT_URL}icons/Astro_light.svg`,
-                alticon: `${STATIC_CONTENT_URL}icons/Astro_dark.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/Astro_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/Astro_dark.svg`,
             },
             {
                 name: "Flutter",
-                icon: `${STATIC_CONTENT_URL}icons/flutter.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/flutter.svg`,
             },
         ]
     },
@@ -49,37 +49,37 @@ const skillsData = [
         skills: [
             {
                 name: "NodeJS",
-                icon: `${STATIC_CONTENT_URL}icons/nodejs.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/nodejs.svg`,
             },
             {
                 name: "ExpressJS",
-                icon: `${STATIC_CONTENT_URL}icons/Express.js_light.svg`,
-                alticon: `${STATIC_CONTENT_URL}icons/Express.js_dark.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/Express.js_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/Express.js_dark.svg`,
             },
             {
                 name: "Flask",
-                icon: `${STATIC_CONTENT_URL}icons/Flask_light.svg`,
-                alticon: `${STATIC_CONTENT_URL}icons/Flask_dark.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/Flask_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/Flask_dark.svg`,
             },
             {
                 name: "Django",
-                icon: `${STATIC_CONTENT_URL}icons/django.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/django.svg`,
             },
             {
                 name: "Laravel",
-                icon: `${STATIC_CONTENT_URL}icons/laravel.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/laravel.svg`,
             },
             {
                 name: "MySQL",
-                icon: `${STATIC_CONTENT_URL}icons/mysql.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/mysql.svg`,
             },
             {
                 name: "MongoDB",
-                icon: `${STATIC_CONTENT_URL}icons/mongodb.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/mongodb.svg`,
             },
             {
                 name: "Firebase",
-                icon: `${STATIC_CONTENT_URL}icons/firebase.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/firebase.svg`,
             }
         ]
     },
@@ -88,36 +88,36 @@ const skillsData = [
         skills: [
             {
                 name: "Python",
-                icon: `${STATIC_CONTENT_URL}icons/python.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/python.svg`,
             },
             {
                 name: "Java",
-                icon: `${STATIC_CONTENT_URL}icons/java.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/java.svg`,
             },
             {
                 name: "C",
-                icon: `${STATIC_CONTENT_URL}icons/c.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/c.svg`,
             },
             {
                 name: "C#",
-                icon: `${STATIC_CONTENT_URL}icons/csharp.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/csharp.svg`,
             },
             {
                 name: "Go",
-                icon: `${STATIC_CONTENT_URL}icons/go.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/go.svg`,
             },
             {
                 name: "PHP",
-                icon: `${STATIC_CONTENT_URL}icons/Php_light.svg`,
-                alticon: `${STATIC_CONTENT_URL}icons/Php_dark.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/Php_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/Php_dark.svg`,
             },
             {
                 name: "Swift",
-                icon: `${STATIC_CONTENT_URL}icons/swift.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/swift.svg`,
             },
             {
                 name: "Kotlin",
-                icon: `${STATIC_CONTENT_URL}icons/kotlin.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/kotlin.svg`,
             }
         ]
     },
@@ -126,35 +126,35 @@ const skillsData = [
         skills: [
             {
                 name: "Git",
-                icon: `${STATIC_CONTENT_URL}icons/git.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/git.svg`,
             },
             {
                 name: "Docker",
-                icon: `${STATIC_CONTENT_URL}icons/docker.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/docker.svg`,
             },
             {
                 name: "Linux",
-                icon: `${STATIC_CONTENT_URL}icons/linux.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/linux.svg`,
             },
             {
                 name: "AWS",
-                icon: `${STATIC_CONTENT_URL}icons/aws.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/aws.svg`,
             },
             {
                 name: "Azure",
-                icon: `${STATIC_CONTENT_URL}icons/azure.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/azure.svg`,
             },
             {
                 name: "Cloudflare",
-                icon: `${STATIC_CONTENT_URL}icons/cloudflare.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/cloudflare.svg`,
             },
             {
                 name: "VS Code",
-                icon: `${STATIC_CONTENT_URL}icons/vscode.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/vscode.svg`,
             },
             {
                 name: "Figma",
-                icon: `${STATIC_CONTENT_URL}icons/figma.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/figma.svg`,
             }
         ]
     }

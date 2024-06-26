@@ -28,7 +28,7 @@ function HomeData() {
             <h2 id="dynamic-header" className="home__education">Software Engineer</h2>
 
             <div className="home__buttons">
-                <a download="" href={`${STATIC_CONTENT_URL}pdf/cv.pdf`} target="_blank" rel='noreferrer' className="button button--ghost">
+                <a download="" href={`${STATIC_CONTENT_URL}/pdf/cv.pdf`} target="_blank" rel='noreferrer' className="button button--ghost">
                     Download CV
                 </a>
 
