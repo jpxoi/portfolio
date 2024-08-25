@@ -14,7 +14,7 @@ function FooterLink({ id, route, target_blank, text }) {
 
     return (
         <li>
-            <a id={ id } href={ route } className="footer__link">{ text }</a>
+            <a id={ id } href={ route } rel="noreferrer" className="footer__link">{ text }</a>
         </li>
     )
 }
