@@ -24,7 +24,7 @@ function FooterList() {
         {
             id: "footer-link-4",
             title: "Make a Payment",
-            link: "https://pay.jpxoi.com",
+            link: "https://billing.stripe.com/p/login/14k3ez8zT1YR6qcfYY",
             target_blank: true
         }
     ]
