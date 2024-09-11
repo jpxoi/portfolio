@@ -1,4 +1,6 @@
-function ReactBadge() {
+import NextLogo from "./NextLogo";
+
+export function ReactBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -12,7 +14,7 @@ function ReactBadge() {
   );
 }
 
-function TailwindBadge() {
+export function TailwindBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -26,7 +28,7 @@ function TailwindBadge() {
   );
 }
 
-function HTMLBadge() {
+export function HTMLBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -40,7 +42,7 @@ function HTMLBadge() {
   );
 }
 
-function CSSBadge() {
+export function CSSBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -54,7 +56,7 @@ function CSSBadge() {
   );
 }
 
-function JavaScriptBadge() {
+export function JavaScriptBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -68,12 +70,15 @@ function JavaScriptBadge() {
   );
 }
 
-function FlaskBadge() {
+export function FlaskBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
         <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ffffff_0%,#000000_50%,#ffffff_100%)]"></span>
-        <div id="flask-badge" className="badge inline-flex gap-x-2 justify-center items-center w-full text-xs text-green-800 bg-green-100 rounded-full cursor-pointer bg-gray-900 backdrop-blur-3xl whitespace-nowrap text-[#ffffff] hover:text-[#000000] py-1 px-2">
+        <div
+          id="flask-badge"
+          className="badge inline-flex gap-x-2 justify-center items-center w-full text-xs text-green-800 bg-green-100 rounded-full cursor-pointer bg-gray-900 backdrop-blur-3xl whitespace-nowrap text-[#ffffff] hover:text-[#000000] py-1 px-2"
+        >
           <i className="bx bxl-flask"></i>
           Flask
         </div>
@@ -82,7 +87,7 @@ function FlaskBadge() {
   );
 }
 
-function PythonBadge() {
+export function PythonBadge() {
   return (
     <div className="flex items-center ">
       <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
@@ -96,12 +101,19 @@ function PythonBadge() {
   );
 }
 
-export {
-  ReactBadge,
-  TailwindBadge,
-  HTMLBadge,
-  CSSBadge,
-  JavaScriptBadge,
-  FlaskBadge,
-  PythonBadge,
-};
+export function NextJSBadge() {
+  return (
+    <div className="flex items-center ">
+      <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
+        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#ffffff_0%,#000000_50%,#ffffff_100%)]"></span>
+        <div
+          id="flask-badge"
+          className="badge inline-flex gap-x-2 justify-center items-center w-full text-xs text-green-800 bg-green-100 rounded-full cursor-pointer bg-gray-900 backdrop-blur-3xl whitespace-nowrap text-white hover:text-black py-1 px-2"
+        >
+          <NextLogo />
+          Next.js
+        </div>
+      </span>
+    </div>
+  );
+}

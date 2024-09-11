@@ -52,7 +52,7 @@ const projects = [
         img: `${STATIC_CONTENT_URL}/media/projects/portf5.webp`,
         imgavif: `${STATIC_CONTENT_URL}/media/projects/portf5.avif`,
         alt: "Screenshot of Battery Level Indicator",
-        link: "https://battery.jpxoi.com",
+        link: "https://battery-level-indicator-hazel.vercel.app",
         github: "https://github.com/jpxoi/battery-level-indicator",
         stack: ["HTML", "CSS", "JavaScript"],
     },

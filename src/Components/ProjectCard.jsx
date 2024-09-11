@@ -3,6 +3,7 @@ import {
   FlaskBadge,
   HTMLBadge,
   JavaScriptBadge,
+  NextJSBadge,
   PythonBadge,
   ReactBadge,
   TailwindBadge,
@@ -43,6 +44,7 @@ function ProjectCard(props) {
             {props.stack.includes("JavaScript") ? <JavaScriptBadge /> : null}
             {props.stack.includes("Flask") ? <FlaskBadge /> : null}
             {props.stack.includes("Python") ? <PythonBadge /> : null}
+            {props.stack.includes("NextJS") ? <NextJSBadge /> : null}
           </div>
           <div className="project__description text-sm mt-2 text-gray-400">
             {props.description}
