@@ -42,7 +42,6 @@ const projects = [
         img: `${STATIC_CONTENT_URL}/media/projects/portf4.webp`,
         imgavif: `${STATIC_CONTENT_URL}/media/projects/portf4.avif`,
         alt: "Screenshot of Chatsy",
-        link: "https://chatsy-alpha.vercel.app",
         github: "https://github.com/jpxoi/chatsy",
         stack: ["Flask", "Python"],
     },
