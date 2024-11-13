@@ -19,9 +19,9 @@ export default function P404() {
 
                 <div className="p404__img">
                     <picture>
-                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.avif`} type="image/avif" />
-                        <source srcSet={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.webp`} type="image/webp" />
-                        <img src={`${STATIC_CONTENT_URL}/media/uploads/ghost-img.webp`} alt="Ghost Image"/>
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.avif`} type="image/avif" />
+                        <source srcSet={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} type="image/webp" />
+                        <img src={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} alt="Ghost Image"/>
                     </picture>
                     <div className="p404__shadow"></div>
                 </div>
