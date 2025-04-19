@@ -5,7 +5,7 @@ const projects = [
     {
         id: "portf1",
         title: "Bioeasy Galenos Landing Page",
-        description: " a fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
+        description: " A fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
         img: `${STATIC_CONTENT_URL}/media/images/projects/portf1.webp`,
         imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf1.avif`,
         alt: "Screenshot of Bioeasy Galenos Landing Page",
