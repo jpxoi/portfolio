@@ -3,6 +3,17 @@ import { STATIC_CONTENT_URL } from "../../env";
 
 const projects = [
     {
+        id: "portf0",
+        title: "Pastoral Digital App",
+        description: "A web application designed to facilitate the management of pastoral activities, including event organization, member registration, and communication. The app is built using NextJS and TailwindCSS, ensuring a responsive and user-friendly experience",
+        img: `${STATIC_CONTENT_URL}/media/images/projects/portf0.webp`,
+        imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf0.avif`,
+        alt: "Screenshot of Pastoral Digital App",
+        link: "https://pastoralid.jpxoi.com",
+        github: "https://github.com/jpxoi/pastoral-digital-app",
+        stack: ["NextJS", "TailwindCSS", "PostgreSQL"],
+    },
+    {
         id: "portf1",
         title: "Bioeasy Galenos Landing Page",
         description: " A fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
@@ -44,17 +55,6 @@ const projects = [
         alt: "Screenshot of Chatsy",
         github: "https://github.com/jpxoi/chatsy",
         stack: ["Flask", "Python"],
-    },
-    {
-        id: "portf5",
-        title: "Battery Level Indicator",
-        description: "Display the battery percentage of the device the webpage is being viewed on, using a liquid battery level that changes color based on the battery percentage",
-        img: `${STATIC_CONTENT_URL}/media/images/projects/portf5.webp`,
-        imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf5.avif`,
-        alt: "Screenshot of Battery Level Indicator",
-        link: "https://battery-level-indicator-hazel.vercel.app",
-        github: "https://github.com/jpxoi/battery-level-indicator",
-        stack: ["HTML", "CSS", "JavaScript"],
     },
 ]
 

@@ -18,12 +18,12 @@ const skillsData = [
                 icon: `${STATIC_CONTENT_URL}/icons/javascript.svg`,
             },
             {
-                name: "TailwindCSS",
-                icon: `${STATIC_CONTENT_URL}/icons/tailwindcss.svg`,
+                name: "TypeScript",
+                icon: `${STATIC_CONTENT_URL}/icons/typescript.svg`,
             },
             {
-                name: "Bootstrap",
-                icon: `${STATIC_CONTENT_URL}/icons/bootstrap.svg`,
+                name: "TailwindCSS",
+                icon: `${STATIC_CONTENT_URL}/icons/tailwindcss.svg`,
             },
             {
                 name: "React",
@@ -37,6 +37,10 @@ const skillsData = [
                 name: "Astro",
                 icon: `${STATIC_CONTENT_URL}/icons/Astro_light.svg`,
                 alticon: `${STATIC_CONTENT_URL}/icons/Astro_dark.svg`,
+            },
+            {
+                name: "Vite",
+                icon: `${STATIC_CONTENT_URL}/icons/vitejs.svg`,
             },
             {
                 name: "Flutter",
@@ -57,6 +61,14 @@ const skillsData = [
                 alticon: `${STATIC_CONTENT_URL}/icons/Express.js_dark.svg`,
             },
             {
+                name: "NestJS",
+                icon: `${STATIC_CONTENT_URL}/icons/nestjs.svg`,
+            },
+            {
+                name: "FastAPI",
+                icon: `${STATIC_CONTENT_URL}/icons/fastapi.svg`,
+            },
+            {
                 name: "Flask",
                 icon: `${STATIC_CONTENT_URL}/icons/Flask_light.svg`,
                 alticon: `${STATIC_CONTENT_URL}/icons/Flask_dark.svg`,
@@ -74,8 +86,16 @@ const skillsData = [
                 icon: `${STATIC_CONTENT_URL}/icons/mysql.svg`,
             },
             {
-                name: "MongoDB",
-                icon: `${STATIC_CONTENT_URL}/icons/mongodb.svg`,
+                name: "PostgreSQL",
+                icon: `${STATIC_CONTENT_URL}/icons/postgresql.svg`,
+            },
+            {
+                name: "Redis",
+                icon: `${STATIC_CONTENT_URL}/icons/redis.svg`,
+            },
+            {
+                name: "Supabase",
+                icon: `${STATIC_CONTENT_URL}/icons/supabase.svg`,
             },
             {
                 name: "Firebase",
@@ -97,6 +117,10 @@ const skillsData = [
             {
                 name: "C",
                 icon: `${STATIC_CONTENT_URL}/icons/c.svg`,
+            },
+            {
+                name: "C",
+                icon: `${STATIC_CONTENT_URL}/icons/c-plusplus.svg`,
             },
             {
                 name: "C#",
@@ -138,7 +162,8 @@ const skillsData = [
             },
             {
                 name: "AWS",
-                icon: `${STATIC_CONTENT_URL}/icons/aws.svg`,
+                icon: `${STATIC_CONTENT_URL}/icons/aws_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/aws_dark.svg`,
             },
             {
                 name: "Azure",
@@ -149,13 +174,10 @@ const skillsData = [
                 icon: `${STATIC_CONTENT_URL}/icons/cloudflare.svg`,
             },
             {
-                name: "VS Code",
-                icon: `${STATIC_CONTENT_URL}/icons/vscode.svg`,
+                name: "Drizzle",
+                icon: `${STATIC_CONTENT_URL}/icons/drizzle_light.svg`,
+                alticon: `${STATIC_CONTENT_URL}/icons/drizzle_dark.svg`,
             },
-            {
-                name: "Figma",
-                icon: `${STATIC_CONTENT_URL}/icons/figma.svg`,
-            }
         ]
     }
 ]

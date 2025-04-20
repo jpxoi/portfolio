@@ -117,3 +117,20 @@ export function NextJSBadge() {
     </div>
   );
 }
+
+export function PostgreSQLBadge() {
+  return (
+    <div className="flex items-center ">
+      <span className="relative inline-flex overflow-hidden rounded-full p-[1px]">
+        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#0064a5_0%,#008bb9_50%,#0064a5_100%)]"></span>
+        <div
+          id="postgresql-badge"
+          className="badge inline-flex gap-x-2 justify-center items-center w-full text-xs text-green-800 bg-green-100 rounded-full cursor-pointer bg-gray-900 backdrop-blur-3xl whitespace-nowrap text-[#0064a5] hover:text-[#0064a5] py-1 px-2"
+        >
+          <i className="bx bxl-postgresql"></i>
+          PostgreSQL
+        </div>
+      </span>
+    </div>
+  );
+}

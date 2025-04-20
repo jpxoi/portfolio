@@ -4,6 +4,7 @@ import {
   HTMLBadge,
   JavaScriptBadge,
   NextJSBadge,
+  PostgreSQLBadge,
   PythonBadge,
   ReactBadge,
   TailwindBadge,
@@ -37,6 +38,7 @@ function ProjectCard(props) {
         </h3>
         <div className="flex flex-wrap mt-2">
           <div className="project__card__badges flex gap-x-2 gap-y-2 md:gap-y-0 flex-row flex-wrap mb-4">
+            {props.stack.includes("NextJS") ? <NextJSBadge /> : null}
             {props.stack.includes("ReactJS") ? <ReactBadge /> : null}
             {props.stack.includes("TailwindCSS") ? <TailwindBadge /> : null}
             {props.stack.includes("HTML") ? <HTMLBadge /> : null}
@@ -44,7 +46,7 @@ function ProjectCard(props) {
             {props.stack.includes("JavaScript") ? <JavaScriptBadge /> : null}
             {props.stack.includes("Flask") ? <FlaskBadge /> : null}
             {props.stack.includes("Python") ? <PythonBadge /> : null}
-            {props.stack.includes("NextJS") ? <NextJSBadge /> : null}
+            {props.stack.includes("PostgreSQL") ? <PostgreSQLBadge /> : null}
           </div>
           <div className="project__description text-sm mt-2 text-gray-400">
             {props.description}
