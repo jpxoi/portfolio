@@ -21,6 +21,12 @@ This project is a migration of the original website, which was built using HTML,
 * Implement a custom payment page for future clients to pay for services.
 * Implement a custom blog section for future blog posts.
 
+## Environment Variables
+
+The website uses the following environment variables:
+
+* `VITE_STATIC_CONTENT_URL`: The URL of the static content.
+
 ## Live Page
 
 You can check out the live version of this personal portfolio website by visiting [https://jpxoi.com](https://jpxoi.com). The website is hosted on Vercel, and provides a fast and reliable platform for deploying single page applications.
