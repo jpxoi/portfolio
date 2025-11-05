@@ -1,34 +1,43 @@
-# Portfolio Website
+# Astro Starter Kit: Minimal
 
-This is the source code for my personal responsive website and portfolio, where I showcase my work and projects. The website features a minimalist design, with a focus on functionality and ease of use. This project was completely built using Vite and ReactJS.
+```sh
+pnpm create astro@latest -- --template minimal
+```
 
-![Mockup of the website.](https://static.jpxoi.com/media/uploads/social-card.webp)
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
 
-This project is a migration of the original website, which was built using HTML, CSS, and JavaScript. The original website was built as a static website, and was hosted on Netlify. The new website is built using ReactJS and TailwindCSS, and is hosted on Vercel.
+## 🚀 Project Structure
 
-## What's New
+Inside of your Astro project, you'll see the following folders and files:
 
-* Completely redesigned the portfolio section, with a new layout and design.
-* Migrated of the website from HTML, CSS, and JavaScript to Vite and ReactJS.
-* Created new CSS animations for multiple images and elements.
-* Started the migration of the CSS to TailwindCSS.
-* Added support for Safari tab bar color on Apple devices, with dynamic color switching based on the current dark mode setting.
-* Added support for the `prefers-color-scheme` media query, with dynamic color switching based on the current dark mode setting.
+```text
+/
+├── public/
+├── src/
+│   └── pages/
+│       └── index.astro
+└── package.json
+```
 
-## What's Coming Next
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-* Complete the migration of the current CSS to TailwindCSS for improved performance and maintainability.
-* Implement a custom payment page for future clients to pay for services.
-* Implement a custom blog section for future blog posts.
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-## Environment Variables
+Any static assets, like images, can be placed in the `public/` directory.
 
-The website uses the following environment variables:
+## 🧞 Commands
 
-* `VITE_STATIC_CONTENT_URL`: The URL of the static content.
+All commands are run from the root of the project, from a terminal:
 
-## Live Page
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `pnpm install`             | Installs dependencies                            |
+| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
+| `pnpm build`           | Build your production site to `./dist/`          |
+| `pnpm preview`         | Preview your build locally, before deploying     |
+| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `pnpm astro -- --help` | Get help using the Astro CLI                     |
 
-You can check out the live version of this personal portfolio website by visiting [https://jpxoi.com](https://jpxoi.com). The website is hosted on Vercel, and provides a fast and reliable platform for deploying single page applications.
+## 👀 Want to learn more?
 
-Clicking on the link will take you to the live version of the website, where you can explore all of the features and functionality that are included. You can navigate between the different sections of the website using the navigation menu, and view the various projects and pieces of work that are showcased in the portfolio section.
+Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
