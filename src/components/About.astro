@@ -1,0 +1,58 @@
+---
+import AboutBox from './AboutBox.astro'
+
+const STATIC_CONTENT_URL = 'https://cdn.jpxoi.com'
+
+const aboutInfo = [
+  {
+    icon: 'bx bx-medal-alt about__icon',
+    title: 'Experience',
+    subtitle: '6+ Years Working',
+  },
+
+  {
+    icon: 'bx bx-briefcase-alt about__icon',
+    title: 'Completed',
+    subtitle: '30+ Projects',
+  },
+  {
+    icon: 'bx bxs-business about__icon',
+    title: 'Worked',
+    subtitle: '4+ Companies',
+  },
+]
+---
+
+<section class='about section' id='about'>
+  <h2 class='section__title'>About Me</h2>
+
+  <div class='about__container custom-container grid'>
+    <picture class='about__img'>
+      <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/about.avif`} type='image/avif' />
+      <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/about.webp`} type='image/webp' />
+      <img
+        loading='lazy'
+        src={`${STATIC_CONTENT_URL}/media/images/profile/about.webp`}
+        alt='Memoji of Jean Paul Fernandez'
+        width={350}
+        height={350}
+      />
+    </picture>
+    <div class='about__data'>
+      <div class='about__info'>
+        {aboutInfo.map((info) => <AboutBox {...info} />)}
+      </div>
+
+      <p class='about__description text-pretty'>
+        Full-Stack Developer & Computer Science student specializing in modern web technologies. Experienced with
+        Next.js, TypeScript, Python, and cloud-native architectures. I build scalable SaaS platforms, distributed
+        systems, and AI-powered applications.
+      </p>
+
+      <p class='about__description text-pretty'>
+        Explore my technical deep-dives, engineering notes, and real-world development insights across web architecture,
+        DevOps, product engineering, and software best practices.
+      </p>
+    </div>
+  </div>
+</section>

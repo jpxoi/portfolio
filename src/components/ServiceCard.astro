@@ -1,0 +1,44 @@
+---
+interface Props {
+  title: string
+  description: string
+  items: {
+    title: string
+    description: string
+  }[]
+}
+
+const { title, description, items }: Props = Astro.props
+---
+
+<div class='services__card'>
+  <h3 class='services__title text-balance'>{title}</h3>
+
+  <span class='services__button'>
+    See More <i class='bx bx-arrow-right-stroke services__icon'></i>
+  </span>
+
+  <div class='services__modal'>
+    <div class='services__modal-content max-h-[90dvh]'>
+      <i class='bx bx-x services__modal-close'></i>
+      <div class='max-h-[75dvh] overflow-scroll'>
+        <h4 class='services__modal-title'>{title}</h4>
+
+        <p class='services__modal-description text-pretty'>{description}</p>
+
+        <ul class='services__modal-list'>
+          {
+            items.map((item, index) => (
+              <li class='services__modal-item'>
+                <i class='bx bx-check services__modal-icon' />
+                <p class='services__modal-info text-pretty'>
+                  <b>{title}:</b> {description}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

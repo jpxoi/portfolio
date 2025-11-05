@@ -1,0 +1,68 @@
+---
+interface Props {
+  title: string
+  skills: {
+    name: string
+    icon: string
+    alticon?: string
+  }[]
+}
+
+const { title, skills }: Props = Astro.props
+---
+
+<div class='skills__content flex flex-col gap-y-8'>
+  <h3 class='skills__title'>{title}</h3>
+  <div class='skills__box flex flex-wrap gap-y-8'>
+    {
+      skills.map((skill) => (
+        <div id={skill.name} class='skills__data group flex h-12 w-12 items-center justify-center'>
+          <img
+            loading='lazy'
+            data-icon={skill.icon}
+            data-alticon={skill.alticon}
+            src={skill.icon}
+            alt={skill.name}
+            class='skills__img size-auto max-h-10 max-w-10 drop-shadow-sm group-hover:drop-shadow-xl'
+          />
+        </div>
+      ))
+    }
+  </div>
+</div>
+<script>
+  function updateSkillBoxesOnLoad() {
+    const currentTheme = localStorage.getItem('selected-theme')
+    if (currentTheme === 'light') {
+      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
+      skillBoxes.forEach((skillBox) => {
+        skillBox.src = skillBox.getAttribute('data-alticon') || skillBox.src
+      })
+    } else {
+      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
+      skillBoxes.forEach((skillBox) => {
+        skillBox.src = skillBox.getAttribute('data-icon') || skillBox.src
+      })
+    }
+  }
+
+  function updateSkillBoxesOnThemeChange() {
+    const currentTheme = localStorage.getItem('selected-theme')
+    if (currentTheme === 'light') {
+      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
+      skillBoxes.forEach((skillBox) => {
+        skillBox.src = skillBox.getAttribute('data-icon') || skillBox.src
+      })
+    } else {
+      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
+      skillBoxes.forEach((skillBox) => {
+        skillBox.src = skillBox.getAttribute('data-alticon') || skillBox.src
+      })
+    }
+  }
+
+  const themeElement = document.getElementById('theme-button')
+
+  updateSkillBoxesOnLoad()
+  themeElement?.addEventListener('click', updateSkillBoxesOnThemeChange)
+</script>

@@ -1,0 +1,15 @@
+---
+interface Props {
+  route: string
+  icon: string
+  alt: string
+  aria_label: string
+}
+
+const { route, icon, alt, aria_label }: Props = Astro.props
+---
+
+<a href={route} target='_blank' rel='noreferrer' class='home__social-link' aria-label={aria_label}>
+  <i class={icon}></i>
+  <span class='hidden'>{aria_label}</span>
+</a>

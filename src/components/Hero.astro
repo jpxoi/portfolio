@@ -1,0 +1,117 @@
+---
+import HeroSocialLink from './HeroSocialLink.astro'
+
+const socialLinks = [
+  {
+    route: 'https://linkedin.com/in/jpxoi',
+    icon: 'bxl bx-linkedin-square',
+    alt: 'linkedin social button',
+    aria_label: 'LinkedIn',
+  },
+  {
+    route: 'https://github.com/jpxoi',
+    icon: 'bxl bx-github',
+    alt: 'github social button',
+    aria_label: 'GitHub',
+  },
+  {
+    route: 'https://instagram.com/jpxoi',
+    icon: 'bxl bx-instagram',
+    alt: 'instagram social button',
+    aria_label: 'Instagram',
+  },
+]
+
+const STATIC_CONTENT_URL = 'https://cdn.jpxoi.com'
+---
+
+<section class='home section' id='home'>
+  <div class='home__container custom-container grid'>
+    <div class='home__data'>
+      <span class='home__greeting'>Hello, I&apos;m</span>
+      <h1 class='home__name'>Jean Paul Fernandez</h1>
+      <h2 id='dynamic-header' class='home__education min-h-6'>Software Engineer</h2>
+
+      <div class='home__buttons'>
+        <a
+          download=''
+          href={`${STATIC_CONTENT_URL}/pdf/cv.pdf`}
+          target='_blank'
+          rel='noreferrer'
+          class='button button--ghost'
+        >
+          Download CV
+        </a>
+
+        <a href='#about' class='button'>About Me</a>
+      </div>
+    </div>
+
+    <div class='home__handle'>
+      <picture class='home__img'>
+        <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/profile.avif`} type='image/avif' />
+        <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/profile.webp`} type='image/webp' />
+        <img
+          loading='eager'
+          fetchpriority='high'
+          src={`${STATIC_CONTENT_URL}/media/images/profile/profile.webp`}
+          alt='Stand up Memoji of Jean Paul Fernandez'
+          class='home__img'
+          width={220}
+          height={381.05}
+        />
+      </picture>
+    </div>
+
+    <div class='home__social'>
+      {socialLinks.map((link) => <HeroSocialLink {...link} />)}
+    </div>
+
+    <a href='#about' class='home__scroll'>
+      <i class='bx bx-mouse home__scroll-icon'></i>
+      <span class='home__scroll-name'>Scroll Down</span>
+    </a>
+  </div>
+</section>
+<script>
+  const headerTexts = ['Software Engineer', 'Frontend Developer', 'Backend Developer']
+
+  const dynamicHeader = document.getElementById('dynamic-header') as HTMLElement
+
+  let textIndex = 0
+  let charIndex = headerTexts[0].length - 1
+  let isDeleting = false
+  let pauseAfterTyped = 2000 // pause before deleting
+
+  function randomBetween(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+
+  function typeWriter() {
+    const fullText = headerTexts[textIndex]
+    let delay
+
+    if (!isDeleting) {
+      dynamicHeader.textContent = fullText.substring(0, charIndex + 1)
+      charIndex++
+      if (charIndex === fullText.length) {
+        isDeleting = true
+        setTimeout(typeWriter, pauseAfterTyped)
+        return
+      }
+      // Typing speed: random between 60–80ms
+      delay = randomBetween(60, 80)
+    } else {
+      dynamicHeader.textContent = fullText.substring(0, charIndex - 1)
+      charIndex--
+      if (charIndex === 0) {
+        isDeleting = false
+        textIndex = (textIndex + 1) % headerTexts.length
+      }
+      delay = randomBetween(80, 100)
+    }
+    setTimeout(typeWriter, delay)
+  }
+
+  typeWriter()
+</script>

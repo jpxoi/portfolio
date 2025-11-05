@@ -1,0 +1,18 @@
+---
+interface Props {
+  route: string
+  alt: string
+  icon: string
+  defaultActive?: boolean
+}
+
+const { route, alt, icon, defaultActive }: Props = Astro.props
+
+const classes = defaultActive ? 'nav__link active-link' : 'nav__link'
+---
+
+<li class='nav__item'>
+  <a href={route} class={classes} aria-label={alt}>
+    <i class={icon}></i>
+  </a>
+</li>

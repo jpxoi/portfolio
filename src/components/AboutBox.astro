@@ -1,0 +1,15 @@
+---
+interface Props {
+  icon: string
+  title: string
+  subtitle: string
+}
+
+const { icon, title, subtitle }: Props = Astro.props
+---
+
+<div class='about__box'>
+  <i class={icon}></i>
+  <h3 class='about__title'>{title}</h3>
+  <span class='about__subtitle'>{subtitle}</span>
+</div>

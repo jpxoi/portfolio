@@ -1,0 +1,59 @@
+---
+import NavMenuItem from './NavMenuItem.astro'
+
+const NAV_ITEMS = [
+  {
+    route: '#home',
+    alt: 'home button',
+    icon: 'bx bx-home-alt size-5 aspect-square',
+    defaultActive: true,
+  },
+  {
+    route: '#about',
+    alt: 'about button',
+    icon: 'bx bx-user size-5 aspect-square',
+  },
+  {
+    route: '#projects',
+    alt: 'projects button',
+    icon: 'bx bx-code-alt size-5 aspect-square',
+  },
+  {
+    route: '#skills',
+    alt: 'skills button',
+    icon: 'bx bx-book size-5 aspect-square',
+  },
+  {
+    route: '#contact',
+    alt: 'contact button',
+    icon: 'bx bx-paper-plane size-5 aspect-square',
+  },
+]
+---
+
+<div class='nav__menu'>
+  <ul class='nav__list'>
+    {NAV_ITEMS.map((item) => <NavMenuItem {...item} />)}
+  </ul>
+</div>
+<script>
+  const sections = document.querySelectorAll('section[id]') as NodeListOf<HTMLElement>
+
+  function scrollActive() {
+    const scrollY = window.scrollY
+
+    sections.forEach((current) => {
+      const sectionHeight = current.offsetHeight,
+        sectionTop = current.offsetTop - 58,
+        sectionId = current.getAttribute('id')
+
+      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+        document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.add('active-link')
+      } else {
+        document.querySelector('.nav__menu a[href*=' + sectionId + ']')?.classList.remove('active-link')
+      }
+    })
+  }
+
+  window.addEventListener('scroll', scrollActive)
+</script>

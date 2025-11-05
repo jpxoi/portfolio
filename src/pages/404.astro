@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro'
+import '../styles/p404.css'
+import Header from '../components/Header.astro'
+const STATIC_CONTENT_URL = 'https://cdn.jpxoi.com'
+---
+
+<Layout>
+  <Header variant='alt' />
+  <main class='main'>
+    <section class='p404'>
+      <div class='p404__container custon-container'>
+        <div class='p404__data'>
+          <span class='p404__subtitle'>Error 404</span>
+          <h1 class='p404__title'>Hey Buddy</h1>
+          <p class='p404__description'>
+            We can&apos;t seem to find the page <br /> you are looking for.
+          </p>
+          <a href='/' class='p404__button'> Return to Home </a>
+        </div>
+
+        <div class='p404__img'>
+          <picture>
+            <source srcset={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.avif`} type='image/avif' />
+            <source srcset={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} type='image/webp' />
+            <img src={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} alt='Ghost Image' />
+          </picture>
+          <div class='p404__shadow'></div>
+        </div>
+      </div>
+      <footer class='p404__footer'>
+        <a target='_blank' rel='noreferrer' href='mailto:hello@jpxoi.com'><span>hello@jpxoi.com</span></a>
+      </footer>
+    </section>
+  </main>
+</Layout>

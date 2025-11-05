@@ -1,0 +1,104 @@
+---
+import ContactCard from './ContactCard.astro'
+const contactData = [
+  {
+    id: 'email-contact-card-icon',
+    title: 'Email',
+    data: 'hello@jpxoi.com',
+    link: 'mailto:hello@jpxoi.com',
+    cta: 'Email Me',
+    icon: 'bx bx-at',
+  },
+  {
+    id: 'linkedin-contact-card-icon',
+    title: 'LinkedIn',
+    data: 'jeanpaulfernandez',
+    link: 'https://linkedin.com/in/jpxoi',
+    cta: 'Connect',
+    icon: 'bxl bx-linkedin-square',
+  },
+  {
+    id: 'telegram-contact-card-icon',
+    title: 'Telegram',
+    data: '@jpxoi',
+    link: 'https://t.me/jpxoi',
+    cta: 'Message Me',
+    icon: 'bxl bx-telegram',
+  },
+]
+---
+
+<section class='contact section' id='contact'>
+  <span class='section__subtitle'>Get In Touch</span>
+  <h2 class='section__title'>Contact Me</h2>
+
+  <div class='contact__container custom-container grid'>
+    <div class='contact__content'>
+      <h3 class='contact__title'>Talk to me</h3>
+      <div class='contact__info'>
+        {
+          contactData.map((contactCard) => {
+            return (
+              <ContactCard
+                id={contactCard.id}
+                title={contactCard.title}
+                data={contactCard.data}
+                link={contactCard.link}
+                cta={contactCard.cta}
+                icon={contactCard.icon}
+              />
+            )
+          })
+        }
+      </div>
+    </div>
+    <div class='contact__content'>
+      <h3 class='contact__title'>Write me about your project</h3>
+
+      <form
+        action='https://formcarry.com/s/IdMAAJSEpJf'
+        method='POST'
+        enctype='multipart/form-data'
+        class='contact__form'
+        name='contactForm'
+      >
+        <div class='contact__form-div'>
+          <label for='name' class='contact__form-tag'>Full Name</label>
+          <input
+            type='text'
+            placeholder='Insert your name'
+            class='contact__form-input'
+            id='name'
+            name='name'
+            autocomplete='name'
+          />
+        </div>
+
+        <div class='contact__form-div'>
+          <label for='email' class='contact__form-tag'>Email</label>
+          <input
+            type='email'
+            placeholder='Insert your email'
+            class='contact__form-input'
+            id='email'
+            name='email'
+            autocomplete='email'
+          />
+        </div>
+
+        <div class='contact__form-div contact__form-area'>
+          <label for='message' class='contact__form-tag'>Message</label>
+          <textarea
+            placeholder='Describe your project'
+            class='contact__form-input'
+            id='message'
+            name='message'
+            cols='30'
+            rows='10'></textarea>
+        </div>
+
+        <button type='submit' class='button'>Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>

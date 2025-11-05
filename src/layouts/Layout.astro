@@ -1,0 +1,118 @@
+---
+import '@fontsource/poppins/400.css'
+import '@fontsource/poppins/500.css'
+import '@fontsource/poppins/600.css'
+
+import poppins400Woff2 from '@fontsource/poppins/files/poppins-latin-400-normal.woff2?url'
+import poppins500Woff2 from '@fontsource/poppins/files/poppins-latin-500-normal.woff2?url'
+import poppins600Woff2 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url'
+import '../styles/global.css'
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+
+    <!--=============== SAFARI BAR COLOR ===============-->
+    <meta name='theme-color' content='#fafcff' media='(prefers-color-scheme: light)' />
+    <meta name='theme-color' content='#0b111e' media='(prefers-color-scheme: dark)' />
+
+    <!--=============== FAVICON ===============-->
+    <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png?v=2' />
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png?v=2' />
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png?v=2' />
+    <link rel='manifest' href='/favicon/site.webmanifest?v=2' />
+    <link rel='mask-icon' href='/favicon/safari-pinned-tab.svg?v=2' color='#0b111e' />
+    <link rel='shortcut icon' href='/favicon/favicon.ico?v=2' />
+    <meta name='msapplication-TileColor' content='#0b111e' />
+    <meta name='msapplication-config' content='/favicon/browserconfig.xml?v=2' />
+
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet' />
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet' />
+
+    <link rel='preload' as='font' type='font/woff2' href={poppins400Woff2} crossorigin='anonymous' />
+    <link rel='preload' as='font' type='font/woff2' href={poppins500Woff2} crossorigin='anonymous' />
+    <link rel='preload' as='font' type='font/woff2' href={poppins600Woff2} crossorigin='anonymous' />
+
+    <!--=============== PRE-CONNECT ===============-->
+    <link rel='preconnect' href='https://cdn.jpxoi.com' crossorigin />
+
+    <!--=============== SEO ===============-->
+    <link rel='canonical' href='https://jpxoi.com/' />
+
+    <!-- HTML Meta Tags -->
+    <title>Jean Paul Fernandez — Software Engineer</title>
+    <meta
+      name='description'
+      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
+    />
+    <meta
+      name='keywords'
+      content='jean paul fernandez, software engineer, frontend, developer, video editor, video, designer, content creator, responsive'
+    />
+    <meta name='author' content='Jean Paul Fernandez' />
+    <meta name='copyright' content='Jean Paul Fernandez' />
+
+    <!-- Facebook Meta Tags -->
+    <meta property='og:url' content='https://jpxoi.com/' />
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content='Jean Paul Fernandez — Software Engineer' />
+    <meta
+      property='og:description'
+      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
+    />
+    <meta property='og:image' content='https://cdn.jpxoi.com/media/uploads/social-card.webp' />
+    <meta property='og:image:alt' content="Preview of Jean Paul Fernandez's website" />
+    <meta property='fb:app_id' content='4247685185353137' />
+    <meta name='facebook-domain-verification' content='i9ntff10jcz1nlu4myciodpcr6trdv' />
+
+    <!-- Twitter Meta Tags -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:domain' content='jpxoi.com' />
+    <meta property='twitter:url' content='https://jpxoi.com' />
+    <meta name='twitter:title' content='Jean Paul Fernandez — Software Engineer' />
+    <meta
+      name='twitter:description'
+      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
+    />
+    <meta name='twitter:image' content='https://cdn.jpxoi.com/media/uploads/social-card.webp' />
+    <meta name='twitter:image:alt' content="Preview of Jean Paul Fernandez's website" />
+    <meta name='twitter:site' content='@jpxoi' />
+    <meta name='twitter:creator' content='@jpxoi' />
+  </head>
+  <body>
+    <slot />
+    <script>
+      const themeButton = document.getElementById('theme-button')
+      const lightTheme = 'light-theme'
+      const iconTheme = 'bx-sun'
+
+      // Previously selected topic (if user selected)
+      const selectedTheme = localStorage.getItem('selected-theme')
+      const selectedIcon = localStorage.getItem('selected-icon')
+
+      // We obtain the current theme that the interface has by validating the light-theme class
+      const getCurrentTheme = () => (document.body.classList.contains(lightTheme) ? 'dark' : 'light')
+      const getCurrentIcon = () => (themeButton?.classList.contains(iconTheme) ? 'bx bx-moon' : 'bx bx-sun')
+
+      // We validate if the user previously chose a topic
+      if (selectedTheme) {
+        // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
+        document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](lightTheme)
+        themeButton?.classList[selectedIcon === 'bx bx-moon' ? 'add' : 'remove'](iconTheme)
+      }
+
+      // Activate / deactivate the theme manually with the button
+      themeButton?.addEventListener('click', () => {
+        // Add or remove the dark / icon theme
+        document.body.classList.toggle(lightTheme)
+        themeButton?.classList.toggle(iconTheme)
+
+        // We save the theme and the current icon that the user chose
+        localStorage.setItem('selected-theme', getCurrentTheme())
+        localStorage.setItem('selected-icon', getCurrentIcon())
+      })
+    </script>
+  </body>
+</html>

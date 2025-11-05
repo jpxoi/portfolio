@@ -1,0 +1,25 @@
+---
+interface Props {
+  text: string
+}
+const { text } = Astro.props
+
+const hoverColors = {
+  HTML: 'group-hover:text-[#e34f26]',
+  CSS: 'group-hover:text-[#264de4]',
+  JavaScript: 'group-hover:text-[#f7df1e]',
+  TypeScript: 'group-hover:text-[#3178C6]',
+  ReactJS: 'group-hover:text-[#61DBFB]',
+  Python: 'group-hover:text-[#4584b6]',
+  PostgreSQL: 'group-hover:text-[#336791]',
+  TailwindCSS: 'group-hover:text-[#06b6d4]',
+  Astro: 'group-hover:text-[#D83333]',
+  TursoDB: 'group-hover:text-[#4FF8D2]',
+} as const
+---
+
+<span
+  class={`max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal ${hoverColors[text as keyof typeof hoverColors]}`}
+>
+  {text}
+</span>
