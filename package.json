@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -10,17 +10,17 @@
   },
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
-    "@tailwindcss/vite": "^4.1.17",
-    "astro": "^5.16.4",
-    "tailwindcss": "^4.1.17"
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.6",
+    "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.48.1",
+    "@typescript-eslint/parser": "^8.51.0",
     "eslint": "^9.39.1",
     "eslint-plugin-astro": "^1.5.0",
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2"
   },
-  "packageManager": "pnpm@10.24.0"
+  "packageManager": "pnpm@10.27.0"
 }
