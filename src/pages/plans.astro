@@ -27,23 +27,84 @@ const PRICING_TABLES = [
 ---
 
 <Layout>
+  <script is:inline async src='https://js.stripe.com/v3/pricing-table.js'></script>
+
   <main class='flex min-h-screen w-screen justify-center bg-[#e0ebff]'>
-    <div class='container flex flex-col gap-10! p-8!'>
-      {
-        PRICING_TABLES.map((table) => (
-          <section class='flex flex-col gap-4 border-b border-[#276ef1]/30 pb-6! last:border-none'>
-            <h1 class='mt-4 text-center text-2xl font-bold text-[#276ef1]!'>{table.title}</h1>
-            <script is:inline async src='https://js.stripe.com/v3/pricing-table.js' />
-            <stripe-pricing-table pricing-table-id={table.pricingTableId} publishable-key={table.publishableKey} />
-          </section>
-        ))
-      }
+    <div class='container flex flex-col gap-6 p-8!'>
+      <div class='flex flex-wrap justify-center gap-4' id='tabs-header'>
+        {
+          PRICING_TABLES.map((table, index) => (
+            <button
+              class={`tab-button rounded-full border border-[#276ef1] px-6! py-2! font-semibold transition-all duration-300 ${
+                index === 0 ? 'bg-[#276ef1] text-white shadow-lg' : 'bg-white text-[#276ef1]'
+              }`}
+              data-target={table.id}
+            >
+              {table.title}
+            </button>
+          ))
+        }
+      </div>
+
+      <div class='w-full'>
+        {
+          PRICING_TABLES.map((table, index) => (
+            <div id={table.id} class={`tab-content ${index === 0 ? '' : 'hidden'}`}>
+              <section class='animate-fade-in flex flex-col gap-4'>
+                <stripe-pricing-table pricing-table-id={table.pricingTableId} publishable-key={table.publishableKey} />
+              </section>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </main>
 </Layout>
 
+<script>
+  const buttons = document.querySelectorAll('.tab-button')
+  const contents = document.querySelectorAll('.tab-content')
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const targetId = (btn as HTMLElement).dataset.target
+
+      // Update buttons
+      buttons.forEach((b) => {
+        if ((b as HTMLElement).dataset.target === targetId) {
+          b.classList.remove('bg-white', 'text-[#276ef1]')
+          b.classList.add('bg-[#276ef1]', 'text-white', 'shadow-lg')
+        } else {
+          b.classList.add('bg-white', 'text-[#276ef1]')
+          b.classList.remove('bg-[#276ef1]', 'text-white', 'shadow-lg')
+        }
+      })
+
+      // Update content
+      contents.forEach((content) => {
+        if (content.id === targetId) {
+          content.classList.remove('hidden')
+        } else {
+          content.classList.add('hidden')
+        }
+      })
+    })
+  })
+</script>
+
 <style is:inline>
-  body {
-    background-color: #e0ebff!;
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 </style>
