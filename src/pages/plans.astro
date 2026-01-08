@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const PRICING_TABLES = [
+  {
+    title: 'Web Hosting',
+    id: 'web-hosting',
+    pricingTableId: 'prctbl_1QJwoHH72HkeAqXAFHF7rLOU',
+    publishableKey:
+      'pk_live_51KNKnEH72HkeAqXANHk8DPi2QTMx5IcRQrWJBfM7NcrWMp1kb205RJ5dIyWxxVSKdcOWjOErEUKgGffdQuzlOoTJ00K1Lw8ogw',
+  },
+  {
+    title: 'Web Maintenance',
+    id: 'web-maintenance',
+    pricingTableId: 'prctbl_1QJwl2H72HkeAqXARaJewtsh',
+    publishableKey:
+      'pk_live_51KNKnEH72HkeAqXANHk8DPi2QTMx5IcRQrWJBfM7NcrWMp1kb205RJ5dIyWxxVSKdcOWjOErEUKgGffdQuzlOoTJ00K1Lw8ogw',
+  },
+  {
+    title: 'PostgreSQL Managed Database',
+    id: 'postgresql',
+    pricingTableId: 'prctbl_1QJwrWH72HkeAqXAyJDNQ3T3',
+    publishableKey:
+      'pk_live_51KNKnEH72HkeAqXANHk8DPi2QTMx5IcRQrWJBfM7NcrWMp1kb205RJ5dIyWxxVSKdcOWjOErEUKgGffdQuzlOoTJ00K1Lw8ogw',
+  },
+]
+---
+
+<Layout>
+  <main class='flex min-h-screen w-screen justify-center bg-[#e0ebff]'>
+    <div class='container flex flex-col gap-10! p-8!'>
+      {
+        PRICING_TABLES.map((table) => (
+          <section class='flex flex-col gap-4 border-b border-[#276ef1]/30 pb-6! last:border-none'>
+            <h1 class='mt-4 text-center text-2xl font-bold text-[#276ef1]!'>{table.title}</h1>
+            <script async src='https://js.stripe.com/v3/pricing-table.js' />
+            <stripe-pricing-table pricing-table-id={table.pricingTableId} publishable-key={table.publishableKey} />
+          </section>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style is:inline>
+  body {
+    background-color: #e0ebff!;
+  }
+</style>
