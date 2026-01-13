@@ -11,4 +11,5 @@ export default defineConfig({
   redirects: {
     '/billing': 'https://billing.stripe.com/p/login/14k3ez8zT1YR6qcfYY',
   },
+  prefetch: true,
 })
