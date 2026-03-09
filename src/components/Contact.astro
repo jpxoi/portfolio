@@ -1,33 +1,6 @@
 ---
+import { contactData } from '../data/contact'
 import ContactCard from './ContactCard.astro'
-import type { Contact } from '../types'
-
-const contactData: Contact[] = [
-  {
-    id: 'email-contact-card-icon',
-    title: 'Email',
-    data: 'hello@jpxoi.com',
-    link: 'mailto:hello@jpxoi.com',
-    cta: 'Email Me',
-    icon: 'bx bx-at',
-  },
-  {
-    id: 'linkedin-contact-card-icon',
-    title: 'LinkedIn',
-    data: 'jeanpaulfernandez',
-    link: 'https://linkedin.com/in/jpxoi',
-    cta: 'Connect',
-    icon: 'bxl bx-linkedin-square',
-  },
-  {
-    id: 'telegram-contact-card-icon',
-    title: 'Telegram',
-    data: '@jpxoi',
-    link: 'https://t.me/jpxoi',
-    cta: 'Message Me',
-    icon: 'bxl bx-telegram',
-  },
-]
 ---
 
 <section class='contact section' id='contact'>

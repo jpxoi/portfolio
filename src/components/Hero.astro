@@ -1,27 +1,7 @@
 ---
+import { heroSocialLinks } from '../data/socials'
 import { STATIC_CONTENT_URL } from '../constants'
 import HeroSocialLink from './HeroSocialLink.astro'
-
-const socialLinks = [
-  {
-    route: 'https://linkedin.com/in/jpxoi',
-    icon: 'bxl bx-linkedin-square',
-    alt: 'linkedin social button',
-    aria_label: 'LinkedIn',
-  },
-  {
-    route: 'https://github.com/jpxoi',
-    icon: 'bxl bx-github',
-    alt: 'github social button',
-    aria_label: 'GitHub',
-  },
-  {
-    route: 'https://instagram.com/jpxoi',
-    icon: 'bxl bx-instagram',
-    alt: 'instagram social button',
-    aria_label: 'Instagram',
-  },
-]
 ---
 
 <section class='home section' id='home'>
@@ -63,7 +43,7 @@ const socialLinks = [
     </div>
 
     <div class='home__social'>
-      {socialLinks.map((link) => <HeroSocialLink {...link} />)}
+      {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
     </div>
 
     <a href='#about' class='home__scroll'>

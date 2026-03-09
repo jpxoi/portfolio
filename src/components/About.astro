@@ -1,26 +1,7 @@
 ---
-import type { AboutInfo } from '../types'
+import { aboutInfo } from '../data/about'
 import AboutBox from './AboutBox.astro'
 import { STATIC_CONTENT_URL } from '../constants'
-
-const aboutInfo: AboutInfo[] = [
-  {
-    icon: 'bx bx-medal-alt about__icon',
-    title: 'Experience',
-    subtitle: '6+ Years Working',
-  },
-
-  {
-    icon: 'bx bx-briefcase-alt about__icon',
-    title: 'Completed',
-    subtitle: '30+ Projects',
-  },
-  {
-    icon: 'bx bxs-business about__icon',
-    title: 'Worked',
-    subtitle: '4+ Companies',
-  },
-]
 ---
 
 <section class='about section' id='about'>

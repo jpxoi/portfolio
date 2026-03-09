@@ -1,29 +1,10 @@
 ---
-const socialData = [
-  {
-    id: 1,
-    link: 'https://facebook.com/jpxoix',
-    icon: 'bxl bx-facebook',
-    alt: 'facebook social button',
-  },
-  {
-    id: 2,
-    link: 'https://instagram.com/jpxoi',
-    icon: 'bxl bx-instagram',
-    alt: 'instagram social button',
-  },
-  {
-    id: 3,
-    link: 'https://twitter.com/jpxoi',
-    icon: 'bxl bx-twitter',
-    alt: 'twitter social button',
-  },
-]
+import { footerSocialData } from '../data/socials'
 ---
 
 <ul class='footer__social'>
   {
-    socialData.map((social) => (
+    footerSocialData.map((social) => (
       <li>
         <a href={social.link} target='_blank' rel='noreferrer' class='footer__social-link' aria-label={social.alt}>
           <i class={social.icon} />
