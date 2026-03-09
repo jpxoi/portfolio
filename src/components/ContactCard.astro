@@ -1,12 +1,7 @@
 ---
-interface Props {
-  id: string
-  title: string
-  data: string
-  link: string
-  cta: string
-  icon: string
-}
+import type { Contact } from '../types'
+
+interface Props extends Contact {}
 
 const { id, title, data, link, cta, icon }: Props = Astro.props
 ---

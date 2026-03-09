@@ -1,63 +1,55 @@
 ---
+import type { Project } from '../types'
 import ProjectCard from './ProjectCard.astro'
-const STATIC_CONTENT_URL = 'https://cdn.jpxoi.com'
 
-const projects = [
+const projects: Project[] = [
   {
-    id: 'portf0',
+    id: 'yupay-dev',
+    title: 'Yupay — API de Datos Peruanos',
+    description:
+      'API REST para consultar datos peruanos en tiempo real. Permite obtener información de personas por DNI, empresas por RUC desde SUNAT, y tipo de cambio oficial de SUNAT y SBS. Construida con Hono sobre un backend rápido y base de datos edge con TursoDB.',
+    link: 'https://www.yupay.dev',
+    stack: ['ReactJS', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
+  },
+  {
+    id: 'onvoice',
+    title: 'Onvoice — Real-Time Lecture Transcription',
+    description:
+      'A platform for live speech transcription, real-time translation, and session sharing powered by AI. Hosts can go live in under 2 minutes, share a QR code for instant audience access, and receive AI-generated summaries with key points and engagement insights at the end of each session.',
+    link: 'https://beta.onvoice.uk',
+    stack: ['NextJS', 'TailwindCSS', 'TypeScript', 'PostgreSQL'],
+  },
+  {
+    id: 'pastoral-digital-app',
     title: 'Pastoral Digital App',
     description:
       'A web application designed to facilitate the management of pastoral activities, including event organization, member registration, and communication. The app is built using NextJS and TailwindCSS, ensuring a responsive and user-friendly experience',
-    img: `${STATIC_CONTENT_URL}/media/images/projects/portf0.webp`,
-    imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf0.avif`,
-    alt: 'Screenshot of Pastoral Digital App',
     link: 'https://pastoralid.jpxoi.com',
     github: 'https://github.com/jpxoi/pastoral-digital-app',
     stack: ['NextJS', 'TailwindCSS', 'PostgreSQL', 'TypeScript'],
   },
   {
-    id: 'portf1',
+    id: 'wa-transcriber',
+    title: 'WA Transcriber — Local WhatsApp Voice Note Transcription',
+    description:
+      'A privacy-focused CLI tool that automatically transcribes WhatsApp Desktop voice notes to your clipboard using OpenAI Whisper — entirely offline. Supports hardware acceleration via Apple Silicon MPS and NVIDIA CUDA, includes an interactive setup wizard, system health check to recommend the optimal Whisper model, and auto-cleanup of unused models to save disk space.',
+    github: 'https://github.com/jpxoi/wa-transcriber',
+    stack: ['Python'],
+  },
+  {
+    id: 'bg-landing',
     title: 'Bioeasy Galenos Landing Page',
     description:
       " A fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
-    img: `${STATIC_CONTENT_URL}/media/images/projects/portf1.webp`,
-    imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf1.avif`,
-    alt: 'Screenshot of Bioeasy Galenos Landing Page',
     link: 'https://bgmedicina.com',
     github: 'https://github.com/jpxoi/bioeasy-landing',
     stack: ['Astro', 'TailwindCSS', 'TypeScript', 'TursoDB'],
-  },
-  {
-    id: 'portf2',
-    title: 'Mokepon - Online Interactive Game',
-    description:
-      'An web-based game that offers a dynamic cast of characters for players to select from, each with their own set of characteristics and powers. The game challenges players to strategically utilize these abilities in battles against computer-controlled opponents, providing a thrilling and engaging gameplay experience',
-    img: `${STATIC_CONTENT_URL}/media/images/projects/portf2.webp`,
-    imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf2.avif`,
-    alt: 'Screenshot of Mokepon',
-    link: 'https://mokepon-fawn.vercel.app',
-    github: 'https://github.com/jpxoi/mokepon',
-    stack: ['HTML', 'CSS', 'JavaScript'],
-  },
-  {
-    id: 'portf3',
-    title: 'CryptoList - Cryptocurrency Tracker',
-    description: 'A cryptocurrency tracked built entirely on ReactJS, and connects to an API to get the latest data',
-    img: `${STATIC_CONTENT_URL}/media/images/projects/portf3.webp`,
-    imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf3.avif`,
-    alt: 'Screenshot of CryptoList',
-    link: 'https://cryptolist-jp.vercel.app',
-    github: 'https://github.com/jpxoi/cryptolist',
-    stack: ['ReactJS'],
   },
   {
     id: 'portf4',
     title: 'Chatsy - A Chat App built with Flask',
     description:
       'A web-based chat application that enables real-time communication between multiple clients in a chat room environment. The application allows users to create new chat rooms or join existing ones, exchange messages with other participants, and stay engaged in dynamic conversations',
-    img: `${STATIC_CONTENT_URL}/media/images/projects/portf4.webp`,
-    imgavif: `${STATIC_CONTENT_URL}/media/images/projects/portf4.avif`,
-    alt: 'Screenshot of Chatsy',
     github: 'https://github.com/jpxoi/chatsy',
     stack: ['Flask', 'Python'],
   },
@@ -68,17 +60,6 @@ const projects = [
   <span class='section__subtitle'>My Work</span>
   <h2 class='section__title'>Projects</h2>
   <div class='projects__container custom-container grid grid-cols-1 gap-6! lg:grid-cols-2'>
-    {
-      projects.map((project) => (
-        <ProjectCard
-          name={project.title}
-          description={project.description}
-          githubUrl={project.github}
-          websiteUrl={project.link ?? 'https://jpxoi.com'}
-          img={project.img}
-          stack={project.stack}
-        />
-      ))
-    }
+    {projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>

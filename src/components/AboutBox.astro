@@ -1,9 +1,7 @@
 ---
-interface Props {
-  icon: string
-  title: string
-  subtitle: string
-}
+import type { AboutInfo } from '../types'
+
+interface Props extends AboutInfo {}
 
 const { icon, title, subtitle }: Props = Astro.props
 ---

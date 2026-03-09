@@ -1,9 +1,9 @@
 ---
+import type { AboutInfo } from '../types'
 import AboutBox from './AboutBox.astro'
+import { STATIC_CONTENT_URL } from '../constants'
 
-const STATIC_CONTENT_URL = 'https://cdn.jpxoi.com'
-
-const aboutInfo = [
+const aboutInfo: AboutInfo[] = [
   {
     icon: 'bx bx-medal-alt about__icon',
     title: 'Experience',

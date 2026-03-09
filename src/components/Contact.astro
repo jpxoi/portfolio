@@ -1,6 +1,8 @@
 ---
 import ContactCard from './ContactCard.astro'
-const contactData = [
+import type { Contact } from '../types'
+
+const contactData: Contact[] = [
   {
     id: 'email-contact-card-icon',
     title: 'Email',
@@ -38,16 +40,7 @@ const contactData = [
       <div class='contact__info'>
         {
           contactData.map((contactCard) => {
-            return (
-              <ContactCard
-                id={contactCard.id}
-                title={contactCard.title}
-                data={contactCard.data}
-                link={contactCard.link}
-                cta={contactCard.cta}
-                icon={contactCard.icon}
-              />
-            )
+            return <ContactCard {...contactCard} />
           })
         }
       </div>
