@@ -1,12 +1,5 @@
 ---
-import '@fontsource/poppins/400.css'
-import '@fontsource/poppins/500.css'
-import '@fontsource/poppins/600.css'
-
-import poppins400Woff2 from '@fontsource/poppins/files/poppins-latin-400-normal.woff2?url'
-import poppins500Woff2 from '@fontsource/poppins/files/poppins-latin-500-normal.woff2?url'
-import poppins600Woff2 from '@fontsource/poppins/files/poppins-latin-600-normal.woff2?url'
-import '../styles/global.css'
+import { Font } from 'astro:assets'
 ---
 
 <html lang='en'>
@@ -31,9 +24,7 @@ import '../styles/global.css'
     <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet' />
     <link href='https://cdn.boxicons.com/3.0.3/fonts/brands/boxicons-brands.min.css' rel='stylesheet' />
 
-    <link rel='preload' as='font' type='font/woff2' href={poppins400Woff2} crossorigin='anonymous' />
-    <link rel='preload' as='font' type='font/woff2' href={poppins500Woff2} crossorigin='anonymous' />
-    <link rel='preload' as='font' type='font/woff2' href={poppins600Woff2} crossorigin='anonymous' />
+    <Font cssVariable='--font-poppins' preload />
 
     <!--=============== PRE-CONNECT ===============-->
     <link rel='preconnect' href='https://cdn.jpxoi.com' crossorigin />
