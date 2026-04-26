@@ -782,6 +782,15 @@ body.light-theme {
   cursor: pointer;
 }
 
+/* Next.js stack badge: monochrome on card hover (white in default/dark UI, black in light theme) */
+.project__card.group:hover .stack-badge--nextjs {
+  color: #ffffff;
+}
+
+.light-theme .project__card.group:hover .stack-badge--nextjs {
+  color: #000000;
+}
+
 .light-theme #flask-badge {
   color: #000;
 }

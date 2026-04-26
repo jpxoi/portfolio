@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description:
       'Full-stack loyalty platform for Fortuna Grifo, allowing customers to register purchases, validate CPE receipt data against SUNAT, track campaign entries, and manage participation in a grand-prize promotion. Includes member onboarding, a customer portal, and an admin dashboard for operations and compliance.',
     link: 'https://sorteo.fortuna.pe',
-    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'Neon', 'Upstash'],
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL', 'Redis'],
   },
   {
     id: 'onvoice',
@@ -37,10 +37,10 @@ export const projects: Project[] = [
     id: 'pastoral-digital-app',
     title: 'Pastoral Digital App — Digital ID & Attendance Platform',
     description:
-      'A Progressive Web App for the Pastoral Mariana community, giving catechists a digital profile, QR-based Pastoral Digital ID, and access to their attendance history for catechesis meetings and pastoral activities. Built with Next.js, Clerk authentication, PostgreSQL, Drizzle ORM, and Uploadthing.',
+      'A Progressive Web App for the Pastoral Mariana community, giving catechists a digital profile, QR-based Pastoral Digital ID, and access to their attendance history for catechesis meetings and pastoral activities. Built with Next.js, Clerk authentication, PostgreSQL, and Drizzle ORM.',
     link: 'https://id.pastoralmarianaps.net.pe',
     github: 'https://github.com/jpxoi/pastoral-digital-app',
-    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL', 'Uploadthing'],
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL'],
   },
   {
     id: 'bg-landing',

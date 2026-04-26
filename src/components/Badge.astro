@@ -10,25 +10,25 @@ const hoverColors: Record<string, string> = {
   JavaScript: 'group-hover:text-[#f7df1e]',
   TypeScript: 'group-hover:text-[#3178C6]',
   React: 'group-hover:text-[#61DAFB]',
-  NextJS: 'group-hover:text-[#0070F3]',
+  ReactJS: 'group-hover:text-[#61DAFB]',
   Python: 'group-hover:text-[#4584b6]',
   PostgreSQL: 'group-hover:text-[#336791]',
+  Redis: 'group-hover:text-[#DC382D]',
   TailwindCSS: 'group-hover:text-[#06b6d4]',
   Astro: 'group-hover:text-[#D83333]',
   TursoDB: 'group-hover:text-[#4FF8D2]',
   Vite: 'group-hover:text-[#646CFF]',
   Hono: 'group-hover:text-[#FF5B11]',
   Clerk: 'group-hover:text-[#6C47FF]',
-  'Drizzle ORM': 'group-hover:text-[#3FCF8E]',
-  Neon: 'group-hover:text-[#00E599]',
-  Upstash: 'group-hover:text-[#FF4E17]',
-  Uploadthing: 'group-hover:text-[#f04f88]',
+  'Drizzle ORM': 'group-hover:text-[#C5F74F]',
 }
 const hoverClass = hoverColors[text] ?? 'group-hover:text-foreground/90'
+const isNextJs = text === 'NextJS'
+const nextjsClasses = isNextJs ? 'stack-badge--nextjs' : ''
 ---
 
 <span
-  class={`max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal ${hoverClass}`}
+  class={`max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal ${isNextJs ? nextjsClasses : hoverClass}`}
 >
   {text}
 </span>
