@@ -18,11 +18,19 @@ export const projects: Project[] = [
     stack: ['NextJS', 'TailwindCSS', 'TypeScript', 'PostgreSQL'],
   },
   {
+    id: 'fortuna-raffle',
+    title: 'Fortuna Grifo — Frequent customer & loyalty program',
+    description:
+      'Loyalty and frequent-purchase program for Fortuna Grifo covering member onboarding and self-service registration of each purchase by entering CPE (electronic payment receipt) details from the point of sale, including document type, series, number, issue date, and amount, with automated validation against Peru’s tax authority (SUNAT) to award entries for the campaign’s grand-prize promotion, a member portal for tracking submissions, and an admin console for campaign operations and compliance.',
+    link: 'https://sorteo.fortuna.pe',
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'Neon', 'Upstash'],
+  },
+  {
     id: 'pastoral-digital-app',
     title: 'Pastoral Digital App',
     description:
       'A web application designed to facilitate the management of pastoral activities, including event organization, member registration, and communication. The app is built using NextJS and TailwindCSS, ensuring a responsive and user-friendly experience',
-    link: 'https://pastoralid.jpxoi.com',
+    link: 'https://id.pastoralmarianaps.net.pe',
     github: 'https://github.com/jpxoi/pastoral-digital-app',
     stack: ['NextJS', 'TailwindCSS', 'PostgreSQL', 'TypeScript'],
   },
