@@ -50,5 +50,5 @@ export const projects: Project[] = [
     link: 'https://bgmedicina.com',
     github: 'https://github.com/jpxoi/bioeasy-landing',
     stack: ['Astro', 'TailwindCSS', 'TypeScript', 'TursoDB'],
-  }
+  },
 ]
