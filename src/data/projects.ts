@@ -37,6 +37,7 @@ export const projects: Project[] = [
     title: 'prgen — AI Pull Request Generator',
     description:
       'Developer CLI that turns git diffs and recent commits into paste-ready pull request titles and bodies. Pluggable model backends, repo-local config and presets, and install via pip, pipx, or uv.',
+    link: 'https://pypi.org/project/prgen-cli',
     github: 'https://github.com/jpxoi/prgen',
     stack: ['Python', 'LLMs', 'OpenAI', 'Gemini', 'Ollama', 'CLI'],
   },
@@ -45,6 +46,7 @@ export const projects: Project[] = [
     title: 'WA Transcriber — Local WhatsApp Voice Note Transcription',
     description:
       'Privacy-focused CLI that watches WhatsApp Desktop voice notes, runs Whisper on-device, and copies transcripts to the clipboard, fully offline. Apple Silicon and CUDA acceleration, interactive setup, a model health check, and cleanup of unused weights to free disk space.',
+    link: 'https://pypi.org/project/wa-transcriber',
     github: 'https://github.com/jpxoi/wa-transcriber',
     stack: ['Python', 'OpenAI', 'CLI'],
   },
