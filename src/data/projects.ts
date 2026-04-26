@@ -50,13 +50,5 @@ export const projects: Project[] = [
     link: 'https://bgmedicina.com',
     github: 'https://github.com/jpxoi/bioeasy-landing',
     stack: ['Astro', 'TailwindCSS', 'TypeScript', 'TursoDB'],
-  },
-  {
-    id: 'portf4',
-    title: 'Chatsy - A Chat App built with Flask',
-    description:
-      'A web-based chat application that enables real-time communication between multiple clients in a chat room environment. The application allows users to create new chat rooms or join existing ones, exchange messages with other participants, and stay engaged in dynamic conversations',
-    github: 'https://github.com/jpxoi/chatsy',
-    stack: ['Flask', 'Python'],
-  },
+  }
 ]
