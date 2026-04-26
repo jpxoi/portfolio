@@ -12,7 +12,7 @@ export const aboutInfo: AboutInfo[] = [
     subtitle: '40 + Projects',
   },
   {
-    icon: 'bx bx-support about__icon',
+    icon: 'bx bx-help-circle about__icon',
     title: 'Support',
     subtitle: 'Online 24/7',
   },

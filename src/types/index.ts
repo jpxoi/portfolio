@@ -16,7 +16,6 @@ export interface AboutInfo {
 export interface Contact {
   id: string
   title: string
-  data: string
   link: string
   cta: string
   icon: string

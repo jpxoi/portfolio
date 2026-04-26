@@ -3,13 +3,12 @@ import type { Contact } from '../types'
 
 interface Props extends Contact {}
 
-const { id, title, data, link, cta, icon }: Props = Astro.props
+const { id, title, link, cta, icon }: Props = Astro.props
 ---
 
 <div class='contact__card'>
   <i id={id} class={`contact__card-icon ${icon}`}></i>
   <h4 class='contact__card-title'>{title}</h4>
-  <span class='contact__card-data'>{data}</span>
 
   <a href={link} target='_blank' rel='noreferrer' class='contact__button'>
     {cta}
