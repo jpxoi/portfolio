@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description:
       'REST API for querying Peruvian public data, including DNI lookup, RUC information from SUNAT, and official exchange rates from SUNAT and SBS. Built with Hono, TypeScript, and TursoDB for fast edge-based access.',
     link: 'https://www.yupay.dev',
-    stack: ['ReactJS', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
+    stack: ['React', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
   },
   {
     id: 'wa-transcriber',

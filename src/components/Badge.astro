@@ -4,12 +4,13 @@ interface Props {
 }
 const { text } = Astro.props
 
-const hoverColors = {
+const hoverColors: Record<string, string> = {
   HTML: 'group-hover:text-[#e34f26]',
   CSS: 'group-hover:text-[#264de4]',
   JavaScript: 'group-hover:text-[#f7df1e]',
   TypeScript: 'group-hover:text-[#3178C6]',
-  ReactJS: 'group-hover:text-[#61DAFB]',
+  React: 'group-hover:text-[#61DAFB]',
+  NextJS: 'group-hover:text-[#0070F3]',
   Python: 'group-hover:text-[#4584b6]',
   PostgreSQL: 'group-hover:text-[#336791]',
   TailwindCSS: 'group-hover:text-[#06b6d4]',
@@ -17,11 +18,17 @@ const hoverColors = {
   TursoDB: 'group-hover:text-[#4FF8D2]',
   Vite: 'group-hover:text-[#646CFF]',
   Hono: 'group-hover:text-[#FF5B11]',
-} as const
+  Clerk: 'group-hover:text-[#6C47FF]',
+  'Drizzle ORM': 'group-hover:text-[#3FCF8E]',
+  Neon: 'group-hover:text-[#00E599]',
+  Upstash: 'group-hover:text-[#FF4E17]',
+  Uploadthing: 'group-hover:text-[#f04f88]',
+}
+const hoverClass = hoverColors[text] ?? 'group-hover:text-foreground/90'
 ---
 
 <span
-  class={`max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal ${hoverColors[text as keyof typeof hoverColors]}`}
+  class={`max-w-max inline-block rounded-full px-2 py-0.5 text-xs font-bold uppercase tracking-normal ${hoverClass}`}
 >
   {text}
 </span>
