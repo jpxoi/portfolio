@@ -10,6 +10,13 @@ export const projects: Project[] = [
     stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL', 'Redis'],
   },
   {
+    id: 'apeula-app',
+    title: 'APEULA — Association Operations Platform',
+    description:
+      'Private full-stack platform for managing association operations, including associate registration, personal records, document storage, event check-in, attendance tracking, and printable attendee lists. Built with secure authentication, real-time form validation, PostgreSQL, Drizzle ORM, and Cloudflare R2.',
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL', 'Cloudflare'],
+  },
+  {
     id: 'onvoice',
     title: 'Onvoice — Real-Time Lecture Transcription',
     description:
@@ -26,12 +33,20 @@ export const projects: Project[] = [
     stack: ['React', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
   },
   {
+    id: 'prgen',
+    title: 'prgen — AI Pull Request Generator',
+    description:
+      'A developer CLI that generates pull request titles and descriptions from git diff and commit history. Supports OpenAI, Gemini, and Ollama providers, local configuration, model presets, and installation via pip, pipx, or uv.',
+    github: 'https://github.com/jpxoi/prgen',
+    stack: ['Python', 'LLMs', 'OpenAI', 'Gemini', 'Ollama', 'CLI'],
+  },
+  {
     id: 'wa-transcriber',
     title: 'WA Transcriber — Local WhatsApp Voice Note Transcription',
     description:
       'A privacy-focused CLI tool that automatically transcribes WhatsApp Desktop voice notes to your clipboard using OpenAI Whisper — entirely offline. Supports hardware acceleration via Apple Silicon MPS and NVIDIA CUDA, includes an interactive setup wizard, system health check to recommend the optimal Whisper model, and auto-cleanup of unused models to save disk space.',
     github: 'https://github.com/jpxoi/wa-transcriber',
-    stack: ['Python'],
+    stack: ['Python', 'OpenAI', 'CLI'],
   },
   {
     id: 'pastoral-digital-app',
