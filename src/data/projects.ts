@@ -2,12 +2,12 @@ import type { Project } from '../types'
 
 export const projects: Project[] = [
   {
-    id: 'yupay-dev',
-    title: 'Yupay — API de Datos Peruanos',
+    id: 'fortuna-raffle',
+    title: 'Fortuna Grifo — Loyalty & Campaign Management Platform',
     description:
-      'API REST para consultar datos peruanos en tiempo real. Permite obtener información de personas por DNI, empresas por RUC desde SUNAT, y tipo de cambio oficial de SUNAT y SBS. Construida con Hono sobre un backend rápido y base de datos edge con TursoDB.',
-    link: 'https://www.yupay.dev',
-    stack: ['ReactJS', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
+      'Full-stack loyalty platform for Fortuna Grifo, allowing customers to register purchases, validate CPE receipt data against SUNAT, track campaign entries, and manage participation in a grand-prize promotion. Includes member onboarding, a customer portal, and an admin dashboard for operations and compliance.',
+    link: 'https://sorteo.fortuna.pe',
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'Neon', 'Upstash'],
   },
   {
     id: 'onvoice',
@@ -18,21 +18,12 @@ export const projects: Project[] = [
     stack: ['NextJS', 'TailwindCSS', 'TypeScript', 'PostgreSQL'],
   },
   {
-    id: 'fortuna-raffle',
-    title: 'Fortuna Grifo — Frequent customer & loyalty program',
+    id: 'yupay-dev',
+    title: 'Yupay — Peruvian Data API',
     description:
-      'Loyalty and frequent-purchase program for Fortuna Grifo covering member onboarding and self-service registration of each purchase by entering CPE (electronic payment receipt) details from the point of sale, including document type, series, number, issue date, and amount, with automated validation against Peru’s tax authority (SUNAT) to award entries for the campaign’s grand-prize promotion, a member portal for tracking submissions, and an admin console for campaign operations and compliance.',
-    link: 'https://sorteo.fortuna.pe',
-    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'Neon', 'Upstash'],
-  },
-  {
-    id: 'pastoral-digital-app',
-    title: 'Pastoral Digital App',
-    description:
-      'A web application designed to facilitate the management of pastoral activities, including event organization, member registration, and communication. The app is built using NextJS and TailwindCSS, ensuring a responsive and user-friendly experience',
-    link: 'https://id.pastoralmarianaps.net.pe',
-    github: 'https://github.com/jpxoi/pastoral-digital-app',
-    stack: ['NextJS', 'TailwindCSS', 'PostgreSQL', 'TypeScript'],
+      'REST API for querying Peruvian public data, including DNI lookup, RUC information from SUNAT, and official exchange rates from SUNAT and SBS. Built with Hono, TypeScript, and TursoDB for fast edge-based access.',
+    link: 'https://www.yupay.dev',
+    stack: ['ReactJS', 'Vite', 'Hono', 'TailwindCSS', 'TypeScript', 'TursoDB'],
   },
   {
     id: 'wa-transcriber',
@@ -43,10 +34,19 @@ export const projects: Project[] = [
     stack: ['Python'],
   },
   {
+    id: 'pastoral-digital-app',
+    title: 'Pastoral Digital App — Digital ID & Attendance Platform',
+    description:
+      'A Progressive Web App for the Pastoral Mariana community, giving catechists a digital profile, QR-based Pastoral Digital ID, and access to their attendance history for catechesis meetings and pastoral activities. Built with Next.js, Clerk authentication, PostgreSQL, Drizzle ORM, and Uploadthing.',
+    link: 'https://id.pastoralmarianaps.net.pe',
+    github: 'https://github.com/jpxoi/pastoral-digital-app',
+    stack: ['NextJS', 'React', 'TypeScript', 'TailwindCSS', 'Clerk', 'Drizzle ORM', 'PostgreSQL', 'Uploadthing'],
+  },
+  {
     id: 'bg-landing',
     title: 'Bioeasy Galenos Landing Page',
     description:
-      " A fully functional and dynamic landing page that effectively showcases Bioeasy Galenos' commitment to excellence in preparing future healthcare professionals. Bioeasy Galenos is a leading academy in the medical education space",
+      'A responsive marketing website for Bioeasy Galenos, a medical education academy, built with Astro, React, and TailwindCSS. The site presents institutional information, programmes, and lead-generation content with a fast, content-focused frontend.',
     link: 'https://bgmedicina.com',
     github: 'https://github.com/jpxoi/bioeasy-landing',
     stack: ['Astro', 'TailwindCSS', 'TypeScript', 'TursoDB'],
