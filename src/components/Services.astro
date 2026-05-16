@@ -7,7 +7,7 @@ import ServiceCard from './ServiceCard.astro'
   <span class='section__subtitle'>My Services</span>
   <h2 class='section__title'>What I Offer</h2>
 
-  <div class='services__container custom-container grid'>
+  <div class='services__container custom-container grid gap-5!'>
     {
       services.map((service) => (
         <ServiceCard title={service.title} description={service.description} items={service.items} />
