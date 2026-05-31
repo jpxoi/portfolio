@@ -1,4 +1,4 @@
-import { Facebook, Github, Instagram, Linkedin, LinkedinSquare, Twitter } from '@boxicons/react'
+import { Facebook, Github, Instagram, Linkedin, LinkedinSquare, Twitter, TwitterX } from '@boxicons/react'
 
 export const heroSocialLinks = [
   {
@@ -16,20 +16,20 @@ export const heroSocialLinks = [
 export const footerSocialData = [
   {
     id: 1,
-    link: 'https://facebook.com/jpxoix',
-    icon: Facebook,
-    alt: 'facebook social button',
+    link: 'https://linkedin.com/in/jpxoi',
+    icon: LinkedinSquare,
+    alt: 'LinkedIn',
   },
   {
     id: 2,
-    link: 'https://instagram.com/jpxoi',
-    icon: Instagram,
-    alt: 'instagram social button',
+    link: 'https://github.com/jpxoi',
+    icon: Github,
+    alt: 'GitHub',
   },
   {
     id: 3,
     link: 'https://twitter.com/jpxoi',
-    icon: Twitter,
-    alt: 'twitter social button',
+    icon: TwitterX,
+    alt: 'Twitter',
   },
 ]
