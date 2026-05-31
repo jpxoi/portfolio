@@ -1,6 +1,21 @@
 ---
 import '../styles/global.css'
 import { Font } from 'astro:assets'
+
+const site = {
+  name: 'Jean Paul Fernandez',
+  title: 'Jean Paul Fernandez — Full-Stack Software Engineer',
+  description:
+    'Full-stack software engineer and Computer Science student at The University of Manchester, focused on building scalable web platforms, AI-powered applications and cloud-based digital products for real-world business needs.',
+  url: 'https://jpxoi.com/',
+  domain: 'jpxoi.com',
+  image: 'https://cdn.jpxoi.com/media/uploads/social-card.webp',
+  imageAlt: "Preview of Jean Paul Fernandez's website",
+  author: 'Jean Paul Fernandez',
+  handle: '@jpxoi',
+  keywords:
+    'Jean Paul Fernandez, software engineer, full-stack software engineer, full-stack developer, computer science student, University of Manchester, Next.js developer, TypeScript developer, Python developer, AI applications, web development, backend systems, cloud infrastructure, product engineering',
+}
 ---
 
 <html lang='en'>
@@ -31,44 +46,35 @@ import { Font } from 'astro:assets'
     <link rel='preconnect' href='https://cdn.jpxoi.com' crossorigin />
 
     <!--=============== SEO ===============-->
-    <link rel='canonical' href='https://jpxoi.com/' />
+    <link rel='canonical' href={site.url} />
 
     <!-- HTML Meta Tags -->
-    <title>Jean Paul Fernandez — Software Engineer</title>
-    <meta
-      name='description'
-      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
-    />
-    <meta name='keywords' content='jean paul fernandez, software engineer, frontend, developer, designer, responsive' />
-    <meta name='author' content='Jean Paul Fernandez' />
-    <meta name='copyright' content='Jean Paul Fernandez' />
+    <title>{site.title}</title>
+    <meta name='description' content={site.description} />
+    <meta name='keywords' content={site.keywords} />
+    <meta name='author' content={site.author} />
+    <meta name='copyright' content={site.author} />
 
-    <!-- Facebook Meta Tags -->
-    <meta property='og:url' content='https://jpxoi.com/' />
+    <!-- Facebook / Open Graph Meta Tags -->
+    <meta property='og:url' content={site.url} />
     <meta property='og:type' content='website' />
-    <meta property='og:title' content='Jean Paul Fernandez — Software Engineer' />
-    <meta
-      property='og:description'
-      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
-    />
-    <meta property='og:image' content='https://cdn.jpxoi.com/media/uploads/social-card.webp' />
-    <meta property='og:image:alt' content="Preview of Jean Paul Fernandez's website" />
+    <meta property='og:title' content={site.title} />
+    <meta property='og:description' content={site.description} />
+    <meta property='og:image' content={site.image} />
+    <meta property='og:image:alt' content={site.imageAlt} />
     <meta property='fb:app_id' content='4247685185353137' />
     <meta name='facebook-domain-verification' content='i9ntff10jcz1nlu4myciodpcr6trdv' />
 
     <!-- Twitter Meta Tags -->
     <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:domain' content='jpxoi.com' />
-    <meta property='twitter:url' content='https://jpxoi.com' />
-    <meta name='twitter:title' content='Jean Paul Fernandez — Software Engineer' />
-    <meta
-      name='twitter:description'
-      content='Software Engineer, Frontend Developer, and UI/UX Designer. Join me on a cutting-edge journey, where my ambitious spirit and self-taught expertise converge to craft visually stunning, tech-innovative projects.'
-    />
-    <meta name='twitter:image' content='https://cdn.jpxoi.com/media/uploads/social-card.webp' />
-    <meta name='twitter:image:alt' content="Preview of Jean Paul Fernandez's website" />
-    <meta name='twitter:site' content='@jpxoi' />
-    <meta name='twitter:creator' content='@jpxoi' />
+    <meta name='twitter:domain' content={site.domain} />
+    <meta name='twitter:url' content={site.url} />
+    <meta name='twitter:title' content={site.title} />
+    <meta name='twitter:description' content={site.description} />
+    <meta name='twitter:image' content={site.image} />
+    <meta name='twitter:image:alt' content={site.imageAlt} />
+    <meta name='twitter:site' content={site.handle} />
+    <meta name='twitter:creator' content={site.handle} />
   </head>
   <body>
     <slot />
