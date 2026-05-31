@@ -14,7 +14,7 @@ const { title, description, items }: Props = Astro.props
 ---
 
 <div class='services__card'>
-  <h3 class='services__title text-balance'>{title}</h3>
+  <h3 class='mb-10 text-(length:--h3-font-size) text-balance'>{title}</h3>
 
   <span class='group services__button'>
     See More <ArrowRightStroke
@@ -35,7 +35,7 @@ const { title, description, items }: Props = Astro.props
             items.map(({ title, description }) => (
               <li class='flex items-start gap-x-2'>
                 <CheckCircle className='size-5 min-w-5' color='var(--first-color)' />
-                <p class='services__modal-info text-pretty'>
+                <p class='text-(length:--small-font-size) text-pretty'>
                   <b>{title}:</b> {description}
                 </p>
               </li>
