@@ -21,7 +21,7 @@ const isPrivate = !hasLiveLink && !hasGithubLink
   class='group project__card flex h-full w-full flex-col gap-6 rounded-lg p-4 transition-all duration-200 ease-in-out hover:scale-102 hover:shadow-sm'
 >
   <div class='flex flex-1 flex-col gap-3!'>
-    <div class='relative overflow-hidden rounded-lg'>
+    <div class='relative aspect-video overflow-hidden rounded-lg'>
       <picture>
         <source srcset={imgAvif} type='image/avif' />
         <source srcset={imgWebp} type='image/webp' />
@@ -31,6 +31,7 @@ const isPrivate = !hasLiveLink && !hasGithubLink
           width={1920}
           height={1080}
           class='h-full w-full rounded-lg object-cover transition-opacity duration-200 ease-in-out group-hover:opacity-50'
+          loading='lazy'
         />
       </picture>
       {
