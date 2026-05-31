@@ -2,6 +2,7 @@
 import { heroSocialLinks } from '../data/socials'
 import { STATIC_CONTENT_URL } from '../constants'
 import HeroSocialLink from './HeroSocialLink.astro'
+import { Mouse } from '@boxicons/react'
 
 const imgAvif = `${STATIC_CONTENT_URL}/media/images/profile/profile.avif`
 const imgWebp = `${STATIC_CONTENT_URL}/media/images/profile/profile.webp`
@@ -17,9 +18,9 @@ const imgFallback = imgWebp
 
       <div class='home__buttons'>
         <a
-          download=''
-          href={`${STATIC_CONTENT_URL}/pdf/cv.pdf`}
+          href={`${STATIC_CONTENT_URL}/pdf/Jean_Paul_Fernandez_CV.pdf`}
           target='_blank'
+          download='Jean_Paul_Fernandez_CV.pdf'
           rel='noreferrer'
           class='button button--ghost'
         >
@@ -51,13 +52,13 @@ const imgFallback = imgWebp
     </div>
 
     <a href='#about' class='home__scroll'>
-      <i class='bx bx-mouse home__scroll-icon'></i>
+      <Mouse className='size-6' />
       <span class='home__scroll-name'>Scroll Down</span>
     </a>
   </div>
 </section>
 <script>
-  const headerTexts = ['Software Engineer', 'Frontend Developer', 'Backend Developer']
+  const headerTexts = ['Software Engineer', 'Full-stack Developer', 'AI Engineer']
 
   const dynamicHeader = document.getElementById('dynamic-header') as HTMLElement
 
