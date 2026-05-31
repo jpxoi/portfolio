@@ -4,7 +4,7 @@ import NavMenuItem from './NavMenuItem.astro'
 ---
 
 <div class='nav__menu'>
-  <ul class='nav__list'>
+  <ul class='flex items-center justify-between'>
     {NAV_ITEMS.map((item) => <NavMenuItem {...item} />)}
   </ul>
 </div>
