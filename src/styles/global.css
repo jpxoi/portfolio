@@ -749,10 +749,7 @@ body.light-theme {
 }
 
 .footer__copy {
-  display: block;
-  margin-top: 4.5rem;
   color: #fff;
-  text-align: center;
   font-size: var(--smaller-font-size);
 }
 
