@@ -3,6 +3,8 @@ import { defineConfig, fontProviders } from 'astro/config'
 
 import tailwindcss from '@tailwindcss/vite'
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -23,5 +25,7 @@ export default defineConfig({
   redirects: {
     '/billing': 'https://billing.stripe.com/p/login/14k3ez8zT1YR6qcfYY',
   },
+
   prefetch: true,
+  integrations: [react()],
 })
