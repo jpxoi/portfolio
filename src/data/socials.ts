@@ -1,4 +1,4 @@
-import { Facebook, Github, Instagram, Linkedin, LinkedinSquare, Twitter, TwitterX } from '@boxicons/react'
+import { Github, LinkedinSquare, TwitterX } from '@boxicons/react'
 
 export const heroSocialLinks = [
   {
