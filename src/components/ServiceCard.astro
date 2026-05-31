@@ -1,4 +1,6 @@
 ---
+import { ArrowRightStroke, CheckCircle, X } from '@boxicons/react'
+
 interface Props {
   title: string
   description: string
@@ -14,23 +16,25 @@ const { title, description, items }: Props = Astro.props
 <div class='services__card'>
   <h3 class='services__title text-balance'>{title}</h3>
 
-  <span class='services__button'>
-    See More <i class='bx bx-arrow-right-stroke services__icon'></i>
+  <span class='group services__button'>
+    See More <ArrowRightStroke
+      className='size-5 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5'
+    />
   </span>
 
   <div class='services__modal'>
     <div class='services__modal-content max-h-[90dvh]'>
-      <i class='bx bx-x services__modal-close'></i>
+      <X className='absolute top-6 right-6 size-5 cursor-pointer' color='var(--first-color)' />
       <div class='max-h-[75dvh] overflow-scroll'>
         <h4 class='services__modal-title'>{title}</h4>
 
         <p class='services__modal-description text-pretty'>{description}</p>
 
-        <ul class='services__modal-list'>
+        <ul class='grid gap-y-3'>
           {
-            items.map((item, index) => (
-              <li class='services__modal-item'>
-                <i class='bx bx-check services__modal-icon' />
+            items.map(({ title, description }) => (
+              <li class='flex items-start gap-x-2'>
+                <CheckCircle className='size-5 min-w-5' color='var(--first-color)' />
                 <p class='services__modal-info text-pretty'>
                   <b>{title}:</b> {description}
                 </p>
