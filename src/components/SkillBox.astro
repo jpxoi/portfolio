@@ -31,38 +31,19 @@ const { title, skills }: Props = Astro.props
   </div>
 </div>
 <script>
-  function updateSkillBoxesOnLoad() {
-    const currentTheme = localStorage.getItem('selected-theme')
-    if (currentTheme === 'light') {
-      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
-      skillBoxes.forEach((skillBox) => {
-        skillBox.src = skillBox.getAttribute('data-alticon') || skillBox.src
-      })
-    } else {
-      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
-      skillBoxes.forEach((skillBox) => {
-        skillBox.src = skillBox.getAttribute('data-icon') || skillBox.src
-      })
-    }
+  import { getTheme, subscribeToTheme } from '../lib/theme'
+
+  function updateSkillBoxes() {
+    const useAltIcon = getTheme() === 'light'
+    const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
+
+    skillBoxes.forEach((skillBox) => {
+      skillBox.src = useAltIcon
+        ? skillBox.getAttribute('data-alticon') || skillBox.src
+        : skillBox.getAttribute('data-icon') || skillBox.src
+    })
   }
 
-  function updateSkillBoxesOnThemeChange() {
-    const currentTheme = localStorage.getItem('selected-theme')
-    if (currentTheme === 'light') {
-      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
-      skillBoxes.forEach((skillBox) => {
-        skillBox.src = skillBox.getAttribute('data-icon') || skillBox.src
-      })
-    } else {
-      const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
-      skillBoxes.forEach((skillBox) => {
-        skillBox.src = skillBox.getAttribute('data-alticon') || skillBox.src
-      })
-    }
-  }
-
-  const themeElement = document.getElementById('theme-button')
-
-  updateSkillBoxesOnLoad()
-  themeElement?.addEventListener('click', updateSkillBoxesOnThemeChange)
+  updateSkillBoxes()
+  subscribeToTheme(updateSkillBoxes)
 </script>
