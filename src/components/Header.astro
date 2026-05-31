@@ -6,13 +6,14 @@ interface Props {
 const { variant = 'default' }: Props = Astro.props
 import NavLogo from './NavLogo.astro'
 import NavMenu from './NavMenu.astro'
+import ThemeToggle from './ThemeToggle'
 ---
 
 <header class='header' id='header'>
   <nav class='nav custom-container'>
     <NavLogo variant={variant} />
     {variant === 'default' ? <NavMenu /> : null}
-    <i class='bx bx-moon change-theme' id='theme-button'></i>
+    <ThemeToggle client:load />
   </nav>
 </header>
 <script>
