@@ -9,7 +9,7 @@ import NavMenu from './NavMenu.astro'
 import ThemeToggle from './ThemeToggle'
 ---
 
-<header class='header' id='header'>
+<header class='fixed top-0 left-0 z-(--z-fixed) w-full bg-(--body-color) transition duration-400' id='header'>
   <nav class='nav custom-container'>
     <NavLogo variant={variant} />
     {variant === 'default' ? <NavMenu /> : null}
