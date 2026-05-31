@@ -3,6 +3,10 @@ import Layout from '../layouts/Layout.astro'
 import '../styles/p404.css'
 import Header from '../components/Header.astro'
 import { STATIC_CONTENT_URL } from '../constants'
+
+const imgAvif = `${STATIC_CONTENT_URL}/media/images/resources/ghost-img.avif`
+const imgWebp = `${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`
+const imgFallback = imgWebp
 ---
 
 <Layout>
@@ -21,9 +25,9 @@ import { STATIC_CONTENT_URL } from '../constants'
 
         <div class='p404__img'>
           <picture>
-            <source srcset={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.avif`} type='image/avif' />
-            <source srcset={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} type='image/webp' />
-            <img src={`${STATIC_CONTENT_URL}/media/images/resources/ghost-img.webp`} alt='Ghost Image' />
+            <source srcset={imgAvif} type='image/avif' />
+            <source srcset={imgWebp} type='image/webp' />
+            <img src={imgFallback} alt='Ghost Image' width={500} height={500} />
           </picture>
           <div class='p404__shadow'></div>
         </div>

@@ -2,6 +2,10 @@
 import { heroSocialLinks } from '../data/socials'
 import { STATIC_CONTENT_URL } from '../constants'
 import HeroSocialLink from './HeroSocialLink.astro'
+
+const imgAvif = `${STATIC_CONTENT_URL}/media/images/profile/profile.avif`
+const imgWebp = `${STATIC_CONTENT_URL}/media/images/profile/profile.webp`
+const imgFallback = imgWebp
 ---
 
 <section class='home section' id='home'>
@@ -28,12 +32,12 @@ import HeroSocialLink from './HeroSocialLink.astro'
 
     <div class='home__handle'>
       <picture class='home__img'>
-        <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/profile.avif`} type='image/avif' />
-        <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/profile.webp`} type='image/webp' />
+        <source srcset={imgAvif} type='image/avif' />
+        <source srcset={imgWebp} type='image/webp' />
         <img
           loading='eager'
           fetchpriority='high'
-          src={`${STATIC_CONTENT_URL}/media/images/profile/profile.webp`}
+          src={imgFallback}
           alt='Stand up Memoji of Jean Paul Fernandez'
           class='home__img'
           width={220}

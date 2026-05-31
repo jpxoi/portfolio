@@ -2,6 +2,10 @@
 import { aboutInfo } from '../data/about'
 import AboutBox from './AboutBox.astro'
 import { STATIC_CONTENT_URL } from '../constants'
+
+const imgAvif = `${STATIC_CONTENT_URL}/media/images/profile/about.avif`
+const imgWebp = `${STATIC_CONTENT_URL}/media/images/profile/about.webp`
+const imgFallback = imgWebp
 ---
 
 <section class='about section' id='about'>
@@ -9,15 +13,9 @@ import { STATIC_CONTENT_URL } from '../constants'
 
   <div class='about__container custom-container grid gap-5!'>
     <picture class='about__img'>
-      <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/about.avif`} type='image/avif' />
-      <source srcset={`${STATIC_CONTENT_URL}/media/images/profile/about.webp`} type='image/webp' />
-      <img
-        loading='lazy'
-        src={`${STATIC_CONTENT_URL}/media/images/profile/about.webp`}
-        alt='Memoji of Jean Paul Fernandez'
-        width={350}
-        height={350}
-      />
+      <source srcset={imgAvif} type='image/avif' />
+      <source srcset={imgWebp} type='image/webp' />
+      <img loading='lazy' src={imgFallback} alt='Memoji of Jean Paul Fernandez' width={350} height={350} />
     </picture>
     <div class='about__data'>
       <div class='about__info'>

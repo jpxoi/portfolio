@@ -8,7 +8,10 @@ interface Props extends Project {}
 
 const { id, title, description, link, github, stack } = Astro.props
 
-const img = `${STATIC_CONTENT_URL}/media/images/projects/${id}.webp`
+const imgAvif = `${STATIC_CONTENT_URL}/media/images/projects/${id}.avif`
+const imgWebp = `${STATIC_CONTENT_URL}/media/images/projects/${id}.webp`
+const imgFallback = imgWebp
+
 const hasLiveLink = Boolean(link)
 const hasGithubLink = Boolean(github)
 const isPrivate = !hasLiveLink && !hasGithubLink
@@ -19,14 +22,17 @@ const isPrivate = !hasLiveLink && !hasGithubLink
 >
   <div class='flex flex-1 flex-col gap-3!'>
     <div class='relative overflow-hidden rounded-lg'>
-      <Image
-        src={img}
-        alt={title}
-        width={1920}
-        height={1080}
-        class='h-full w-full rounded-lg object-cover transition-opacity duration-200 ease-in-out group-hover:opacity-50'
-      />
-
+      <picture>
+        <source srcset={imgAvif} type='image/avif' />
+        <source srcset={imgWebp} type='image/webp' />
+        <img
+          src={imgFallback}
+          alt={title}
+          width={1920}
+          height={1080}
+          class='h-full w-full rounded-lg object-cover transition-opacity duration-200 ease-in-out group-hover:opacity-50'
+        />
+      </picture>
       {
         !isPrivate ? (
           <div class='absolute inset-0 flex items-center justify-center gap-3! opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100'>
