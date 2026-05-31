@@ -1,9 +1,11 @@
 import type { BoxIconProps } from '@boxicons/react'
 
+export type BoxIcon = React.ForwardRefExoticComponent<BoxIconProps & React.RefAttributes<SVGSVGElement>>
+
 export interface NavItem {
   route: string
   alt: string
-  icon: React.ForwardRefExoticComponent<BoxIconProps & React.RefAttributes<SVGSVGElement>>
+  icon: BoxIcon
   defaultActive?: boolean
 }
 
@@ -17,7 +19,7 @@ export interface Project {
 }
 
 export interface AboutInfo {
-  icon: React.ForwardRefExoticComponent<BoxIconProps & React.RefAttributes<SVGSVGElement>>
+  icon: BoxIcon
   title: string
   subtitle: string
 }
@@ -27,7 +29,7 @@ export interface Contact {
   title: string
   link: string
   cta: string
-  icon: React.ForwardRefExoticComponent<BoxIconProps & React.RefAttributes<SVGSVGElement>>
+  icon: BoxIcon
 }
 
 export interface FooterSocial {
@@ -35,4 +37,10 @@ export interface FooterSocial {
   title: string
   link: string
   target_blank: boolean
+}
+
+export interface HeroSocialLink {
+  route: string
+  icon: BoxIcon
+  aria_label: string
 }
