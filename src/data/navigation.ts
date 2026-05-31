@@ -1,28 +1,31 @@
-export const NAV_ITEMS = [
+import { Book, CodeAlt, HomeAlt, PaperPlane, User } from '@boxicons/react'
+import type { NavItem } from '../types'
+
+export const NAV_ITEMS: NavItem[] = [
   {
     route: '#home',
     alt: 'home button',
-    icon: 'bx bx-home-alt size-5 aspect-square',
+    icon: HomeAlt,
     defaultActive: true,
   },
   {
     route: '#about',
     alt: 'about button',
-    icon: 'bx bx-user size-5 aspect-square',
+    icon: User,
   },
   {
     route: '#projects',
     alt: 'projects button',
-    icon: 'bx bx-code-alt size-5 aspect-square',
+    icon: CodeAlt,
   },
   {
     route: '#skills',
     alt: 'skills button',
-    icon: 'bx bx-book size-5 aspect-square',
+    icon: Book,
   },
   {
     route: '#contact',
     alt: 'contact button',
-    icon: 'bx bx-paper-plane size-5 aspect-square',
+    icon: PaperPlane,
   },
 ]
