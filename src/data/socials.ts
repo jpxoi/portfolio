@@ -11,11 +11,6 @@ export const heroSocialLinks = [
     icon: Github,
     aria_label: 'GitHub',
   },
-  {
-    route: 'https://instagram.com/jpxoi',
-    icon: Instagram,
-    aria_label: 'Instagram',
-  },
 ]
 
 export const footerSocialData = [
