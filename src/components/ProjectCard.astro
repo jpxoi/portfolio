@@ -1,6 +1,6 @@
 ---
-import { Image } from 'astro:assets'
 import Badge from './Badge.astro'
+import { Globe, Github } from '@boxicons/react'
 import type { Project } from '../types'
 import { STATIC_CONTENT_URL } from '../constants'
 
@@ -44,7 +44,7 @@ const isPrivate = !hasLiveLink && !hasGithubLink
                 aria-label={`Open live project: ${title}`}
                 class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
               >
-                <i class='bx bx-globe text-xl' />
+                <Globe className='size-5' />
               </a>
             )}
 
@@ -56,7 +56,7 @@ const isPrivate = !hasLiveLink && !hasGithubLink
                 aria-label={`Open GitHub repository: ${title}`}
                 class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
               >
-                <i class='bxl bx-github text-xl' />
+                <Github className='size-5' />
               </a>
             )}
           </div>
