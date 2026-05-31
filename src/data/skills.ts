@@ -1,4 +1,4 @@
-import { STATIC_CONTENT_URL } from '../constants'
+import { THE_SVG_CDN_URL } from '../constants'
 
 export const skillsData = [
   {
@@ -6,44 +6,44 @@ export const skillsData = [
     skills: [
       {
         name: 'HTML',
-        icon: `${STATIC_CONTENT_URL}/icons/html5.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/html5/default.svg`,
       },
       {
         name: 'CSS',
-        icon: `${STATIC_CONTENT_URL}/icons/css.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/css/default.svg`,
       },
       {
         name: 'JavaScript',
-        icon: `${STATIC_CONTENT_URL}/icons/javascript.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/javascript/default.svg`,
       },
       {
         name: 'TypeScript',
-        icon: `${STATIC_CONTENT_URL}/icons/typescript.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/typescript/default.svg`,
       },
       {
         name: 'TailwindCSS',
-        icon: `${STATIC_CONTENT_URL}/icons/tailwindcss.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/tailwind-css/default.svg`,
       },
       {
         name: 'React',
-        icon: `${STATIC_CONTENT_URL}/icons/react.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/react/default.svg`,
       },
       {
         name: 'NextJS',
-        icon: `${STATIC_CONTENT_URL}/icons/nextjs.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/nextdotjs/default.svg`,
       },
       {
         name: 'Astro',
-        icon: `${STATIC_CONTENT_URL}/icons/Astro_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/Astro_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/astro/light.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/astro/default.svg`,
       },
       {
         name: 'Vite',
-        icon: `${STATIC_CONTENT_URL}/icons/vitejs.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/vite/default.svg`,
       },
       {
         name: 'Flutter',
-        icon: `${STATIC_CONTENT_URL}/icons/flutter.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/flutter/default.svg`,
       },
     ],
   },
@@ -52,53 +52,53 @@ export const skillsData = [
     skills: [
       {
         name: 'NodeJS',
-        icon: `${STATIC_CONTENT_URL}/icons/nodejs.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/nodedotjs/default.svg`,
       },
       {
         name: 'ExpressJS',
-        icon: `${STATIC_CONTENT_URL}/icons/Express.js_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/Express.js_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/express/default.svg`,
       },
       {
         name: 'NestJS',
-        icon: `${STATIC_CONTENT_URL}/icons/nestjs.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/nestjs/default.svg`,
       },
       {
         name: 'FastAPI',
-        icon: `${STATIC_CONTENT_URL}/icons/fastapi.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/fastapi/default.svg`,
       },
       {
         name: 'Flask',
-        icon: `${STATIC_CONTENT_URL}/icons/Flask_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/Flask_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/flask/light.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/flask/default.svg`,
       },
       {
         name: 'Django',
-        icon: `${STATIC_CONTENT_URL}/icons/django.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/django/default.svg`,
       },
       {
         name: 'Laravel',
-        icon: `${STATIC_CONTENT_URL}/icons/laravel.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/laravel/default.svg`,
       },
       {
         name: 'MySQL',
-        icon: `${STATIC_CONTENT_URL}/icons/mysql.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/mysql/light.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/mysql/default.svg`,
       },
       {
         name: 'PostgreSQL',
-        icon: `${STATIC_CONTENT_URL}/icons/postgresql.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/postgresql/default.svg`,
       },
       {
         name: 'Redis',
-        icon: `${STATIC_CONTENT_URL}/icons/redis.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/redis/default.svg`,
       },
       {
         name: 'Supabase',
-        icon: `${STATIC_CONTENT_URL}/icons/supabase.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/supabase/default.svg`,
       },
       {
         name: 'Firebase',
-        icon: `${STATIC_CONTENT_URL}/icons/firebase.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/firebase/default.svg`,
       },
     ],
   },
@@ -107,40 +107,41 @@ export const skillsData = [
     skills: [
       {
         name: 'Python',
-        icon: `${STATIC_CONTENT_URL}/icons/python.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/python/default.svg`,
       },
       {
         name: 'Java',
-        icon: `${STATIC_CONTENT_URL}/icons/java.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/java/default.svg`,
       },
       {
         name: 'C',
-        icon: `${STATIC_CONTENT_URL}/icons/c.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/c/default.svg`,
       },
       {
         name: 'C++',
-        icon: `${STATIC_CONTENT_URL}/icons/c-plusplus.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/cplusplus/default.svg`,
       },
       {
         name: 'C#',
-        icon: `${STATIC_CONTENT_URL}/icons/csharp.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/csharp/default.svg`,
       },
       {
         name: 'Go',
-        icon: `${STATIC_CONTENT_URL}/icons/go.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/go/light.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/go/default.svg`,
       },
       {
         name: 'PHP',
-        icon: `${STATIC_CONTENT_URL}/icons/Php_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/Php_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/php/light.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/php/default.svg`,
       },
       {
         name: 'Swift',
-        icon: `${STATIC_CONTENT_URL}/icons/swift.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/swift/default.svg`,
       },
       {
         name: 'Kotlin',
-        icon: `${STATIC_CONTENT_URL}/icons/kotlin.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/kotlin/default.svg`,
       },
     ],
   },
@@ -149,33 +150,31 @@ export const skillsData = [
     skills: [
       {
         name: 'Git',
-        icon: `${STATIC_CONTENT_URL}/icons/git.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/git/default.svg`,
       },
       {
         name: 'Docker',
-        icon: `${STATIC_CONTENT_URL}/icons/docker.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/docker/default.svg`,
       },
       {
         name: 'Linux',
-        icon: `${STATIC_CONTENT_URL}/icons/linux.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/linux/default.svg`,
       },
       {
         name: 'AWS',
-        icon: `${STATIC_CONTENT_URL}/icons/aws_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/aws_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/aws/default.svg`,
       },
       {
         name: 'Azure',
-        icon: `${STATIC_CONTENT_URL}/icons/azure.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/azure-azure-a/default.svg`,
       },
       {
         name: 'Cloudflare',
-        icon: `${STATIC_CONTENT_URL}/icons/cloudflare.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/cloudflare/default.svg`,
       },
       {
         name: 'Drizzle',
-        icon: `${STATIC_CONTENT_URL}/icons/drizzle_light.svg`,
-        alticon: `${STATIC_CONTENT_URL}/icons/drizzle_dark.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/drizzle/default.svg`,
       },
     ],
   },
