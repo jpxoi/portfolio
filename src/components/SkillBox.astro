@@ -16,14 +16,14 @@ const { title, skills }: Props = Astro.props
   <div class='skills__box flex flex-wrap gap-y-8'>
     {
       skills.map((skill) => (
-        <div id={skill.name} class='skills__data group flex h-12 w-12 items-center justify-center'>
+        <div id={skill.name} class='skills__data group flex aspect-square size-12 items-center justify-center'>
           <img
             loading='lazy'
             data-icon={skill.icon}
             data-alticon={skill.alticon}
             src={skill.icon}
             alt={skill.name}
-            class='skills__img size-auto max-h-10 max-w-10 drop-shadow-sm group-hover:drop-shadow-xl'
+            class='size-full max-h-10 max-w-10 drop-shadow-sm group-hover:drop-shadow-xl'
           />
         </div>
       ))
