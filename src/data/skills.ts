@@ -34,8 +34,8 @@ export const skillsData = [
       },
       {
         name: 'Astro',
-        icon: `${THE_SVG_CDN_URL}/icons/astro/light.svg`,
-        alticon: `${THE_SVG_CDN_URL}/icons/astro/default.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/astro/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/astro/light.svg`,
       },
       {
         name: 'Vite',
@@ -68,8 +68,8 @@ export const skillsData = [
       },
       {
         name: 'Flask',
-        icon: `${THE_SVG_CDN_URL}/icons/flask/light.svg`,
-        alticon: `${THE_SVG_CDN_URL}/icons/flask/default.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/flask/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/flask/light.svg`,
       },
       {
         name: 'Django',
@@ -81,8 +81,8 @@ export const skillsData = [
       },
       {
         name: 'MySQL',
-        icon: `${THE_SVG_CDN_URL}/icons/mysql/light.svg`,
-        alticon: `${THE_SVG_CDN_URL}/icons/mysql/default.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/mysql/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/mysql/light.svg`,
       },
       {
         name: 'PostgreSQL',
@@ -127,13 +127,13 @@ export const skillsData = [
       },
       {
         name: 'Go',
-        icon: `${THE_SVG_CDN_URL}/icons/go/light.svg`,
-        alticon: `${THE_SVG_CDN_URL}/icons/go/default.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/go/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/go/light.svg`,
       },
       {
         name: 'PHP',
-        icon: `${THE_SVG_CDN_URL}/icons/php/light.svg`,
-        alticon: `${THE_SVG_CDN_URL}/icons/php/default.svg`,
+        icon: `${THE_SVG_CDN_URL}/icons/php/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/php/light.svg`,
       },
       {
         name: 'Swift',
