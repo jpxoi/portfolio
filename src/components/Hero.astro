@@ -59,43 +59,48 @@ const imgFallback = imgWebp
 </section>
 <script>
   const headerTexts = ['Software Engineer', 'Full-stack Developer', 'AI Engineer']
+  const headerEl = document.getElementById('dynamic-header')
 
-  const dynamicHeader = document.getElementById('dynamic-header') as HTMLElement
-
-  let textIndex = 0
-  let charIndex = headerTexts[0].length - 1
-  let isDeleting = false
-  let pauseAfterTyped = 2000 // pause before deleting
-
-  function randomBetween(min: number, max: number) {
-    return Math.floor(Math.random() * (max - min + 1) + min)
-  }
-
-  function typeWriter() {
-    const fullText = headerTexts[textIndex]
-    let delay
-
-    if (!isDeleting) {
-      dynamicHeader.textContent = fullText.substring(0, charIndex + 1)
-      charIndex++
-      if (charIndex === fullText.length) {
-        isDeleting = true
-        setTimeout(typeWriter, pauseAfterTyped)
-        return
-      }
-      // Typing speed: random between 60–80ms
-      delay = randomBetween(60, 80)
+  if (headerEl) {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      headerEl.textContent = headerTexts[0]
     } else {
-      dynamicHeader.textContent = fullText.substring(0, charIndex - 1)
-      charIndex--
-      if (charIndex === 0) {
-        isDeleting = false
-        textIndex = (textIndex + 1) % headerTexts.length
-      }
-      delay = randomBetween(80, 100)
-    }
-    setTimeout(typeWriter, delay)
-  }
+      const el = headerEl
+      let textIndex = 0
+      let charIndex = headerTexts[0].length - 1
+      let isDeleting = false
+      const pauseAfterTyped = 2000
 
-  typeWriter()
+      function randomBetween(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1) + min)
+      }
+
+      function typeWriter() {
+        const fullText = headerTexts[textIndex]
+        let delay
+
+        if (!isDeleting) {
+          el.textContent = fullText.substring(0, charIndex + 1)
+          charIndex++
+          if (charIndex === fullText.length) {
+            isDeleting = true
+            setTimeout(typeWriter, pauseAfterTyped)
+            return
+          }
+          delay = randomBetween(60, 80)
+        } else {
+          el.textContent = fullText.substring(0, charIndex - 1)
+          charIndex--
+          if (charIndex === 0) {
+            isDeleting = false
+            textIndex = (textIndex + 1) % headerTexts.length
+          }
+          delay = randomBetween(80, 100)
+        }
+        setTimeout(typeWriter, delay)
+      }
+
+      typeWriter()
+    }
+  }
 </script>
