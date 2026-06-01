@@ -1,13 +1,13 @@
-export const LIGHT_THEME_CLASS = 'light-theme'
-export const THEME_STORAGE_KEY = 'selected-theme'
-export const THEME_STORAGE_VERSION_KEY = 'theme-storage-version'
-export const THEME_STORAGE_VERSION = '2'
-export const THEME_CHANGE_EVENT = 'theme-change'
+const LIGHT_THEME_CLASS = 'light-theme'
+const THEME_STORAGE_KEY = 'selected-theme'
+const THEME_STORAGE_VERSION_KEY = 'theme-storage-version'
+const THEME_STORAGE_VERSION = '2'
+const THEME_CHANGE_EVENT = 'theme-change'
 const LEGACY_ICON_KEY = 'selected-icon'
 
 export type Theme = 'light' | 'dark'
 
-export function isLightTheme(): boolean {
+function isLightTheme(): boolean {
   return document.body.classList.contains(LIGHT_THEME_CLASS)
 }
 
@@ -15,7 +15,7 @@ export function getTheme(): Theme {
   return isLightTheme() ? 'light' : 'dark'
 }
 
-export function applyTheme(theme: Theme): void {
+function applyTheme(theme: Theme): void {
   document.body.classList.toggle(LIGHT_THEME_CLASS, theme === 'light')
   localStorage.setItem(THEME_STORAGE_KEY, theme)
   localStorage.setItem(THEME_STORAGE_VERSION_KEY, THEME_STORAGE_VERSION)
@@ -29,7 +29,7 @@ export function toggleTheme(): Theme {
 }
 
 /** Reads persisted theme, migrating legacy inverted `selected-theme` values. */
-export function readStoredTheme(): Theme | null {
+function readStoredTheme(): Theme | null {
   const stored = localStorage.getItem(THEME_STORAGE_KEY)
   if (!stored) return null
 
