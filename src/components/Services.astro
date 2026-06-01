@@ -16,43 +16,61 @@ import ServiceCard from './ServiceCard.astro'
   </div>
 </section>
 <script>
-  const modalViews = document.querySelectorAll('.services__modal') as NodeListOf<HTMLDivElement>,
-    modalBtns = document.querySelectorAll('.services__button') as NodeListOf<HTMLButtonElement>,
-    modalClose = document.querySelectorAll('.services__modal-close') as NodeListOf<HTMLButtonElement>
+  const modalViews = document.querySelectorAll('.services__modal') as NodeListOf<HTMLDivElement>
+  const modalBtns = document.querySelectorAll('.services__button') as NodeListOf<HTMLButtonElement>
+  const modalClose = document.querySelectorAll('.services__modal-close') as NodeListOf<HTMLButtonElement>
 
-  let modal = function (modalClick: number) {
-    modalViews[modalClick].classList.add('active-modal')
+  let listeningForOutsideClick = false
+
+  function hasOpenModal() {
+    return [...modalViews].some((modalView) => modalView.classList.contains('active-modal'))
   }
 
-  modalBtns.forEach((mb, i) => {
-    mb.addEventListener('click', () => {
-      modal(i)
-    })
-  })
+  function syncOutsideClickListener() {
+    if (hasOpenModal() && !listeningForOutsideClick) {
+      document.addEventListener('click', handleOutsideClick)
+      listeningForOutsideClick = true
+      return
+    }
 
-  modalClose.forEach((mc) => {
-    mc.addEventListener('click', () => {
-      modalViews.forEach((mv) => {
-        mv.classList.remove('active-modal')
-      })
-    })
-  })
+    if (!hasOpenModal() && listeningForOutsideClick) {
+      document.removeEventListener('click', handleOutsideClick)
+      listeningForOutsideClick = false
+    }
+  }
 
-  // Close modal when clicking outside the modal content
-  document.addEventListener('click', function (event) {
+  function closeAllModals() {
     modalViews.forEach((modalView) => {
-      if (modalView.classList.contains('active-modal')) {
-        // Find the modal content area inside the modal
-        const modalContent = modalView.querySelector('.services__modal-content')
-        // Check if the click target is inside the modal content
-        if (
-          modalContent &&
-          !modalContent.contains(event.target as Node) &&
-          !(event.target as Element).closest('.services__button') // Allow opening
-        ) {
-          modalView.classList.remove('active-modal')
-        }
+      modalView.classList.remove('active-modal')
+    })
+    syncOutsideClickListener()
+  }
+
+  function handleOutsideClick(event: Event) {
+    modalViews.forEach((modalView) => {
+      if (!modalView.classList.contains('active-modal')) return
+
+      const modalContent = modalView.querySelector('.services__modal-content')
+      if (
+        modalContent &&
+        !modalContent.contains(event.target as Node) &&
+        !(event.target as Element).closest('.services__button')
+      ) {
+        modalView.classList.remove('active-modal')
       }
     })
+
+    syncOutsideClickListener()
+  }
+
+  modalBtns.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      modalViews[index].classList.add('active-modal')
+      syncOutsideClickListener()
+    })
+  })
+
+  modalClose.forEach((closeButton) => {
+    closeButton.addEventListener('click', closeAllModals)
   })
 </script>
