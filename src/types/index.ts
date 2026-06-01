@@ -32,13 +32,6 @@ export interface Contact {
   icon: BoxIcon
 }
 
-export interface FooterSocial {
-  id: string
-  title: string
-  link: string
-  target_blank: boolean
-}
-
 export interface HeroSocialLink {
   route: string
   icon: BoxIcon
