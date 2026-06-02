@@ -69,17 +69,15 @@ const site = {
     <meta name='twitter:image:alt' content={site.imageAlt} />
     <meta name='twitter:site' content={site.handle} />
     <meta name='twitter:creator' content={site.handle} />
-  </head>
-  <body>
     <script is:inline>
       ;(function () {
-        var version = localStorage.getItem('theme-storage-version')
         var stored = localStorage.getItem('selected-theme')
-        if (!stored) return
-        var light = version === '2' ? stored === 'light' : stored === 'dark'
-        if (light) document.body.classList.add('light-theme')
+        var theme = stored === 'light' || stored === 'dark' ? stored : 'dark'
+        document.documentElement.classList.toggle('dark', theme === 'dark')
       })()
     </script>
+  </head>
+  <body>
     <slot />
   </body>
 </html>
