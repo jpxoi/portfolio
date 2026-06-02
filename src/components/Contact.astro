@@ -1,16 +1,18 @@
 ---
 import { contactData } from '../data/contact'
 import ContactCard from './ContactCard.astro'
+import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
+import SiteContainer from './SiteContainer.astro'
 
 const formInputClass =
   'contact__form-input transition-theme focus-visible:border-(--first-color) focus-visible:outline-none'
 ---
 
-<section class='contact section-padding' id='contact'>
+<PageSection id='contact' class='contact'>
   <SectionHeading subtitle='Get In Touch' title='Contact Me' />
 
-  <div class='site-container grid gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
+  <SiteContainer class='grid gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
     <div>
       <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Talk to me</h3>
       <div class='flex flex-col gap-1'>
@@ -74,5 +76,5 @@ const formInputClass =
         <button type='submit' class='button w-full sm:w-auto'>Send Message</button>
       </form>
     </div>
-  </div>
-</section>
+  </SiteContainer>
+</PageSection>
