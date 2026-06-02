@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css'
+import globalCssHref from '../styles/global.css?url'
 import { Font } from 'astro:assets'
 import { CDN_URL } from '../constants'
 import { buildCriticalThemeStyle, buildThemeHeadScript } from '../lib/theme'
@@ -24,12 +25,16 @@ const site = {
   <head>
     <script is:inline set:html={buildThemeHeadScript()} />
     <style is:inline set:html={buildCriticalThemeStyle()}></style>
+    <link rel='preload' href={globalCssHref} as='style' />
+    <link rel='preconnect' href='https://cdn.jpxoi.com' crossorigin />
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
     <!--=============== SAFARI BAR COLOR ===============-->
     <meta name='theme-color' content='#0b111e' />
     <meta name='theme-color' content='#fafcff' media='(prefers-color-scheme: light)' />
+
+    <Font cssVariable='--font-poppins' preload />
 
     <!--=============== FAVICON ===============-->
     <link rel='icon' type='image/png' href='/favicon-96x96.png?v=20260602' sizes='96x96' />
@@ -38,11 +43,6 @@ const site = {
     <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png?v=20260602' />
     <meta name='apple-mobile-web-app-title' content='Jean Paul Fernandez' />
     <link rel='manifest' href='/site.webmanifest?v=20260602' />
-
-    <Font cssVariable='--font-poppins' preload />
-
-    <!--=============== PRE-CONNECT ===============-->
-    <link rel='preconnect' href='https://cdn.jpxoi.com' crossorigin />
 
     <!--=============== SEO ===============-->
     <link rel='canonical' href={site.url} />
