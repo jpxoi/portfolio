@@ -9,15 +9,7 @@ interface Props {
   rel?: string
 }
 
-const {
-  variant = 'solid',
-  href,
-  type = 'button',
-  class: className,
-  download,
-  target,
-  rel,
-} = Astro.props
+const { variant = 'solid', href, type = 'button', class: className, download, target, rel } = Astro.props
 
 const baseClass =
   'inline-block rounded-lg px-4 py-3 font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
