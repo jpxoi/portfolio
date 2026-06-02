@@ -13,22 +13,34 @@ interface Props {
   categoryIndex?: number
 }
 
+/** Icon column (~4rem) + gap-8 (~2rem) — tuned for ~8–9 icons per row */
+const TILE_STEP_PX = 96
+const MARQUEE_SPEED_PX_S = 44
+
+function getMarqueeDurations(skillCount: number) {
+  const seconds = Math.max((skillCount * TILE_STEP_PX) / MARQUEE_SPEED_PX_S, 18)
+  return {
+    desktop: `${seconds}s`,
+    mobile: `${seconds * 1.4}s`,
+  }
+}
+
 const { skills, categoryIndex = 0 }: Props = Astro.props
 
-const marqueeDuration = `${Math.max(skills.length * 4, 28) + categoryIndex * 5}s`
+const { desktop: marqueeDuration, mobile: marqueeDurationMobile } = getMarqueeDurations(skills.length)
 const reverseMarquee = categoryIndex % 2 === 1
 const marqueeSkills = [...skills, ...skills]
 ---
 
 <div
-  class='overflow-hidden mask-[linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] motion-reduce:scrollbar-thin motion-reduce:overflow-x-auto motion-reduce:mask-none'
-  style={`--skills-marquee-duration: ${marqueeDuration}`}
+  class='overflow-hidden mask-[linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)] motion-reduce:scrollbar-thin motion-reduce:overflow-x-auto motion-reduce:mask-none'
+  style={`--skills-marquee-duration: ${marqueeDuration}; --skills-marquee-duration-mobile: ${marqueeDurationMobile}`}
 >
   <div
     class:list={[
-      'flex w-max gap-6 motion-reduce:animate-none',
+      'skills-marquee-track flex w-max gap-8 motion-reduce:animate-none',
       'animate-[skills-marquee_var(--skills-marquee-duration)_linear_infinite]',
-      '[&:has(.skill-tile:hover)]:[animation-play-state:paused]',
+      'max-md:[animation-duration:var(--skills-marquee-duration-mobile)]!',
       reverseMarquee && '[animation-direction:reverse]',
     ]}
   >
