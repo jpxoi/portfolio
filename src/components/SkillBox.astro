@@ -33,15 +33,15 @@ const marqueeSkills = [...skills, ...skills]
 ---
 
 <div
-  class='overflow-hidden mask-[linear-gradient(90deg,transparent,#000_10%,#000_90%,transparent)] motion-reduce:scrollbar-thin motion-reduce:overflow-x-auto motion-reduce:mask-none'
+  class='skills-marquee-mask overflow-hidden motion-reduce:overflow-x-auto motion-reduce:mask-none motion-reduce:scrollbar-thin'
   style={`--skills-marquee-duration: ${marqueeDuration}; --skills-marquee-duration-mobile: ${marqueeDurationMobile}`}
 >
   <div
     class:list={[
       'skills-marquee-track flex w-max gap-8 motion-reduce:animate-none',
-      'animate-[skills-marquee_var(--skills-marquee-duration)_linear_infinite]',
-      'max-md:[animation-duration:var(--skills-marquee-duration-mobile)]!',
-      reverseMarquee && '[animation-direction:reverse]',
+      reverseMarquee
+        ? 'animate-skills-marquee-reverse max-md:animate-skills-marquee-mobile-reverse'
+        : 'animate-skills-marquee max-md:animate-skills-marquee-mobile',
     ]}
   >
     {
