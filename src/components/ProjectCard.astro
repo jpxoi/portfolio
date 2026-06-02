@@ -8,8 +8,8 @@ interface Props extends Project {}
 
 const { id, title, description, link, github, stack } = Astro.props
 
-const imgAvif = `${STATIC_CONTENT_URL}/media/images/projects/${id}.avif`
-const imgWebp = `${STATIC_CONTENT_URL}/media/images/projects/${id}.webp`
+const imgAvif = `${STATIC_CONTENT_URL}/projects/${id}/card.avif`
+const imgWebp = `${STATIC_CONTENT_URL}/projects/${id}/card.webp`
 const imgFallback = imgWebp
 
 const hasLiveLink = Boolean(link)
