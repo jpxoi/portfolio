@@ -221,17 +221,6 @@ h3 {
   transition: 0.3s ease-in-out;
 }
 
-.img-fluid {
-  height: 1.5rem;
-  fill: var(--title-color);
-  transition: 0.1s ease-in-out;
-}
-
-.img-fluid:hover {
-  fill: var(--first-color);
-  transition: 0.1s ease-in-out;
-}
-
 .nav__menu {
   position: fixed;
   bottom: 1rem;

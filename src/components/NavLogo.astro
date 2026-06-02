@@ -1,15 +1,24 @@
 ---
 interface Props {
   variant?: 'default' | 'alt'
+  className?: string
 }
 
-const { variant = 'default' }: Props = Astro.props
+const { variant = 'default', className }: Props = Astro.props
 
 const href = variant === 'default' ? '#' : '/'
+
+const svgClass =
+  'block w-auto fill-(--title-color) transition-[fill] duration-100 [@media(hover:hover)]:group-hover:fill-(--first-color)'
 ---
 
-<a href={href} class='nav__logo' aria-label='Return to Home Page'>
-  <svg xmlns='http://www.w3.org/2000/svg' class='img-fluid' viewBox='0 0 2000 250'>
+<a href={href} class='nav__logo group shrink-0' aria-label='Return to Home Page'>
+  <svg
+    xmlns='http://www.w3.org/2000/svg'
+    class:list={[svgClass, className ?? 'h-6']}
+    viewBox='58 62 1885 144'
+    preserveAspectRatio='xMinYMin meet'
+  >
     <g id='Logo_Black' data-name='Logo Black'>
       <g>
         <path
