@@ -98,24 +98,6 @@ h3 {
   font-weight: var(--font-semibold);
 }
 
-/*=============== THEME ===============*/
-.change-theme {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  border: none;
-  background: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.change-theme:hover {
-  color: var(--first-color);
-  transition: 0.3s;
-}
-
 /*========== Variables Light Theme ==========*/
 body.light-theme {
   --title-color: hsl(var(--second-hue), 15%, 15%);
@@ -538,16 +520,6 @@ body.light-theme {
 .active-modal {
   opacity: 1;
   visibility: visible;
-}
-
-/*=============== PROJECTS ===============*/
-/* Monochrome wordmarks (Next.js, OpenAI, Ollama): white on default/dark UI, near-black on light theme */
-.project__card.group:hover .stack-badge--brand-mono {
-  color: #ffffff;
-}
-
-.light-theme .project__card.group:hover .stack-badge--brand-mono {
-  color: #080808;
 }
 
 /*=============== CONTACT ===============*/
