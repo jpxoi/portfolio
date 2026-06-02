@@ -1,38 +1,46 @@
 ---
-interface Props {
-  title: string
-  skills: {
-    name: string
-    icon: string
-    alticon?: string
-    invertInDark?: boolean
-  }[]
+import SkillTile from './SkillTile.astro'
+
+interface Skill {
+  name: string
+  icon: string
+  alticon?: string
+  invertInDark?: boolean
 }
 
-const { title, skills }: Props = Astro.props
+interface Props {
+  skills: Skill[]
+  categoryIndex?: number
+}
+
+const { skills, categoryIndex = 0 }: Props = Astro.props
+
+const marqueeDuration = `${Math.max(skills.length * 4, 28) + categoryIndex * 5}s`
+const reverseMarquee = categoryIndex % 2 === 1
+const marqueeSkills = [...skills, ...skills]
 ---
 
-<div class='skills__content flex flex-col gap-y-8'>
-  <h3 class='skills__title'>{title}</h3>
-  <div class='skills__box flex flex-wrap justify-center gap-x-6 gap-y-6'>
+<div
+  class='overflow-hidden mask-[linear-gradient(90deg,transparent,#000_12%,#000_88%,transparent)] motion-reduce:scrollbar-thin motion-reduce:overflow-x-auto motion-reduce:mask-none'
+  style={`--skills-marquee-duration: ${marqueeDuration}`}
+>
+  <div
+    class:list={[
+      'flex w-max gap-6 motion-reduce:animate-none',
+      'animate-[skills-marquee_var(--skills-marquee-duration)_linear_infinite]',
+      '[&:has(.skill-tile:hover)]:[animation-play-state:paused]',
+      reverseMarquee && '[animation-direction:reverse]',
+    ]}
+  >
     {
-      skills.map((skill) => (
-        <div id={skill.name} class='skills__data group flex w-14 flex-col items-center gap-1.5'>
-          <img
-            loading='lazy'
-            data-icon={skill.icon}
-            data-alticon={skill.alticon}
-            src={skill.icon}
-            alt=''
-            class:list={[
-              'size-10 drop-shadow-sm group-hover:drop-shadow-xl',
-              skill.invertInDark && '[body:not(.light-theme)_&]:brightness-0 [body:not(.light-theme)_&]:invert',
-            ]}
-          />
-          <span class='w-full text-center text-(length:--tiny-font-size) leading-tight text-(--text-color-light)'>
-            {skill.name}
-          </span>
-        </div>
+      marqueeSkills.map((skill, index) => (
+        <SkillTile
+          name={skill.name}
+          icon={skill.icon}
+          alticon={skill.alticon}
+          invertInDark={skill.invertInDark}
+          hideFromAssistiveTech={index >= skills.length}
+        />
       ))
     }
   </div>
