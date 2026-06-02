@@ -11,7 +11,7 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
   href={link}
   target='_blank'
   rel='noopener noreferrer'
-  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-[background-color,color,transform] duration-[var(--theme-transition-duration)] ease-[var(--theme-transition-timing)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:bg-(--container-color)/50'
+  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-[background-color,color,transform] duration-(--theme-transition-duration) ease-(--theme-transition-timing) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:bg-(--container-color)/50'
 >
   <Icon id={id} className='size-6 shrink-0 text-(--first-color)' color='currentColor' aria-hidden='true' />
   <span class='min-w-0 flex-1 text-left'>
@@ -19,7 +19,7 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
     <span class='block text-(length:--tiny-font-size) text-(--first-color)'>{cta}</span>
   </span>
   <ArrowRightStroke
-    className='size-5 shrink-0 text-(--text-color-light) transition-[transform,color] duration-[var(--theme-transition-duration)] ease-[var(--theme-transition-timing)] [@media(hover:hover)]:group-hover:translate-x-0.5 [@media(hover:hover)]:group-hover:text-(--first-color)'
+    className='size-5 shrink-0 text-(--text-color-light) transition-[transform,color] duration-(--theme-transition-duration) ease-(--theme-transition-timing) [@media(hover:hover)]:group-hover:translate-x-0.5 [@media(hover:hover)]:group-hover:text-(--first-color)'
     aria-hidden='true'
   />
 </a>
