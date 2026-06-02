@@ -9,8 +9,13 @@ import ServiceCard from './ServiceCard.astro'
 
   <div class='services__container custom-container grid gap-5!'>
     {
-      services.map((service) => (
-        <ServiceCard title={service.title} description={service.description} items={service.items} />
+      services.map((service, index) => (
+        <ServiceCard
+          title={service.title}
+          description={service.description}
+          items={service.items}
+          modalId={`service-modal-${index}`}
+        />
       ))
     }
   </div>
@@ -24,6 +29,12 @@ import ServiceCard from './ServiceCard.astro'
 
   function hasOpenModal() {
     return [...modalViews].some((modalView) => modalView.classList.contains('active-modal'))
+  }
+
+  function setModalOpen(modal: HTMLElement, button: HTMLButtonElement, open: boolean) {
+    modal.classList.toggle('active-modal', open)
+    modal.setAttribute('aria-hidden', open ? 'false' : 'true')
+    button.setAttribute('aria-expanded', open ? 'true' : 'false')
   }
 
   function syncOutsideClickListener() {
@@ -40,14 +51,14 @@ import ServiceCard from './ServiceCard.astro'
   }
 
   function closeAllModals() {
-    modalViews.forEach((modalView) => {
-      modalView.classList.remove('active-modal')
+    modalViews.forEach((modalView, index) => {
+      setModalOpen(modalView, modalBtns[index], false)
     })
     syncOutsideClickListener()
   }
 
   function handleOutsideClick(event: Event) {
-    modalViews.forEach((modalView) => {
+    modalViews.forEach((modalView, index) => {
       if (!modalView.classList.contains('active-modal')) return
 
       const modalContent = modalView.querySelector('.services__modal-content')
@@ -56,7 +67,7 @@ import ServiceCard from './ServiceCard.astro'
         !modalContent.contains(event.target as Node) &&
         !(event.target as Element).closest('.services__button')
       ) {
-        modalView.classList.remove('active-modal')
+        setModalOpen(modalView, modalBtns[index], false)
       }
     })
 
@@ -65,12 +76,22 @@ import ServiceCard from './ServiceCard.astro'
 
   modalBtns.forEach((button, index) => {
     button.addEventListener('click', () => {
-      modalViews[index].classList.add('active-modal')
+      const isOpen = modalViews[index].classList.contains('active-modal')
+      closeAllModals()
+      if (!isOpen) {
+        setModalOpen(modalViews[index], button, true)
+      }
       syncOutsideClickListener()
     })
   })
 
   modalClose.forEach((closeButton) => {
     closeButton.addEventListener('click', closeAllModals)
+  })
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && hasOpenModal()) {
+      closeAllModals()
+    }
   })
 </script>
