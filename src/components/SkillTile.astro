@@ -23,7 +23,7 @@ const { name, icon, alticon, invertInDark, hideFromAssistiveTech }: Props = Astr
       alt=''
       class:list={[
         'size-10 drop-shadow-sm transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover/tile:scale-105',
-        invertInDark && '[body:not(.light-theme)_&]:brightness-0 [body:not(.light-theme)_&]:invert',
+        invertInDark && 'dark:brightness-0 dark:invert',
       ]}
     />
   </div>
