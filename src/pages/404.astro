@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Header from '../components/Header.astro'
+import SiteContainer from '../components/SiteContainer.astro'
 import { CDN_URL } from '../constants'
 
 const imgAvif = `${CDN_URL}/portfolio/ui/ghost-img.avif`
@@ -14,7 +15,7 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
   <Header variant='alt' />
   <main class='overflow-hidden'>
     <section class='grid h-dvh bg-(--body-color) pt-36 pb-8 max-[320px]:pt-28'>
-      <div class='site-container grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
+      <SiteContainer class='grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
         <div class:list={[revealBase, 'text-center lg:text-left', 'animate-p404-reveal-top [animation-delay:50ms]']}>
           <span class='text-(length:--smaller-font-size) text-(--text-color-light)'>Error 404</span>
           <h1 class='my-3 text-(length:--biggest-font-size) text-(--title-color)'>Hey Buddy</h1>
@@ -47,7 +48,7 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
           >
           </div>
         </div>
-      </div>
+      </SiteContainer>
 
       <footer
         class:list={[
