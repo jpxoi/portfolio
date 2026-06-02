@@ -1,100 +1,97 @@
 export const services = [
   {
-    title: 'UI/UX Design',
+    title: 'Full-Stack Web Development',
     description:
-      'Elevate your digital presence with an unparalleled UI/UX design. I craft scalable and responsive applications, websites, and web platforms that are not just fast and reliable but interactive masterpieces.',
+      'End-to-end web platforms for real businesses: customer-facing apps, admin consoles, member portals, and campaign tooling, built with modern TypeScript stacks and production-ready data layers.',
     items: [
       {
-        title: 'Prototyping & Wireframing',
+        title: 'Next.js & React applications',
         description:
-          'From concept to reality, we bring your ideas to life through meticulous prototyping and wireframing.',
+          'SPAs and full-stack apps with strong typing, server components where it helps, and Tailwind for fast, consistent UI.',
       },
       {
-        title: 'Mobile and Web UI/UX Design',
+        title: 'Admin & operations dashboards',
         description:
-          'Tailored solutions for both mobile and web platforms, ensuring a consistent and delightful user experience across devices.',
+          'Back-office tools for campaigns, compliance, member records, attendance, and day-to-day operations.',
       },
       {
-        title: 'Human-Centered Design',
+        title: 'Auth, roles & self-service',
         description:
-          'Your users are at the core of our design philosophy. We create interfaces that resonate with their needs, ensuring a truly human-centric experience.',
+          'Secure sign-in, role-based access, QR check-in, digital IDs, and flows your users can run without support tickets.',
       },
       {
-        title: 'Accessibility Compliance',
+        title: 'PostgreSQL & Drizzle ORM',
         description:
-          'We prioritize inclusivity. Our designs adhere to accessibility standards, making your digital presence welcoming to all.',
+          'Relational schemas, migrations, and queries designed for correctness, reporting, and long-term maintainability.',
       },
       {
-        title: 'Responsive Design',
+        title: 'Marketing & content sites',
         description:
-          'Seamlessly adapt to the diverse digital landscape with our priority on responsive design. Your users get an optimal experience, regardless of the device they use.',
+          'Fast, content-first sites (including Astro) when the goal is leads, storytelling, and minimal client runtime.',
       },
     ],
   },
   {
-    title: 'Software Development',
+    title: 'APIs & Backend Systems',
     description:
-      'Are you ready to transform your ideas into high-performing, innovative software solutions? Look no further! I build robust, scalable, and secure software that are tailored to your needs.',
+      'Reliable backends and integrations behind your product: REST APIs, caching, third-party data sources, and infrastructure shaped for latency and scale.',
     items: [
       {
-        title: 'Customized Software Solutions',
-        description: 'Tailored software development that aligns perfectly with your unique business requirements.',
-      },
-      {
-        title: 'Cutting-edge Technologies',
-        description: 'Stay ahead of the curve with the latest and most robust technologies in the industry.',
-      },
-      {
-        title: 'Scalable Architecture',
+        title: 'REST & edge-friendly APIs',
         description:
-          'Future-proof your software with scalable and flexible architectures, ensuring growth and adaptability.',
+          'Documented HTTP APIs with clear contracts, including public data products consumed at the edge.',
       },
       {
-        title: 'User-Centric Design',
+        title: 'Third-party integrations',
         description:
-          'Seamlessly blend functionality with an exceptional user experience through our UI/UX design expertise.',
+          'Government and vendor APIs (e.g. tax/identity lookups), webhooks, and validation pipelines wired into your domain logic.',
       },
       {
-        title: 'Agile Development',
+        title: 'Caching & performance',
         description:
-          'Embrace flexibility and responsiveness with our agile development methodology, ensuring quick iterations and constant improvements.',
+          'Redis and similar layers to keep hot paths fast under real traffic.',
       },
       {
-        title: 'Quality Assurance',
+        title: 'Data modeling & storage',
         description:
-          'Rigorous testing processes to guarantee the reliability, security, and performance of your software.',
+          'PostgreSQL, Turso/SQLite at the edge, and schema design aligned with how the product actually behaves.',
+      },
+      {
+        title: 'Deployment-ready architecture',
+        description:
+          'Services structured for observability, environment separation, and safe iteration in production.',
       },
     ],
   },
   {
-    title: 'Front-end Development',
+    title: 'AI-Integrated Software',
     description:
-      'Empower your digital presence with a websites that not only aligns with your unique vision but also address your business needs and solve critical challenges.',
+      'Features and tools that put AI to work without the hype: transcription, summarisation, codegen helpers, and offline pipelines where privacy or cost matter.',
     items: [
       {
-        title: 'Front-end Architecture & Design',
+        title: 'Real-time speech & translation',
         description:
-          'We architect visually stunning and functionally robust front-end structures, ensuring a solid foundation for your digital space.',
+          'Live sessions, audience sharing, and post-session summaries built around streaming audio workflows.',
       },
       {
-        title: 'Single Page Applications (SPAs)',
+        title: 'LLM-powered developer tooling',
         description:
-          'Elevate user engagement with seamless, dynamic experiences through our expertise in developing SPAs.',
+          'CLIs and automations that turn repo context (diffs, commits) into usable output with pluggable model backends.',
       },
       {
-        title: 'Progressive Web Apps',
+        title: 'On-device & local inference',
         description:
-          'Embrace the future of web applications with our proficiency in building Progressive Web Apps using cutting-edge technologies like React.',
+          'Whisper-style transcription and similar workloads that stay on the user’s machine when data sensitivity matters.',
       },
       {
-        title: 'HTML & CSS Responsive Web Design',
+        title: 'Product-facing AI features',
         description:
-          'Ensure your website looks impeccable on every device with our responsive web design solutions, driven by HTML and CSS mastery.',
+          'Summaries, insights, and assistive flows embedded in the app, not bolted on as a demo.',
       },
       {
-        title: 'Maintenance and Support',
+        title: 'Pragmatic model integration',
         description:
-          'Beyond the launch, we provide ongoing maintenance and support, ensuring your website remains at its peak performance.',
+          'OpenAI, Gemini, Ollama, and others chosen per use case for quality, cost, and deployment constraints.',
       },
     ],
   },
