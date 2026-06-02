@@ -2,6 +2,8 @@
 import { heroSocialLinks } from '../data/socials'
 import { CDN_URL } from '../constants'
 import HeroSocialLink from './HeroSocialLink.astro'
+import PageSection from './PageSection.astro'
+import SiteContainer from './SiteContainer.astro'
 import { Mouse } from '@boxicons/react'
 
 const imgAvif = `${CDN_URL}/portfolio/about/profile.avif`
@@ -9,8 +11,8 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 ---
 
-<section class='home section-padding' id='home'>
-  <div class='site-container relative grid gap-5! pt-8'>
+<PageSection id='home' class='home'>
+  <SiteContainer class='relative grid gap-5! pt-8'>
     <div class='text-center'>
       <span class='home__greeting'>Hello, I&apos;m</span>
       <h1 class='text-(length:--biggest-font-size)'>Jean Paul Fernandez</h1>
@@ -55,8 +57,8 @@ const imgFallback = imgWebp
       <Mouse className='size-6' />
       <span class='-rotate-90 text-(length:--smaller-font-size)'>Scroll Down</span>
     </a>
-  </div>
-</section>
+  </SiteContainer>
+</PageSection>
 <script>
   const headerTexts = ['Software Engineer', 'Full-stack Developer', 'AI Engineer']
   const headerEl = document.getElementById('dynamic-header')
