@@ -10,9 +10,9 @@ const VALID_THEMES: readonly Theme[] = ['light', 'dark']
 const resolveThemeFromStorage = (stored: string | null): Theme =>
   stored !== null && (VALID_THEMES as readonly string[]).includes(stored) ? (stored as Theme) : DEFAULT_THEME
 
-/** Inline IIFE for <head>: applies `dark` on <html> before first paint (anti-FOUC). */
+/** Inline IIFE for <head>: mirrors resolveThemeFromStorage; short vars keep the HTML small. */
 export const buildThemeHeadScript = (): string =>
-  `;(function(){var k=${JSON.stringify(THEME_STORAGE_KEY)};var d=${JSON.stringify(DEFAULT_THEME)};var s=localStorage.getItem(k);var t=${VALID_THEMES.map((t) => `s===${JSON.stringify(t)}`).join('||')}?s:d;document.documentElement.classList.toggle(${JSON.stringify(DARK_CLASS)},t==="dark")})();`
+  `;(function(){var k=${JSON.stringify(THEME_STORAGE_KEY)};var d=${JSON.stringify(DEFAULT_THEME)};var s=localStorage.getItem(k);var t=${VALID_THEMES.map((v) => `s===${JSON.stringify(v)}`).join('||')}?s:d;document.documentElement.classList.toggle(${JSON.stringify(DARK_CLASS)},t==="dark")})();`
 
 const isDarkTheme = (): boolean => document.documentElement.classList.contains(DARK_CLASS)
 
