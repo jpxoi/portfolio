@@ -2,10 +2,10 @@
 import Layout from '../layouts/Layout.astro'
 import '../styles/p404.css'
 import Header from '../components/Header.astro'
-import { STATIC_CONTENT_URL } from '../constants'
+import { CDN_URL } from '../constants'
 
-const imgAvif = `${STATIC_CONTENT_URL}/portfolio/ui/ghost-img.avif`
-const imgWebp = `${STATIC_CONTENT_URL}/portfolio/ui/ghost-img.webp`
+const imgAvif = `${CDN_URL}/portfolio/ui/ghost-img.avif`
+const imgWebp = `${CDN_URL}/portfolio/ui/ghost-img.webp`
 const imgFallback = imgWebp
 ---
 
