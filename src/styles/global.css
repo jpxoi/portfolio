@@ -169,52 +169,6 @@ h3 {
   box-shadow: 0 2px 16px hsla(var(--second-hue), 48%, 8%, 0.1);
 }
 
-.footer {
-  background-color: var(--first-color);
-}
-
-.footer__title,
-.footer__link {
-  color: var(--body-color);
-}
-
-.footer__social-link {
-  background-color: var(--body-color);
-  color: var(--first-color);
-  transition: 0.3s;
-}
-
-.footer__social-link:hover {
-  color: #151c28;
-  transition: 0.3s;
-}
-
-.footer__copy {
-  color: var(--container-color);
-}
-
-.dark .footer {
-  background-color: var(--container-color);
-}
-
-.dark .footer__title,
-.dark .footer__link {
-  color: var(--title-color);
-}
-
-.dark .footer__social-link {
-  background-color: var(--title-color);
-  color: var(--container-color);
-}
-
-.dark .footer__social-link:hover {
-  color: var(--first-color);
-}
-
-.dark .footer__copy {
-  color: #fff;
-}
-
 /*=============== REUSABLE CSS CLASSES ===============*/
 .custom-container {
   max-width: 968px;
@@ -636,30 +590,6 @@ h3 {
   resize: none;
 }
 
-/*=============== FOOTER ===============*/
-.footer__title {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.footer__list {
-  display: flex;
-  justify-content: center;
-  column-gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.footer__social-link {
-  padding: 0.25rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  display: inline-flex;
-}
-
-.footer__copy {
-  font-size: var(--smaller-font-size);
-}
-
 /*=============== BREAKPOINTS ===============*/
 /* Responsive typography */
 @media screen and (min-width: 968px) {
@@ -697,35 +627,6 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .footer__title {
-    font-size: var(--h2-font-size);
-  }
-
-  .footer__link {
-    font-size: var(--small-font-size);
-  }
-
-  .footer__list {
-    flex-direction: column;
-    row-gap: 0.5rem;
-    align-items: center;
-  }
-}
-
-@media screen and (min-width: 320px) {
-  .footer__title {
-    font-size: var(--h1-font-size);
-  }
-
-  .footer__link {
-    font-size: var(--medium-font-size);
-  }
-
-  .footer__list {
-    flex-direction: column;
-    row-gap: 1rem;
-    align-items: center;
-  }
 }
 
 /* For medium devices */
@@ -762,19 +663,6 @@ h3 {
 }
 
 @media screen and (min-width: 767px) {
-  .footer__title {
-    font-size: var(--h2-font-size);
-  }
-
-  .footer__link {
-    font-size: var(--small-font-size);
-  }
-
-  .footer__list {
-    flex-direction: row;
-    align-items: center;
-  }
-
   .services__modal-content {
     width: 600px;
   }
@@ -851,12 +739,6 @@ h3 {
 
   .projects__container {
     width: 1000px;
-  }
-
-  .footer__social-link {
-    font-size: 1.25rem;
-    padding: 0.4rem;
-    border-radius: 0.5rem;
   }
 
   .services__modal-content {
