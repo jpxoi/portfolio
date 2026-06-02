@@ -1,16 +1,22 @@
+export type Theme = 'light' | 'dark'
+
 const DARK_CLASS = 'dark'
 const THEME_STORAGE_KEY = 'selected-theme'
 const THEME_CHANGE_EVENT = 'theme-change'
+const DEFAULT_THEME: Theme = 'dark'
 
-export type Theme = 'light' | 'dark'
+const VALID_THEMES: readonly Theme[] = ['light', 'dark']
 
-function isDarkTheme(): boolean {
-  return document.documentElement.classList.contains(DARK_CLASS)
-}
+const resolveThemeFromStorage = (stored: string | null): Theme =>
+  stored !== null && (VALID_THEMES as readonly string[]).includes(stored) ? (stored as Theme) : DEFAULT_THEME
 
-export function getTheme(): Theme {
-  return isDarkTheme() ? 'dark' : 'light'
-}
+/** Inline IIFE for <head>: applies `dark` on <html> before first paint (anti-FOUC). */
+export const buildThemeHeadScript = (): string =>
+  `;(function(){var k=${JSON.stringify(THEME_STORAGE_KEY)};var d=${JSON.stringify(DEFAULT_THEME)};var s=localStorage.getItem(k);var t=${VALID_THEMES.map((t) => `s===${JSON.stringify(t)}`).join('||')}?s:d;document.documentElement.classList.toggle(${JSON.stringify(DARK_CLASS)},t==="dark")})();`
+
+const isDarkTheme = (): boolean => document.documentElement.classList.contains(DARK_CLASS)
+
+export const getTheme = (): Theme => (isDarkTheme() ? 'dark' : 'light')
 
 function applyTheme(theme: Theme): void {
   document.documentElement.classList.toggle(DARK_CLASS, theme === 'dark')
@@ -18,27 +24,12 @@ function applyTheme(theme: Theme): void {
   window.dispatchEvent(new CustomEvent<{ theme: Theme }>(THEME_CHANGE_EVENT, { detail: { theme } }))
 }
 
-export function toggleTheme(): Theme {
-  const next: Theme = isDarkTheme() ? 'light' : 'dark'
-  applyTheme(next)
-  return next
-}
+export const toggleTheme = (): Theme => (applyTheme(isDarkTheme() ? 'light' : 'dark'), getTheme())
 
-function readStoredTheme(): Theme | null {
-  const stored = localStorage.getItem(THEME_STORAGE_KEY)
-  return stored === 'light' || stored === 'dark' ? stored : null
-}
+export const initTheme = (): void => applyTheme(resolveThemeFromStorage(localStorage.getItem(THEME_STORAGE_KEY)))
 
-export function initTheme(): void {
-  const stored = readStoredTheme()
-  applyTheme(stored ?? 'dark')
-}
-
-export function subscribeToTheme(callback: (theme: Theme) => void): () => void {
-  const handler = (event: Event) => {
-    const custom = event as CustomEvent<{ theme: Theme }>
-    callback(custom.detail?.theme ?? getTheme())
-  }
+export const subscribeToTheme = (callback: (theme: Theme) => void): (() => void) => {
+  const handler = (event: Event) => callback((event as CustomEvent<{ theme: Theme }>).detail?.theme ?? getTheme())
   window.addEventListener(THEME_CHANGE_EVENT, handler)
   return () => window.removeEventListener(THEME_CHANGE_EVENT, handler)
 }
