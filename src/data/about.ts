@@ -10,7 +10,7 @@ export const aboutInfo: AboutInfo[] = [
   {
     icon: BriefcaseAlt,
     title: 'Completed',
-    subtitle: '40 + Projects',
+    subtitle: '40+ Projects',
   },
   {
     icon: HelpCircle,
