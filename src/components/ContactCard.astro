@@ -7,17 +7,19 @@ interface Props extends Contact {}
 const { id, title, link, cta, icon: Icon }: Props = Astro.props
 ---
 
-<div class='contact__card'>
-  <Icon id={id} className='mb-1 size-8 justify-self-center' color='var(--title-color)' />
-  <h4 class='text-(length:--small-font-size) font-medium'>{title}</h4>
-
-  <a
-    href={link}
-    target='_blank'
-    rel='noreferrer'
-    class='group flex items-center justify-center gap-1 text-(length:--small-font-size) text-(--first-color)'
-  >
+<a
+  href={link}
+  target='_blank'
+  rel='noopener noreferrer'
+  class='contact__card group flex flex-col items-center gap-2 rounded-xl border border-transparent bg-(--container-color) p-4 text-center transition-[border-color,box-shadow] duration-200 [@media(hover:hover)]:hover:border-(--text-color-light)/25 [@media(hover:hover)]:hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+>
+  <Icon id={id} className='size-8' color='var(--title-color)' aria-hidden='true' />
+  <h4 class='text-(length:--small-font-size) font-medium text-(--title-color)'>{title}</h4>
+  <span class='flex items-center justify-center gap-1 text-(length:--small-font-size) text-(--first-color)'>
     {cta}
-    <ArrowRightStroke className='size-5 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5' />
-  </a>
-</div>
+    <ArrowRightStroke
+      className='size-5 transition-transform duration-200 ease-in-out [@media(hover:hover)]:group-hover:translate-x-0.5'
+      aria-hidden='true'
+    />
+  </span>
+</a>
