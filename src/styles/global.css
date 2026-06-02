@@ -2,6 +2,17 @@
 
 @theme inline {
   --font-sans: var(--font-poppins), sans-serif;
+
+  --animate-skills-marquee: skills-marquee var(--skills-marquee-duration, 32s) linear infinite;
+  --animate-skills-marquee-reverse: skills-marquee var(--skills-marquee-duration, 32s) linear infinite
+    reverse;
+  --animate-skills-marquee-mobile: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite;
+  --animate-skills-marquee-mobile-reverse: skills-marquee var(--skills-marquee-duration-mobile, 45s)
+    linear infinite reverse;
+}
+
+@utility skills-marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
 }
 
 /*=============== VARIABLES CSS ===============*/
@@ -143,8 +154,7 @@ body.light-theme {
   color: var(--title-color);
 }
 
-.light-theme .about__box,
-.light-theme .project__card {
+.light-theme .about__box {
   box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
 }
 
@@ -443,10 +453,6 @@ body.light-theme {
   background-color: var(--container-color);
   border-radius: 0.75rem;
   padding: 0.75rem 0.5rem;
-}
-
-.project__card {
-  background-color: var(--container-color);
 }
 
 .about__description {
