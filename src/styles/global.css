@@ -372,11 +372,18 @@ body {
 
 .home__scroll {
   color: var(--first-color);
-  right: -1.5rem;
+  right: 0;
   bottom: 4rem;
   display: grid;
   row-gap: 2.25rem;
   justify-items: center;
+}
+
+@media screen and (max-width: 991px) {
+  .home__social,
+  .home__scroll {
+    display: none;
+  }
 }
 
 /*=============== BUTTONS ===============*/
@@ -638,6 +645,10 @@ body {
 
   .home__social::after {
     transform: rotate(90deg) translate(16px, 0);
+  }
+
+  .home__scroll {
+    right: -1.5rem;
   }
 
   .services__modal-content {
