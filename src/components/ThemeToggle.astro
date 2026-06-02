@@ -1,46 +1,47 @@
 ---
 import { Moon, Sun } from '@boxicons/react'
 
-const iconProps = { className: 'size-5', color: 'var(--text-color)' }
+const iconClass = 'size-5 transition-all motion-reduce:transition-none'
+
+const sunClass = [iconClass, 'scale-100 rotate-0', 'dark:scale-0 dark:-rotate-90'].join(' ')
+
+const moonClass = [iconClass, 'scale-0 rotate-90', 'dark:scale-100 dark:rotate-0'].join(' ')
 ---
 
 <button
   type='button'
   id='theme-button'
-  class='change-theme'
+  class='relative inline-flex size-9 shrink-0 cursor-pointer items-center justify-center text-(--text-color) transition-colors duration-200 ease-in-out active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:text-(--first-color)'
   aria-label='Activate light theme'
-  data-theme='dark'
 >
-  <span class='theme-button__icon' data-show-when='dark'>
-    <Moon {...iconProps} />
-  </span>
-  <span class='theme-button__icon hidden' data-show-when='light'>
-    <Sun {...iconProps} />
+  <span class='relative block size-5'>
+    <Sun className={sunClass} color='currentColor' aria-hidden='true' data-theme-icon='sun' />
+    <span class='pointer-events-none absolute inset-0 flex items-center justify-center'>
+      <Moon className={moonClass} color='currentColor' aria-hidden='false' data-theme-icon='moon' />
+    </span>
   </span>
 </button>
 
 <script>
-  import { getTheme, initTheme, subscribeToTheme, toggleTheme, type Theme } from '../lib/theme'
+  import { getTheme, initTheme, subscribeToTheme, toggleTheme } from '../lib/theme'
 
-  function syncThemeButton(theme: Theme) {
+  function syncThemeButton() {
     const button = document.getElementById('theme-button')
     if (!button) return
 
-    button.dataset.theme = theme
-    button.setAttribute(
-      'aria-label',
-      theme === 'light' ? 'Activate dark theme' : 'Activate light theme',
-    )
+    const theme = getTheme()
+    const isLight = theme === 'light'
 
-    button.querySelectorAll<HTMLElement>('[data-show-when]').forEach((icon) => {
-      const show = icon.dataset.showWhen === theme
-      icon.classList.toggle('hidden', !show)
-      icon.setAttribute('aria-hidden', show ? 'false' : 'true')
-    })
+    button.setAttribute('aria-label', isLight ? 'Activate dark theme' : 'Activate light theme')
+
+    const sun = button.querySelector('[data-theme-icon="sun"]')
+    const moon = button.querySelector('[data-theme-icon="moon"]')
+    sun?.setAttribute('aria-hidden', isLight ? 'false' : 'true')
+    moon?.setAttribute('aria-hidden', isLight ? 'true' : 'false')
   }
 
   initTheme()
-  syncThemeButton(getTheme())
+  syncThemeButton()
 
   document.getElementById('theme-button')?.addEventListener('click', () => {
     toggleTheme()
