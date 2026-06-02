@@ -2,14 +2,14 @@
 import Badge from './Badge.astro'
 import { Globe, Github } from '@boxicons/react'
 import type { Project } from '../types'
-import { STATIC_CONTENT_URL } from '../constants'
+import { CDN_URL } from '../constants'
 
 interface Props extends Project {}
 
 const { id, title, description, link, github, stack } = Astro.props
 
-const imgAvif = `${STATIC_CONTENT_URL}/projects/${id}/card.avif`
-const imgWebp = `${STATIC_CONTENT_URL}/projects/${id}/card.webp`
+const imgAvif = `${CDN_URL}/projects/${id}/card.avif`
+const imgWebp = `${CDN_URL}/projects/${id}/card.webp`
 const imgFallback = imgWebp
 
 const hasLiveLink = Boolean(link)

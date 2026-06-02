@@ -1,11 +1,11 @@
 ---
 import { heroSocialLinks } from '../data/socials'
-import { STATIC_CONTENT_URL } from '../constants'
+import { CDN_URL } from '../constants'
 import HeroSocialLink from './HeroSocialLink.astro'
 import { Mouse } from '@boxicons/react'
 
-const imgAvif = `${STATIC_CONTENT_URL}/portfolio/about/profile.avif`
-const imgWebp = `${STATIC_CONTENT_URL}/portfolio/about/profile.webp`
+const imgAvif = `${CDN_URL}/portfolio/about/profile.avif`
+const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 ---
 
@@ -18,7 +18,7 @@ const imgFallback = imgWebp
 
       <div class='home__buttons'>
         <a
-          href={`${STATIC_CONTENT_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
+          href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
           target='_blank'
           download='Jean_Paul_Fernandez_CV.pdf'
           rel='noreferrer'

@@ -1,10 +1,10 @@
 ---
 import { aboutInfo } from '../data/about'
 import AboutBox from './AboutBox.astro'
-import { STATIC_CONTENT_URL } from '../constants'
+import { CDN_URL } from '../constants'
 
-const imgAvif = `${STATIC_CONTENT_URL}/portfolio/about/about.avif`
-const imgWebp = `${STATIC_CONTENT_URL}/portfolio/about/about.webp`
+const imgAvif = `${CDN_URL}/portfolio/about/about.avif`
+const imgWebp = `${CDN_URL}/portfolio/about/about.webp`
 const imgFallback = imgWebp
 ---
 
