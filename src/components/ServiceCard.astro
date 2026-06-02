@@ -21,8 +21,8 @@ const titleId = `${modalId}-title`
   <button
     type='button'
     class='group services__button mt-auto'
-    aria-expanded='false'
-    aria-controls={modalId}
+    command='show-modal'
+    commandfor={modalId}
     aria-haspopup='dialog'
     aria-label={`See more about ${title}`}
   >
@@ -33,18 +33,13 @@ const titleId = `${modalId}-title`
     />
   </button>
 
-  <div
-    class='services__modal'
-    id={modalId}
-    role='dialog'
-    aria-modal='true'
-    aria-labelledby={titleId}
-    aria-hidden='true'
-  >
+  <dialog class='services__modal' id={modalId} closedby='any' aria-labelledby={titleId}>
     <div class='services__modal-content max-h-[90dvh]'>
       <button
         type='button'
         class='services__modal-close absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0'
+        command='close'
+        commandfor={modalId}
         aria-label={`Close ${title} details`}
       >
         <X className='size-5' color='var(--first-color)' aria-hidden='true' />
@@ -68,5 +63,5 @@ const titleId = `${modalId}-title`
         </ul>
       </div>
     </div>
-  </div>
+  </dialog>
 </div>
