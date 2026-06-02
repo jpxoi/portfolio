@@ -1,13 +1,15 @@
 ---
 import { services } from '../data/services'
 import ServiceCard from './ServiceCard.astro'
+import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
+import SiteContainer from './SiteContainer.astro'
 ---
 
-<section class='services section-padding'>
+<PageSection class='services'>
   <SectionHeading subtitle='My Services' title='What I Offer' />
 
-  <div class='site-container grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 lg:grid-cols-3'>
+  <SiteContainer class='grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 lg:grid-cols-3'>
     {
       services.map((service, index) => (
         <ServiceCard
@@ -18,8 +20,8 @@ import SectionHeading from './SectionHeading.astro'
         />
       ))
     }
-  </div>
-</section>
+  </SiteContainer>
+</PageSection>
 <script>
   const modalViews = document.querySelectorAll('.services__modal') as NodeListOf<HTMLDivElement>
   const modalBtns = document.querySelectorAll('.services__button') as NodeListOf<HTMLButtonElement>

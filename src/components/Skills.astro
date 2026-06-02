@@ -1,13 +1,15 @@
 ---
 import { skillsData } from '../data/skills'
 import SkillBox from './SkillBox.astro'
+import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
+import SiteContainer from './SiteContainer.astro'
 ---
 
-<section class='skills section-padding' id='skills'>
+<PageSection id='skills' class='skills'>
   <SectionHeading subtitle='My Stack' title='Skills & Technologies' />
 
-  <div class='site-container pt-6'>
+  <SiteContainer class='pt-6'>
     <div class='flex flex-col divide-y divide-(--text-color-light)/10'>
       {
         skillsData.map((item, index) => (
@@ -24,8 +26,8 @@ import SectionHeading from './SectionHeading.astro'
         ))
       }
     </div>
-  </div>
-</section>
+  </SiteContainer>
+</PageSection>
 
 <script>
   import { getTheme, subscribeToTheme } from '../lib/theme'
