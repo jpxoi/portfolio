@@ -80,6 +80,13 @@
 }
 
 /*=============== BASE ===============*/
+html.theme-init,
+html.theme-init *,
+html.theme-init *::before,
+html.theme-init *::after {
+  transition: none !important;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--body-color);
