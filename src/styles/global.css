@@ -626,7 +626,6 @@ h3 {
   .about__info {
     grid-template-columns: repeat(2, 1fr);
   }
-
 }
 
 /* For medium devices */
@@ -659,7 +658,6 @@ h3 {
   .projects__container {
     justify-content: center;
   }
-
 }
 
 @media screen and (min-width: 767px) {

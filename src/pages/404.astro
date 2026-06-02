@@ -7,26 +7,15 @@ const imgAvif = `${CDN_URL}/portfolio/ui/ghost-img.avif`
 const imgWebp = `${CDN_URL}/portfolio/ui/ghost-img.webp`
 const imgFallback = imgWebp
 
-const revealBase =
-  'opacity-0 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none'
+const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none'
 ---
 
 <Layout>
   <Header variant='alt' />
   <main class='overflow-hidden'>
-    <section
-      class='grid h-dvh bg-(--body-color) pt-36 pb-8 max-[320px]:pt-28'
-    >
-      <div
-        class='custom-container grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'
-      >
-        <div
-          class:list={[
-            revealBase,
-            'text-center lg:text-left',
-            'animate-p404-reveal-top [animation-delay:50ms]',
-          ]}
-        >
+    <section class='grid h-dvh bg-(--body-color) pt-36 pb-8 max-[320px]:pt-28'>
+      <div class='custom-container grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
+        <div class:list={[revealBase, 'text-center lg:text-left', 'animate-p404-reveal-top [animation-delay:50ms]']}>
           <span class='text-(length:--smaller-font-size) text-(--text-color-light)'>Error 404</span>
           <h1 class='my-3 text-(length:--biggest-font-size) text-(--title-color)'>Hey Buddy</h1>
           <p class='text-(--text-color)'>
@@ -40,13 +29,7 @@ const revealBase =
           </a>
         </div>
 
-        <div
-          class:list={[
-            revealBase,
-            'justify-self-center',
-            'animate-p404-reveal-bottom [animation-delay:100ms]',
-          ]}
-        >
+        <div class:list={[revealBase, 'justify-self-center', 'animate-p404-reveal-bottom [animation-delay:100ms]']}>
           <picture>
             <source srcset={imgAvif} type='image/avif' />
             <source srcset={imgWebp} type='image/webp' />
@@ -55,13 +38,14 @@ const revealBase =
               alt='Ghost Image'
               width={500}
               height={500}
-              class='w-[230px] motion-reduce:animate-none lg:w-[400px] animate-p404-float'
+              class='animate-p404-float w-[230px] motion-reduce:animate-none lg:w-[400px]'
             />
           </picture>
           <div
-            class='mx-auto h-6 w-[130px] rounded-full bg-[hsla(38,21%,19%,0.16)] blur-[7px] motion-reduce:animate-none lg:h-10 lg:w-[250px] animate-p404-shadow'
+            class='animate-p404-shadow mx-auto h-6 w-[130px] rounded-full bg-[hsla(38,21%,19%,0.16)] blur-[7px] motion-reduce:animate-none lg:h-10 lg:w-[250px]'
             aria-hidden='true'
-          ></div>
+          >
+          </div>
         </div>
       </div>
 

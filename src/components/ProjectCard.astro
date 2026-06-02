@@ -41,16 +41,14 @@ const stackTagClass =
 
     <div class='flex flex-col gap-2'>
       <div class='flex items-start justify-between gap-3'>
-        <div class='min-w-0 flex flex-col gap-0.5'>
+        <div class='flex min-w-0 flex-col gap-0.5'>
           <div class='flex flex-wrap items-center gap-x-2 gap-y-1'>
             <h3 class='text-(length:--h3-font-size) leading-tight font-medium text-(--title-color)'>
               {name}
             </h3>
             {
               isPrivate && (
-                <span
-                  class='inline-flex shrink-0 items-center rounded-full border border-(--text-color-light)/25 px-2 py-0.5 text-(length:--tiny-font-size) leading-none font-medium text-(--text-color-light)'
-                >
+                <span class='inline-flex shrink-0 items-center rounded-full border border-(--text-color-light)/25 px-2 py-0.5 text-(length:--tiny-font-size) leading-none font-medium text-(--text-color-light)'>
                   Private
                 </span>
               )
@@ -63,32 +61,28 @@ const stackTagClass =
         {
           (link || github) && (
             <div class='flex shrink-0 items-center gap-0.5'>
-              {
-                link && (
-                  <a
-                    href={link}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    aria-label={`Open live project: ${fullTitle}`}
-                    class={projectActionClass}
-                  >
-                    <Globe className='size-[1.125rem]' aria-hidden='true' />
-                  </a>
-                )
-              }
-              {
-                github && (
-                  <a
-                    href={github}
-                    target='_blank'
-                    rel='noopener noreferrer'
-                    aria-label={`Open GitHub repository: ${fullTitle}`}
-                    class={projectActionClass}
-                  >
-                    <Github className='size-[1.125rem]' aria-hidden='true' />
-                  </a>
-                )
-              }
+              {link && (
+                <a
+                  href={link}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={`Open live project: ${fullTitle}`}
+                  class={projectActionClass}
+                >
+                  <Globe className='size-[1.125rem]' aria-hidden='true' />
+                </a>
+              )}
+              {github && (
+                <a
+                  href={github}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label={`Open GitHub repository: ${fullTitle}`}
+                  class={projectActionClass}
+                >
+                  <Github className='size-[1.125rem]' aria-hidden='true' />
+                </a>
+              )}
             </div>
           )
         }
@@ -99,11 +93,7 @@ const stackTagClass =
       </p>
 
       <ul class='flex flex-wrap gap-1.5 pt-0.5' aria-label='Technologies used'>
-        {stack.map((item) => (
-          <li class={stackTagClass}>
-            {item}
-          </li>
-        ))}
+        {stack.map((item) => <li class={stackTagClass}>{item}</li>)}
       </ul>
     </div>
   </div>

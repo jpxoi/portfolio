@@ -11,7 +11,7 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
   href={link}
   target='_blank'
   rel='noopener noreferrer'
-  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-colors duration-200 [@media(hover:hover)]:hover:bg-(--container-color)/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:bg-(--container-color)/50'
 >
   <Icon id={id} className='size-6 shrink-0 text-(--first-color)' color='currentColor' aria-hidden='true' />
   <span class='min-w-0 flex-1 text-left'>

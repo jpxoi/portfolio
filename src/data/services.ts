@@ -38,8 +38,7 @@ export const services = [
     items: [
       {
         title: 'REST & edge-friendly APIs',
-        description:
-          'Documented HTTP APIs with clear contracts, including public data products consumed at the edge.',
+        description: 'Documented HTTP APIs with clear contracts, including public data products consumed at the edge.',
       },
       {
         title: 'Third-party integrations',
@@ -48,8 +47,7 @@ export const services = [
       },
       {
         title: 'Caching & performance',
-        description:
-          'Redis and similar layers to keep hot paths fast under real traffic.',
+        description: 'Redis and similar layers to keep hot paths fast under real traffic.',
       },
       {
         title: 'Data modeling & storage',
@@ -58,8 +56,7 @@ export const services = [
       },
       {
         title: 'Deployment-ready architecture',
-        description:
-          'Services structured for observability, environment separation, and safe iteration in production.',
+        description: 'Services structured for observability, environment separation, and safe iteration in production.',
       },
     ],
   },
@@ -85,8 +82,7 @@ export const services = [
       },
       {
         title: 'Product-facing AI features',
-        description:
-          'Summaries, insights, and assistive flows embedded in the app, not bolted on as a demo.',
+        description: 'Summaries, insights, and assistive flows embedded in the app, not bolted on as a demo.',
       },
       {
         title: 'Pragmatic model integration',
