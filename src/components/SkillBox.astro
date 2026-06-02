@@ -14,50 +14,26 @@ const { title, skills }: Props = Astro.props
 
 <div class='skills__content flex flex-col gap-y-8'>
   <h3 class='skills__title'>{title}</h3>
-  <div class='skills__box flex flex-wrap gap-y-8'>
+  <div class='skills__box flex flex-wrap justify-center gap-x-6 gap-y-6'>
     {
       skills.map((skill) => (
-        <div
-          id={skill.name}
-          class='skills__data group relative flex aspect-square size-12 items-center justify-center'
-          aria-label={skill.name}
-        >
-          <span
-            class='pointer-events-none absolute bottom-[calc(100%+0.5rem)] left-1/2 z-(--z-tooltip) -translate-x-1/2 translate-y-1 rounded-md bg-(--title-color) px-[0.65rem] py-[0.35rem] text-(length:--smaller-font-size) leading-tight font-medium whitespace-nowrap text-(--body-color) opacity-0 transition-[opacity,transform] duration-200 ease-in-out group-hover:translate-y-0 group-hover:opacity-100 after:pointer-events-none after:absolute after:top-full after:left-1/2 after:-translate-x-1/2 after:border-[0.3rem] after:border-transparent after:border-t-(--title-color) after:content-[""] motion-reduce:translate-y-0 motion-reduce:transition-opacity'
-            aria-hidden='true'
-          >
-            {skill.name}
-          </span>
+        <div id={skill.name} class='skills__data group flex w-14 flex-col items-center gap-1.5'>
           <img
             loading='lazy'
             data-icon={skill.icon}
             data-alticon={skill.alticon}
             src={skill.icon}
-            alt={skill.name}
+            alt=''
             class:list={[
-              'size-full max-h-10 max-w-10 drop-shadow-sm group-hover:drop-shadow-xl',
+              'size-10 drop-shadow-sm group-hover:drop-shadow-xl',
               skill.invertInDark && '[body:not(.light-theme)_&]:brightness-0 [body:not(.light-theme)_&]:invert',
             ]}
           />
+          <span class='w-full text-center text-(length:--tiny-font-size) leading-tight text-(--text-color-light)'>
+            {skill.name}
+          </span>
         </div>
       ))
     }
   </div>
 </div>
-<script>
-  import { getTheme, subscribeToTheme } from '../lib/theme'
-
-  function updateSkillBoxes() {
-    const useAltIcon = getTheme() === 'light'
-    const skillBoxes = document.querySelectorAll('.skills__data img') as NodeListOf<HTMLImageElement>
-
-    skillBoxes.forEach((skillBox) => {
-      skillBox.src = useAltIcon
-        ? skillBox.getAttribute('data-alticon') || skillBox.src
-        : skillBox.getAttribute('data-icon') || skillBox.src
-    })
-  }
-
-  updateSkillBoxes()
-  subscribeToTheme(updateSkillBoxes)
-</script>

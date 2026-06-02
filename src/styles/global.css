@@ -491,7 +491,6 @@ body.light-theme {
 
 .skills__data {
   display: flex;
-  column-gap: 0.5rem;
 }
 
 /*=============== SERVICES ===============*/

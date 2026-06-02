@@ -11,3 +11,19 @@ import SkillBox from './SkillBox.astro'
     {skillsData.map((item) => <SkillBox title={item.title} skills={item.skills} />)}
   </div>
 </section>
+
+<script>
+  import { getTheme, subscribeToTheme } from '../lib/theme'
+
+  function updateSkillIcons() {
+    const useAltIcon = getTheme() === 'light'
+    const skillIcons = document.querySelectorAll('#skills .skills__data img') as NodeListOf<HTMLImageElement>
+
+    skillIcons.forEach((icon) => {
+      icon.src = useAltIcon ? icon.getAttribute('data-alticon') || icon.src : icon.getAttribute('data-icon') || icon.src
+    })
+  }
+
+  updateSkillIcons()
+  subscribeToTheme(updateSkillIcons)
+</script>
