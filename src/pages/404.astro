@@ -68,18 +68,11 @@ const revealBase =
       <footer
         class:list={[
           revealBase,
-          'flex justify-center gap-2 self-end text-(length:--smaller-font-size)',
+          'self-end text-center text-(length:--smaller-font-size) text-(--text-color-light)',
           'animate-p404-reveal-bottom [animation-delay:200ms]',
         ]}
       >
-        <a
-          target='_blank'
-          rel='noreferrer'
-          href='mailto:hello@jpxoi.com'
-          class='text-(--text-color) no-underline transition-colors hover:text-(--title-color)'
-        >
-          hello@jpxoi.com
-        </a>
+        <p>&copy; {new Date().getFullYear()} Jean Paul Fernandez</p>
       </footer>
     </section>
   </main>
