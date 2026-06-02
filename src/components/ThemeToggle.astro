@@ -12,40 +12,20 @@ const moonClass = [iconClass, 'scale-0 rotate-90', 'dark:scale-100 dark:rotate-0
   type='button'
   id='theme-button'
   class='relative inline-flex size-9 shrink-0 cursor-pointer items-center justify-center text-(--text-color) transition-colors duration-200 ease-in-out active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:text-(--first-color)'
-  aria-label='Activate light theme'
+  aria-label='Toggle color theme'
 >
-  <span class='relative block size-5'>
-    <Sun className={sunClass} color='currentColor' aria-hidden='true' data-theme-icon='sun' />
+  <span class='relative block size-5' aria-hidden='true'>
+    <Sun className={sunClass} color='currentColor' />
     <span class='pointer-events-none absolute inset-0 flex items-center justify-center'>
-      <Moon className={moonClass} color='currentColor' aria-hidden='false' data-theme-icon='moon' />
+      <Moon className={moonClass} color='currentColor' />
     </span>
   </span>
 </button>
 
 <script>
-  import { getTheme, initTheme, subscribeToTheme, toggleTheme } from '../lib/theme'
-
-  function syncThemeButton() {
-    const button = document.getElementById('theme-button')
-    if (!button) return
-
-    const theme = getTheme()
-    const isLight = theme === 'light'
-
-    button.setAttribute('aria-label', isLight ? 'Activate dark theme' : 'Activate light theme')
-
-    const sun = button.querySelector('[data-theme-icon="sun"]')
-    const moon = button.querySelector('[data-theme-icon="moon"]')
-    sun?.setAttribute('aria-hidden', isLight ? 'false' : 'true')
-    moon?.setAttribute('aria-hidden', isLight ? 'true' : 'false')
-  }
-
-  initTheme()
-  syncThemeButton()
+  import { toggleTheme } from '../lib/theme'
 
   document.getElementById('theme-button')?.addEventListener('click', () => {
     toggleTheme()
   })
-
-  subscribeToTheme(syncThemeButton)
 </script>
