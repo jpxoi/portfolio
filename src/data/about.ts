@@ -1,5 +1,5 @@
 import type { AboutInfo } from '../types'
-import { BriefcaseAlt, HelpCircle, MedalAlt } from '@boxicons/react'
+import { BriefcaseAlt, MedalAlt, School } from '@boxicons/react'
 
 export const aboutInfo: AboutInfo[] = [
   {
@@ -13,8 +13,8 @@ export const aboutInfo: AboutInfo[] = [
     subtitle: '40+ Projects',
   },
   {
-    icon: HelpCircle,
-    title: 'Support',
-    subtitle: 'Online 24/7',
+    icon: School,
+    title: 'Education',
+    subtitle: 'CS @ UoM',
   },
 ]
