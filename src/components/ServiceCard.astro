@@ -15,12 +15,12 @@ const { title, description, modalId, items }: Props = Astro.props
 const titleId = `${modalId}-title`
 ---
 
-<div class='services__card'>
-  <h3 class='mb-10 text-(length:--h3-font-size) text-balance'>{title}</h3>
+<div class='services__card flex h-full flex-col rounded-2xl bg-(--container-color) p-6 sm:p-8'>
+  <h3 class='mb-6 text-(length:--h3-font-size) text-balance'>{title}</h3>
 
   <button
     type='button'
-    class='group services__button'
+    class='group services__button mt-auto'
     aria-expanded='false'
     aria-controls={modalId}
     aria-haspopup='dialog'
