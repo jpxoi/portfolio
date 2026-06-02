@@ -1,21 +1,20 @@
 ---
 import { contactData } from '../data/contact'
 import ContactCard from './ContactCard.astro'
+
+const formInputClass =
+  'contact__form-input border-(--text-color-light)/30 transition-colors focus-visible:border-(--first-color) focus-visible:outline-none'
 ---
 
 <section class='contact section' id='contact'>
   <span class='section__subtitle'>Get In Touch</span>
   <h2 class='section__title'>Contact Me</h2>
 
-  <div class='contact__container custom-container grid gap-5!'>
+  <div class='contact__container custom-container mx-auto grid max-w-5xl gap-8 pb-12 md:grid-cols-2 md:justify-center md:gap-x-12'>
     <div class='contact__content'>
       <h3 class='mb-6 text-center text-(length:--h3-font-size)'>Talk to me</h3>
-      <div class='contact__info'>
-        {
-          contactData.map((contactCard) => {
-            return <ContactCard {...contactCard} />
-          })
-        }
+      <div class='contact__info mx-auto grid w-full max-w-sm gap-3 md:mx-0'>
+        {contactData.map((contactCard) => <ContactCard {...contactCard} />)}
       </div>
     </div>
     <div class='contact__content'>
@@ -25,18 +24,24 @@ import ContactCard from './ContactCard.astro'
         action='https://formcarry.com/s/IdMAAJSEpJf'
         method='POST'
         enctype='multipart/form-data'
-        class='contact__form'
+        class='contact__form mx-auto w-full max-w-sm md:mx-0'
         name='contactForm'
       >
+        <div class='absolute -left-[9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
+          <label for='contact-honeypot'>Leave empty</label>
+          <input type='text' id='contact-honeypot' name='_gotcha' tabindex='-1' autocomplete='off' />
+        </div>
+
         <div class='contact__form-div'>
           <label for='name' class='contact__form-tag'>Full Name</label>
           <input
             type='text'
             placeholder='Insert your name'
-            class='contact__form-input'
+            class={formInputClass}
             id='name'
             name='name'
             autocomplete='name'
+            required
           />
         </div>
 
@@ -45,10 +50,11 @@ import ContactCard from './ContactCard.astro'
           <input
             type='email'
             placeholder='Insert your email'
-            class='contact__form-input'
+            class={formInputClass}
             id='email'
             name='email'
             autocomplete='email'
+            required
           />
         </div>
 
@@ -56,14 +62,15 @@ import ContactCard from './ContactCard.astro'
           <label for='message' class='contact__form-tag'>Message</label>
           <textarea
             placeholder='Describe your project'
-            class='contact__form-input'
+            class={formInputClass}
             id='message'
             name='message'
             cols='30'
-            rows='10'></textarea>
+            rows='10'
+            required></textarea>
         </div>
 
-        <button type='submit' class='button'>Send Message</button>
+        <button type='submit' class='button w-full sm:w-auto'>Send Message</button>
       </form>
     </div>
   </div>
