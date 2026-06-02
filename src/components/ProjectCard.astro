@@ -1,5 +1,4 @@
 ---
-import Badge from './Badge.astro'
 import { Globe, Github } from '@boxicons/react'
 import type { Project } from '../types'
 import { CDN_URL } from '../constants'
@@ -14,14 +13,18 @@ const imgAvif = `${CDN_URL}/projects/${id}/card.avif`
 const imgWebp = `${CDN_URL}/projects/${id}/card.webp`
 const imgFallback = imgWebp
 
-const hasLiveLink = Boolean(link)
-const hasGithubLink = Boolean(github)
-const isPrivate = !hasLiveLink && !hasGithubLink
+const isPrivate = !link && !github
+
+const projectActionClass =
+  'flex size-8 shrink-0 items-center justify-center rounded-md text-(--text-color-light) transition-colors [@media(hover:hover)]:hover:bg-(--container-color) [@media(hover:hover)]:hover:text-(--first-color)'
+
+const stackTagClass =
+  'inline-flex items-center rounded-sm border border-(--text-color-light)/15 bg-(--container-color)/35 px-1.5 py-0.5 text-(length:--tiny-font-size) font-normal leading-tight text-(--text-color-light) transition-colors [@media(hover:hover)]:group-hover:border-(--text-color-light)/25 [@media(hover:hover)]:group-hover:text-(--text-color)'
 ---
 
 <article class='group project__card flex h-full w-full flex-col gap-5'>
   <div class='flex flex-1 flex-col gap-4'>
-    <div class='relative aspect-video overflow-hidden rounded-lg'>
+    <div class='aspect-video overflow-hidden rounded-lg'>
       <picture>
         <source srcset={imgAvif} type='image/avif' />
         <source srcset={imgWebp} type='image/webp' />
@@ -34,76 +37,74 @@ const isPrivate = !hasLiveLink && !hasGithubLink
           loading='lazy'
         />
       </picture>
-      {
-        !isPrivate ? (
-          <div
-            class='absolute inset-0 flex items-center justify-center gap-3! bg-(--body-color)/0 opacity-0 transition-[opacity,background-color] duration-200 ease-in-out [@media(hover:hover)]:group-hover:bg-(--body-color)/40 [@media(hover:hover)]:group-hover:opacity-100'
-          >
-            {link && (
-              <a
-                href={link}
-                target='_blank'
-                rel='noreferrer'
-                aria-label={`Open live project: ${fullTitle}`}
-                class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
-              >
-                <Globe className='size-5' />
-              </a>
-            )}
-
-            {github && (
-              <a
-                href={github}
-                target='_blank'
-                rel='noreferrer'
-                aria-label={`Open GitHub repository: ${fullTitle}`}
-                class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
-              >
-                <Github className='size-5' />
-              </a>
-            )}
-          </div>
-        ) : (
-          <div
-            class='absolute inset-0 flex items-center justify-center bg-(--body-color)/0 opacity-0 transition-[opacity,background-color] duration-200 ease-in-out [@media(hover:hover)]:group-hover:bg-(--body-color)/40 [@media(hover:hover)]:group-hover:opacity-100'
-          >
-            <span
-              class='rounded-full border border-white/20 bg-black/40 px-3! py-1! text-(length:--smaller-font-size) font-medium text-white backdrop-blur-sm'
-            >
-              Private Project
-            </span>
-          </div>
-        )
-      }
     </div>
 
     <div class='flex flex-col gap-2'>
-      <div class='flex flex-col gap-0.5'>
-        <div class='flex flex-wrap items-center gap-x-2 gap-y-1'>
-          <h3 class='text-(length:--h3-font-size) leading-tight font-medium text-(--title-color)'>
-            {name}
-          </h3>
-          {
-            isPrivate && (
-              <span
-                class='inline-flex shrink-0 items-center rounded-full border border-(--text-color-light)/25 px-2 py-0.5 text-(length:--tiny-font-size) leading-none font-medium text-(--text-color-light)'
-              >
-                Private
-              </span>
-            )
-          }
+      <div class='flex items-start justify-between gap-3'>
+        <div class='min-w-0 flex flex-col gap-0.5'>
+          <div class='flex flex-wrap items-center gap-x-2 gap-y-1'>
+            <h3 class='text-(length:--h3-font-size) leading-tight font-medium text-(--title-color)'>
+              {name}
+            </h3>
+            {
+              isPrivate && (
+                <span
+                  class='inline-flex shrink-0 items-center rounded-full border border-(--text-color-light)/25 px-2 py-0.5 text-(length:--tiny-font-size) leading-none font-medium text-(--text-color-light)'
+                >
+                  Private
+                </span>
+              )
+            }
+          </div>
+
+          <p class='text-(length:--small-font-size) leading-snug text-(--first-color)'>{tagline}</p>
         </div>
 
-        <p class='text-(length:--small-font-size) leading-snug text-(--first-color)'>{tagline}</p>
+        {
+          (link || github) && (
+            <div class='flex shrink-0 items-center gap-0.5'>
+              {
+                link && (
+                  <a
+                    href={link}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`Open live project: ${fullTitle}`}
+                    class={projectActionClass}
+                  >
+                    <Globe className='size-[1.125rem]' aria-hidden='true' />
+                  </a>
+                )
+              }
+              {
+                github && (
+                  <a
+                    href={github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    aria-label={`Open GitHub repository: ${fullTitle}`}
+                    class={projectActionClass}
+                  >
+                    <Github className='size-[1.125rem]' aria-hidden='true' />
+                  </a>
+                )
+              }
+            </div>
+          )
+        }
       </div>
 
       <p class='line-clamp-4 text-(length:--small-font-size) leading-relaxed text-(--text-color-light)'>
         {description}
       </p>
-    </div>
-  </div>
 
-  <div class='flex flex-wrap gap-2'>
-    {stack.map((stackItem) => <Badge text={stackItem} />)}
+      <ul class='flex flex-wrap gap-1.5 pt-0.5' aria-label='Technologies used'>
+        {stack.map((item) => (
+          <li class={stackTagClass}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </article>
