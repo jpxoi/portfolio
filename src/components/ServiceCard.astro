@@ -4,29 +4,46 @@ import { ArrowRightStroke, CheckCircle, X } from '@boxicons/react'
 interface Props {
   title: string
   description: string
+  modalId: string
   items: {
     title: string
     description: string
   }[]
 }
 
-const { title, description, items }: Props = Astro.props
+const { title, description, modalId, items }: Props = Astro.props
+const titleId = `${modalId}-title`
 ---
 
 <div class='services__card'>
   <h3 class='mb-10 text-(length:--h3-font-size) text-balance'>{title}</h3>
 
-  <span class='group services__button'>
-    See More <ArrowRightStroke
+  <button
+    type='button'
+    class='group services__button'
+    aria-expanded='false'
+    aria-controls={modalId}
+    aria-haspopup='dialog'
+    aria-label={`See more about ${title}`}
+  >
+    See More
+    <ArrowRightStroke
       className='size-5 transition-transform duration-200 ease-in-out group-hover:translate-x-0.5'
+      aria-hidden='true'
     />
-  </span>
+  </button>
 
-  <div class='services__modal'>
+  <div class='services__modal' id={modalId} role='dialog' aria-modal='true' aria-labelledby={titleId} aria-hidden='true'>
     <div class='services__modal-content max-h-[90dvh]'>
-      <X className='services__modal-close absolute top-6 right-6 size-5 cursor-pointer' color='var(--first-color)' />
+      <button
+        type='button'
+        class='services__modal-close absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0'
+        aria-label={`Close ${title} details`}
+      >
+        <X className='size-5' color='var(--first-color)' aria-hidden='true' />
+      </button>
       <div class='max-h-[75dvh] overflow-scroll'>
-        <h4 class='services__modal-title'>{title}</h4>
+        <h4 class='services__modal-title' id={titleId}>{title}</h4>
 
         <p class='services__modal-description text-pretty'>{description}</p>
 
@@ -34,7 +51,7 @@ const { title, description, items }: Props = Astro.props
           {
             items.map(({ title, description }) => (
               <li class='flex items-start gap-x-2'>
-                <CheckCircle className='size-5 min-w-5' color='var(--first-color)' />
+                <CheckCircle className='size-5 min-w-5' color='var(--first-color)' aria-hidden='true' />
                 <p class='text-(length:--small-font-size) text-pretty'>
                   <b>{title}:</b> {description}
                 </p>
