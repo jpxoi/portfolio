@@ -50,6 +50,7 @@ export const skillsData = [
       {
         name: 'React',
         icon: `${THE_SVG_CDN_URL}/icons/react/default.svg`,
+        alticon: `${THE_SVG_CDN_URL}/icons/react/light.svg`,
       },
       {
         name: 'Next.js',
@@ -75,6 +76,7 @@ export const skillsData = [
       {
         name: 'Expo',
         icon: `${THE_SVG_CDN_URL}/icons/expo/default.svg`,
+        invertInDark: true,
       },
       {
         name: 'Xcode',
@@ -96,6 +98,7 @@ export const skillsData = [
       {
         name: 'Express.js',
         icon: `${THE_SVG_CDN_URL}/icons/express/default.svg`,
+        invertInDark: true,
       },
       {
         name: 'Flask',
