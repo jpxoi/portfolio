@@ -6,7 +6,13 @@ interface Props extends HeroSocialLink {}
 const { route, icon: Icon, aria_label }: Props = Astro.props
 ---
 
-<a href={route} target='_blank' rel='noreferrer' class='home__social-link' aria-label={aria_label}>
+<a
+  href={route}
+  target='_blank'
+  rel='noreferrer'
+  class='flex w-max rounded bg-(--container-color) p-1 text-base text-(--first-color) shadow-[0_2px_8px_hsla(var(--second-hue),48%,8%,0.1)] transition-theme hover:bg-(--first-color) hover:text-white lg:p-1.5 lg:text-xl'
+  aria-label={aria_label}
+>
   <Icon className='size-5' />
   <span class='hidden'>{aria_label}</span>
 </a>

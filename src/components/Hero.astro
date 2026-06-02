@@ -10,56 +10,104 @@ import { Mouse } from '@boxicons/react'
 const imgAvif = `${CDN_URL}/portfolio/about/profile.avif`
 const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
+
+const handleClass =
+  'flex h-[293px] w-[190px] max-[320px]:h-[253px] max-[320px]:w-[150px] lg:h-[400px] lg:w-[290px] justify-self-center items-end justify-center overflow-hidden rounded-t-[10rem] rounded-b-4 bg-gradient-to-b from-[hsla(var(--first-hue),var(--sat),var(--lig),1)] to-[hsla(var(--first-hue),var(--sat),var(--lig),0.2)]'
+
+const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
 ---
 
-<PageSection id='home' class='home'>
-  <SiteContainer class='relative grid gap-5! pt-8'>
-    <div class='text-center'>
-      <span class='home__greeting'>Hello, I&apos;m</span>
-      <h1 class='text-(length:--biggest-font-size)'>Jean Paul Fernandez</h1>
-      <h2 id='dynamic-header' class='home__education min-h-6'>Software Engineer</h2>
-
-      <div class='home__buttons'>
-        <Button
-          href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
-          target='_blank'
-          download='Jean_Paul_Fernandez_CV.pdf'
-          rel='noreferrer'
-          variant='ghost'
+<PageSection id='home'>
+  <SiteContainer class='relative pt-8'>
+    <div class='grid gap-5'>
+      <div class='text-center'>
+        <span class='mb-1 block text-(length:--small-font-size) font-medium text-(--title-color)'>Hello, I&apos;m</span>
+        <h1 class='text-(length:--biggest-font-size)'>Jean Paul Fernandez</h1>
+        <h2
+          id='dynamic-header'
+          class='mb-10 min-h-6 text-(length:--small-font-size) font-medium text-(--text-color) transition-opacity duration-500 ease-in-out'
         >
-          Download CV
-        </Button>
+          Software Engineer
+        </h2>
 
-        <Button href='#about'>About Me</Button>
+        <div class='flex items-center justify-center gap-6 max-[320px]:flex-col'>
+          <Button
+            href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
+            target='_blank'
+            download='Jean_Paul_Fernandez_CV.pdf'
+            rel='noreferrer'
+            variant='ghost'
+          >
+            Download CV
+          </Button>
+
+          <Button href='#about'>About Me</Button>
+        </div>
+      </div>
+
+      <div class={handleClass}>
+        <picture class={imgClass}>
+          <source srcset={imgAvif} type='image/avif' />
+          <source srcset={imgWebp} type='image/webp' />
+          <img
+            loading='eager'
+            fetchpriority='high'
+            src={imgFallback}
+            alt='Stand up Memoji of Jean Paul Fernandez'
+            class={imgClass}
+            width={220}
+            height={381.05}
+          />
+        </picture>
       </div>
     </div>
 
-    <div class='home__handle'>
-      <picture class='home__img'>
-        <source srcset={imgAvif} type='image/avif' />
-        <source srcset={imgWebp} type='image/webp' />
-        <img
-          loading='eager'
-          fetchpriority='high'
-          src={imgFallback}
-          alt='Stand up Memoji of Jean Paul Fernandez'
-          class='home__img'
-          width={220}
-          height={381.05}
-        />
-      </picture>
-    </div>
-
-    <div class='home__social'>
+    <div class='hero-social'>
       {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
     </div>
 
-    <a href='#about' class='home__scroll'>
+    <a href='#about' class='hero-scroll transition-theme'>
       <Mouse className='size-6' />
       <span class='-rotate-90 text-(length:--smaller-font-size)'>Scroll Down</span>
     </a>
   </SiteContainer>
 </PageSection>
+
+<style>
+  .hero-social,
+  .hero-scroll {
+    display: none;
+  }
+
+  @media screen and (min-width: 992px) {
+    .hero-social {
+      position: absolute;
+      bottom: 5rem;
+      left: 0;
+      display: grid;
+      row-gap: 0.5rem;
+    }
+
+    .hero-social::after {
+      content: '';
+      width: 32px;
+      height: 2px;
+      background-color: var(--first-color);
+      transform: rotate(90deg) translate(16px, 0);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 4rem;
+      right: -1.5rem;
+      display: grid;
+      row-gap: 2.25rem;
+      justify-items: center;
+      color: var(--first-color);
+    }
+  }
+</style>
+
 <script>
   const headerTexts = ['Software Engineer', 'Full-stack Developer', 'AI Engineer']
   const headerEl = document.getElementById('dynamic-header')
