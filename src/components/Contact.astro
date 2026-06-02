@@ -3,28 +3,29 @@ import { contactData } from '../data/contact'
 import ContactCard from './ContactCard.astro'
 
 const formInputClass =
-  'contact__form-input border-(--text-color-light)/30 transition-colors focus-visible:border-(--first-color) focus-visible:outline-none'
+  'contact__form-input transition-colors focus-visible:border-(--first-color) focus-visible:outline-none'
 ---
 
 <section class='contact section' id='contact'>
   <span class='section__subtitle'>Get In Touch</span>
   <h2 class='section__title'>Contact Me</h2>
 
-  <div class='contact__container custom-container mx-auto grid max-w-5xl gap-8 pb-12 md:grid-cols-2 md:justify-center md:gap-x-12'>
-    <div class='contact__content'>
-      <h3 class='mb-6 text-center text-(length:--h3-font-size)'>Talk to me</h3>
-      <div class='contact__info mx-auto grid w-full max-w-sm gap-3 md:mx-0'>
+  <div class='custom-container mx-auto grid max-w-5xl gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
+    <div>
+      <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Talk to me</h3>
+      <div class='flex flex-col gap-1'>
         {contactData.map((contactCard) => <ContactCard {...contactCard} />)}
       </div>
     </div>
-    <div class='contact__content'>
-      <h3 class='mb-6 text-center text-(length:--h3-font-size)'>Write me about your project</h3>
+
+    <div>
+      <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Write me about your project</h3>
 
       <form
         action='https://formcarry.com/s/IdMAAJSEpJf'
         method='POST'
         enctype='multipart/form-data'
-        class='contact__form mx-auto w-full max-w-sm md:mx-0'
+        class='contact__form w-full'
         name='contactForm'
       >
         <div class='absolute -left-[9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>

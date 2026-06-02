@@ -11,15 +11,15 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
   href={link}
   target='_blank'
   rel='noopener noreferrer'
-  class='contact__card group flex flex-col items-center gap-2 rounded-xl border border-transparent bg-(--container-color) p-4 text-center transition-[border-color,box-shadow] duration-200 [@media(hover:hover)]:hover:border-(--text-color-light)/25 [@media(hover:hover)]:hover:shadow-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-colors duration-200 [@media(hover:hover)]:hover:bg-(--container-color)/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
 >
-  <Icon id={id} className='size-8' color='var(--title-color)' aria-hidden='true' />
-  <h4 class='text-(length:--small-font-size) font-medium text-(--title-color)'>{title}</h4>
-  <span class='flex items-center justify-center gap-1 text-(length:--small-font-size) text-(--first-color)'>
-    {cta}
-    <ArrowRightStroke
-      className='size-5 transition-transform duration-200 ease-in-out [@media(hover:hover)]:group-hover:translate-x-0.5'
-      aria-hidden='true'
-    />
+  <Icon id={id} className='size-6 shrink-0 text-(--first-color)' color='currentColor' aria-hidden='true' />
+  <span class='min-w-0 flex-1 text-left'>
+    <span class='block text-(length:--small-font-size) font-medium text-(--title-color)'>{title}</span>
+    <span class='block text-(length:--tiny-font-size) text-(--first-color)'>{cta}</span>
   </span>
+  <ArrowRightStroke
+    className='size-5 shrink-0 text-(--text-color-light) transition-[transform,color] duration-200 [@media(hover:hover)]:group-hover:translate-x-0.5 [@media(hover:hover)]:group-hover:text-(--first-color)'
+    aria-hidden='true'
+  />
 </a>
