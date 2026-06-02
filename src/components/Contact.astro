@@ -1,5 +1,6 @@
 ---
 import { contactData } from '../data/contact'
+import Button from './Button.astro'
 import ContactCard from './ContactCard.astro'
 import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
@@ -73,7 +74,7 @@ const formInputClass =
             required></textarea>
         </div>
 
-        <button type='submit' class='button w-full sm:w-auto'>Send Message</button>
+        <Button type='submit' class='w-full sm:w-auto'>Send Message</Button>
       </form>
     </div>
   </SiteContainer>

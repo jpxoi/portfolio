@@ -1,6 +1,7 @@
 ---
 import { heroSocialLinks } from '../data/socials'
 import { CDN_URL } from '../constants'
+import Button from './Button.astro'
 import HeroSocialLink from './HeroSocialLink.astro'
 import PageSection from './PageSection.astro'
 import SiteContainer from './SiteContainer.astro'
@@ -19,17 +20,17 @@ const imgFallback = imgWebp
       <h2 id='dynamic-header' class='home__education min-h-6'>Software Engineer</h2>
 
       <div class='home__buttons'>
-        <a
+        <Button
           href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
           target='_blank'
           download='Jean_Paul_Fernandez_CV.pdf'
           rel='noreferrer'
-          class='button button--ghost'
+          variant='ghost'
         >
           Download CV
-        </a>
+        </Button>
 
-        <a href='#about' class='button'>About Me</a>
+        <Button href='#about'>About Me</Button>
       </div>
     </div>
 

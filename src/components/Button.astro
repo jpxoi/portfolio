@@ -1,0 +1,43 @@
+---
+interface Props {
+  variant?: 'solid' | 'ghost'
+  href?: string
+  type?: 'button' | 'submit' | 'reset'
+  class?: string
+  download?: string | boolean
+  target?: string
+  rel?: string
+}
+
+const {
+  variant = 'solid',
+  href,
+  type = 'button',
+  class: className,
+  download,
+  target,
+  rel,
+} = Astro.props
+
+const baseClass =
+  'inline-block rounded-lg px-4 py-3 font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+
+const variantClass =
+  variant === 'ghost'
+    ? 'border-2 border-(--first-color) bg-transparent text-(--first-color) hover:bg-(--first-color-alt) hover:text-(--body-color)'
+    : 'bg-(--first-color) text-(--body-color) hover:bg-(--first-color-alt) hover:text-(--body-color)'
+
+const classes = [baseClass, variantClass, className].filter(Boolean)
+---
+
+{
+  href ? (
+    <a href={href} class:list={classes} download={download} target={target} rel={rel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class:list={classes}>
+      <slot />
+    </button>
+  )
+}
