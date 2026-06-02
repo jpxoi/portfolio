@@ -1,0 +1,50 @@
+---
+import { Moon, Sun } from '@boxicons/react'
+
+const iconProps = { className: 'size-5', color: 'var(--text-color)' }
+---
+
+<button
+  type='button'
+  id='theme-button'
+  class='change-theme'
+  aria-label='Activate light theme'
+  data-theme='dark'
+>
+  <span class='theme-button__icon' data-show-when='dark'>
+    <Moon {...iconProps} />
+  </span>
+  <span class='theme-button__icon hidden' data-show-when='light'>
+    <Sun {...iconProps} />
+  </span>
+</button>
+
+<script>
+  import { getTheme, initTheme, subscribeToTheme, toggleTheme, type Theme } from '../lib/theme'
+
+  function syncThemeButton(theme: Theme) {
+    const button = document.getElementById('theme-button')
+    if (!button) return
+
+    button.dataset.theme = theme
+    button.setAttribute(
+      'aria-label',
+      theme === 'light' ? 'Activate dark theme' : 'Activate light theme',
+    )
+
+    button.querySelectorAll<HTMLElement>('[data-show-when]').forEach((icon) => {
+      const show = icon.dataset.showWhen === theme
+      icon.classList.toggle('hidden', !show)
+      icon.setAttribute('aria-hidden', show ? 'false' : 'true')
+    })
+  }
+
+  initTheme()
+  syncThemeButton(getTheme())
+
+  document.getElementById('theme-button')?.addEventListener('click', () => {
+    toggleTheme()
+  })
+
+  subscribeToTheme(syncThemeButton)
+</script>
