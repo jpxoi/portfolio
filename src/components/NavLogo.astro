@@ -9,7 +9,7 @@ const { variant = 'default', className }: Props = Astro.props
 const href = variant === 'default' ? '#' : '/'
 
 const svgClass =
-  'block w-auto fill-(--title-color) transition-[fill] duration-100 [@media(hover:hover)]:group-hover:fill-(--first-color)'
+  'block w-auto fill-(--title-color) transition-theme [@media(hover:hover)]:group-hover:fill-(--first-color)'
 ---
 
 <a href={href} class='nav__logo group shrink-0' aria-label='Return to Home Page'>
