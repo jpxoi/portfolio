@@ -7,8 +7,19 @@ import SkillBox from './SkillBox.astro'
   <span class='section__subtitle'>My Stack</span>
   <h2 class='section__title'>Skills & Technologies</h2>
 
-  <div class='skills__container custom-container grid gap-5!'>
-    {skillsData.map((item) => <SkillBox title={item.title} skills={item.skills} />)}
+  <div class='custom-container mx-auto max-w-5xl pt-4'>
+    <div
+      class='divide-y divide-(--text-color-light)/10 rounded-xl bg-(--container-color) px-3 py-1 md:px-5 [body:not(.light-theme)_&]:ring-1 [body:not(.light-theme)_&]:ring-white/5'
+    >
+      {
+        skillsData.map((item, index) => (
+          <div class='flex flex-col gap-3 py-5 md:gap-4 md:py-6'>
+            <h3 class='px-1 text-(length:--normal-font-size) font-medium text-(--first-color)'>{item.title}</h3>
+            <SkillBox skills={item.skills} categoryIndex={index} />
+          </div>
+        ))
+      }
+    </div>
   </div>
 </section>
 
@@ -17,7 +28,7 @@ import SkillBox from './SkillBox.astro'
 
   function updateSkillIcons() {
     const useAltIcon = getTheme() === 'light'
-    const skillIcons = document.querySelectorAll('#skills .skills__data img') as NodeListOf<HTMLImageElement>
+    const skillIcons = document.querySelectorAll('#skills .skill-tile img') as NodeListOf<HTMLImageElement>
 
     skillIcons.forEach((icon) => {
       icon.src = useAltIcon ? icon.getAttribute('data-alticon') || icon.src : icon.getAttribute('data-icon') || icon.src
