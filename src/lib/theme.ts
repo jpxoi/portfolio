@@ -1,56 +1,37 @@
-const LIGHT_THEME_CLASS = 'light-theme'
+const DARK_CLASS = 'dark'
 const THEME_STORAGE_KEY = 'selected-theme'
-const THEME_STORAGE_VERSION_KEY = 'theme-storage-version'
-const THEME_STORAGE_VERSION = '2'
 const THEME_CHANGE_EVENT = 'theme-change'
-const LEGACY_ICON_KEY = 'selected-icon'
 
 export type Theme = 'light' | 'dark'
 
-function isLightTheme(): boolean {
-  return document.body.classList.contains(LIGHT_THEME_CLASS)
+function isDarkTheme(): boolean {
+  return document.documentElement.classList.contains(DARK_CLASS)
 }
 
 export function getTheme(): Theme {
-  return isLightTheme() ? 'light' : 'dark'
+  return isDarkTheme() ? 'dark' : 'light'
 }
 
 function applyTheme(theme: Theme): void {
-  document.body.classList.toggle(LIGHT_THEME_CLASS, theme === 'light')
+  document.documentElement.classList.toggle(DARK_CLASS, theme === 'dark')
   localStorage.setItem(THEME_STORAGE_KEY, theme)
-  localStorage.setItem(THEME_STORAGE_VERSION_KEY, THEME_STORAGE_VERSION)
   window.dispatchEvent(new CustomEvent<{ theme: Theme }>(THEME_CHANGE_EVENT, { detail: { theme } }))
 }
 
 export function toggleTheme(): Theme {
-  const next: Theme = isLightTheme() ? 'dark' : 'light'
+  const next: Theme = isDarkTheme() ? 'light' : 'dark'
   applyTheme(next)
   return next
 }
 
-/** Reads persisted theme, migrating legacy inverted `selected-theme` values. */
 function readStoredTheme(): Theme | null {
   const stored = localStorage.getItem(THEME_STORAGE_KEY)
-  if (!stored) return null
-
-  const version = localStorage.getItem(THEME_STORAGE_VERSION_KEY)
-  if (version === THEME_STORAGE_VERSION) {
-    return stored === 'light' || stored === 'dark' ? stored : null
-  }
-
-  localStorage.removeItem(LEGACY_ICON_KEY)
-  if (stored === 'dark') return 'light'
-  if (stored === 'light') return 'dark'
-  return null
+  return stored === 'light' || stored === 'dark' ? stored : null
 }
 
 export function initTheme(): void {
   const stored = readStoredTheme()
-  if (stored) {
-    applyTheme(stored)
-    return
-  }
-  localStorage.setItem(THEME_STORAGE_VERSION_KEY, THEME_STORAGE_VERSION)
+  applyTheme(stored ?? 'dark')
 }
 
 export function subscribeToTheme(callback: (theme: Theme) => void): () => void {
