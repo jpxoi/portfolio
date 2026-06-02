@@ -11,7 +11,8 @@ export interface NavItem {
 
 export interface Project {
   id: string
-  title: string
+  name: string
+  tagline: string
   description: string
   link?: string
   github?: string
