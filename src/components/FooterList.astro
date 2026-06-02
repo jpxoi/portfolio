@@ -25,23 +25,27 @@ const footerList = [
     target_blank: true,
   },
 ]
+
+const linkClass =
+  'text-(length:--small-font-size) font-medium text-(--text-color) transition-colors hover:text-(--first-color) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
 ---
 
-<ul class='footer__list'>
-  {
-    footerList.map((item) => (
-      <li>
-        <a
-          id={item.id}
-          href={item.link}
-          target={item.target_blank ? '_blank' : '_self'}
-          rel={item.target_blank ? 'noopener noreferrer' : ''}
-          class='footer__link'
-          aria-label={item.title}
-        >
-          {item.title}
-        </a>
-      </li>
-    ))
-  }
-</ul>
+<nav aria-label='Footer'>
+  <ul class='flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-6'>
+    {
+      footerList.map((item) => (
+        <li>
+          <a
+            id={item.id}
+            href={item.link}
+            target={item.target_blank ? '_blank' : undefined}
+            rel={item.target_blank ? 'noopener noreferrer' : undefined}
+            class={linkClass}
+          >
+            {item.title}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>

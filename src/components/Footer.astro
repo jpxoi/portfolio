@@ -1,15 +1,21 @@
 ---
 import FooterList from './FooterList.astro'
 import FooterSocial from './FooterSocial.astro'
+import NavLogo from './NavLogo.astro'
 ---
 
-<footer class='footer'>
-  <div class='custom-container grid gap-5! py-8 pb-24'>
-    <h2 class='footer__title'>Jean Paul Fernandez</h2>
+<footer class='border-t border-(--text-color-light)/15 bg-(--container-color)'>
+  <div class='custom-container flex flex-col items-center gap-8 px-4 py-12 pb-24 text-center sm:gap-10'>
+    <div class='flex flex-col items-center gap-2 [&_.img-fluid]:!h-7 sm:[&_.img-fluid]:!h-8'>
+      <NavLogo />
+      <p class='text-(length:--small-font-size) text-(--text-color-light)'>Full-stack software engineer</p>
+    </div>
+
     <FooterList />
     <FooterSocial />
-    <span class='footer__copy my-8 block text-center'>
-      &#169; {new Date().getFullYear()} Jean Paul Fernandez. All Rights Reserved.
-    </span>
+
+    <p class='text-(length:--smaller-font-size) text-(--text-color-light)'>
+      &copy; {new Date().getFullYear()} Jean Paul Fernandez. All rights reserved.
+    </p>
   </div>
 </footer>
