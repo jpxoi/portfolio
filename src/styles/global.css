@@ -1,5 +1,7 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme inline {
   --font-sans: var(--font-poppins), sans-serif;
 
@@ -33,11 +35,11 @@
 
   --first-color: hsl(var(--first-hue), var(--sat), var(--lig));
   --first-color-alt: hsl(var(--first-hue), var(--sat), 71%); /* -4% */
-  --title-color: hsl(var(--second-hue), 15%, 95%);
-  --text-color: hsl(var(--second-hue), 8%, 75%);
+  --title-color: hsl(var(--second-hue), 15%, 15%);
+  --text-color: hsl(var(--second-hue), 8%, 35%);
   --text-color-light: hsl(var(--second-hue), 4%, 55%);
-  --body-color: hsl(var(--second-hue), 48%, 8%);
-  --container-color: hsl(var(--second-hue), 32%, 12%);
+  --body-color: hsl(var(--second-hue), 100%, 99%);
+  --container-color: #fff;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -98,84 +100,115 @@ h3 {
   font-weight: var(--font-semibold);
 }
 
-/*========== Variables Light Theme ==========*/
-body.light-theme {
-  --title-color: hsl(var(--second-hue), 15%, 15%);
-  --text-color: hsl(var(--second-hue), 8%, 35%);
-  --body-color: hsl(var(--second-hue), 100%, 99%);
-  --container-color: #fff;
+/*========== Variables Dark Theme ==========*/
+.dark {
+  --title-color: hsl(var(--second-hue), 15%, 95%);
+  --text-color: hsl(var(--second-hue), 8%, 75%);
+  --text-color-light: hsl(var(--second-hue), 4%, 55%);
+  --body-color: hsl(var(--second-hue), 48%, 8%);
+  --container-color: hsl(var(--second-hue), 32%, 12%);
 }
 
-/*========== 
-    Color changes in some parts of 
-    the website, in light theme
-==========*/
-.light-theme .scroll-header {
+/*========== Theme-specific component tweaks ==========*/
+.scroll-header {
   box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
 }
 
-.light-theme .nav__menu {
+.dark .scroll-header {
+  box-shadow: 0 4px 4px hsla(0, 0%, 4%, 0.3);
+}
+
+.nav__menu {
   background-color: hsla(var(--second-hue), 32%, 90%, 0.8);
 }
 
-.light-theme .section__subtitle {
+.dark .nav__menu {
+  background-color: hsl(var(--second-hue), 32%, 16%, 0.8);
+}
+
+.section__subtitle {
   color: var(--text-color);
 }
 
-.light-theme .home__social-link {
+.dark .section__subtitle {
+  color: var(--text-color-light);
+}
+
+.home__social-link {
   box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
 }
 
-.light-theme .home__social::after {
+.home__social::after {
   background-color: var(--title-color);
 }
 
-.light-theme .home__social-link,
-.light-theme .home__scroll {
+.home__social-link,
+.home__scroll {
   color: var(--title-color);
 }
 
-.light-theme .about__box {
-  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
-}
-
-.light-theme .services__card,
-.light-theme .contact__card {
-  box-shadow: 0 2px 16px hsla(var(--second-hue), 48%, 8%, 0.1);
-}
-
-.light-theme .img-fluid {
-  fill: var(--title-color);
-  transition: 0.3s;
-}
-
-.light-theme .img-fluid:hover {
-  fill: var(--first-color);
-  transition: 0.3s;
-}
-
-.light-theme .footer {
+.dark .home__social::after {
   background-color: var(--first-color);
 }
 
-.light-theme .footer__title,
-.light-theme .footer__link {
+.dark .home__social-link,
+.dark .home__scroll {
+  color: var(--first-color);
+}
+
+.about__box {
+  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
+}
+
+.services__card,
+.contact__card {
+  box-shadow: 0 2px 16px hsla(var(--second-hue), 48%, 8%, 0.1);
+}
+
+.footer {
+  background-color: var(--first-color);
+}
+
+.footer__title,
+.footer__link {
   color: var(--body-color);
 }
 
-.light-theme .footer__social-link {
+.footer__social-link {
   background-color: var(--body-color);
   color: var(--first-color);
   transition: 0.3s;
 }
 
-.light-theme .footer__social-link:hover {
+.footer__social-link:hover {
   color: #151c28;
   transition: 0.3s;
 }
 
-.light-theme .footer__copy {
+.footer__copy {
   color: var(--container-color);
+}
+
+.dark .footer {
+  background-color: var(--container-color);
+}
+
+.dark .footer__title,
+.dark .footer__link {
+  color: var(--title-color);
+}
+
+.dark .footer__social-link {
+  background-color: var(--title-color);
+  color: var(--container-color);
+}
+
+.dark .footer__social-link:hover {
+  color: var(--first-color);
+}
+
+.dark .footer__copy {
+  color: #fff;
 }
 
 /*=============== REUSABLE CSS CLASSES ===============*/
@@ -208,7 +241,6 @@ body.light-theme {
 .section__subtitle {
   display: block;
   font-size: var(--smaller-font-size);
-  color: var(--text-color-light);
 }
 
 /*=============== HEADER & NAV===============*/
@@ -245,7 +277,6 @@ body.light-theme {
 .nav__menu {
   position: fixed;
   bottom: 1rem;
-  background-color: hsl(var(--second-hue), 32%, 16%, 0.8);
   width: 90%;
   border-radius: 4rem;
   padding: 1rem 2.25rem;
@@ -281,11 +312,6 @@ body.light-theme {
   );
 
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
-}
-
-/* Change background header */
-.scroll-header {
-  box-shadow: 0 4px 4px hsla(0, 0%, 4%, 0.3);
 }
 
 /*=============== HOME ===============*/
@@ -580,15 +606,6 @@ body.light-theme {
 }
 
 /*=============== FOOTER ===============*/
-.footer {
-  background-color: var(--container-color);
-}
-
-.footer__title,
-.footer__link {
-  color: var(--title-color);
-}
-
 .footer__title {
   text-align: center;
   margin-bottom: 2rem;
@@ -602,20 +619,13 @@ body.light-theme {
 }
 
 .footer__social-link {
-  background-color: var(--title-color);
-  color: var(--container-color);
   padding: 0.25rem;
   border-radius: 0.25rem;
   font-size: 1rem;
   display: inline-flex;
 }
 
-.footer__social-link:hover {
-  color: var(--first-color);
-}
-
 .footer__copy {
-  color: #fff;
   font-size: var(--smaller-font-size);
 }
 
