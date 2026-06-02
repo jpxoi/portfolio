@@ -15,6 +15,7 @@
   --animate-p404-shadow: p404-shadow 1.8s ease-in-out infinite alternate;
   --animate-p404-reveal-top: p404-reveal-top 1s ease forwards;
   --animate-p404-reveal-bottom: p404-reveal-bottom 1s ease forwards;
+  --animate-floaty: floaty 1.5s ease-in-out infinite alternate;
 }
 
 @utility skills-marquee-mask {
@@ -25,14 +26,6 @@
   transition-property: background-color, border-color, color, fill, stroke, box-shadow, outline-color;
   transition-duration: var(--theme-transition-duration);
   transition-timing-function: var(--theme-transition-timing);
-}
-
-@utility site-container {
-  @apply w-full max-w-5xl px-4 lg:mx-auto;
-}
-
-@utility section-padding {
-  @apply pt-18 pb-4 lg:pt-26;
 }
 
 /*=============== VARIABLES CSS ===============*/
@@ -200,14 +193,6 @@ body {
 }
 
 /*========== Theme-specific component tweaks ==========*/
-.scroll-header {
-  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
-}
-
-.dark .scroll-header {
-  box-shadow: 0 4px 4px hsla(0, 0%, 4%, 0.3);
-}
-
 .nav__menu {
   background-color: hsla(var(--second-hue), 32%, 90%, 0.8);
 }
@@ -408,40 +393,6 @@ body {
   color: var(--first-color);
 }
 
-/*=============== ABOUT ===============*/
-.about__container {
-  row-gap: 2.5rem;
-}
-
-.about__img {
-  width: 220px;
-  border-radius: 1.5rem;
-  justify-self: center;
-  animation: floaty 1.5s infinite alternate;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .about__img {
-    animation: none;
-  }
-}
-
-.about__data {
-  text-align: center;
-}
-
-.about__info {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.about__description {
-  margin-bottom: 1rem;
-}
-
-/* Animate About Picture */
 @keyframes floaty {
   0% {
     transform: translateY(0);
@@ -632,9 +583,6 @@ body {
     width: 130px;
   }
 
-  .about__info {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 /* For medium devices */
@@ -644,15 +592,6 @@ body {
     left: 0;
     right: 0;
     margin: 0 auto;
-  }
-
-  .about__info {
-    grid-template-columns: repeat(3, 140px);
-    justify-content: center;
-  }
-
-  .about__description {
-    padding: 0 5rem;
   }
 
   .services__modal-content {
@@ -693,29 +632,6 @@ body {
 
   .home__social::after {
     transform: rotate(90deg) translate(16px, 0);
-  }
-
-  .about__container {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    column-gap: 4rem;
-  }
-
-  .about__img {
-    width: 350px;
-  }
-
-  .about__data {
-    text-align: initial;
-  }
-
-  .about__info {
-    justify-content: initial;
-  }
-
-  .about__description {
-    padding: 0 0 0 0;
-    margin-bottom: 1.5rem;
   }
 
   .services__modal-content {
