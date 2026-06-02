@@ -10,6 +10,11 @@
   --animate-skills-marquee-mobile: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite;
   --animate-skills-marquee-mobile-reverse: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite
     reverse;
+
+  --animate-p404-float: p404-float 1.8s ease-in-out infinite alternate;
+  --animate-p404-shadow: p404-shadow 1.8s ease-in-out infinite alternate;
+  --animate-p404-reveal-top: p404-reveal-top 1s ease forwards;
+  --animate-p404-reveal-bottom: p404-reveal-bottom 1s ease forwards;
 }
 
 @utility skills-marquee-mask {
@@ -484,6 +489,46 @@ h3 {
 @keyframes skills-marquee {
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes p404-float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(15px);
+  }
+}
+
+@keyframes p404-shadow {
+  0% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.85, 0.85);
+  }
+}
+
+@keyframes p404-reveal-top {
+  from {
+    opacity: 0;
+    transform: translateY(-90px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes p404-reveal-bottom {
+  from {
+    opacity: 0;
+    transform: translateY(90px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
