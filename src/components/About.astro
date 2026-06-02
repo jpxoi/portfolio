@@ -1,7 +1,9 @@
 ---
 import { aboutInfo } from '../data/about'
 import AboutBox from './AboutBox.astro'
+import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
+import SiteContainer from './SiteContainer.astro'
 import { CDN_URL } from '../constants'
 
 const imgAvif = `${CDN_URL}/portfolio/about/about.avif`
@@ -9,29 +11,34 @@ const imgWebp = `${CDN_URL}/portfolio/about/about.webp`
 const imgFallback = imgWebp
 ---
 
-<section class='about section-padding' id='about'>
+<PageSection id='about'>
   <SectionHeading title='About Me' />
 
-  <div class='about__container site-container grid gap-5'>
-    <picture class='about__img motion-reduce:animate-none'>
+  <SiteContainer class='grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16'>
+    <picture
+      class='mx-auto w-55 justify-self-center rounded-3xl motion-reduce:animate-none max-[320px]:w-32.5 animate-floaty lg:mx-0 lg:w-87.5'
+    >
       <source srcset={imgAvif} type='image/avif' />
       <source srcset={imgWebp} type='image/webp' />
       <img loading='lazy' src={imgFallback} alt='Memoji of Jean Paul Fernandez' width={350} height={350} />
     </picture>
-    <div class='about__data'>
-      <div class='about__info'>
+
+    <div class='text-center lg:text-left'>
+      <div
+        class='mb-8 grid grid-cols-3 gap-2 max-[320px]:grid-cols-2 sm:mx-auto sm:grid-cols-[repeat(3,140px)] sm:justify-center lg:mx-0 lg:justify-start'
+      >
         {aboutInfo.map((info) => <AboutBox {...info} />)}
       </div>
 
-      <p class='about__description text-pretty'>
+      <p class='mb-4 text-pretty sm:px-20 lg:mb-6 lg:px-0'>
         Full-stack software engineer and Computer Science student at The University of Manchester, focused on building
         scalable web platforms, AI-powered applications and cloud-based digital products.
       </p>
-      <p class='about__description text-pretty'>
+      <p class='mb-4 text-pretty sm:px-20 lg:mb-6 lg:px-0'>
         I work across modern web technologies, backend systems, databases and infrastructure, combining technical
         problem-solving with a product-oriented approach to create practical, reliable and user-focused software for
         real-world business needs.
       </p>
     </div>
-  </div>
-</section>
+  </SiteContainer>
+</PageSection>
