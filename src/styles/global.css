@@ -27,6 +27,14 @@
   transition-timing-function: var(--theme-transition-timing);
 }
 
+@utility site-container {
+  @apply w-full max-w-5xl px-4 lg:mx-auto;
+}
+
+@utility section-padding {
+  @apply pt-18 pb-4 lg:pt-26;
+}
+
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem;
@@ -148,15 +156,12 @@ body {
     .home__scroll,
     .home__social::after,
     .button,
-    .about__box,
     .services__card,
     .services__modal,
     .services__modal-content,
     .services__button,
     .contact__form-input,
-    .contact__form-tag,
-    .section__title,
-    .section__subtitle
+    .contact__form-tag
   ) {
     transition-property: background-color, border-color, color, fill, stroke, box-shadow, outline-color;
     transition-duration: var(--theme-transition-duration);
@@ -176,11 +181,13 @@ body {
   }
 }
 
-h1,
-h2,
-h3 {
-  color: var(--title-color);
-  font-weight: var(--font-semibold);
+@layer base {
+  h1,
+  h2,
+  h3 {
+    color: var(--title-color);
+    font-weight: var(--font-semibold);
+  }
 }
 
 /*========== Variables Dark Theme ==========*/
@@ -209,14 +216,6 @@ h3 {
   background-color: hsl(var(--second-hue), 32%, 16%, 0.8);
 }
 
-.section__subtitle {
-  color: var(--text-color);
-}
-
-.dark .section__subtitle {
-  color: var(--text-color-light);
-}
-
 .home__social-link {
   box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
 }
@@ -239,44 +238,8 @@ h3 {
   color: var(--first-color);
 }
 
-.about__box {
-  box-shadow: 0 2px 8px hsla(var(--second-hue), 48%, 8%, 0.1);
-}
-
 .services__card {
   box-shadow: 0 2px 16px hsla(var(--second-hue), 48%, 8%, 0.1);
-}
-
-/*=============== REUSABLE CSS CLASSES ===============*/
-.custom-container {
-  max-width: 968px;
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.projects__container {
-  margin-left: 1rem;
-  margin-right: 1rem;
-}
-
-.section {
-  padding: 4.5rem 0 1rem;
-}
-
-.section__title,
-.section__subtitle {
-  text-align: center;
-}
-
-.section__title {
-  font-size: var(--h2-font-size);
-  color: var(--first-color);
-  margin-bottom: 2rem;
-}
-
-.section__subtitle {
-  display: block;
-  font-size: var(--smaller-font-size);
 }
 
 /*=============== HEADER & NAV===============*/
@@ -472,12 +435,6 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
   margin-bottom: 2rem;
-}
-
-.about__box {
-  background-color: var(--container-color);
-  border-radius: 0.75rem;
-  padding: 0.75rem 0.5rem;
 }
 
 .about__description {
@@ -706,10 +663,6 @@ h3 {
   .services__modal-description {
     padding: 0 3.5rem;
   }
-
-  .projects__container {
-    justify-content: center;
-  }
 }
 
 @media screen and (min-width: 767px) {
@@ -720,19 +673,6 @@ h3 {
 
 /* For large devices */
 @media screen and (min-width: 992px) {
-  .custom-container {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .section {
-    padding: 6.5rem 0 1rem;
-  }
-
-  .section__title {
-    margin-bottom: 3.5rem;
-  }
-
   .nav {
     height: calc(var(--header-height) + 1rem);
   }
@@ -773,22 +713,9 @@ h3 {
     justify-content: initial;
   }
 
-  .about__box {
-    text-align: center;
-    padding: 1rem 1.25rem;
-  }
-
   .about__description {
     padding: 0 0 0 0;
     margin-bottom: 1.5rem;
-  }
-
-  .projects__container {
-    gap: 3rem;
-  }
-
-  .projects__container {
-    width: 1000px;
   }
 
   .services__modal-content {

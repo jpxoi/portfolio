@@ -1,12 +1,12 @@
 ---
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard.astro'
+import SectionHeading from './SectionHeading.astro'
 ---
 
-<section class='projects section' id='projects'>
-  <span class='section__subtitle'>My Work</span>
-  <h2 class='section__title'>Projects</h2>
-  <div class='projects__container custom-container mx-auto grid max-w-5xl grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2'>
+<section class='projects section-padding' id='projects'>
+  <SectionHeading subtitle='My Work' title='Projects' />
+  <div class='site-container grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:gap-12'>
     {projects.map((project) => <ProjectCard {...project} />)}
   </div>
 </section>

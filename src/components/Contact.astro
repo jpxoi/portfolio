@@ -1,16 +1,16 @@
 ---
 import { contactData } from '../data/contact'
 import ContactCard from './ContactCard.astro'
+import SectionHeading from './SectionHeading.astro'
 
 const formInputClass =
   'contact__form-input transition-theme focus-visible:border-(--first-color) focus-visible:outline-none'
 ---
 
-<section class='contact section' id='contact'>
-  <span class='section__subtitle'>Get In Touch</span>
-  <h2 class='section__title'>Contact Me</h2>
+<section class='contact section-padding' id='contact'>
+  <SectionHeading subtitle='Get In Touch' title='Contact Me' />
 
-  <div class='custom-container mx-auto grid max-w-5xl gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
+  <div class='site-container grid gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
     <div>
       <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Talk to me</h3>
       <div class='flex flex-col gap-1'>
@@ -28,7 +28,7 @@ const formInputClass =
         class='contact__form w-full'
         name='contactForm'
       >
-        <div class='absolute -left-[9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
+        <div class='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
           <label for='contact-honeypot'>Leave empty</label>
           <input type='text' id='contact-honeypot' name='_gotcha' tabindex='-1' autocomplete='off' />
         </div>

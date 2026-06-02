@@ -1,13 +1,13 @@
 ---
 import { skillsData } from '../data/skills'
 import SkillBox from './SkillBox.astro'
+import SectionHeading from './SectionHeading.astro'
 ---
 
-<section class='skills section' id='skills'>
-  <span class='section__subtitle'>My Stack</span>
-  <h2 class='section__title'>Skills & Technologies</h2>
+<section class='skills section-padding' id='skills'>
+  <SectionHeading subtitle='My Stack' title='Skills & Technologies' />
 
-  <div class='custom-container mx-auto max-w-5xl pt-6'>
+  <div class='site-container pt-6'>
     <div class='flex flex-col divide-y divide-(--text-color-light)/10'>
       {
         skillsData.map((item, index) => (

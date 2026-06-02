@@ -1,0 +1,17 @@
+---
+interface Props {
+  title: string
+  subtitle?: string
+}
+
+const { title, subtitle }: Props = Astro.props
+---
+
+{
+  subtitle ? (
+    <span class='block text-center text-(length:--smaller-font-size) text-(--text-color) dark:text-(--text-color-light)'>
+      {subtitle}
+    </span>
+  ) : null
+}
+<h2 class='mb-8 text-center text-(length:--h2-font-size) text-(--first-color) lg:mb-14'>{title}</h2>

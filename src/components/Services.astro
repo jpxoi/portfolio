@@ -1,13 +1,13 @@
 ---
 import { services } from '../data/services'
 import ServiceCard from './ServiceCard.astro'
+import SectionHeading from './SectionHeading.astro'
 ---
 
-<section class='services section'>
-  <span class='section__subtitle'>My Services</span>
-  <h2 class='section__title'>What I Offer</h2>
+<section class='services section-padding'>
+  <SectionHeading subtitle='My Services' title='What I Offer' />
 
-  <div class='custom-container mx-auto grid max-w-5xl grid-cols-1 gap-6 pt-4 sm:grid-cols-2 lg:grid-cols-3'>
+  <div class='site-container grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 lg:grid-cols-3'>
     {
       services.map((service, index) => (
         <ServiceCard
