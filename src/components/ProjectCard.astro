@@ -7,7 +7,7 @@ interface Props extends Project {}
 
 const { id, name, tagline, description, link, github, stack } = Astro.props
 
-const fullTitle = `${name} — ${tagline}`
+const fullTitle = `${name} | ${tagline}`
 
 const imgAvif = `${CDN_URL}/projects/${id}/card.avif`
 const imgWebp = `${CDN_URL}/projects/${id}/card.webp`
