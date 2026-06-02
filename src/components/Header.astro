@@ -11,7 +11,7 @@ import ThemeToggle from './ThemeToggle.astro'
 
 <header class='fixed top-0 left-0 z-(--z-fixed) w-full bg-(--body-color) transition duration-400' id='header'>
   <nav class='nav custom-container'>
-    <NavLogo variant={variant} />
+    <NavLogo variant={variant} className='h-3.5' />
     {variant === 'default' ? <NavMenu /> : null}
     <ThemeToggle />
   </nav>

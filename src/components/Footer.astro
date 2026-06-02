@@ -12,28 +12,22 @@ const copyText = `© ${new Date().getFullYear()} Jean Paul Fernandez. All rights
       class='flex flex-col items-center gap-8 text-center sm:gap-10 lg:grid lg:grid-cols-2 lg:items-stretch lg:gap-x-16 lg:gap-y-0 lg:text-left xl:gap-x-24'
     >
       <div class='flex w-full flex-col items-center gap-2 lg:h-full lg:items-start'>
-        <NavLogo />
-        <p class='max-w-xs text-pretty text-(length:--small-font-size) text-(--text-color-light)'>
+        <NavLogo className='h-4 sm:h-4.5' />
+        <p class='max-w-xs text-(length:--small-font-size) text-pretty text-(--text-color-light)'>
           Full-stack software engineer
         </p>
-        <p
-          class='mt-auto hidden pt-6 text-(length:--smaller-font-size) text-(--text-color-light) lg:block'
-        >
+        <p class='mt-auto hidden pt-6 text-(length:--smaller-font-size) text-(--text-color-light) lg:block'>
           {copyText}
         </p>
       </div>
 
-      <div
-        class='flex w-full flex-col items-center gap-6 lg:h-full lg:items-end lg:justify-between lg:gap-8'
-      >
+      <div class='flex w-full flex-col items-center gap-6 lg:h-full lg:items-end lg:justify-between lg:gap-8'>
         <FooterList />
         <FooterSocial />
       </div>
     </div>
 
-    <p
-      class='mt-10 border-t border-(--text-color-light)/15 pt-6 text-center text-(length:--smaller-font-size) text-(--text-color-light) lg:hidden'
-    >
+    <p class='mt-8 text-center text-(length:--smaller-font-size) text-(--text-color-light) lg:hidden'>
       {copyText}
     </p>
   </div>
