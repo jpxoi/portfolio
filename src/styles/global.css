@@ -4,11 +4,10 @@
   --font-sans: var(--font-poppins), sans-serif;
 
   --animate-skills-marquee: skills-marquee var(--skills-marquee-duration, 32s) linear infinite;
-  --animate-skills-marquee-reverse: skills-marquee var(--skills-marquee-duration, 32s) linear infinite
-    reverse;
+  --animate-skills-marquee-reverse: skills-marquee var(--skills-marquee-duration, 32s) linear infinite reverse;
   --animate-skills-marquee-mobile: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite;
-  --animate-skills-marquee-mobile-reverse: skills-marquee var(--skills-marquee-duration-mobile, 45s)
-    linear infinite reverse;
+  --animate-skills-marquee-mobile-reverse: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite
+    reverse;
 }
 
 @utility skills-marquee-mask {
