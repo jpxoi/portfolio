@@ -7,14 +7,18 @@ import SkillBox from './SkillBox.astro'
   <span class='section__subtitle'>My Stack</span>
   <h2 class='section__title'>Skills & Technologies</h2>
 
-  <div class='custom-container mx-auto max-w-5xl pt-4'>
-    <div
-      class='divide-y divide-(--text-color-light)/10 rounded-xl bg-(--container-color) px-3 py-1 md:px-5 [body:not(.light-theme)_&]:ring-1 [body:not(.light-theme)_&]:ring-white/5'
-    >
+  <div class='custom-container mx-auto max-w-5xl pt-6'>
+    <div class='flex flex-col divide-y divide-(--text-color-light)/10'>
       {
         skillsData.map((item, index) => (
-          <div class='flex flex-col gap-3 py-5 md:gap-4 md:py-6'>
-            <h3 class='px-1 text-(length:--normal-font-size) font-medium text-(--first-color)'>{item.title}</h3>
+          <div
+            class='skills-row flex flex-col gap-4 py-7 first:pt-0 last:pb-0 max-md:gap-3 max-md:py-5 [&_.skills-marquee-track]:[animation-play-state:paused] data-[in-view=true]:[&_.skills-marquee-track]:[animation-play-state:running] [@media(hover:hover)]:data-[in-view=true]:has-[.skill-tile:hover]:[&_.skills-marquee-track]:[animation-play-state:paused]!'
+            data-skills-row
+            data-in-view='false'
+          >
+            <p class='text-(length:--small-font-size) font-semibold tracking-[0.14em] text-(--text-color-light) uppercase'>
+              {item.title}
+            </p>
             <SkillBox skills={item.skills} categoryIndex={index} />
           </div>
         ))
@@ -35,6 +39,26 @@ import SkillBox from './SkillBox.astro'
     })
   }
 
+  function initMarqueeVisibility() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+    const rows = document.querySelectorAll('#skills [data-skills-row]')
+    if (!rows.length) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const row = entry.target as HTMLElement
+          row.dataset.inView = entry.isIntersecting ? 'true' : 'false'
+        })
+      },
+      { rootMargin: '0px 0px -6% 0px', threshold: 0.12 },
+    )
+
+    rows.forEach((row) => observer.observe(row))
+  }
+
   updateSkillIcons()
   subscribeToTheme(updateSkillIcons)
+  initMarqueeVisibility()
 </script>
