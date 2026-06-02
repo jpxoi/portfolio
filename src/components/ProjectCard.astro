@@ -6,7 +6,9 @@ import { CDN_URL } from '../constants'
 
 interface Props extends Project {}
 
-const { id, title, description, link, github, stack } = Astro.props
+const { id, name, tagline, description, link, github, stack } = Astro.props
+
+const fullTitle = `${name} — ${tagline}`
 
 const imgAvif = `${CDN_URL}/projects/${id}/card.avif`
 const imgWebp = `${CDN_URL}/projects/${id}/card.webp`
@@ -17,32 +19,32 @@ const hasGithubLink = Boolean(github)
 const isPrivate = !hasLiveLink && !hasGithubLink
 ---
 
-<div
-  class='group project__card flex h-full w-full flex-col gap-6 rounded-lg p-4 transition-all duration-200 ease-in-out hover:scale-102 hover:shadow-sm'
->
-  <div class='flex flex-1 flex-col gap-3!'>
+<article class='group project__card flex h-full w-full flex-col gap-5'>
+  <div class='flex flex-1 flex-col gap-4'>
     <div class='relative aspect-video overflow-hidden rounded-lg'>
       <picture>
         <source srcset={imgAvif} type='image/avif' />
         <source srcset={imgWebp} type='image/webp' />
         <img
           src={imgFallback}
-          alt={title}
+          alt={fullTitle}
           width={1920}
           height={1080}
-          class='h-full w-full rounded-lg object-cover transition-opacity duration-200 ease-in-out group-hover:opacity-50'
+          class='h-full w-full object-cover transition-transform duration-300 ease-out [@media(hover:hover)]:group-hover:scale-105'
           loading='lazy'
         />
       </picture>
       {
         !isPrivate ? (
-          <div class='absolute inset-0 flex items-center justify-center gap-3! opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100'>
+          <div
+            class='absolute inset-0 flex items-center justify-center gap-3! bg-(--body-color)/0 opacity-0 transition-[opacity,background-color] duration-200 ease-in-out [@media(hover:hover)]:group-hover:bg-(--body-color)/40 [@media(hover:hover)]:group-hover:opacity-100'
+          >
             {link && (
               <a
                 href={link}
                 target='_blank'
                 rel='noreferrer'
-                aria-label={`Open live project: ${title}`}
+                aria-label={`Open live project: ${fullTitle}`}
                 class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
               >
                 <Globe className='size-5' />
@@ -54,7 +56,7 @@ const isPrivate = !hasLiveLink && !hasGithubLink
                 href={github}
                 target='_blank'
                 rel='noreferrer'
-                aria-label={`Open GitHub repository: ${title}`}
+                aria-label={`Open GitHub repository: ${fullTitle}`}
                 class='flex size-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white backdrop-blur-sm transition-transform duration-200 ease-in-out hover:scale-110'
               >
                 <Github className='size-5' />
@@ -62,8 +64,12 @@ const isPrivate = !hasLiveLink && !hasGithubLink
             )}
           </div>
         ) : (
-          <div class='absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 ease-in-out group-hover:opacity-100'>
-            <span class='rounded-full border border-white/20 bg-black/40 px-3! py-1! text-xs font-medium text-white backdrop-blur-sm'>
+          <div
+            class='absolute inset-0 flex items-center justify-center bg-(--body-color)/0 opacity-0 transition-[opacity,background-color] duration-200 ease-in-out [@media(hover:hover)]:group-hover:bg-(--body-color)/40 [@media(hover:hover)]:group-hover:opacity-100'
+          >
+            <span
+              class='rounded-full border border-white/20 bg-black/40 px-3! py-1! text-(length:--smaller-font-size) font-medium text-white backdrop-blur-sm'
+            >
               Private Project
             </span>
           </div>
@@ -71,24 +77,33 @@ const isPrivate = !hasLiveLink && !hasGithubLink
       }
     </div>
 
-    <div class='flex flex-col gap-2!'>
-      <div class='flex items-center gap-2'>
-        <h3 class='text-foreground line-clamp-1 text-xl font-medium'>{title}</h3>
+    <div class='flex flex-col gap-2'>
+      <div class='flex flex-col gap-0.5'>
+        <div class='flex flex-wrap items-center gap-x-2 gap-y-1'>
+          <h3 class='text-(length:--h3-font-size) leading-tight font-medium text-(--title-color)'>
+            {name}
+          </h3>
+          {
+            isPrivate && (
+              <span
+                class='inline-flex shrink-0 items-center rounded-full border border-(--text-color-light)/25 px-2 py-0.5 text-(length:--tiny-font-size) leading-none font-medium text-(--text-color-light)'
+              >
+                Private
+              </span>
+            )
+          }
+        </div>
 
-        {
-          isPrivate && (
-            <span class='rounded-full border border-gray-700 px-2! py-0.5! text-[10px] font-medium text-gray-400'>
-              Private
-            </span>
-          )
-        }
+        <p class='text-(length:--small-font-size) leading-snug text-(--first-color)'>{tagline}</p>
       </div>
 
-      <p class='text-foreground line-clamp-4 text-sm text-gray-400'>{description}</p>
+      <p class='line-clamp-4 text-(length:--small-font-size) leading-relaxed text-(--text-color-light)'>
+        {description}
+      </p>
     </div>
   </div>
 
-  <div class='flex flex-wrap'>
+  <div class='flex flex-wrap gap-2'>
     {stack.map((stackItem) => <Badge text={stackItem} />)}
   </div>
-</div>
+</article>
