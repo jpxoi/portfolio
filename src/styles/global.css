@@ -74,6 +74,7 @@
   --text-color-light: hsl(var(--second-hue), 4%, 55%);
   --body-color: hsl(var(--second-hue), 100%, 99%);
   --container-color: #fff;
+  --header-scrolled-shadow: 0 2px 4px hsl(0 0% 1% / 0.1);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -197,6 +198,7 @@ body {
   --text-color-light: hsl(var(--second-hue), 4%, 55%);
   --body-color: hsl(var(--second-hue), 48%, 8%);
   --container-color: hsl(var(--second-hue), 32%, 12%);
+  --header-scrolled-shadow: 0 4px 4px hsl(0 0% 4% / 0.3);
 }
 
 /*========== Theme-specific component tweaks ==========*/
@@ -253,7 +255,27 @@ body {
   box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
 }
 
+@supports (animation-timeline: scroll(root block)) and (animation-range: 0 50px) {
+  #header {
+    animation-name: header-scrolled-shadow;
+    animation-duration: auto;
+    animation-timing-function: steps(1, end);
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 50px;
+  }
+}
+
 /*=============== KEYFRAMES ===============*/
+@keyframes header-scrolled-shadow {
+  from {
+    box-shadow: none;
+  }
+  to {
+    box-shadow: var(--header-scrolled-shadow);
+  }
+}
+
 @keyframes floaty {
   0% {
     transform: translateY(0);

@@ -9,10 +9,7 @@ import NavMenu from './NavMenu.astro'
 import ThemeToggle from './ThemeToggle.astro'
 ---
 
-<header
-  class='transition-theme bg-page fixed top-0 left-0 z-100 w-full shadow-none data-[scrolled=true]:shadow-[0_2px_4px_hsla(0,0%,1%,0.1)] dark:data-[scrolled=true]:shadow-[0_4px_4px_hsla(0,0%,4%,0.3)]'
-  id='header'
->
+<header class='transition-theme bg-page fixed top-0 left-0 z-100 w-full shadow-none' id='header'>
   <nav class='nav mx-auto w-full max-w-5xl px-4'>
     <NavLogo variant={variant} className='h-3.5' />
     {variant === 'default' ? <NavMenu /> : null}
@@ -20,7 +17,6 @@ import ThemeToggle from './ThemeToggle.astro'
   </nav>
 </header>
 <script>
-  const header = document.getElementById('header') as HTMLElement
   const navMenu = document.querySelector('.nav__menu')
   const sections = navMenu ? (document.querySelectorAll('section[id]') as NodeListOf<HTMLElement>) : null
   const navLinks = navMenu
@@ -37,8 +33,6 @@ import ThemeToggle from './ThemeToggle.astro'
   let ticking = false
 
   function updateOnScroll() {
-    header.dataset.scrolled = window.scrollY >= 50 ? 'true' : 'false'
-
     if (sections && navLinks) {
       const scrollY = window.scrollY
 
