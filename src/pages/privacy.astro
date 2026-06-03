@@ -4,10 +4,10 @@ import Header from '../components/Header.astro'
 import SiteContainer from '../components/SiteContainer.astro'
 
 const articleClass = [
-  'text-(length:--normal-font-size) leading-relaxed text-copy',
-  '[&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:scroll-mt-28 [&_h2]:text-(length:--h2-font-size) [&_h2]:font-semibold [&_h2]:text-primary',
-  '[&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-(length:--h3-font-size) [&_h3]:font-semibold [&_h3]:text-title',
-  '[&_h4]:mt-4 [&_h4]:mb-2 [&_h4]:text-(length:--small-font-size) [&_h4]:font-semibold [&_h4]:text-title',
+  'text-body leading-relaxed text-copy',
+  '[&_h2]:mt-10 [&_h2]:mb-3 [&_h2]:scroll-mt-28 [&_h2]:text-h2 [&_h2]:font-semibold [&_h2]:text-primary',
+  '[&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-h3 [&_h3]:font-semibold [&_h3]:text-title',
+  '[&_h4]:mt-4 [&_h4]:mb-2 [&_h4]:text-small [&_h4]:font-semibold [&_h4]:text-title',
   '[&_p]:mb-4 [&_p]:text-pretty',
   '[&_li]:mb-2 [&_li]:text-pretty',
   '[&_ul]:mb-4 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5',
@@ -23,13 +23,9 @@ const articleClass = [
     <SiteContainer class='max-w-4xl! pt-28 pb-24 lg:pt-32'>
       <article class={articleClass}>
         <header class='border-copy-muted/15 mb-10 border-b pb-8'>
-          <p class='text-copy-muted mb-2 text-(length:--smaller-font-size) font-medium tracking-wide uppercase'>
-            Legal
-          </p>
-          <h1 class='text-title text-(length:--h1-font-size) leading-tight font-semibold text-balance'>
-            Privacy Policy
-          </h1>
-          <p class='text-copy-muted mt-3 text-(length:--small-font-size)'>
+          <p class='text-copy-muted text-smaller mb-2 font-medium tracking-wide uppercase'>Legal</p>
+          <h1 class='text-title text-h1 leading-tight font-semibold text-balance'>Privacy Policy</h1>
+          <p class='text-copy-muted text-small mt-3'>
             Last updated: <time datetime='2023-11-02'>November 2, 2023</time>
           </p>
         </header>

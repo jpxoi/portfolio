@@ -14,11 +14,11 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
 <Layout>
   <Header variant='alt' />
   <main class='overflow-hidden'>
-    <section class='bg-page grid h-dvh pt-36 pb-8 max-[320px]:pt-28'>
+    <section class='bg-page xs:pt-36 grid h-dvh pt-28 pb-8'>
       <SiteContainer class='grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
         <div class:list={[revealBase, 'text-center lg:text-left', 'animate-p404-reveal-top [animation-delay:50ms]']}>
-          <span class='text-copy-muted text-(length:--smaller-font-size)'>Error 404</span>
-          <h1 class='text-title my-3 text-(length:--biggest-font-size)'>Hey Buddy</h1>
+          <span class='text-copy-muted text-smaller'>Error 404</span>
+          <h1 class='text-title text-display my-3'>Hey Buddy</h1>
           <p class='text-copy'>
             We can&apos;t seem to find the page <br /> you are looking for.
           </p>
@@ -53,7 +53,7 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
       <footer
         class:list={[
           revealBase,
-          'text-copy-muted self-end text-center text-(length:--smaller-font-size)',
+          'text-copy-muted text-smaller self-end text-center',
           'animate-p404-reveal-bottom [animation-delay:200ms]',
         ]}
       >

@@ -18,9 +18,7 @@ import SiteContainer from './SiteContainer.astro'
             data-skills-row
             data-in-view='false'
           >
-            <p class='text-copy-muted text-(length:--small-font-size) font-semibold tracking-[0.14em] uppercase'>
-              {item.title}
-            </p>
+            <p class='text-copy-muted text-small font-semibold tracking-[0.14em] uppercase'>{item.title}</p>
             <SkillBox skills={item.skills} categoryIndex={index} />
           </div>
         ))

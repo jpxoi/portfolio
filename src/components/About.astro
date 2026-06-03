@@ -16,7 +16,7 @@ const imgFallback = imgWebp
 
   <SiteContainer class='grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16'>
     <picture
-      class='animate-floaty mx-auto w-55 justify-self-center rounded-3xl motion-reduce:animate-none max-[320px]:w-32.5 lg:mx-0 lg:w-87.5'
+      class='animate-floaty xs:w-55 mx-auto w-32.5 justify-self-center rounded-3xl motion-reduce:animate-none lg:mx-0 lg:w-87.5'
     >
       <source srcset={imgAvif} type='image/avif' />
       <source srcset={imgWebp} type='image/webp' />
@@ -25,7 +25,7 @@ const imgFallback = imgWebp
 
     <div class='text-center lg:text-left'>
       <div
-        class='mb-8 grid grid-cols-3 gap-2 max-[320px]:grid-cols-2 sm:mx-auto sm:grid-cols-[repeat(3,140px)] sm:justify-center lg:mx-0 lg:justify-start'
+        class='xs:grid-cols-3 mb-8 grid grid-cols-2 gap-2 sm:mx-auto sm:grid-cols-[repeat(3,140px)] sm:justify-center lg:mx-0 lg:justify-start'
       >
         {aboutInfo.map((info) => <AboutBox {...info} />)}
       </div>

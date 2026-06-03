@@ -14,14 +14,14 @@ const formInputClass = 'contact__form-input transition-theme focus-visible:borde
 
   <SiteContainer class='grid gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
     <div>
-      <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Talk to me</h3>
+      <h3 class='text-h3 mb-6 text-center lg:text-left'>Talk to me</h3>
       <div class='flex flex-col gap-1'>
         {contactData.map((contactCard) => <ContactCard {...contactCard} />)}
       </div>
     </div>
 
     <div>
-      <h3 class='mb-6 text-center text-(length:--h3-font-size) lg:text-left'>Write me about your project</h3>
+      <h3 class='text-h3 mb-6 text-center lg:text-left'>Write me about your project</h3>
 
       <form
         action='https://formcarry.com/s/IdMAAJSEpJf'

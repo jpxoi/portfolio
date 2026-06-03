@@ -2,6 +2,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --breakpoint-xs: 20rem;
+}
+
 @theme inline {
   --font-sans: var(--font-poppins), sans-serif;
 
@@ -13,6 +17,15 @@
   --color-copy-muted: var(--text-color-light);
   --color-page: var(--body-color);
   --color-surface: var(--container-color);
+
+  --text-display: var(--biggest-font-size);
+  --text-h1: var(--h1-font-size);
+  --text-h2: var(--h2-font-size);
+  --text-h3: var(--h3-font-size);
+  --text-body: var(--normal-font-size);
+  --text-small: var(--small-font-size);
+  --text-smaller: var(--smaller-font-size);
+  --text-tiny: var(--tiny-font-size);
 
   --animate-skills-marquee: skills-marquee var(--skills-marquee-duration, 32s) linear infinite;
   --animate-skills-marquee-reverse: skills-marquee var(--skills-marquee-duration, 32s) linear infinite reverse;
@@ -403,8 +416,10 @@ body {
 }
 
 /*=============== BREAKPOINTS ===============*/
-/* Responsive typography */
-@media screen and (min-width: 968px) {
+/* `xs` custom breakpoint: 20rem (320px) */
+
+/* `lg` and up: 64rem (1024px) */
+@media screen and (min-width: 64rem) {
   :root {
     --biggest-font-size: 2.5rem;
     --h1-font-size: 2.25rem;
@@ -416,15 +431,15 @@ body {
   }
 }
 
-/* For small devices */
-@media screen and (max-width: 320px) {
+/* Below `xs`: 20rem (320px) */
+@media screen and (max-width: 20rem) {
   .nav__menu {
     padding: 1rem 1.5rem;
   }
 }
 
-/* For medium devices */
-@media screen and (min-width: 576px) {
+/* `sm` and up: 40rem (640px) */
+@media screen and (min-width: 40rem) {
   .nav__menu {
     width: 328px;
     left: 0;
@@ -433,8 +448,8 @@ body {
   }
 }
 
-/* For large devices */
-@media screen and (min-width: 992px) {
+/* `lg` and up: 64rem (1024px) */
+@media screen and (min-width: 64rem) {
   .nav {
     height: calc(var(--header-height) + 1rem);
   }

@@ -18,11 +18,11 @@ const titleId = `${modalId}-title`
 <div
   class='transition-theme bg-surface flex h-full flex-col rounded-2xl p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'
 >
-  <h3 class='mb-6 text-(length:--h3-font-size) text-balance'>{title}</h3>
+  <h3 class='text-h3 mb-6 text-balance'>{title}</h3>
 
   <button
     type='button'
-    class='group transition-theme text-primary focus-visible:outline-primary mt-auto flex cursor-pointer items-center gap-x-1 border-0 bg-transparent p-0 font-[inherit] text-(length:--small-font-size) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2'
+    class='group transition-theme text-primary text-small focus-visible:outline-primary mt-auto flex cursor-pointer items-center gap-x-1 border-0 bg-transparent p-0 font-[inherit] focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2'
     command='show-modal'
     commandfor={modalId}
     aria-haspopup='dialog'
@@ -54,16 +54,16 @@ const titleId = `${modalId}-title`
         <X className='size-5' color='currentColor' aria-hidden='true' />
       </button>
       <div class='max-h-[75dvh] overflow-scroll'>
-        <h4 class='text-primary mb-4 text-center text-(length:--h3-font-size)' id={titleId}>{title}</h4>
+        <h4 class='text-primary text-h3 mb-4 text-center' id={titleId}>{title}</h4>
 
-        <p class='mb-8 text-center text-(length:--small-font-size) text-pretty sm:px-14'>{description}</p>
+        <p class='text-small mb-8 text-center text-pretty sm:px-14'>{description}</p>
 
         <ul class='grid gap-y-3'>
           {
             items.map(({ title, description }) => (
               <li class='flex items-start gap-x-2'>
                 <CheckCircle className='size-5 min-w-5 text-primary' color='currentColor' aria-hidden='true' />
-                <p class='text-(length:--small-font-size) text-pretty'>
+                <p class='text-small text-pretty'>
                   <b>{title}:</b> {description}
                 </p>
               </li>

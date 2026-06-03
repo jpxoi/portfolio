@@ -12,9 +12,9 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 
 const handleClass =
-  'flex h-[276px] w-[200px] max-[320px]:h-[207px] max-[320px]:w-[150px] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl lg:h-[400px] lg:w-[290px]'
+  'flex h-[207px] w-[150px] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl xs:h-[276px] xs:w-[200px] lg:h-[400px] lg:w-[290px]'
 
-const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
+const imgClass = 'w-[130px] xs:w-40 lg:w-[220px]'
 const socialRailClass =
   'flex flex-col items-center justify-self-start gap-2.5 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
 const scrollRailClass =
@@ -25,16 +25,16 @@ const scrollRailClass =
   <SiteContainer class='pt-8'>
     <div class='grid gap-18'>
       <div class='text-center'>
-        <span class='text-title mb-1 block text-(length:--small-font-size) font-medium'>Hello, I&apos;m</span>
-        <h1 class='text-(length:--biggest-font-size)'>Jean Paul Fernandez</h1>
+        <span class='text-title text-small mb-1 block font-medium'>Hello, I&apos;m</span>
+        <h1 class='text-display leading-tight'>Jean Paul Fernandez</h1>
         <h2
           id='dynamic-header'
-          class='text-copy mb-10 min-h-6 text-(length:--small-font-size) font-medium transition-opacity duration-500 ease-in-out'
+          class='text-copy text-small mb-10 min-h-6 font-medium transition-opacity duration-500 ease-in-out'
         >
           Software Engineer
         </h2>
 
-        <div class='flex items-center justify-center gap-6 max-[320px]:flex-col'>
+        <div class='xs:flex-row xs:gap-4 flex flex-col items-center justify-center gap-2'>
           <Button
             href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
             target='_blank'
@@ -73,9 +73,7 @@ const scrollRailClass =
 
         <a href='#about' class={scrollRailClass}>
           <Mouse className='size-6' />
-          <span class='text-(length:--smaller-font-size) [text-orientation:mixed] [writing-mode:vertical-rl]'>
-            Scroll Down
-          </span>
+          <span class='text-smaller [text-orientation:mixed] [writing-mode:vertical-rl]'> Scroll Down </span>
         </a>
       </div>
     </div>

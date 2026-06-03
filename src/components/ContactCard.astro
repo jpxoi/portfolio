@@ -15,8 +15,8 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
 >
   <Icon id={id} className='text-primary size-6 shrink-0' color='currentColor' aria-hidden='true' />
   <span class='min-w-0 flex-1 text-left'>
-    <span class='text-title block text-(length:--small-font-size) font-medium'>{title}</span>
-    <span class='text-primary block text-(length:--tiny-font-size)'>{cta}</span>
+    <span class='text-title text-small block font-medium'>{title}</span>
+    <span class='text-primary text-tiny block'>{cta}</span>
   </span>
   <ArrowRightStroke
     className='text-copy-muted [@media(hover:hover)]:group-hover:text-primary size-5 shrink-0 transition-[transform,color] duration-(--theme-transition-duration) ease-(--theme-transition-timing) [@media(hover:hover)]:group-hover:translate-x-0.5'
