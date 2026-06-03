@@ -15,12 +15,14 @@ const { title, description, modalId, items }: Props = Astro.props
 const titleId = `${modalId}-title`
 ---
 
-<div class='services__card flex h-full flex-col rounded-2xl bg-(--container-color) p-6 sm:p-8'>
+<div
+  class='transition-theme flex h-full flex-col rounded-2xl bg-(--container-color) p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'
+>
   <h3 class='mb-6 text-(length:--h3-font-size) text-balance'>{title}</h3>
 
   <button
     type='button'
-    class='group services__button mt-auto'
+    class='group transition-theme mt-auto flex cursor-pointer items-center gap-x-1 border-0 bg-transparent p-0 font-[inherit] text-(length:--small-font-size) text-(--first-color) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
     command='show-modal'
     commandfor={modalId}
     aria-haspopup='dialog'
@@ -33,21 +35,28 @@ const titleId = `${modalId}-title`
     />
   </button>
 
-  <dialog class='services__modal' id={modalId} closedby='any' aria-labelledby={titleId}>
-    <div class='services__modal-content max-h-[90dvh]'>
+  <dialog
+    class='services__modal m-auto overflow-visible border-0 bg-transparent opacity-0'
+    id={modalId}
+    closedby='any'
+    aria-labelledby={titleId}
+  >
+    <div
+      class='transition-theme relative max-h-[90dvh] rounded-3xl bg-(--body-color) px-6 pt-18 pb-10 sm:w-[500px] sm:px-10 md:w-[600px] lg:w-[700px]'
+    >
       <button
         type='button'
-        class='services__modal-close absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0'
+        class='transition-theme absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0 text-(--first-color) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
         command='close'
         commandfor={modalId}
         aria-label={`Close ${title} details`}
       >
-        <X className='size-5' color='var(--first-color)' aria-hidden='true' />
+        <X className='size-5' color='currentColor' aria-hidden='true' />
       </button>
       <div class='max-h-[75dvh] overflow-scroll'>
-        <h4 class='services__modal-title' id={titleId}>{title}</h4>
+        <h4 class='mb-4 text-center text-(length:--h3-font-size) text-(--first-color)' id={titleId}>{title}</h4>
 
-        <p class='services__modal-description text-pretty'>{description}</p>
+        <p class='mb-8 text-center text-(length:--small-font-size) text-pretty sm:px-14'>{description}</p>
 
         <ul class='grid gap-y-3'>
           {
