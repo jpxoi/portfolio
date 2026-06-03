@@ -12,13 +12,17 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 
 const handleClass =
-  'flex h-[293px] w-[190px] max-[320px]:h-[253px] max-[320px]:w-[150px] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl lg:h-[400px] lg:w-[290px]'
+  'flex h-[276px] w-[200px] max-[320px]:h-[207px] max-[320px]:w-[150px] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl lg:h-[400px] lg:w-[290px]'
 
 const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
+const socialRailClass =
+  'flex flex-col items-center justify-self-start gap-2.5 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
+const scrollRailClass =
+  'transition-theme flex flex-col items-center justify-self-end gap-3 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
 ---
 
 <PageSection id='home'>
-  <SiteContainer class='relative pt-8'>
+  <SiteContainer class='pt-8'>
     <div class='grid gap-18'>
       <div class='text-center'>
         <span class='text-title mb-1 block text-(length:--small-font-size) font-medium'>Hello, I&apos;m</span>
@@ -45,69 +49,38 @@ const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
         </div>
       </div>
 
-      <div class={handleClass}>
-        <picture class={imgClass}>
-          <source srcset={imgAvif} type='image/avif' />
-          <source srcset={imgWebp} type='image/webp' />
-          <img
-            loading='eager'
-            fetchpriority='high'
-            src={imgFallback}
-            alt='Stand up Memoji of Jean Paul Fernandez'
-            class={imgClass}
-            width={220}
-            height={381.05}
-          />
-        </picture>
+      <div class='grid w-full grid-cols-[1fr_auto_1fr] items-end gap-x-3 sm:gap-x-6 lg:gap-x-10'>
+        <div class={socialRailClass}>
+          {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
+          <span class='bg-primary mt-1 h-8 w-0.5' aria-hidden='true'></span>
+        </div>
+
+        <div class={handleClass}>
+          <picture class={imgClass}>
+            <source srcset={imgAvif} type='image/avif' />
+            <source srcset={imgWebp} type='image/webp' />
+            <img
+              loading='eager'
+              fetchpriority='high'
+              src={imgFallback}
+              alt='Stand up Memoji of Jean Paul Fernandez'
+              class={imgClass}
+              width={220}
+              height={381.05}
+            />
+          </picture>
+        </div>
+
+        <a href='#about' class={scrollRailClass}>
+          <Mouse className='size-6' />
+          <span class='text-(length:--smaller-font-size) [text-orientation:mixed] [writing-mode:vertical-rl]'>
+            Scroll Down
+          </span>
+        </a>
       </div>
     </div>
-
-    <div class='hero-social'>
-      {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
-    </div>
-
-    <a href='#about' class='hero-scroll transition-theme'>
-      <Mouse className='size-6' />
-      <span class='-rotate-90 text-(length:--smaller-font-size)'>Scroll Down</span>
-    </a>
   </SiteContainer>
 </PageSection>
-
-<style>
-  .hero-social,
-  .hero-scroll {
-    display: none;
-  }
-
-  @media screen and (min-width: 992px) {
-    .hero-social {
-      position: absolute;
-      bottom: 5rem;
-      left: 0;
-      display: grid;
-      row-gap: 0.5rem;
-    }
-
-    .hero-social::after {
-      content: '';
-      width: 32px;
-      height: 2px;
-      margin-top: 0.25rem;
-      background-color: var(--color-primary);
-      transform: rotate(90deg) translateX(16px);
-    }
-
-    .hero-scroll {
-      position: absolute;
-      bottom: 4rem;
-      right: 0;
-      display: grid;
-      row-gap: 2.25rem;
-      justify-items: center;
-      color: var(--color-primary);
-    }
-  }
-</style>
 
 <script>
   const headerTexts = ['Software Engineer', 'Full-stack Developer', 'AI Engineer']
