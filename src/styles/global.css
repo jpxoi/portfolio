@@ -5,6 +5,15 @@
 @theme inline {
   --font-sans: var(--font-poppins), sans-serif;
 
+  --color-primary: var(--first-color);
+  --color-primary-alt: var(--first-color-alt);
+  --color-primary-fade: hsl(var(--first-hue) var(--sat) var(--lig) / 0.2);
+  --color-title: var(--title-color);
+  --color-copy: var(--text-color);
+  --color-copy-muted: var(--text-color-light);
+  --color-page: var(--body-color);
+  --color-surface: var(--container-color);
+
   --animate-skills-marquee: skills-marquee var(--skills-marquee-duration, 32s) linear infinite;
   --animate-skills-marquee-reverse: skills-marquee var(--skills-marquee-duration, 32s) linear infinite reverse;
   --animate-skills-marquee-mobile: skills-marquee var(--skills-marquee-duration-mobile, 45s) linear infinite;
