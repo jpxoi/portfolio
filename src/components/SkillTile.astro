@@ -10,7 +10,7 @@ interface Props {
 const { name, icon, alticon, invertInDark, hideFromAssistiveTech }: Props = Astro.props
 
 const baseIconClass =
-  'size-10 drop-shadow-sm transition-transform duration-200 ease-out [@media(hover:hover)]:group-hover/tile:scale-105'
+  'size-10 drop-shadow-sm transition-transform duration-200 ease-out group-hover/tile:scale-105'
 
 const lightOnlyIconClass = [baseIconClass, 'dark:hidden']
 const darkOnlyIconClass = [baseIconClass, 'hidden dark:block', invertInDark && 'dark:brightness-0 dark:invert']
@@ -34,7 +34,7 @@ const singleIconClass = [baseIconClass, invertInDark && 'dark:brightness-0 dark:
     }
   </div>
   <span
-    class='transition-theme text-copy-muted text-tiny [@media(hover:hover)]:group-hover/tile:text-copy line-clamp-2 w-full text-center leading-snug'
+    class='transition-theme text-copy-muted text-tiny group-hover/tile:text-copy line-clamp-2 w-full text-center leading-snug'
   >
     {name}
   </span>
