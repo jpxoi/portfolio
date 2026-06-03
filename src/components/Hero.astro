@@ -12,9 +12,9 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 
 const handleClass =
-  'flex h-[207px] w-[150px] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl xs:h-[276px] xs:w-[200px] lg:h-[400px] lg:w-[290px]'
+  'flex aspect-[290/400] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl w-full max-w-[200px] sm:max-w-3xs md:max-w-[290px]'
 
-const imgClass = 'w-[130px] xs:w-40 lg:w-[220px]'
+const imgClass = 'w-full max-w-[75%]'
 const socialRailClass =
   'flex flex-col items-center justify-self-start gap-2.5 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
 const scrollRailClass =
@@ -49,7 +49,7 @@ const scrollRailClass =
         </div>
       </div>
 
-      <div class='grid w-full grid-cols-[1fr_auto_1fr] items-end gap-x-3 sm:gap-x-6 lg:gap-x-10'>
+      <div class='flex w-full items-end justify-between gap-x-3 sm:gap-x-6 lg:gap-x-10'>
         <div class={socialRailClass}>
           {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
           <span class='bg-primary mt-1 h-8 w-0.5' aria-hidden='true'></span>
@@ -64,7 +64,6 @@ const scrollRailClass =
               fetchpriority='high'
               src={imgFallback}
               alt='Stand up Memoji of Jean Paul Fernandez'
-              class={imgClass}
               width={220}
               height={381.05}
             />
