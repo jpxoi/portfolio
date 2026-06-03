@@ -124,15 +124,6 @@ textarea {
   font-size: var(--normal-font-size);
 }
 
-input {
-  display: inline-block;
-  background-color: var(--first-color);
-  color: var(--body-color);
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  font-weight: var(--font-medium);
-}
-
 body {
   background-color: var(--body-color);
   color: var(--text-color);

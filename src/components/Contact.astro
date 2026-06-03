@@ -9,7 +9,7 @@ import SiteContainer from './SiteContainer.astro'
 const formInputClass = 'contact__form-input transition-theme focus-visible:border-primary focus-visible:outline-none'
 ---
 
-<PageSection id='contact' class='contact'>
+<PageSection id='contact'>
   <SectionHeading subtitle='Get In Touch' title='Contact Me' />
 
   <SiteContainer class='grid gap-10 pb-12 lg:grid-cols-2 lg:items-start lg:gap-x-14'>
@@ -27,7 +27,7 @@ const formInputClass = 'contact__form-input transition-theme focus-visible:borde
         action='https://formcarry.com/s/IdMAAJSEpJf'
         method='POST'
         enctype='multipart/form-data'
-        class='contact__form w-full'
+        class='w-full'
         name='contactForm'
       >
         <div class='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
