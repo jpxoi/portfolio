@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
+@custom-variant nav-active (&.active-link);
 
 @theme {
   --breakpoint-xs: 20rem;
@@ -226,33 +227,6 @@ body {
   padding: 1rem 2.25rem;
   -webkit-backdrop-filter: blur(10px); /* For Safari */
   backdrop-filter: blur(10px);
-}
-
-.nav__link {
-  color: var(--text-color);
-  font-size: 1.25rem;
-  padding: 0.4rem;
-  display: flex;
-  border-radius: 5rem;
-}
-
-.nav__link:hover {
-  color: var(--first-color);
-}
-
-.active-link:hover {
-  color: var(--body-color);
-}
-
-/* Active link */
-.active-link {
-  background: linear-gradient(
-    180deg,
-    hsla(var(--first-hue), var(--sat), var(--lig), 1),
-    hsla(var(--first-hue), var(--sat), var(--lig), 0.2)
-  );
-
-  box-shadow: 0 0 16px hsla(var(--first-hue), var(--sat), var(--lig), 0.4);
 }
 
 @supports (animation-timeline: scroll(root block)) and (animation-range: 0 50px) {
