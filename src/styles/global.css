@@ -259,7 +259,7 @@ body {
   #header {
     animation-name: header-scrolled-shadow;
     animation-duration: auto;
-    animation-timing-function: steps(1, end);
+    animation-timing-function: linear;
     animation-fill-mode: both;
     animation-timeline: scroll(root block);
     animation-range: 0 50px;
