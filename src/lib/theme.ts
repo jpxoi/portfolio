@@ -1,8 +1,7 @@
-export type Theme = 'light' | 'dark'
+type Theme = 'light' | 'dark'
 
 const DARK_CLASS = 'dark'
 const THEME_STORAGE_KEY = 'selected-theme'
-const THEME_CHANGE_EVENT = 'theme-change'
 const DEFAULT_THEME: Theme = 'dark'
 
 const VALID_THEMES: readonly Theme[] = ['light', 'dark']
@@ -20,8 +19,6 @@ export const buildThemeHeadScript = (): string =>
 
 const isDarkTheme = (): boolean => document.documentElement.classList.contains(DARK_CLASS)
 
-export const getTheme = (): Theme => (isDarkTheme() ? 'dark' : 'light')
-
 function syncThemeClass(theme: Theme): void {
   document.documentElement.classList.toggle(DARK_CLASS, theme === 'dark')
 }
@@ -29,15 +26,8 @@ function syncThemeClass(theme: Theme): void {
 function applyTheme(theme: Theme): void {
   syncThemeClass(theme)
   localStorage.setItem(THEME_STORAGE_KEY, theme)
-  window.dispatchEvent(new CustomEvent<{ theme: Theme }>(THEME_CHANGE_EVENT, { detail: { theme } }))
 }
 
-export const toggleTheme = (): Theme => (applyTheme(isDarkTheme() ? 'light' : 'dark'), getTheme())
+export const toggleTheme = (): void => applyTheme(isDarkTheme() ? 'light' : 'dark')
 
 export const initTheme = (): void => syncThemeClass(resolveThemeFromStorage(localStorage.getItem(THEME_STORAGE_KEY)))
-
-export const subscribeToTheme = (callback: (theme: Theme) => void): (() => void) => {
-  const handler = (event: Event) => callback((event as CustomEvent<{ theme: Theme }>).detail?.theme ?? getTheme())
-  window.addEventListener(THEME_CHANGE_EVENT, handler)
-  return () => window.removeEventListener(THEME_CHANGE_EVENT, handler)
-}
