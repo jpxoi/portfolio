@@ -1,13 +1,13 @@
 const HEADER_OFFSET = 58
 
-export const initHeaderActiveLink = (): void => {
-  const navMenu = document.querySelector('.nav__menu')
-  if (!navMenu) return
+type SectionBounds = {
+  id: string
+  top: number
+  bottom: number
+}
 
-  const sections = [...document.querySelectorAll('section[id]')] as HTMLElement[]
-  if (!sections.length) return
-
-  const navLinks = new Map(
+const getNavLinks = (navMenu: Element): Map<string, HTMLAnchorElement> =>
+  new Map(
     [...navMenu.querySelectorAll('a[href^="#"]')]
       .map((link) => {
         const id = link.getAttribute('href')?.slice(1)
@@ -16,28 +16,41 @@ export const initHeaderActiveLink = (): void => {
       .filter((entry): entry is [string, HTMLAnchorElement] => entry !== null),
   )
 
-  let ticking = false
-  let recalcQueued = false
-  let sectionBounds: { id: string; top: number; bottom: number }[] = []
+const measureSections = (sections: HTMLElement[]): SectionBounds[] =>
+  sections.map((section) => {
+    const top = section.offsetTop - HEADER_OFFSET
+    return { id: section.id, top, bottom: top + section.offsetHeight }
+  })
 
-  function updateActiveLink(scrollY = window.scrollY) {
-    if (!sectionBounds.length) return
+const applyActiveLink = (
+  navLinks: Map<string, HTMLAnchorElement>,
+  sectionBounds: SectionBounds[],
+  scrollY: number,
+): void => {
+  let activeId: string | null = null
 
-    let activeId: string | null = null
-
-    for (const section of sectionBounds) {
-      if (scrollY > section.top && scrollY <= section.bottom) {
-        activeId = section.id
-      }
-    }
-
-    navLinks.forEach((link, id) => {
-      link.classList.toggle('active-link', id === activeId)
-    })
+  for (const section of sectionBounds) {
+    if (scrollY > section.top && scrollY <= section.bottom) activeId = section.id
   }
 
+  navLinks.forEach((link, id) => link.classList.toggle('active-link', id === activeId))
+}
+
+export const initHeaderActiveLink = (): void => {
+  const navMenu = document.querySelector('.nav__menu')
+  if (!navMenu) return
+
+  const sections = [...document.querySelectorAll('section[id]')] as HTMLElement[]
+  if (!sections.length) return
+
+  const navLinks = getNavLinks(navMenu)
+
+  let ticking = false
+  let recalcQueued = false
+  let sectionBounds = measureSections(sections)
+
   function updateOnScroll() {
-    updateActiveLink()
+    applyActiveLink(navLinks, sectionBounds, window.scrollY)
     ticking = false
   }
 
@@ -48,17 +61,9 @@ export const initHeaderActiveLink = (): void => {
   }
 
   function recalculateSectionBounds() {
-    sectionBounds = sections.map((section) => {
-      const top = section.offsetTop - HEADER_OFFSET
-      return {
-        id: section.id,
-        top,
-        bottom: top + section.offsetHeight,
-      }
-    })
-
+    sectionBounds = measureSections(sections)
     recalcQueued = false
-    updateActiveLink()
+    applyActiveLink(navLinks, sectionBounds, window.scrollY)
   }
 
   function requestSectionRecalc() {
