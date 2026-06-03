@@ -14,7 +14,7 @@ import SiteContainer from './SiteContainer.astro'
       {
         skillsData.map((item, index) => (
           <div
-            class='skills-row flex flex-col gap-4 py-7 first:pt-0 last:pb-0 max-md:gap-3 max-md:py-5 [&_.skills-marquee-track]:[animation-play-state:paused] data-[in-view=true]:[&_.skills-marquee-track]:[animation-play-state:running] [@media(hover:hover)]:data-[in-view=true]:has-[.skill-tile:hover]:[&_.skills-marquee-track]:[animation-play-state:paused]!'
+            class='skills-row flex flex-col gap-4 py-7 first:pt-0 last:pb-0 max-md:gap-3 max-md:py-5 [&_.skills-marquee-track]:[animation-play-state:paused] data-[in-view=true]:[&_.skills-marquee-track]:[animation-play-state:running] data-[in-view=true]:has-[.skill-tile:hover]:[&_.skills-marquee-track]:[animation-play-state:paused]!'
             data-skills-row
             data-in-view='false'
           >
