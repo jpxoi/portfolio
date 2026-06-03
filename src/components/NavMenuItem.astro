@@ -3,7 +3,17 @@ import type { NavItem } from '../types'
 
 const { route, alt, icon: Icon, defaultActive }: NavItem = Astro.props as NavItem
 
-const classes = defaultActive ? 'nav__link active-link' : 'nav__link'
+const classes = [
+  'nav__link',
+  'flex rounded-full p-2 text-xl text-copy transition-theme',
+  'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+  '[@media(hover:hover)]:hover:text-primary [@media(hover:hover)]:hover:bg-primary/10',
+  'nav-active:bg-primary nav-active:text-page nav-active:shadow-[0_2px_10px_hsla(var(--first-hue),var(--sat),var(--lig),0.22)]',
+  '[@media(hover:hover)]:nav-active:hover:bg-primary-alt [@media(hover:hover)]:nav-active:hover:text-page',
+  defaultActive && 'active-link',
+]
+  .filter(Boolean)
+  .join(' ')
 ---
 
 <li class='nav__item'>
