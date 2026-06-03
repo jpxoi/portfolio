@@ -12,12 +12,12 @@ interface Props {
 const { variant = 'solid', href, type = 'button', class: className, download, target, rel } = Astro.props
 
 const baseClass =
-  'inline-block rounded-lg px-4 py-3 font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+  'inline-block rounded-lg border-2 px-4 py-3 font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 
 const variantClass =
   variant === 'ghost'
-    ? 'border-2 border-primary bg-transparent text-primary hover:bg-primary-alt hover:text-page'
-    : 'bg-primary text-page hover:bg-primary-alt hover:text-page'
+    ? 'border-primary bg-transparent text-primary hover:bg-primary-alt hover:border-primary-alt hover:text-page'
+    : 'border-transparent bg-primary text-page hover:bg-primary-alt hover:text-page'
 
 const classes = [baseClass, variantClass, className].filter(Boolean)
 ---
