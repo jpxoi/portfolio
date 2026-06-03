@@ -24,8 +24,5 @@ const moonClass = [iconClass, 'scale-0 rotate-90', 'dark:scale-100 dark:rotate-0
 
 <script>
   import { toggleTheme } from '../lib/theme'
-
-  document.getElementById('theme-button')?.addEventListener('click', () => {
-    toggleTheme()
-  })
+  document.getElementById('theme-button')?.addEventListener('click', () => toggleTheme())
 </script>
