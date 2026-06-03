@@ -48,13 +48,5 @@ import SiteContainer from './SiteContainer.astro'
     return observer
   }
 
-  const marqueeObserver = initMarqueeVisibility()
-
-  window.addEventListener(
-    'pagehide',
-    () => {
-      marqueeObserver?.disconnect()
-    },
-    { once: true },
-  )
+  initMarqueeVisibility()
 </script>

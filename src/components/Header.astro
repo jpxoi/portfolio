@@ -38,8 +38,6 @@ import ThemeToggle from './ThemeToggle.astro'
     let ticking = false
     let recalcQueued = false
     let sectionBounds: { id: string; top: number; bottom: number }[] = []
-    const cleanupController = new AbortController()
-
     function updateActiveLink(scrollY = window.scrollY) {
       if (!sectionBounds.length) return
 
@@ -91,17 +89,10 @@ import ThemeToggle from './ThemeToggle.astro'
     sections.forEach((section) => resizeObserver.observe(section))
 
     requestSectionRecalc()
-    window.addEventListener('scroll', requestScrollUpdate, { passive: true, signal: cleanupController.signal })
-    window.addEventListener('resize', requestSectionRecalc, { passive: true, signal: cleanupController.signal })
-
-    return () => {
-      cleanupController.abort()
-      resizeObserver.disconnect()
-    }
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true })
+    window.addEventListener('resize', requestSectionRecalc, { passive: true })
+    return null
   }
 
-  const cleanupActiveLinkTracker = initActiveLinkTracker()
-  if (cleanupActiveLinkTracker) {
-    window.addEventListener('pagehide', cleanupActiveLinkTracker, { once: true })
-  }
+  initActiveLinkTracker()
 </script>
