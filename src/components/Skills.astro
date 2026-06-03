@@ -28,22 +28,11 @@ import SiteContainer from './SiteContainer.astro'
 </PageSection>
 
 <script>
-  import { getTheme, subscribeToTheme } from '../lib/theme'
-
-  function updateSkillIcons() {
-    const useAltIcon = getTheme() === 'light'
-    const skillIcons = document.querySelectorAll('#skills .skill-tile img') as NodeListOf<HTMLImageElement>
-
-    skillIcons.forEach((icon) => {
-      icon.src = useAltIcon ? icon.getAttribute('data-alticon') || icon.src : icon.getAttribute('data-icon') || icon.src
-    })
-  }
-
-  function initMarqueeVisibility() {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  function initMarqueeVisibility(): IntersectionObserver | null {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null
 
     const rows = document.querySelectorAll('#skills [data-skills-row]')
-    if (!rows.length) return
+    if (!rows.length) return null
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -56,9 +45,16 @@ import SiteContainer from './SiteContainer.astro'
     )
 
     rows.forEach((row) => observer.observe(row))
+    return observer
   }
 
-  updateSkillIcons()
-  subscribeToTheme(updateSkillIcons)
-  initMarqueeVisibility()
+  const marqueeObserver = initMarqueeVisibility()
+
+  window.addEventListener(
+    'pagehide',
+    () => {
+      marqueeObserver?.disconnect()
+    },
+    { once: true },
+  )
 </script>
