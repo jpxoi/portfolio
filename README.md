@@ -27,12 +27,12 @@ Personal portfolio site for [jpxoi.com](https://jpxoi.com). Static site built wi
 
 ## Commands
 
-| Command         | Action                          |
-| :-------------- | :------------------------------ |
-| `pnpm install`  | Install dependencies            |
-| `pnpm dev`      | Dev server at `localhost:4321`  |
-| `pnpm build`    | Production build to `./dist/`   |
-| `pnpm preview`  | Preview the production build    |
-| `pnpm typecheck`| Run TypeScript                  |
-| `pnpm lint`     | ESLint + Prettier check         |
-| `pnpm format`   | Format with Prettier            |
+| Command          | Action                         |
+| :--------------- | :----------------------------- |
+| `pnpm install`   | Install dependencies           |
+| `pnpm dev`       | Dev server at `localhost:4321` |
+| `pnpm build`     | Production build to `./dist/`  |
+| `pnpm preview`   | Preview the production build   |
+| `pnpm typecheck` | Run TypeScript                 |
+| `pnpm lint`      | ESLint + Prettier check        |
+| `pnpm format`    | Format with Prettier           |
