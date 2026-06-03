@@ -28,11 +28,6 @@ const site = {
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
 
-    <!--=============== SAFARI BAR COLOR ===============-->
-    <meta name='theme-color' content='#0b111e' />
-    <meta name='theme-color' content='#fafcff' media='(prefers-color-scheme: light)' />
-
-    <!--=============== FAVICON ===============-->
     <link rel='icon' type='image/png' href='/favicon-96x96.png?v=20260602' sizes='96x96' />
     <link rel='icon' type='image/svg+xml' href='/favicon.svg?v=20260602' />
     <link rel='shortcut icon' href='/favicon.ico?v=20260602' />
@@ -40,17 +35,14 @@ const site = {
     <meta name='apple-mobile-web-app-title' content='Jean Paul Fernandez' />
     <link rel='manifest' href='/site.webmanifest?v=20260602' />
 
-    <!--=============== SEO ===============-->
     <link rel='canonical' href={site.url} />
 
-    <!-- HTML Meta Tags -->
     <title>{site.title}</title>
     <meta name='description' content={site.description} />
     <meta name='keywords' content={site.keywords} />
     <meta name='author' content={site.author} />
     <meta name='copyright' content={site.author} />
 
-    <!-- Facebook / Open Graph Meta Tags -->
     <meta property='og:url' content={site.url} />
     <meta property='og:type' content='website' />
     <meta property='og:title' content={site.title} />
@@ -58,7 +50,6 @@ const site = {
     <meta property='og:image' content={site.image} />
     <meta property='og:image:alt' content={site.imageAlt} />
 
-    <!-- Twitter Meta Tags -->
     <meta name='twitter:card' content='summary_large_image' />
     <meta name='twitter:domain' content={site.domain} />
     <meta name='twitter:url' content={site.url} />
