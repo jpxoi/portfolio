@@ -22,15 +22,19 @@ const isDarkTheme = (): boolean => document.documentElement.classList.contains(D
 
 export const getTheme = (): Theme => (isDarkTheme() ? 'dark' : 'light')
 
-function applyTheme(theme: Theme): void {
+function syncThemeClass(theme: Theme): void {
   document.documentElement.classList.toggle(DARK_CLASS, theme === 'dark')
+}
+
+function applyTheme(theme: Theme): void {
+  syncThemeClass(theme)
   localStorage.setItem(THEME_STORAGE_KEY, theme)
   window.dispatchEvent(new CustomEvent<{ theme: Theme }>(THEME_CHANGE_EVENT, { detail: { theme } }))
 }
 
 export const toggleTheme = (): Theme => (applyTheme(isDarkTheme() ? 'light' : 'dark'), getTheme())
 
-export const initTheme = (): void => applyTheme(resolveThemeFromStorage(localStorage.getItem(THEME_STORAGE_KEY)))
+export const initTheme = (): void => syncThemeClass(resolveThemeFromStorage(localStorage.getItem(THEME_STORAGE_KEY)))
 
 export const subscribeToTheme = (callback: (theme: Theme) => void): (() => void) => {
   const handler = (event: Event) => callback((event as CustomEvent<{ theme: Theme }>).detail?.theme ?? getTheme())
