@@ -17,46 +17,91 @@ import ThemeToggle from './ThemeToggle.astro'
   </nav>
 </header>
 <script>
-  const navMenu = document.querySelector('.nav__menu')
-  const sections = navMenu ? (document.querySelectorAll('section[id]') as NodeListOf<HTMLElement>) : null
-  const navLinks = navMenu
-    ? new Map(
-        [...navMenu.querySelectorAll('a[href^="#"]')]
-          .map((link) => {
-            const id = link.getAttribute('href')?.slice(1)
-            return id ? ([id, link] as const) : null
-          })
-          .filter((entry): entry is [string, HTMLAnchorElement] => entry !== null),
-      )
-    : null
+  const HEADER_OFFSET = 58
 
-  let ticking = false
+  function initActiveLinkTracker(): (() => void) | null {
+    const navMenu = document.querySelector('.nav__menu')
+    if (!navMenu) return null
 
-  function updateOnScroll() {
-    if (sections && navLinks) {
-      const scrollY = window.scrollY
+    const sections = [...document.querySelectorAll('section[id]')] as HTMLElement[]
+    if (!sections.length) return null
 
-      for (const section of sections) {
-        const sectionId = section.id
-        const link = navLinks.get(sectionId)
-        if (!link) continue
+    const navLinks = new Map(
+      [...navMenu.querySelectorAll('a[href^="#"]')]
+        .map((link) => {
+          const id = link.getAttribute('href')?.slice(1)
+          return id ? ([id, link] as const) : null
+        })
+        .filter((entry): entry is [string, HTMLAnchorElement] => entry !== null),
+    )
 
-        const sectionTop = section.offsetTop - 58
-        const sectionBottom = sectionTop + section.offsetHeight
+    let ticking = false
+    let recalcQueued = false
+    let sectionBounds: { id: string; top: number; bottom: number }[] = []
+    const cleanupController = new AbortController()
 
-        link.classList.toggle('active-link', scrollY > sectionTop && scrollY <= sectionBottom)
+    function updateActiveLink(scrollY = window.scrollY) {
+      if (!sectionBounds.length) return
+
+      let activeId: string | null = null
+
+      for (const section of sectionBounds) {
+        if (scrollY > section.top && scrollY <= section.bottom) {
+          activeId = section.id
+        }
       }
+
+      navLinks.forEach((link, id) => {
+        link.classList.toggle('active-link', id === activeId)
+      })
     }
 
-    ticking = false
+    function updateOnScroll() {
+      updateActiveLink()
+      ticking = false
+    }
+
+    function requestScrollUpdate() {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(updateOnScroll)
+    }
+
+    function recalculateSectionBounds() {
+      sectionBounds = sections.map((section) => {
+        const top = section.offsetTop - HEADER_OFFSET
+        return {
+          id: section.id,
+          top,
+          bottom: top + section.offsetHeight,
+        }
+      })
+
+      recalcQueued = false
+      updateActiveLink()
+    }
+
+    function requestSectionRecalc() {
+      if (recalcQueued) return
+      recalcQueued = true
+      requestAnimationFrame(recalculateSectionBounds)
+    }
+
+    const resizeObserver = new ResizeObserver(requestSectionRecalc)
+    sections.forEach((section) => resizeObserver.observe(section))
+
+    requestSectionRecalc()
+    window.addEventListener('scroll', requestScrollUpdate, { passive: true, signal: cleanupController.signal })
+    window.addEventListener('resize', requestSectionRecalc, { passive: true, signal: cleanupController.signal })
+
+    return () => {
+      cleanupController.abort()
+      resizeObserver.disconnect()
+    }
   }
 
-  function requestScrollUpdate() {
-    if (ticking) return
-    ticking = true
-    requestAnimationFrame(updateOnScroll)
+  const cleanupActiveLinkTracker = initActiveLinkTracker()
+  if (cleanupActiveLinkTracker) {
+    window.addEventListener('pagehide', cleanupActiveLinkTracker, { once: true })
   }
-
-  requestScrollUpdate()
-  window.addEventListener('scroll', requestScrollUpdate, { passive: true })
 </script>
