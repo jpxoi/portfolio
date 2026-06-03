@@ -9,9 +9,7 @@ const { title, subtitle }: Props = Astro.props
 
 {
   subtitle ? (
-    <span class='block text-center text-(length:--smaller-font-size) text-(--text-color) dark:text-(--text-color-light)'>
-      {subtitle}
-    </span>
+    <span class='text-copy dark:text-copy-muted block text-center text-(length:--smaller-font-size)'>{subtitle}</span>
   ) : null
 }
-<h2 class='mb-8 text-center text-(length:--h2-font-size) text-(--first-color) lg:mb-14'>{title}</h2>
+<h2 class='text-primary mb-8 text-center text-(length:--h2-font-size) lg:mb-14'>{title}</h2>

@@ -10,7 +10,7 @@ import SiteContainer from './SiteContainer.astro'
   <SectionHeading subtitle='My Stack' title='Skills & Technologies' />
 
   <SiteContainer class='pt-6'>
-    <div class='flex flex-col divide-y divide-(--text-color-light)/10'>
+    <div class='divide-copy-muted/10 flex flex-col divide-y'>
       {
         skillsData.map((item, index) => (
           <div
@@ -18,7 +18,7 @@ import SiteContainer from './SiteContainer.astro'
             data-skills-row
             data-in-view='false'
           >
-            <p class='text-(length:--small-font-size) font-semibold tracking-[0.14em] text-(--text-color-light) uppercase'>
+            <p class='text-copy-muted text-(length:--small-font-size) font-semibold tracking-[0.14em] uppercase'>
               {item.title}
             </p>
             <SkillBox skills={item.skills} categoryIndex={index} />

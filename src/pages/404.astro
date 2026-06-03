@@ -14,17 +14,17 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
 <Layout>
   <Header variant='alt' />
   <main class='overflow-hidden'>
-    <section class='grid h-dvh bg-(--body-color) pt-36 pb-8 max-[320px]:pt-28'>
+    <section class='bg-page grid h-dvh pt-36 pb-8 max-[320px]:pt-28'>
       <SiteContainer class='grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
         <div class:list={[revealBase, 'text-center lg:text-left', 'animate-p404-reveal-top [animation-delay:50ms]']}>
-          <span class='text-(length:--smaller-font-size) text-(--text-color-light)'>Error 404</span>
-          <h1 class='my-3 text-(length:--biggest-font-size) text-(--title-color)'>Hey Buddy</h1>
-          <p class='text-(--text-color)'>
+          <span class='text-copy-muted text-(length:--smaller-font-size)'>Error 404</span>
+          <h1 class='text-title my-3 text-(length:--biggest-font-size)'>Hey Buddy</h1>
+          <p class='text-copy'>
             We can&apos;t seem to find the page <br /> you are looking for.
           </p>
           <a
             href='/'
-            class='mt-8 inline-block rounded-full bg-(--first-color) px-6 py-3.5 font-medium text-(--body-color) transition-[background-color,box-shadow] duration-300 hover:bg-(--first-color-alt) hover:shadow-[0_4px_12px_hsla(38,69%,8%,0.2)]'
+            class='bg-primary text-page hover:bg-primary-alt mt-8 inline-block rounded-full px-6 py-3.5 font-medium transition-[background-color,box-shadow] duration-300 hover:shadow-[0_4px_12px_hsla(38,69%,8%,0.2)]'
           >
             Return to Home
           </a>
@@ -53,7 +53,7 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
       <footer
         class:list={[
           revealBase,
-          'self-end text-center text-(length:--smaller-font-size) text-(--text-color-light)',
+          'text-copy-muted self-end text-center text-(length:--smaller-font-size)',
           'animate-p404-reveal-bottom [animation-delay:200ms]',
         ]}
       >

@@ -11,15 +11,15 @@ const { id, title, link, cta, icon: Icon }: Props = Astro.props
   href={link}
   target='_blank'
   rel='noopener noreferrer'
-  class='group -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-[background-color,color,transform] duration-(--theme-transition-duration) ease-(--theme-transition-timing) focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color) [@media(hover:hover)]:hover:bg-(--container-color)/50'
+  class='group focus-visible:outline-primary [@media(hover:hover)]:hover:bg-surface/50 -mx-2 flex items-center gap-3 rounded-md px-2 py-3 transition-[background-color,color,transform] duration-(--theme-transition-duration) ease-(--theme-transition-timing) focus-visible:outline-2 focus-visible:outline-offset-2'
 >
-  <Icon id={id} className='size-6 shrink-0 text-(--first-color)' color='currentColor' aria-hidden='true' />
+  <Icon id={id} className='text-primary size-6 shrink-0' color='currentColor' aria-hidden='true' />
   <span class='min-w-0 flex-1 text-left'>
-    <span class='block text-(length:--small-font-size) font-medium text-(--title-color)'>{title}</span>
-    <span class='block text-(length:--tiny-font-size) text-(--first-color)'>{cta}</span>
+    <span class='text-title block text-(length:--small-font-size) font-medium'>{title}</span>
+    <span class='text-primary block text-(length:--tiny-font-size)'>{cta}</span>
   </span>
   <ArrowRightStroke
-    className='size-5 shrink-0 text-(--text-color-light) transition-[transform,color] duration-(--theme-transition-duration) ease-(--theme-transition-timing) [@media(hover:hover)]:group-hover:translate-x-0.5 [@media(hover:hover)]:group-hover:text-(--first-color)'
+    className='text-copy-muted [@media(hover:hover)]:group-hover:text-primary size-5 shrink-0 transition-[transform,color] duration-(--theme-transition-duration) ease-(--theme-transition-timing) [@media(hover:hover)]:group-hover:translate-x-0.5'
     aria-hidden='true'
   />
 </a>

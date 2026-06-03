@@ -16,13 +16,13 @@ const titleId = `${modalId}-title`
 ---
 
 <div
-  class='transition-theme flex h-full flex-col rounded-2xl bg-(--container-color) p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'
+  class='transition-theme bg-surface flex h-full flex-col rounded-2xl p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'
 >
   <h3 class='mb-6 text-(length:--h3-font-size) text-balance'>{title}</h3>
 
   <button
     type='button'
-    class='group transition-theme mt-auto flex cursor-pointer items-center gap-x-1 border-0 bg-transparent p-0 font-[inherit] text-(length:--small-font-size) text-(--first-color) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+    class='group transition-theme text-primary focus-visible:outline-primary mt-auto flex cursor-pointer items-center gap-x-1 border-0 bg-transparent p-0 font-[inherit] text-(length:--small-font-size) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2'
     command='show-modal'
     commandfor={modalId}
     aria-haspopup='dialog'
@@ -42,11 +42,11 @@ const titleId = `${modalId}-title`
     aria-labelledby={titleId}
   >
     <div
-      class='transition-theme relative max-h-[90dvh] rounded-3xl bg-(--body-color) px-6 pt-18 pb-10 sm:w-[500px] sm:px-10 md:w-[600px] lg:w-[700px]'
+      class='transition-theme bg-page relative max-h-[90dvh] rounded-3xl px-6 pt-18 pb-10 sm:w-[500px] sm:px-10 md:w-[600px] lg:w-[700px]'
     >
       <button
         type='button'
-        class='transition-theme absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0 text-(--first-color) focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--first-color)'
+        class='transition-theme text-primary focus-visible:outline-primary absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2'
         command='close'
         commandfor={modalId}
         aria-label={`Close ${title} details`}
@@ -54,7 +54,7 @@ const titleId = `${modalId}-title`
         <X className='size-5' color='currentColor' aria-hidden='true' />
       </button>
       <div class='max-h-[75dvh] overflow-scroll'>
-        <h4 class='mb-4 text-center text-(length:--h3-font-size) text-(--first-color)' id={titleId}>{title}</h4>
+        <h4 class='text-primary mb-4 text-center text-(length:--h3-font-size)' id={titleId}>{title}</h4>
 
         <p class='mb-8 text-center text-(length:--small-font-size) text-pretty sm:px-14'>{description}</p>
 
@@ -62,7 +62,7 @@ const titleId = `${modalId}-title`
           {
             items.map(({ title, description }) => (
               <li class='flex items-start gap-x-2'>
-                <CheckCircle className='size-5 min-w-5' color='var(--first-color)' aria-hidden='true' />
+                <CheckCircle className='size-5 min-w-5 text-primary' color='currentColor' aria-hidden='true' />
                 <p class='text-(length:--small-font-size) text-pretty'>
                   <b>{title}:</b> {description}
                 </p>

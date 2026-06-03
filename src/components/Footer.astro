@@ -6,17 +6,15 @@ import NavLogo from './NavLogo.astro'
 const copyText = `© ${new Date().getFullYear()} Jean Paul Fernandez. All rights reserved.`
 ---
 
-<footer class='border-t border-(--text-color-light)/15 bg-(--container-color)'>
+<footer class='border-copy-muted/15 bg-surface border-t'>
   <div class='mx-auto w-full max-w-7xl px-4 py-12 pb-24 sm:px-6 sm:py-14 lg:px-8 lg:py-16 lg:pb-28'>
     <div
       class='flex flex-col items-center gap-8 text-center sm:gap-10 lg:grid lg:grid-cols-2 lg:items-stretch lg:gap-x-16 lg:gap-y-0 lg:text-left xl:gap-x-24'
     >
       <div class='flex w-full flex-col items-center gap-2 lg:h-full lg:items-start'>
         <NavLogo className='h-4 sm:h-4.5' />
-        <p class='max-w-xs text-(length:--small-font-size) text-pretty text-(--text-color-light)'>
-          Full-stack software engineer
-        </p>
-        <p class='mt-auto hidden pt-6 text-(length:--smaller-font-size) text-(--text-color-light) lg:block'>
+        <p class='text-copy-muted max-w-xs text-(length:--small-font-size) text-pretty'>Full-stack software engineer</p>
+        <p class='text-copy-muted mt-auto hidden pt-6 text-(length:--smaller-font-size) lg:block'>
           {copyText}
         </p>
       </div>
@@ -27,7 +25,7 @@ const copyText = `© ${new Date().getFullYear()} Jean Paul Fernandez. All rights
       </div>
     </div>
 
-    <p class='mt-8 text-center text-(length:--smaller-font-size) text-(--text-color-light) lg:hidden'>
+    <p class='text-copy-muted mt-8 text-center text-(length:--smaller-font-size) lg:hidden'>
       {copyText}
     </p>
   </div>

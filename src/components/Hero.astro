@@ -12,7 +12,7 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgFallback = imgWebp
 
 const handleClass =
-  'flex h-[293px] w-[190px] max-[320px]:h-[253px] max-[320px]:w-[150px] lg:h-[400px] lg:w-[290px] justify-self-center items-end justify-center overflow-hidden rounded-t-[10rem] rounded-b-4 bg-gradient-to-b from-[hsla(var(--first-hue),var(--sat),var(--lig),1)] to-[hsla(var(--first-hue),var(--sat),var(--lig),0.2)]'
+  'flex h-[293px] w-[190px] max-[320px]:h-[253px] max-[320px]:w-[150px] lg:h-[400px] lg:w-[290px] justify-self-center items-end justify-center overflow-hidden rounded-t-[10rem] rounded-b-4 bg-gradient-to-b from-primary to-primary-fade'
 
 const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
 ---
@@ -21,11 +21,11 @@ const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
   <SiteContainer class='relative pt-8'>
     <div class='grid gap-5'>
       <div class='text-center'>
-        <span class='mb-1 block text-(length:--small-font-size) font-medium text-(--title-color)'>Hello, I&apos;m</span>
+        <span class='text-title mb-1 block text-(length:--small-font-size) font-medium'>Hello, I&apos;m</span>
         <h1 class='text-(length:--biggest-font-size)'>Jean Paul Fernandez</h1>
         <h2
           id='dynamic-header'
-          class='mb-10 min-h-6 text-(length:--small-font-size) font-medium text-(--text-color) transition-opacity duration-500 ease-in-out'
+          class='text-copy mb-10 min-h-6 text-(length:--small-font-size) font-medium transition-opacity duration-500 ease-in-out'
         >
           Software Engineer
         </h2>
@@ -92,7 +92,7 @@ const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
       content: '';
       width: 32px;
       height: 2px;
-      background-color: var(--first-color);
+      background-color: var(--color-primary);
       transform: rotate(90deg) translate(16px, 0);
     }
 
@@ -103,7 +103,7 @@ const imgClass = 'w-40 max-[320px]:w-[130px] lg:w-[220px]'
       display: grid;
       row-gap: 2.25rem;
       justify-items: center;
-      color: var(--first-color);
+      color: var(--color-primary);
     }
   }
 </style>
