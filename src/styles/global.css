@@ -147,7 +147,6 @@ body {
     textarea,
     .nav__menu,
     .nav__link,
-    .nav__logo,
     .active-link,
     .services__modal,
     .contact__form-input,
@@ -198,16 +197,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav__logo,
-#Logo_Black {
-  color: var(--first-color);
-  font-weight: var(--font-medium);
-}
-
-.nav__logo:hover {
-  color: var(--first-color-alt);
 }
 
 .nav__menu {
