@@ -4,12 +4,14 @@ export const heroSocialLinks = [
   {
     route: 'https://linkedin.com/in/jpxoi',
     icon: LinkedinSquare,
-    aria_label: 'LinkedIn',
+    aria_label: 'Open LinkedIn profile',
+    label: 'LinkedIn',
   },
   {
     route: 'https://github.com/jpxoi',
     icon: Github,
-    aria_label: 'GitHub',
+    aria_label: 'Open GitHub profile',
+    label: 'GitHub',
   },
 ]
 
