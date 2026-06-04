@@ -37,7 +37,7 @@ const applyActiveLink = (
 }
 
 export const initHeaderActiveLink = (): void => {
-  const navMenu = document.querySelector('.nav__menu')
+  const navMenu = document.querySelector('[data-nav-menu]')
   if (!navMenu) return
 
   const sections = [...document.querySelectorAll('section[id]')] as HTMLElement[]
