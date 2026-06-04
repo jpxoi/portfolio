@@ -37,4 +37,5 @@ export interface HeroSocialLink {
   route: string
   icon: BoxIcon
   aria_label: string
+  label: string
 }
