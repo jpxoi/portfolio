@@ -3,16 +3,16 @@ import type { HeroSocialLink } from '../types'
 
 interface Props extends HeroSocialLink {}
 
-const { route, icon: Icon, aria_label }: Props = Astro.props
+const { route, icon: Icon, aria_label, label }: Props = Astro.props
 ---
 
 <a
   href={route}
   target='_blank'
   rel='noreferrer'
-  class='transition-theme bg-surface text-primary hover:bg-primary flex w-max rounded p-1 text-base shadow-[0_2px_8px_hsla(var(--second-hue),48%,8%,0.1)] hover:text-white lg:p-1.5 lg:text-xl'
+  class='text-copy-muted hover:text-primary transition-theme border-copy-muted/10 hover:border-copy-muted/20 bg-surface/15 hover:bg-surface/30 text-tiny inline-flex cursor-pointer items-center gap-1.5 rounded-full border px-3 py-1.5 font-normal'
   aria-label={aria_label}
 >
-  <Icon className='size-5' />
-  <span class='hidden'>{aria_label}</span>
+  <Icon className='size-4 shrink-0 opacity-80' color='currentColor' />
+  <span>{label}</span>
 </a>
