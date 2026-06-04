@@ -1,80 +1,84 @@
 ---
 import { heroSocialLinks } from '../data/socials'
 import { CDN_URL } from '../constants'
-import { HERO_ROLES } from '../lib/hero-typewriter'
+import { HERO_LONGEST_ROLE, HERO_ROLES } from '../lib/hero-typewriter'
 import Button from './Button.astro'
 import HeroSocialLink from './HeroSocialLink.astro'
 import PageSection from './PageSection.astro'
 import SiteContainer from './SiteContainer.astro'
-import { Mouse } from '@boxicons/react'
 
 const imgAvif = `${CDN_URL}/portfolio/about/profile.avif`
+const imgAvif2x = `${CDN_URL}/portfolio/about/profile@2x.avif`
+
 const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
+const imgWebp2x = `${CDN_URL}/portfolio/about/profile@2x.webp`
+
 const imgFallback = imgWebp
 
 const handleClass =
-  'flex aspect-[290/400] justify-self-center items-end justify-center overflow-hidden bg-gradient-to-b from-primary to-primary-fade !rounded-t-[10rem] !rounded-b-2xl w-full max-w-[200px] sm:max-w-3xs md:max-w-[290px]'
-
-const imgClass = 'w-full max-w-[75%]'
-const socialRailClass =
-  'flex flex-col items-center justify-self-start gap-2.5 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
-const scrollRailClass =
-  'transition-theme flex flex-col items-center justify-self-end gap-3 self-end pb-4 text-primary sm:pb-6 lg:pb-8'
+  'border-copy-muted/12 bg-nav-glass shadow-nav-glass relative flex aspect-4/5 w-full max-w-60 items-end justify-center overflow-hidden rounded-3xl border backdrop-blur-xl transition-theme sm:max-w-68 lg:max-w-75 xl:max-w-80'
 ---
 
-<PageSection id='home'>
-  <SiteContainer class='pt-8'>
-    <div class='grid gap-18'>
-      <div class='text-center'>
-        <span class='text-title text-small mb-1 block font-medium'>Hello, I&apos;m</span>
-        <h1 class='text-display leading-tight'>Jean Paul Fernandez</h1>
+<PageSection id='home' class='pb-6! lg:pb-12!'>
+  <SiteContainer class='pt-8 pb-0 lg:py-16'>
+    <div class='lg:grid lg:min-h-112 lg:grid-cols-2 lg:items-center lg:gap-x-16 xl:gap-x-20'>
+      <div class='text-center lg:text-left'>
+        <span class='text-copy-muted text-smaller mb-2 block font-semibold tracking-[0.12em] uppercase'>
+          Hello, I&apos;m
+        </span>
+        <h1 class='text-display text-title leading-tight'>Jean Paul Fernandez</h1>
+
         <h2
-          id='dynamic-header'
-          class='text-copy text-small mb-10 min-h-6 font-medium transition-opacity duration-500 ease-in-out'
+          class='text-primary text-small mt-3 mb-6 grid font-medium transition-opacity duration-500 ease-in-out lg:mb-7'
+          aria-live='polite'
         >
-          {HERO_ROLES[0]}
+          <span class='invisible col-start-1 row-start-1 block' aria-hidden='true'>{HERO_LONGEST_ROLE}</span>
+          <span id='dynamic-header' class='col-start-1 row-start-1 block'>{HERO_ROLES[0]}</span>
         </h2>
 
-        <div class='xs:flex-row xs:gap-4 flex flex-col items-center justify-center gap-2'>
-          <Button
-            href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
-            target='_blank'
-            download='Jean_Paul_Fernandez_CV.pdf'
-            rel='noreferrer'
-            variant='ghost'
-          >
-            Download CV
-          </Button>
+        <div class='flex flex-col items-center gap-5 lg:items-start'>
+          <div class='xs:flex-row flex w-full max-w-xs flex-col justify-center gap-3 sm:max-w-none lg:justify-start'>
+            <Button href='#about' class='xs:w-auto w-full justify-center'>About Me</Button>
 
-          <Button href='#about'>About Me</Button>
+            <Button
+              href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
+              target='_blank'
+              download='Jean_Paul_Fernandez_CV.pdf'
+              rel='noreferrer'
+              variant='ghost'
+              class='xs:w-auto w-full justify-center'
+            >
+              Download CV
+            </Button>
+          </div>
+
+          <div class='flex flex-wrap items-center justify-center gap-2 lg:justify-start'>
+            {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
+          </div>
         </div>
       </div>
 
-      <div class='flex w-full items-end justify-between gap-x-3 sm:gap-x-6 lg:gap-x-10'>
-        <div class={socialRailClass}>
-          {heroSocialLinks.map((link) => <HeroSocialLink {...link} />)}
-          <span class='bg-primary mt-1 h-8 w-0.5' aria-hidden='true'></span>
-        </div>
-
+      <div class='mt-8 flex justify-center lg:mt-0 lg:justify-end'>
         <div class={handleClass}>
-          <picture class={imgClass}>
-            <source srcset={imgAvif} type='image/avif' />
-            <source srcset={imgWebp} type='image/webp' />
+          <div
+            class='from-primary/20 via-primary/5 pointer-events-none absolute inset-0 bg-linear-to-t to-transparent'
+            aria-hidden='true'
+          >
+          </div>
+          <picture class='relative z-1 mx-auto block w-8/10'>
+            <source srcset={`${imgAvif} 1x, ${imgAvif2x} 2x`} type='image/avif' />
+            <source srcset={`${imgWebp} 1x, ${imgWebp2x} 2x`} type='image/webp' />
             <img
               loading='eager'
               fetchpriority='high'
               src={imgFallback}
               alt='Stand up Memoji of Jean Paul Fernandez'
-              width={220}
-              height={381.05}
+              width={336}
+              height={420}
+              class='h-auto w-full'
             />
           </picture>
         </div>
-
-        <a href='#about' class={scrollRailClass}>
-          <Mouse className='size-6' />
-          <span class='text-smaller [text-orientation:mixed] [writing-mode:vertical-rl]'> Scroll Down </span>
-        </a>
       </div>
     </div>
   </SiteContainer>
