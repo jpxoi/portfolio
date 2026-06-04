@@ -6,81 +6,62 @@ type SectionBounds = {
   bottom: number
 }
 
-const getNavLinks = (navMenu: Element): Map<string, HTMLAnchorElement> =>
-  new Map(
-    [...navMenu.querySelectorAll('a[href^="#"]')]
-      .map((link) => {
-        const id = link.getAttribute('href')?.slice(1)
-        return id ? ([id, link] as const) : null
-      })
-      .filter((entry): entry is [string, HTMLAnchorElement] => entry !== null),
-  )
-
-const measureSections = (sections: HTMLElement[]): SectionBounds[] =>
-  sections.map((section) => {
-    const top = section.offsetTop - HEADER_OFFSET
-    return { id: section.id, top, bottom: top + section.offsetHeight }
-  })
-
-const applyActiveLink = (
-  navLinks: Map<string, HTMLAnchorElement>,
-  sectionBounds: SectionBounds[],
-  scrollY: number,
-): void => {
-  let activeId: string | null = null
-
-  for (const section of sectionBounds) {
-    if (scrollY > section.top && scrollY <= section.bottom) activeId = section.id
-  }
-
-  navLinks.forEach((link, id) => {
-    const isActive = id === activeId
-    link.classList.toggle('active-link', isActive)
-    if (isActive) link.setAttribute('aria-current', 'location')
-    else link.removeAttribute('aria-current')
-  })
-}
-
 export const initHeaderActiveLink = (): void => {
   const navMenu = document.querySelector('[data-nav-menu]')
   if (!navMenu) return
 
-  const sections = [...document.querySelectorAll('section[id]')] as HTMLElement[]
-  if (!sections.length) return
+  const sections = [...document.querySelectorAll<HTMLElement>('section[id]')]
+  const linkById = new Map(
+    [...navMenu.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')].flatMap((link) => {
+      const id = link.getAttribute('href')?.slice(1)
+      return id ? ([[id, link]] as const) : []
+    }),
+  )
 
-  const navLinks = getNavLinks(navMenu)
+  if (!sections.length || !linkById.size) return
 
-  let ticking = false
-  let recalcQueued = false
-  let sectionBounds = measureSections(sections)
+  let bounds: SectionBounds[] = []
+  let frame = 0
 
-  function updateOnScroll() {
-    applyActiveLink(navLinks, sectionBounds, window.scrollY)
-    ticking = false
+  const measure = () =>
+    sections.map((section) => {
+      const top = section.offsetTop - HEADER_OFFSET
+      return { id: section.id, top, bottom: top + section.offsetHeight }
+    })
+
+  const setActive = (scrollY: number) => {
+    let activeId: string | null = null
+    for (const section of bounds) {
+      if (scrollY > section.top && scrollY <= section.bottom) activeId = section.id
+    }
+
+    linkById.forEach((link, id) => {
+      const isActive = id === activeId
+      link.classList.toggle('active-link', isActive)
+      link.ariaCurrent = isActive ? 'location' : null
+    })
   }
 
-  function requestScrollUpdate() {
-    if (ticking) return
-    ticking = true
-    requestAnimationFrame(updateOnScroll)
+  const update = () => {
+    frame = 0
+    setActive(window.scrollY)
   }
 
-  function recalculateSectionBounds() {
-    sectionBounds = measureSections(sections)
-    recalcQueued = false
-    applyActiveLink(navLinks, sectionBounds, window.scrollY)
+  const scheduleUpdate = () => {
+    if (!frame) frame = requestAnimationFrame(update)
   }
 
-  function requestSectionRecalc() {
-    if (recalcQueued) return
-    recalcQueued = true
-    requestAnimationFrame(recalculateSectionBounds)
+  const remeasure = () => {
+    bounds = measure()
+    setActive(window.scrollY)
   }
 
-  const resizeObserver = new ResizeObserver(requestSectionRecalc)
+  bounds = measure()
+  setActive(window.scrollY)
+
+  const resizeObserver = new ResizeObserver(remeasure)
   sections.forEach((section) => resizeObserver.observe(section))
 
-  requestSectionRecalc()
-  window.addEventListener('scroll', requestScrollUpdate, { passive: true })
-  window.addEventListener('resize', requestSectionRecalc, { passive: true })
+  window.addEventListener('scroll', scheduleUpdate, { passive: true })
+  window.addEventListener('resize', remeasure, { passive: true })
 }
