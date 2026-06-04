@@ -1,9 +1,35 @@
-const HEADER_OFFSET = 58
-
 type SectionBounds = {
   id: string
   top: number
   bottom: number
+}
+
+const getHeaderOffset = (): number => {
+  const nav = document.querySelector('#header nav')
+  return nav ? Math.round(nav.getBoundingClientRect().height) : 56
+}
+
+const resolveActiveNavId = (
+  scrollY: number,
+  bounds: SectionBounds[],
+  linkById: Map<string, HTMLAnchorElement>,
+): string | null => {
+  if (!bounds.length) return null
+
+  let sectionIndex = -1
+  for (let i = 0; i < bounds.length; i++) {
+    if (scrollY > bounds[i].top) sectionIndex = i
+    else break
+  }
+
+  if (sectionIndex === -1) return null
+
+  for (let i = sectionIndex; i >= 0; i--) {
+    const id = bounds[i].id
+    if (linkById.has(id)) return id
+  }
+
+  return null
 }
 
 export const initHeaderActiveLink = (): void => {
@@ -22,19 +48,20 @@ export const initHeaderActiveLink = (): void => {
 
   let bounds: SectionBounds[] = []
   let frame = 0
+  let lastActiveId: string | null = null
 
-  const measure = () =>
-    sections.map((section) => {
-      const top = section.offsetTop - HEADER_OFFSET
+  const measure = () => {
+    return sections.map((section) => {
+      const top = section.offsetTop - getHeaderOffset()
       return { id: section.id, top, bottom: top + section.offsetHeight }
     })
+  }
 
   const setActive = (scrollY: number) => {
-    let activeId: string | null = null
-    for (const section of bounds) {
-      if (scrollY > section.top && scrollY <= section.bottom) activeId = section.id
-    }
+    const activeId = resolveActiveNavId(scrollY, bounds, linkById)
+    if (activeId === lastActiveId) return
 
+    lastActiveId = activeId
     linkById.forEach((link, id) => {
       const isActive = id === activeId
       link.classList.toggle('active-link', isActive)
@@ -53,6 +80,7 @@ export const initHeaderActiveLink = (): void => {
 
   const remeasure = () => {
     bounds = measure()
+    lastActiveId = null
     setActive(window.scrollY)
   }
 
@@ -61,7 +89,10 @@ export const initHeaderActiveLink = (): void => {
 
   const resizeObserver = new ResizeObserver(remeasure)
   sections.forEach((section) => resizeObserver.observe(section))
+  const nav = document.querySelector('#header nav')
+  if (nav) resizeObserver.observe(nav)
 
   window.addEventListener('scroll', scheduleUpdate, { passive: true })
-  window.addEventListener('resize', remeasure, { passive: true })
+
+  requestAnimationFrame(remeasure)
 }
