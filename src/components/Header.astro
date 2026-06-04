@@ -10,9 +10,7 @@ import ThemeToggle from './ThemeToggle.astro'
 ---
 
 <header class='transition-theme bg-page fixed top-0 left-0 z-100 w-full shadow-none' id='header'>
-  <nav
-    class='mx-auto flex h-header w-full max-w-5xl items-center justify-between px-4 lg:h-header-lg'
-  >
+  <nav class='h-header lg:h-header-lg mx-auto flex w-full max-w-5xl items-center justify-between px-4'>
     <NavLogo variant={variant} className='h-3.5' />
     {variant === 'default' ? <NavMenu /> : null}
     <ThemeToggle />

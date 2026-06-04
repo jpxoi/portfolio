@@ -17,12 +17,7 @@ const classes = [
 ---
 
 <li>
-  <a
-    href={route}
-    class={classes}
-    aria-label={alt}
-    {...(defaultActive && { 'aria-current': 'location' })}
-  >
+  <a href={route} class={classes} aria-label={alt} {...defaultActive && { 'aria-current': 'location' }}>
     <Icon className='size-5' color='currentColor' />
   </a>
 </li>
