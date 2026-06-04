@@ -4,12 +4,12 @@ import type { NavItem } from '../types'
 const { route, alt, icon: Icon, defaultActive }: NavItem = Astro.props as NavItem
 
 const classes = [
-  'nav__link',
-  'flex rounded-full p-2 text-xl text-copy transition-theme',
+  'flex rounded-full p-2 transition-theme',
+  'text-copy-muted',
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
-  'hover:text-primary hover:bg-primary/10',
-  'nav-active:bg-primary nav-active:text-page nav-active:shadow-[0_2px_10px_hsla(var(--first-hue),var(--sat),var(--lig),0.22)]',
-  'nav-active:hover:bg-primary-alt nav-active:hover:text-page',
+  'hover:text-primary',
+  'nav-active:bg-nav-item-active nav-active:text-primary',
+  'nav-active:hover:bg-nav-item-active-hover',
   defaultActive && 'active-link',
 ]
   .filter(Boolean)
@@ -17,7 +17,12 @@ const classes = [
 ---
 
 <li>
-  <a href={route} class={classes} aria-label={alt}>
+  <a
+    href={route}
+    class={classes}
+    aria-label={alt}
+    {...(defaultActive && { 'aria-current': 'location' })}
+  >
     <Icon className='size-5' color='currentColor' />
   </a>
 </li>
