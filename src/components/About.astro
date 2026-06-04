@@ -12,7 +12,7 @@ const imgFallback = imgWebp
 ---
 
 <PageSection id='about'>
-  <SectionHeading title='About Me' />
+  <SectionHeading subtitle='Who I Am' title='About Me' />
 
   <SiteContainer class='grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16'>
     <picture
@@ -30,11 +30,11 @@ const imgFallback = imgWebp
         {aboutInfo.map((info) => <AboutBox {...info} />)}
       </div>
 
-      <p class='mb-4 text-pretty sm:px-20 lg:mb-6 lg:px-0'>
+      <p class='text-copy text-small mb-4 leading-relaxed text-pretty lg:mb-6'>
         Full-stack software engineer and Computer Science student at The University of Manchester (UoM), focused on
         building scalable web platforms, AI-powered applications and cloud-based digital products.
       </p>
-      <p class='mb-4 text-pretty sm:px-20 lg:mb-6 lg:px-0'>
+      <p class='text-copy-muted text-small leading-relaxed text-pretty'>
         I work across modern web technologies, backend systems, databases and infrastructure, combining technical
         problem-solving with a product-oriented approach to create practical, reliable and user-focused software for
         real-world business needs.
