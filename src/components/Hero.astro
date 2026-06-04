@@ -16,7 +16,7 @@ const imgWebp2x = `${CDN_URL}/portfolio/about/profile@2x.webp`
 const imgFallback = imgWebp
 
 const handleClass =
-  'border-copy-muted/12 bg-nav-glass shadow-nav-glass relative flex aspect-4/5 w-full max-w-60 items-end justify-center overflow-hidden rounded-3xl border backdrop-blur-xl transition-theme sm:max-w-68 lg:max-w-75 xl:max-w-80'
+  'border-copy-muted/12 bg-nav-glass shadow-nav-glass relative flex aspect-3/4 w-full max-w-60 items-end justify-center overflow-hidden rounded-3xl border backdrop-blur-xl transition-theme sm:max-w-68 lg:max-w-75 xl:max-w-80'
 ---
 
 <PageSection id='home' class='pb-6! lg:pb-12!'>
@@ -65,14 +65,14 @@ const handleClass =
             aria-hidden='true'
           >
           </div>
-          <picture class='relative z-1 mx-auto block w-8/10'>
+          <picture class='relative z-1 mx-auto block w-10/12'>
             <source srcset={`${imgAvif} 1x, ${imgAvif2x} 2x`} type='image/avif' />
             <source srcset={`${imgWebp} 1x, ${imgWebp2x} 2x`} type='image/webp' />
             <img
               loading='eager'
               fetchpriority='high'
               src={imgFallback}
-              alt='Stand up Memoji of Jean Paul Fernandez'
+              alt='Memoji of Jean Paul Fernandez waving'
               width={336}
               height={420}
               class='h-auto w-full'
