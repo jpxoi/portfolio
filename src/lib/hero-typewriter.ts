@@ -1,5 +1,7 @@
 export const HERO_ROLES = ['Software Engineer', 'Full-stack Developer', 'AI Engineer'] as const
 
+export const HERO_LONGEST_ROLE = HERO_ROLES.reduce((longest, role) => (role.length > longest.length ? role : longest))
+
 const PAUSE_AFTER_TYPED_MS = 2000
 const TYPE_DELAY_MS = [60, 80] as const
 const DELETE_DELAY_MS = [80, 100] as const
