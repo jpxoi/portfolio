@@ -84,8 +84,8 @@
 
   --nav-glass-bg: hsla(var(--second-hue), 32%, 90%, 0.74);
   --nav-glass-shadow: 0 4px 24px hsla(var(--second-hue), 48%, 8%, 0.08);
-  --nav-item-active-bg: hsla(var(--second-hue), 32%, 76%, 0.65);
-  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 72%, 0.75);
+  --nav-item-active-bg: hsla(var(--second-hue), 32%, 76%, 0.7);
+  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 72%, 0.78);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -203,8 +203,8 @@ body {
 
   --nav-glass-bg: hsla(var(--second-hue), 32%, 16%, 0.78);
   --nav-glass-shadow: 0 4px 24px hsl(0 0% 0% / 0.25);
-  --nav-item-active-bg: hsla(var(--second-hue), 32%, 32%, 0.58);
-  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 36%, 0.68);
+  --nav-item-active-bg: hsla(var(--second-hue), 32%, 32%, 0.64);
+  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 36%, 0.72);
 }
 
 @supports (animation-timeline: scroll(root block)) and (animation-range: 0 50px) {
