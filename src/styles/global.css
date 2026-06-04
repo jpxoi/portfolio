@@ -18,6 +18,11 @@
   --color-copy-muted: var(--text-color-light);
   --color-page: var(--body-color);
   --color-surface: var(--container-color);
+  --color-nav-glass: var(--nav-glass-bg);
+  --color-nav-item-active: var(--nav-item-active-bg);
+  --color-nav-item-active-hover: var(--nav-item-active-hover-bg);
+
+  --shadow-nav-glass: var(--nav-glass-shadow);
 
   --text-display: var(--biggest-font-size);
   --text-h1: var(--h1-font-size);
@@ -76,6 +81,11 @@
   --body-color: hsl(var(--second-hue), 100%, 99%);
   --container-color: #fff;
   --header-scrolled-shadow: 0 2px 4px hsl(0 0% 1% / 0.1);
+
+  --nav-glass-bg: hsla(var(--second-hue), 32%, 90%, 0.74);
+  --nav-glass-shadow: 0 4px 24px hsla(var(--second-hue), 48%, 8%, 0.08);
+  --nav-item-active-bg: hsla(var(--second-hue), 32%, 76%, 0.65);
+  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 72%, 0.75);
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -155,9 +165,8 @@ body {
     button,
     input,
     textarea,
-    .nav__menu,
-    .nav__link,
-    .active-link,
+    [data-nav-menu],
+    [data-nav-menu] a,
     .services__modal,
     .contact__form-input,
     .contact__form-tag
@@ -191,33 +200,11 @@ body {
   --body-color: hsl(var(--second-hue), 48%, 8%);
   --container-color: hsl(var(--second-hue), 32%, 12%);
   --header-scrolled-shadow: 0 4px 4px hsl(0 0% 4% / 0.3);
-}
 
-/*========== Theme-specific component tweaks ==========*/
-.nav__menu {
-  background-color: hsla(var(--second-hue), 32%, 90%, 0.8);
-}
-
-.dark .nav__menu {
-  background-color: hsl(var(--second-hue), 32%, 16%, 0.8);
-}
-
-/*=============== HEADER & NAV===============*/
-.nav {
-  height: var(--header-height);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.nav__menu {
-  position: fixed;
-  bottom: 1rem;
-  width: 90%;
-  border-radius: 4rem;
-  padding: 1rem 2.25rem;
-  -webkit-backdrop-filter: blur(10px); /* For Safari */
-  backdrop-filter: blur(10px);
+  --nav-glass-bg: hsla(var(--second-hue), 32%, 16%, 0.78);
+  --nav-glass-shadow: 0 4px 24px hsl(0 0% 0% / 0.25);
+  --nav-item-active-bg: hsla(var(--second-hue), 32%, 32%, 0.58);
+  --nav-item-active-hover-bg: hsla(var(--second-hue), 32%, 36%, 0.68);
 }
 
 @supports (animation-timeline: scroll(root block)) and (animation-range: 0 50px) {
@@ -410,29 +397,5 @@ body {
     --normal-font-size: 1rem;
     --small-font-size: 0.875rem;
     --smaller-font-size: 0.813rem;
-  }
-}
-
-/* Below `xs`: 20rem (320px) */
-@media screen and (max-width: 20rem) {
-  .nav__menu {
-    padding: 1rem 1.5rem;
-  }
-}
-
-/* `sm` and up: 40rem (640px) */
-@media screen and (min-width: 40rem) {
-  .nav__menu {
-    width: 328px;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-  }
-}
-
-/* `lg` and up: 64rem (1024px) */
-@media screen and (min-width: 64rem) {
-  .nav {
-    height: calc(var(--header-height) + 1rem);
   }
 }
