@@ -21,8 +21,16 @@ export function initHeroTypewriter(): void {
   }
 
   let textIndex = 0
-  let charIndex = texts[0].length - 1
-  let isDeleting = false
+  let charIndex = texts[0].length
+  let isDeleting = true
+  let timeoutId = 0
+
+  el.textContent = texts[0]
+
+  const schedule = (delay: number) => {
+    clearTimeout(timeoutId)
+    timeoutId = window.setTimeout(typeWriter, delay)
+  }
 
   function typeWriter(): void {
     const fullText = texts[textIndex]
@@ -33,7 +41,7 @@ export function initHeroTypewriter(): void {
       charIndex++
       if (charIndex === fullText.length) {
         isDeleting = true
-        setTimeout(typeWriter, PAUSE_AFTER_TYPED_MS)
+        schedule(PAUSE_AFTER_TYPED_MS)
         return
       }
       delay = randomBetween(TYPE_DELAY_MS[0], TYPE_DELAY_MS[1])
@@ -47,8 +55,13 @@ export function initHeroTypewriter(): void {
       delay = randomBetween(DELETE_DELAY_MS[0], DELETE_DELAY_MS[1])
     }
 
-    setTimeout(typeWriter, delay)
+    schedule(delay)
   }
 
-  typeWriter()
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) clearTimeout(timeoutId)
+    else schedule(PAUSE_AFTER_TYPED_MS)
+  })
+
+  schedule(PAUSE_AFTER_TYPED_MS)
 }
