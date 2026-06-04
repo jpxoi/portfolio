@@ -24,6 +24,9 @@
 
   --shadow-nav-glass: var(--nav-glass-shadow);
 
+  --height-header: var(--header-height);
+  --height-header-lg: calc(var(--header-height) + 1rem);
+
   --text-display: var(--biggest-font-size);
   --text-h1: var(--h1-font-size);
   --text-h2: var(--h2-font-size);
