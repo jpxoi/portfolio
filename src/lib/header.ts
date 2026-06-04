@@ -33,7 +33,12 @@ const applyActiveLink = (
     if (scrollY > section.top && scrollY <= section.bottom) activeId = section.id
   }
 
-  navLinks.forEach((link, id) => link.classList.toggle('active-link', id === activeId))
+  navLinks.forEach((link, id) => {
+    const isActive = id === activeId
+    link.classList.toggle('active-link', isActive)
+    if (isActive) link.setAttribute('aria-current', 'location')
+    else link.removeAttribute('aria-current')
+  })
 }
 
 export const initHeaderActiveLink = (): void => {
