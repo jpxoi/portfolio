@@ -20,7 +20,7 @@ const site = {
 }
 ---
 
-<html lang='en' class='dark'>
+<html lang='en' class='dark bg-page scroll-smooth scheme-light dark:scheme-dark'>
   <head>
     <script is:inline set:html={buildThemeHeadScript()} />
     <Font cssVariable='--font-poppins' preload />
@@ -60,7 +60,7 @@ const site = {
     <meta name='twitter:site' content={site.handle} />
     <meta name='twitter:creator' content={site.handle} />
   </head>
-  <body>
+  <body class='bg-page text-copy'>
     <slot />
   </body>
 </html>

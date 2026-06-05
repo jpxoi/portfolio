@@ -93,7 +93,6 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: var(--font-sans), sans-serif;
   --biggest-font-size: 1.75rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -120,27 +119,11 @@ html.theme-init *::after {
   transition: none !important;
 }
 
-html {
-  scroll-behavior: smooth;
-  background-color: var(--body-color);
-  color-scheme: light;
-}
-
-html.dark {
-  color-scheme: dark;
-}
-
 body,
 button,
 input,
 textarea {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-}
-
-body {
-  background-color: var(--body-color);
-  color: var(--text-color);
+  @apply text-body;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -190,8 +173,7 @@ body {
   h1,
   h2,
   h3 {
-    color: var(--title-color);
-    font-weight: var(--font-semibold);
+    @apply text-title font-semibold;
   }
 }
 
