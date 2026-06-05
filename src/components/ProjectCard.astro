@@ -9,9 +9,23 @@ const { id, name, tagline, description, link, github, stack } = Astro.props
 
 const fullTitle = `${name} | ${tagline}`
 
-const imgAvif = `${CDN_URL}/projects/${id}/card.avif`
-const imgWebp = `${CDN_URL}/projects/${id}/card.webp`
-const imgFallback = imgWebp
+const projectImageBase = `${CDN_URL}/projects/${id}`
+
+const imgAvifSrcSet = [
+  `${projectImageBase}/card-768.avif 768w`,
+  `${projectImageBase}/card-1280.avif 1280w`,
+  `${projectImageBase}/card-1920.avif 1920w`,
+].join(', ')
+
+const imgWebpSrcSet = [
+  `${projectImageBase}/card-768.webp 768w`,
+  `${projectImageBase}/card-1280.webp 1280w`,
+  `${projectImageBase}/card-1920.webp 1920w`,
+].join(', ')
+
+const imgFallback = `${projectImageBase}/card-1920.webp`
+
+const imgSizes = '(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 768px'
 
 const isPrivate = !link && !github
 
@@ -26,8 +40,8 @@ const stackTagClass =
   <div class='flex flex-1 flex-col gap-4'>
     <div class='aspect-video overflow-hidden rounded-lg'>
       <picture>
-        <source srcset={imgAvif} type='image/avif' />
-        <source srcset={imgWebp} type='image/webp' />
+        <source srcset={imgAvifSrcSet} sizes={imgSizes} type='image/avif' />
+        <source srcset={imgWebpSrcSet} sizes={imgSizes} type='image/webp' />
         <img
           src={imgFallback}
           alt={fullTitle}
@@ -35,6 +49,7 @@ const stackTagClass =
           height={1080}
           class='h-full w-full scale-105 object-cover transition-transform duration-300 ease-out group-hover:scale-100'
           loading='lazy'
+          decoding='async'
         />
       </picture>
     </div>
