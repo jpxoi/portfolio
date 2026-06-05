@@ -293,12 +293,6 @@ textarea {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .services__modal::backdrop {
-    transition: none;
-  }
-}
-
 /*=============== BREAKPOINTS ===============*/
 /* `xs` custom breakpoint: 20rem (320px) */
 
