@@ -5,10 +5,12 @@ import SiteContainer from '../components/SiteContainer.astro'
 import { CDN_URL } from '../constants'
 
 const imgAvif = `${CDN_URL}/portfolio/ui/ghost-img.avif`
-const imgWebp = `${CDN_URL}/portfolio/ui/ghost-img.webp`
-const imgFallback = imgWebp
+const imgAvif2x = `${CDN_URL}/portfolio/ui/ghost-img@2x.avif`
 
-const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-100 motion-reduce:transform-none'
+const imgWebp = `${CDN_URL}/portfolio/ui/ghost-img.webp`
+const imgWebp2x = `${CDN_URL}/portfolio/ui/ghost-img@2x.webp`
+
+const imgFallback = imgWebp
 ---
 
 <Layout>
@@ -16,7 +18,7 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
   <main class='overflow-hidden'>
     <section class='bg-page xs:pt-36 grid h-dvh pt-28 pb-8'>
       <SiteContainer class='grid place-content-center gap-10 lg:grid-cols-2 lg:items-center lg:gap-8'>
-        <div class:list={[revealBase, 'text-center lg:text-left', 'animate-p404-reveal-top [animation-delay:50ms]']}>
+        <div class='text-center lg:text-left'>
           <span class='text-copy-muted text-smaller'>Error 404</span>
           <h1 class='text-title text-display my-3'>Hey Buddy</h1>
           <p class='text-copy'>
@@ -30,33 +32,35 @@ const revealBase = 'opacity-0 motion-reduce:animate-none motion-reduce:opacity-1
           </a>
         </div>
 
-        <div class:list={[revealBase, 'justify-self-center', 'animate-p404-reveal-bottom [animation-delay:100ms]']}>
+        <div class='justify-self-center'>
           <picture>
-            <source srcset={imgAvif} type='image/avif' />
-            <source srcset={imgWebp} type='image/webp' />
+            <source
+              srcset={`${imgAvif} 500w, ${imgAvif2x} 1000w`}
+              sizes='(min-width: 64rem) 25rem, 15.625rem'
+              type='image/avif'
+            />
+            <source
+              srcset={`${imgWebp} 500w, ${imgWebp2x} 1000w`}
+              sizes='(min-width: 64rem) 25rem, 15.625rem'
+              type='image/webp'
+            />
             <img
               src={imgFallback}
               alt='Ghost Image'
               width={500}
               height={500}
-              class='animate-p404-float w-[230px] motion-reduce:animate-none lg:w-[400px]'
+              class='animate-p404-float w-62.5 motion-reduce:animate-none lg:w-100'
             />
           </picture>
           <div
-            class='animate-p404-shadow mx-auto h-6 w-32.5 rounded-full bg-[hsla(38,21%,19%,0.16)] blur-sm motion-reduce:animate-none lg:h-10 lg:w-62.5'
+            class='animate-p404-shadow mx-auto h-6 w-39 rounded-full bg-[hsla(38,21%,19%,0.16)] blur-sm motion-reduce:animate-none lg:h-10 lg:w-62.5'
             aria-hidden='true'
           >
           </div>
         </div>
       </SiteContainer>
 
-      <footer
-        class:list={[
-          revealBase,
-          'text-copy-muted text-smaller self-end text-center',
-          'animate-p404-reveal-bottom [animation-delay:200ms]',
-        ]}
-      >
+      <footer class='text-copy-muted text-smaller self-end text-center'>
         <p>&copy; {new Date().getFullYear()} Jean Paul Fernandez</p>
       </footer>
     </section>
