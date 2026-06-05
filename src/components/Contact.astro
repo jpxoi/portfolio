@@ -6,7 +6,8 @@ import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
 import SiteContainer from './SiteContainer.astro'
 
-const formInputClass = 'contact__form-input transition-theme focus-visible:border-primary focus-visible:outline-none'
+const formInputClass =
+  'contact__form-input transition-theme focus-visible:border-primary focus-visible:outline-none resize-none'
 ---
 
 <PageSection id='contact'>
@@ -35,7 +36,7 @@ const formInputClass = 'contact__form-input transition-theme focus-visible:borde
           <input type='text' id='contact-honeypot' name='_gotcha' tabindex='-1' autocomplete='off' />
         </div>
 
-        <div class='contact__form-div'>
+        <div class='relative mb-8 h-16'>
           <label for='name' class='contact__form-tag'>Full Name</label>
           <input
             type='text'
@@ -48,7 +49,7 @@ const formInputClass = 'contact__form-input transition-theme focus-visible:borde
           />
         </div>
 
-        <div class='contact__form-div'>
+        <div class='relative mb-8 h-16'>
           <label for='email' class='contact__form-tag'>Email</label>
           <input
             type='email'
@@ -61,7 +62,7 @@ const formInputClass = 'contact__form-input transition-theme focus-visible:borde
           />
         </div>
 
-        <div class='contact__form-div contact__form-area'>
+        <div class='relative mb-8 h-44'>
           <label for='message' class='contact__form-tag'>Message</label>
           <textarea
             placeholder='Describe your project'
