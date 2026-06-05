@@ -1,3 +1,4 @@
+import { InfoCircle, AlertCircle } from '@boxicons/react'
 import { type ChangeEvent, type SubmitEvent, useState } from 'react'
 
 const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/IdMAAJSEpJf'
@@ -230,7 +231,11 @@ export default function ContactForm() {
                 }`}
                 aria-hidden='true'
               >
-                {submitState === 'success' ? 'i' : '!'}
+                {submitState === 'success' ? (
+                  <InfoCircle className='size-4.5' color='currentColor' />
+                ) : (
+                  <AlertCircle className='size-4.5' color='currentColor' />
+                )}
               </span>
               <div>
                 <p className='font-medium'>{submitState === 'success' ? 'Message sent' : 'Unable to send message'}</p>
