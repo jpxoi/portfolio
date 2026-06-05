@@ -224,17 +224,15 @@ export default function ContactForm() {
           >
             <div className='flex items-start gap-3'>
               <span
-                className={`text-small mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full font-semibold ${
-                  submitState === 'success'
-                    ? 'bg-primary/12 text-primary'
-                    : 'bg-rose-500/15 text-rose-700 dark:text-rose-200'
+                className={`mt-0.5 inline-flex shrink-0 ${
+                  submitState === 'success' ? 'text-primary' : 'text-rose-700 dark:text-rose-200'
                 }`}
                 aria-hidden='true'
               >
                 {submitState === 'success' ? (
-                  <InfoCircle className='size-4.5' color='currentColor' />
+                  <InfoCircle className='size-5' color='currentColor' />
                 ) : (
-                  <AlertCircle className='size-4.5' color='currentColor' />
+                  <AlertCircle className='size-5' color='currentColor' />
                 )}
               </span>
               <div>
