@@ -1,8 +1,9 @@
 ---
 import { heroSocialLinks } from '../data/socials'
-import { CDN_URL } from '../constants'
+import { CAL_BOOKING_LINK, CAL_BOOKING_NAMESPACE, CAL_EMBED_CONFIG, CDN_URL } from '../constants'
 import { HERO_LONGEST_ROLE, HERO_ROLES } from '../lib/hero-typewriter'
 import Button from './Button.astro'
+import CalEmbedProvider from './CalEmbedProvider.astro'
 import HeroSocialLink from './HeroSocialLink.astro'
 import PageSection from './PageSection.astro'
 import SiteContainer from './SiteContainer.astro'
@@ -14,6 +15,7 @@ const imgWebp = `${CDN_URL}/portfolio/about/profile.webp`
 const imgWebp2x = `${CDN_URL}/portfolio/about/profile@2x.webp`
 
 const imgFallback = imgWebp
+const calConfig = JSON.stringify(CAL_EMBED_CONFIG)
 
 const handleClass =
   'border-copy-muted/12 bg-nav-glass shadow-nav-glass relative flex aspect-4/5 w-full max-w-60 flex-col justify-end overflow-hidden rounded-3xl border backdrop-blur-lg transition-theme sm:max-w-68 lg:max-w-75 xl:max-w-80'
@@ -38,7 +40,14 @@ const handleClass =
 
         <div class='flex flex-col items-center gap-5 lg:items-start'>
           <div class='xs:flex-row flex w-full max-w-xs flex-col justify-center gap-3 sm:max-w-none lg:justify-start'>
-            <Button href='#about' class='xs:w-auto w-full justify-center'>About Me</Button>
+            <Button
+              class='xs:w-auto w-full justify-center'
+              data-cal-link={CAL_BOOKING_LINK}
+              data-cal-namespace={CAL_BOOKING_NAMESPACE}
+              data-cal-config={calConfig}
+            >
+              Let&apos;s Talk
+            </Button>
 
             <Button
               href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
@@ -88,3 +97,5 @@ const handleClass =
   import { initHeroTypewriter } from '../lib/hero-typewriter'
   initHeroTypewriter()
 </script>
+
+<CalEmbedProvider />
