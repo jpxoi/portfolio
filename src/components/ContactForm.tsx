@@ -1,9 +1,14 @@
-import { InfoCircle, AlertCircle } from '@boxicons/react'
 import { type ChangeEvent, type SubmitEvent, useState } from 'react'
-
-const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/IdMAAJSEpJf'
-const MIN_MESSAGE_LENGTH = 25
-const ENABLE_CLIENT_VALIDATION = false
+import ContactFormStatus from './ContactFormStatus'
+import {
+  ENABLE_CLIENT_VALIDATION,
+  FORMCARRY_ENDPOINT,
+  initialContactFormValues,
+  MIN_MESSAGE_LENGTH,
+  type ContactFormErrors,
+  type ContactFormValues,
+  validateContactForm,
+} from '../lib/contact-form-validation'
 
 const formInputClass =
   'border-input-border text-copy transition-theme focus-visible:border-primary absolute top-0 left-0 z-1 h-full w-full resize-none rounded-xl border-2 border-solid p-6 focus-visible:outline-none'
@@ -14,45 +19,11 @@ const fieldErrorClass = 'text-smaller text-rose-700 dark:text-rose-300 -mt-5 mb-
 const submitButtonClass =
   'inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-primary px-5 py-2.5 text-small font-medium text-page transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary hover:bg-primary-alt hover:text-page disabled:cursor-not-allowed disabled:opacity-70 w-full sm:w-auto'
 
-type FormValues = {
-  name: string
-  email: string
-  message: string
-}
-
-type FormErrors = Partial<Record<keyof FormValues, string>>
-
-type SubmitState = 'idle' | 'submitting' | 'success' | 'error'
-
-const initialValues: FormValues = {
-  name: '',
-  email: '',
-  message: '',
-}
-
-const emailPattern = /^(?!\.)(?!.*\.\.)([a-z0-9_'+\-.]*)[a-z0-9_+-]@([a-z0-9][a-z0-9\-]*\.)+[a-z]{2,}$/i
-
-function validate(values: FormValues): FormErrors {
-  const errors: FormErrors = {}
-
-  if (!values.name.trim()) {
-    errors.name = 'Please enter your name.'
-  }
-
-  if (!values.email.trim()) {
-    errors.email = 'Please enter your email.'
-  } else if (!emailPattern.test(values.email.trim())) {
-    errors.email = 'Please enter a valid email address.'
-  }
-
-  if (!values.message.trim()) {
-    errors.message = 'Please tell me a bit about your project.'
-  } else if (values.message.trim().length < MIN_MESSAGE_LENGTH) {
-    errors.message = `Please write at least ${MIN_MESSAGE_LENGTH} characters.`
-  }
-
-  return errors
-}
+type SubmitFeedback =
+  | { state: 'idle' }
+  | { state: 'submitting' }
+  | { state: 'success'; message: string }
+  | { state: 'error'; message: string }
 
 function getInputClasses(hasError: boolean): string {
   return [formInputClass, hasError ? 'border-rose-500/45 focus-visible:border-rose-500' : 'bg-transparent'].join(' ')
@@ -71,13 +42,13 @@ function FieldError({ id, message }: { id: string; message: string }) {
 }
 
 export default function ContactForm() {
-  const [values, setValues] = useState<FormValues>(initialValues)
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [submitState, setSubmitState] = useState<SubmitState>('idle')
-  const [statusMessage, setStatusMessage] = useState('')
+  const [values, setValues] = useState<ContactFormValues>(initialContactFormValues)
+  const [errors, setErrors] = useState<ContactFormErrors>({})
+  const [feedback, setFeedback] = useState<SubmitFeedback>({ state: 'idle' })
+  const isSubmitting = feedback.state === 'submitting'
 
   const handleChange =
-    (field: keyof FormValues) =>
+    (field: keyof ContactFormValues) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
       const nextValues = {
         ...values,
@@ -87,29 +58,26 @@ export default function ContactForm() {
       setValues(nextValues)
 
       if (ENABLE_CLIENT_VALIDATION && errors[field]) {
-        setErrors(validate(nextValues))
+        setErrors(validateContactForm(nextValues))
       }
 
-      if (submitState !== 'idle') {
-        setSubmitState('idle')
-        setStatusMessage('')
+      if (feedback.state !== 'idle') {
+        setFeedback({ state: 'idle' })
       }
     }
 
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
 
-    const nextErrors = ENABLE_CLIENT_VALIDATION ? validate(values) : {}
+    const nextErrors = ENABLE_CLIENT_VALIDATION ? validateContactForm(values) : {}
     setErrors(nextErrors)
 
     if (Object.keys(nextErrors).length > 0) {
-      setSubmitState('idle')
-      setStatusMessage('')
+      setFeedback({ state: 'idle' })
       return
     }
 
-    setSubmitState('submitting')
-    setStatusMessage('')
+    setFeedback({ state: 'submitting' })
 
     try {
       const response = await fetch(FORMCARRY_ENDPOINT, {
@@ -132,13 +100,14 @@ export default function ContactForm() {
         throw new Error(data?.message || 'Something went wrong while sending your message.')
       }
 
-      setValues(initialValues)
+      setValues(initialContactFormValues)
       setErrors({})
-      setSubmitState('success')
-      setStatusMessage("Thanks, I've received your message and will get back to you soon.")
+      setFeedback({ state: 'success', message: "Thanks, I've received your message and will get back to you soon." })
     } catch (error) {
-      setSubmitState('error')
-      setStatusMessage(error instanceof Error ? error.message : 'Something went wrong while sending your message.')
+      setFeedback({
+        state: 'error',
+        message: error instanceof Error ? error.message : 'Something went wrong while sending your message.',
+      })
     }
   }
 
@@ -146,7 +115,7 @@ export default function ContactForm() {
     <div>
       <h3 className='text-h3 mb-6 text-center lg:text-left'>Write me about your project</h3>
 
-      <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate>
+      <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate aria-busy={isSubmitting}>
         <div className='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
           <label htmlFor='contact-honeypot'>Leave empty</label>
           <input type='text' id='contact-honeypot' name='_gotcha' tabIndex={-1} autoComplete='off' />
@@ -165,6 +134,7 @@ export default function ContactForm() {
             autoComplete='name'
             value={values.name}
             onChange={handleChange('name')}
+            disabled={isSubmitting}
             aria-invalid={errors.name ? 'true' : 'false'}
             aria-describedby={errors.name ? 'name-error' : undefined}
             required
@@ -185,6 +155,7 @@ export default function ContactForm() {
             autoComplete='email'
             value={values.email}
             onChange={handleChange('email')}
+            disabled={isSubmitting}
             aria-invalid={errors.email ? 'true' : 'false'}
             aria-describedby={errors.email ? 'email-error' : undefined}
             required
@@ -203,6 +174,7 @@ export default function ContactForm() {
             name='message'
             value={values.message}
             onChange={handleChange('message')}
+            disabled={isSubmitting}
             minLength={MIN_MESSAGE_LENGTH}
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : undefined}
@@ -213,38 +185,12 @@ export default function ContactForm() {
         </div>
         {errors.message ? <FieldError id='message-error' message={errors.message} /> : null}
 
-        {statusMessage ? (
-          <div
-            className={`text-small mb-6 rounded-2xl border px-4 py-4 ${
-              submitState === 'success'
-                ? 'border-primary/25 bg-primary/8 text-copy'
-                : 'border-rose-500/30 bg-rose-500/10 text-rose-800 dark:text-rose-200'
-            }`}
-            role={submitState === 'error' ? 'alert' : 'status'}
-          >
-            <div className='flex items-start gap-3'>
-              <span
-                className={`mt-0.5 inline-flex shrink-0 ${
-                  submitState === 'success' ? 'text-primary' : 'text-rose-700 dark:text-rose-200'
-                }`}
-                aria-hidden='true'
-              >
-                {submitState === 'success' ? (
-                  <InfoCircle className='size-5' color='currentColor' />
-                ) : (
-                  <AlertCircle className='size-5' color='currentColor' />
-                )}
-              </span>
-              <div>
-                <p className='font-medium'>{submitState === 'success' ? 'Message sent' : 'Unable to send message'}</p>
-                <p className='mt-1 opacity-90'>{statusMessage}</p>
-              </div>
-            </div>
-          </div>
+        {feedback.state === 'success' || feedback.state === 'error' ? (
+          <ContactFormStatus kind={feedback.state} message={feedback.message} />
         ) : null}
 
-        <button type='submit' className={submitButtonClass} disabled={submitState === 'submitting'}>
-          {submitState === 'submitting' ? 'Sending...' : 'Send Message'}
+        <button type='submit' className={submitButtonClass} disabled={isSubmitting}>
+          {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
     </div>
