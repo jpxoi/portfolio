@@ -1,7 +1,6 @@
 import { type ChangeEvent, type SubmitEvent, useState } from 'react'
 import ContactFormStatus from './ContactFormStatus'
 import {
-  ENABLE_CLIENT_VALIDATION,
   FORMCARRY_ENDPOINT,
   initialContactFormValues,
   MIN_MESSAGE_LENGTH,
@@ -57,7 +56,7 @@ export default function ContactForm() {
 
       setValues(nextValues)
 
-      if (ENABLE_CLIENT_VALIDATION && errors[field]) {
+      if (errors[field]) {
         setErrors(validateContactForm(nextValues))
       }
 
@@ -69,7 +68,7 @@ export default function ContactForm() {
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
 
-    const nextErrors = ENABLE_CLIENT_VALIDATION ? validateContactForm(values) : {}
+    const nextErrors = validateContactForm(values)
     setErrors(nextErrors)
 
     if (Object.keys(nextErrors).length > 0) {

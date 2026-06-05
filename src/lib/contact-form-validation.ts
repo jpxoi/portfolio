@@ -1,5 +1,4 @@
 export const MIN_MESSAGE_LENGTH = 25
-export const ENABLE_CLIENT_VALIDATION = false
 export const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/IdMAAJSEpJf'
 
 export type ContactFormValues = {
