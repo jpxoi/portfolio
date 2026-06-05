@@ -7,9 +7,10 @@ interface Props {
   download?: string | boolean
   target?: string
   rel?: string
+  [key: string]: unknown
 }
 
-const { variant = 'solid', href, type = 'button', class: className, download, target, rel } = Astro.props
+const { variant = 'solid', href, type = 'button', class: className, download, target, rel, ...restProps } = Astro.props
 
 const baseClass =
   'inline-flex cursor-pointer items-center justify-center rounded-full border px-5 py-2.5 text-small font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
@@ -24,11 +25,11 @@ const classes = [baseClass, variantClass, className].filter(Boolean)
 
 {
   href ? (
-    <a href={href} class:list={classes} download={download} target={target} rel={rel}>
+    <a href={href} class:list={classes} download={download} target={target} rel={rel} {...restProps}>
       <slot />
     </a>
   ) : (
-    <button type={type} class:list={classes}>
+    <button type={type} class:list={classes} {...restProps}>
       <slot />
     </button>
   )
