@@ -1,15 +1,14 @@
 import { type ChangeEvent, type SubmitEvent, useState } from 'react'
 
 const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/IdMAAJSEpJf'
-const MIN_MESSAGE_LENGTH = 20
+const MIN_MESSAGE_LENGTH = 25
 
 const formInputClass =
   'border-input-border text-copy transition-theme focus-visible:border-primary absolute top-0 left-0 z-1 h-full w-full resize-none rounded-xl border-2 border-solid p-6 focus-visible:outline-none'
 
 const formLabelClass = 'text-smaller bg-page transition-theme absolute -top-3 left-5 z-10 p-1'
 
-const fieldErrorClass =
-  'text-smaller text-rose-700 dark:text-rose-300 -mt-5 mb-8 flex items-start gap-2 px-1 font-medium'
+const fieldErrorClass = 'text-smaller text-rose-700 dark:text-rose-300 -mt-5 mb-8 px-1 font-medium'
 const submitButtonClass =
   'inline-flex cursor-pointer items-center justify-center rounded-full border border-transparent bg-primary px-5 py-2.5 text-small font-medium text-page transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary hover:bg-primary-alt hover:text-page disabled:cursor-not-allowed disabled:opacity-70 w-full sm:w-auto'
 
@@ -29,7 +28,7 @@ const initialValues: FormValues = {
   message: '',
 }
 
-const emailPattern = /^(?!\.)(?!.*\.\.)(?!.*\.$)[a-z0-9_'+\-.]+@([a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,}$/i
+const emailPattern = /^(?!\.)(?!.*\.\.)([a-z0-9_'+\-.]*)[a-z0-9_+-]@([a-z0-9][a-z0-9\-]*\.)+[a-z]{2,}$/i
 
 function validate(values: FormValues): FormErrors {
   const errors: FormErrors = {}
@@ -64,8 +63,7 @@ function getLabelClasses(hasError: boolean): string {
 function FieldError({ id, message }: { id: string; message: string }) {
   return (
     <p id={id} className={fieldErrorClass} role='alert'>
-      <span className='mt-1 inline-block size-1.5 shrink-0 rounded-full bg-current' aria-hidden='true'></span>
-      <span>{message}</span>
+      {message}
     </p>
   )
 }

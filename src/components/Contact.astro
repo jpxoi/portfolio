@@ -1,6 +1,6 @@
 ---
 import { contactData } from '../data/contact'
-import ContactForm from './ContactForm.astro'
+import ContactForm from './ContactForm'
 import ContactCard from './ContactCard.astro'
 import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
@@ -17,6 +17,6 @@ import SiteContainer from './SiteContainer.astro'
         {contactData.map((contactCard) => <ContactCard {...contactCard} />)}
       </div>
     </div>
-    <ContactForm />
+    <ContactForm client:visible />
   </SiteContainer>
 </PageSection>
