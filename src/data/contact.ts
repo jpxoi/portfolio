@@ -1,5 +1,6 @@
+import { Alarm, Envelope, Linkedin } from '@boxicons/react'
 import type { Contact } from '../types'
-import { Envelope, Linkedin, Whatsapp } from '@boxicons/react'
+import { CAL_BOOKING_URL } from '../constants'
 
 export const contactData: Contact[] = [
   {
@@ -10,17 +11,17 @@ export const contactData: Contact[] = [
     icon: Envelope,
   },
   {
-    id: 'whatsapp-contact-card-icon',
-    title: 'WhatsApp',
-    link: 'https://api.whatsapp.com/send?phone=519895939660&text=Hello,%20I%20saw%20your%20portfolio!',
-    cta: 'Write me',
-    icon: Whatsapp,
-  },
-  {
     id: 'linkedin-contact-card-icon',
     title: 'LinkedIn',
     link: 'https://linkedin.com/in/jpxoi',
     cta: 'Connect with me',
     icon: Linkedin,
+  },
+  {
+    id: 'calendar-contact-card-icon',
+    title: "Let's Talk",
+    link: CAL_BOOKING_URL,
+    cta: 'Book a 15-min intro',
+    icon: Alarm,
   },
 ]
