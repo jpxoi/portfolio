@@ -2,6 +2,7 @@ import { type ChangeEvent, type SubmitEvent, useState } from 'react'
 
 const FORMCARRY_ENDPOINT = 'https://formcarry.com/s/IdMAAJSEpJf'
 const MIN_MESSAGE_LENGTH = 25
+const ENABLE_CLIENT_VALIDATION = false
 
 const formInputClass =
   'border-input-border text-copy transition-theme focus-visible:border-primary absolute top-0 left-0 z-1 h-full w-full resize-none rounded-xl border-2 border-solid p-6 focus-visible:outline-none'
@@ -84,7 +85,7 @@ export default function ContactForm() {
 
       setValues(nextValues)
 
-      if (errors[field]) {
+      if (ENABLE_CLIENT_VALIDATION && errors[field]) {
         setErrors(validate(nextValues))
       }
 
@@ -97,7 +98,7 @@ export default function ContactForm() {
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
 
-    const nextErrors = validate(values)
+    const nextErrors = ENABLE_CLIENT_VALIDATION ? validate(values) : {}
     setErrors(nextErrors)
 
     if (Object.keys(nextErrors).length > 0) {
@@ -143,32 +144,6 @@ export default function ContactForm() {
   return (
     <div>
       <h3 className='text-h3 mb-6 text-center lg:text-left'>Write me about your project</h3>
-
-      {statusMessage ? (
-        <div
-          className={`text-small mb-6 rounded-2xl border px-4 py-4 ${
-            submitState === 'success'
-              ? 'border-primary/25 bg-primary/8 text-copy'
-              : 'border-copy-muted/20 bg-surface text-copy'
-          }`}
-          role={submitState === 'error' ? 'alert' : 'status'}
-        >
-          <div className='flex items-start gap-3'>
-            <span
-              className={`text-small mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full font-semibold ${
-                submitState === 'success' ? 'bg-primary/12 text-primary' : 'bg-copy-muted/10 text-copy'
-              }`}
-              aria-hidden='true'
-            >
-              {submitState === 'success' ? 'i' : '!'}
-            </span>
-            <div>
-              <p className='font-medium'>{submitState === 'success' ? 'Message sent' : 'Something went wrong'}</p>
-              <p className='mt-1 opacity-90'>{statusMessage}</p>
-            </div>
-          </div>
-        </div>
-      ) : null}
 
       <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate>
         <div className='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
@@ -236,6 +211,34 @@ export default function ContactForm() {
           />
         </div>
         {errors.message ? <FieldError id='message-error' message={errors.message} /> : null}
+
+        {statusMessage ? (
+          <div
+            className={`text-small mb-6 rounded-2xl border px-4 py-4 ${
+              submitState === 'success'
+                ? 'border-primary/25 bg-primary/8 text-copy'
+                : 'border-rose-500/30 bg-rose-500/10 text-rose-800 dark:text-rose-200'
+            }`}
+            role={submitState === 'error' ? 'alert' : 'status'}
+          >
+            <div className='flex items-start gap-3'>
+              <span
+                className={`text-small mt-0.5 inline-flex size-6 shrink-0 items-center justify-center rounded-full font-semibold ${
+                  submitState === 'success'
+                    ? 'bg-primary/12 text-primary'
+                    : 'bg-rose-500/15 text-rose-700 dark:text-rose-200'
+                }`}
+                aria-hidden='true'
+              >
+                {submitState === 'success' ? 'i' : '!'}
+              </span>
+              <div>
+                <p className='font-medium'>{submitState === 'success' ? 'Message sent' : 'Unable to send message'}</p>
+                <p className='mt-1 opacity-90'>{statusMessage}</p>
+              </div>
+            </div>
+          </div>
+        ) : null}
 
         <button type='submit' className={submitButtonClass} disabled={submitState === 'submitting'}>
           {submitState === 'submitting' ? 'Sending...' : 'Send Message'}
