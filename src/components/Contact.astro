@@ -7,7 +7,9 @@ import SectionHeading from './SectionHeading.astro'
 import SiteContainer from './SiteContainer.astro'
 
 const formInputClass =
-  'contact__form-input transition-theme focus-visible:border-primary focus-visible:outline-none resize-none'
+  'border-input-border text-copy transition-theme focus-visible:border-primary absolute top-0 left-0 z-1 h-full w-full resize-none rounded-xl border-2 border-solid p-6 focus-visible:outline-none'
+
+const formLabelClass = 'text-smaller bg-page transition-theme absolute -top-3 left-5 z-10 p-1'
 ---
 
 <PageSection id='contact'>
@@ -37,7 +39,7 @@ const formInputClass =
         </div>
 
         <div class='relative mb-8 h-16'>
-          <label for='name' class='contact__form-tag'>Full Name</label>
+          <label for='name' class={formLabelClass}>Full Name</label>
           <input
             type='text'
             placeholder='Insert your name'
@@ -50,7 +52,7 @@ const formInputClass =
         </div>
 
         <div class='relative mb-8 h-16'>
-          <label for='email' class='contact__form-tag'>Email</label>
+          <label for='email' class={formLabelClass}>Email</label>
           <input
             type='email'
             placeholder='Insert your email'
@@ -63,7 +65,7 @@ const formInputClass =
         </div>
 
         <div class='relative mb-8 h-44'>
-          <label for='message' class='contact__form-tag'>Message</label>
+          <label for='message' class={formLabelClass}>Message</label>
           <textarea
             placeholder='Describe your project'
             class={formInputClass}
