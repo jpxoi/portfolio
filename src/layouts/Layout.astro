@@ -11,7 +11,7 @@ const site = {
     'Full-stack software engineer and Computer Science student at The University of Manchester, focused on building scalable web platforms, AI-powered applications and cloud-based digital products for real-world business needs.',
   url: 'https://jpxoi.com/',
   domain: 'jpxoi.com',
-  image: `${CDN_URL}/portfolio/opengraph/default.webp`,
+  image: `${CDN_URL}/portfolio/opengraph/default.png`,
   imageAlt: "Preview of Jean Paul Fernandez's website",
   author: 'Jean Paul Fernandez',
   handle: '@jpxoi',
@@ -48,15 +48,19 @@ const site = {
     <meta property='og:title' content={site.title} />
     <meta property='og:description' content={site.description} />
     <meta property='og:image' content={site.image} />
+    <meta property='og:image:secure_url' content={site.image} />
+    <meta property='og:image:type' content='image/png' />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
     <meta property='og:image:alt' content={site.imageAlt} />
 
     <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:image' content={site.image} />
+    <meta name='twitter:image:alt' content={site.imageAlt} />
     <meta name='twitter:domain' content={site.domain} />
     <meta name='twitter:url' content={site.url} />
     <meta name='twitter:title' content={site.title} />
     <meta name='twitter:description' content={site.description} />
-    <meta name='twitter:image' content={site.image} />
-    <meta name='twitter:image:alt' content={site.imageAlt} />
     <meta name='twitter:site' content={site.handle} />
     <meta name='twitter:creator' content={site.handle} />
   </head>
