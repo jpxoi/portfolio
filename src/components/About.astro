@@ -19,9 +19,7 @@ const imgFallback = imgWebp
   <SectionHeading subtitle='Who I Am' title='About Me' />
 
   <SiteContainer class='grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-x-16'>
-    <picture
-      class='animate-floaty xs:w-55 mx-auto block w-32.5 justify-self-center rounded-3xl motion-reduce:animate-none lg:mx-0 lg:w-87.5'
-    >
+    <picture class='animate-floaty xs:w-55 mx-auto block w-32.5 justify-self-center rounded-3xl motion-reduce:animate-none lg:mx-0 lg:w-87.5'>
       <source srcset={`${imgAvif} 1x, ${imgAvif2x} 2x`} type='image/avif' />
       <source srcset={`${imgWebp} 1x, ${imgWebp2x} 2x`} type='image/webp' />
       <img
@@ -35,10 +33,10 @@ const imgFallback = imgWebp
     </picture>
 
     <div class='text-center lg:text-left'>
-      <div
-        class='xs:grid-cols-3 mb-8 grid grid-cols-2 gap-2 sm:mx-auto sm:grid-cols-3 sm:justify-center lg:mx-0 lg:justify-start'
-      >
-        {aboutInfo.map((info) => <AboutBox {...info} />)}
+      <div class='xs:grid-cols-3 mb-8 grid grid-cols-2 gap-2 sm:mx-auto sm:grid-cols-3 sm:justify-center lg:mx-0 lg:justify-start'>
+        {aboutInfo.map((info) => (
+          <AboutBox {...info} />
+        ))}
       </div>
 
       <p class='text-copy text-small mb-4 leading-relaxed text-pretty lg:mb-6'>

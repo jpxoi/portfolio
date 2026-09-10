@@ -11,18 +11,16 @@ import SiteContainer from './SiteContainer.astro'
 
   <SiteContainer class='pt-6'>
     <div class='divide-copy-muted/10 flex flex-col divide-y'>
-      {
-        skillsData.map((item, index) => (
-          <div
-            class='skills-row flex flex-col gap-4 py-7 first:pt-0 last:pb-0 max-md:gap-3 max-md:py-5 [&_.skills-marquee-track]:[animation-play-state:paused] data-[in-view=true]:[&_.skills-marquee-track]:[animation-play-state:running] data-[in-view=true]:has-[.skill-tile:hover]:[&_.skills-marquee-track]:[animation-play-state:paused]!'
-            data-skills-row
-            data-in-view='false'
-          >
-            <p class='text-copy-muted text-small font-semibold tracking-[0.14em] uppercase'>{item.title}</p>
-            <SkillBox skills={item.skills} categoryIndex={index} />
-          </div>
-        ))
-      }
+      {skillsData.map((item, index) => (
+        <div
+          class='skills-row flex flex-col gap-4 py-7 first:pt-0 last:pb-0 max-md:gap-3 max-md:py-5 [&_.skills-marquee-track]:[animation-play-state:paused] data-[in-view=true]:[&_.skills-marquee-track]:[animation-play-state:running] data-[in-view=true]:has-[.skill-tile:hover]:[&_.skills-marquee-track]:[animation-play-state:paused]!'
+          data-skills-row
+          data-in-view='false'
+        >
+          <p class='text-copy-muted text-small font-semibold tracking-[0.14em] uppercase'>{item.title}</p>
+          <SkillBox skills={item.skills} categoryIndex={index} />
+        </div>
+      ))}
     </div>
   </SiteContainer>
 </PageSection>

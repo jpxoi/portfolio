@@ -15,9 +15,7 @@ const { title, description, modalId, items }: Props = Astro.props
 const titleId = `${modalId}-title`
 ---
 
-<div
-  class='transition-theme bg-surface flex h-full flex-col rounded-2xl p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'
->
+<div class='transition-theme bg-surface flex h-full flex-col rounded-2xl p-6 shadow-[0_2px_16px_hsla(var(--second-hue),48%,8%,0.1)] sm:p-8'>
   <h3 class='text-h3 mb-6 text-balance'>{title}</h3>
 
   <button
@@ -41,9 +39,7 @@ const titleId = `${modalId}-title`
     closedby='any'
     aria-labelledby={titleId}
   >
-    <div
-      class='transition-theme bg-page relative max-h-[90dvh] rounded-3xl px-6 pt-18 pb-10 sm:w-125 sm:px-10 md:w-150 lg:w-175'
-    >
+    <div class='transition-theme bg-page relative max-h-[90dvh] rounded-3xl px-6 pt-18 pb-10 sm:w-125 sm:px-10 md:w-150 lg:w-175'>
       <button
         type='button'
         class='transition-theme text-primary focus-visible:outline-primary absolute top-6 right-6 cursor-pointer border-0 bg-transparent p-0 focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2'
@@ -54,21 +50,21 @@ const titleId = `${modalId}-title`
         <X className='size-5' color='currentColor' aria-hidden='true' />
       </button>
       <div class='max-h-[75dvh] overflow-y-auto overscroll-contain'>
-        <h4 class='text-primary text-h3 mb-4 text-center' id={titleId}>{title}</h4>
+        <h4 class='text-primary text-h3 mb-4 text-center' id={titleId}>
+          {title}
+        </h4>
 
         <p class='text-small mb-8 text-center text-pretty sm:px-14'>{description}</p>
 
         <ul class='grid gap-y-3'>
-          {
-            items.map(({ title, description }) => (
-              <li class='flex items-start gap-x-2'>
-                <CheckCircle className='size-5 min-w-5 text-primary' color='currentColor' aria-hidden='true' />
-                <p class='text-small text-pretty'>
-                  <b>{title}:</b> {description}
-                </p>
-              </li>
-            ))
-          }
+          {items.map(({ title, description }) => (
+            <li class='flex items-start gap-x-2'>
+              <CheckCircle className='size-5 min-w-5 text-primary' color='currentColor' aria-hidden='true' />
+              <p class='text-small text-pretty'>
+                <b>{title}:</b> {description}
+              </p>
+            </li>
+          ))}
         </ul>
       </div>
     </div>

@@ -44,16 +44,14 @@ const marqueeSkills = [...skills, ...skills]
         : 'animate-skills-marquee max-md:animate-skills-marquee-mobile',
     ]}
   >
-    {
-      marqueeSkills.map((skill, index) => (
-        <SkillTile
-          name={skill.name}
-          icon={skill.icon}
-          alticon={skill.alticon}
-          invertInDark={skill.invertInDark}
-          hideFromAssistiveTech={index >= skills.length}
-        />
-      ))
-    }
+    {marqueeSkills.map((skill, index) => (
+      <SkillTile
+        name={skill.name}
+        icon={skill.icon}
+        alticon={skill.alticon}
+        invertInDark={skill.invertInDark}
+        hideFromAssistiveTech={index >= skills.length}
+      />
+    ))}
   </div>
 </div>

@@ -10,15 +10,13 @@ import SiteContainer from './SiteContainer.astro'
   <SectionHeading subtitle='My Services' title='What I Offer' />
 
   <SiteContainer class='grid grid-cols-1 gap-6 pt-4 sm:grid-cols-2 lg:grid-cols-3'>
-    {
-      services.map((service, index) => (
-        <ServiceCard
-          title={service.title}
-          description={service.description}
-          items={service.items}
-          modalId={`service-modal-${index}`}
-        />
-      ))
-    }
+    {services.map((service, index) => (
+      <ServiceCard
+        title={service.title}
+        description={service.description}
+        items={service.items}
+        modalId={`service-modal-${index}`}
+      />
+    ))}
   </SiteContainer>
 </PageSection>

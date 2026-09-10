@@ -27,20 +27,16 @@ const iconAttributes = {
   aria-hidden={hideFromAssistiveTech ? true : undefined}
 >
   <div class='flex size-10 items-center justify-center'>
-    {
-      alticon ? (
-        <>
-          <img {...iconAttributes} src={alticon} alt='' class:list={lightOnlyIconClass} />
-          <img {...iconAttributes} src={icon} alt='' class:list={darkOnlyIconClass} />
-        </>
-      ) : (
-        <img {...iconAttributes} src={icon} alt='' class:list={singleIconClass} />
-      )
-    }
+    {alticon ? (
+      <>
+        <img {...iconAttributes} src={alticon} alt='' class:list={lightOnlyIconClass} />
+        <img {...iconAttributes} src={icon} alt='' class:list={darkOnlyIconClass} />
+      </>
+    ) : (
+      <img {...iconAttributes} src={icon} alt='' class:list={singleIconClass} />
+    )}
   </div>
-  <span
-    class='transition-theme text-copy-muted text-tiny group-hover/tile:text-copy line-clamp-2 w-full text-center leading-snug'
-  >
+  <span class='transition-theme text-copy-muted text-tiny group-hover/tile:text-copy line-clamp-2 w-full text-center leading-snug'>
     {name}
   </span>
 </div>

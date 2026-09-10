@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
   "type": "module",
-  "version": "1.2.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -13,12 +12,12 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/react": "^5.0.7",
+    "@astrojs/react": "^6.0.5",
     "@boxicons/react": "^1.0.3",
     "@tailwindcss/vite": "^4.3.3",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
-    "astro": "^6.4.8",
+    "astro": "^7.3.2",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "tailwindcss": "^4.3.3",
@@ -27,9 +26,9 @@
   "devDependencies": {
     "@typescript-eslint/parser": "^8.70.0",
     "eslint": "^10.10.0",
-    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-astro": "^3.1.0",
     "prettier": "^3.9.6",
-    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-astro": "1.0.0",
     "prettier-plugin-tailwindcss": "^0.8.1"
   },
   "packageManager": "pnpm@12.3.4"

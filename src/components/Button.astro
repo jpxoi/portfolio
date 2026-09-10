@@ -23,14 +23,12 @@ const variantClass =
 const classes = [baseClass, variantClass, className].filter(Boolean)
 ---
 
-{
-  href ? (
-    <a href={href} class:list={classes} download={download} target={target} rel={rel} {...restProps}>
-      <slot />
-    </a>
-  ) : (
-    <button type={type} class:list={classes} {...restProps}>
-      <slot />
-    </button>
-  )
-}
+{href ? (
+  <a href={href} class:list={classes} download={download} target={target} rel={rel} {...restProps}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class:list={classes} {...restProps}>
+    <slot />
+  </button>
+)}

@@ -31,23 +31,19 @@ const linkClass =
 ---
 
 <nav aria-label='Footer'>
-  <ul
-    class='flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-6 lg:flex-col lg:items-end lg:gap-x-0 lg:gap-y-3'
-  >
-    {
-      footerList.map((item) => (
-        <li>
-          <a
-            id={item.id}
-            href={item.link}
-            target={item.target_blank ? '_blank' : undefined}
-            rel={item.target_blank ? 'noopener noreferrer' : undefined}
-            class={linkClass}
-          >
-            {item.title}
-          </a>
-        </li>
-      ))
-    }
+  <ul class='flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-6 lg:flex-col lg:items-end lg:gap-x-0 lg:gap-y-3'>
+    {footerList.map((item) => (
+      <li>
+        <a
+          id={item.id}
+          href={item.link}
+          target={item.target_blank ? '_blank' : undefined}
+          rel={item.target_blank ? 'noopener noreferrer' : undefined}
+          class={linkClass}
+        >
+          {item.title}
+        </a>
+      </li>
+    ))}
   </ul>
 </nav>

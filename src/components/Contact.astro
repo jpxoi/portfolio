@@ -14,7 +14,9 @@ import SiteContainer from './SiteContainer.astro'
     <div>
       <h3 class='text-h3 mb-6 text-center lg:text-left'>Talk to me</h3>
       <div class='flex flex-col gap-1'>
-        {contactData.map((contactCard) => <ContactCard {...contactCard} />)}
+        {contactData.map((contactCard) => (
+          <ContactCard {...contactCard} />
+        ))}
       </div>
     </div>
     <ContactForm client:visible />
