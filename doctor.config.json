@@ -1,0 +1,12 @@
+{
+  "$schema": "https://react.doctor/schema/config.json",
+  "ignore": {
+    "rules": ["react-doctor/require-pnpm-hardening"],
+    "overrides": [
+      {
+        "files": ["package.json"],
+        "rules": ["socket/low-supply-chain-score"]
+      }
+    ]
+  }
+}
