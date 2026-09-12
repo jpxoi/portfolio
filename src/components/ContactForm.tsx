@@ -112,7 +112,7 @@ export default function ContactForm() {
 
   return (
     <div>
-      <h3 className='text-h3 mb-6 text-center lg:text-left'>Write me about your project</h3>
+      <h3 className='text-h3 mb-6 text-center lg:text-left'>Tell me about your project</h3>
 
       <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate aria-busy={isSubmitting}>
         <div className='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
@@ -122,11 +122,11 @@ export default function ContactForm() {
 
         <div className='relative mb-8 h-16'>
           <label htmlFor='name' className={getLabelClasses(Boolean(errors.name))}>
-            Full Name
+            Name
           </label>
           <input
             type='text'
-            placeholder='Insert your name'
+            placeholder='Your name'
             className={getInputClasses(Boolean(errors.name))}
             id='name'
             name='name'
@@ -147,7 +147,7 @@ export default function ContactForm() {
           </label>
           <input
             type='email'
-            placeholder='Insert your email'
+            placeholder='Your email'
             className={getInputClasses(Boolean(errors.email))}
             id='email'
             name='email'

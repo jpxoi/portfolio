@@ -1,49 +1,48 @@
 ---
-const footerList = [
+const primaryLinks = [
   {
     id: 'footer-link-1',
-    title: 'About',
-    link: '/#about',
-    target_blank: false,
+    title: 'Projects',
+    link: '/#projects',
   },
   {
     id: 'footer-link-2',
-    title: 'Store',
-    link: 'https://store.jpxoi.com',
-    target_blank: true,
+    title: 'About',
+    link: '/#about',
   },
   {
     id: 'footer-link-3',
-    title: 'Donate',
-    link: 'https://www.paypal.com/donate/?hosted_button_id=7FLJ7WSKMAYTQ',
-    target_blank: true,
+    title: 'Contact',
+    link: '/#contact',
   },
   {
     id: 'footer-link-4',
-    title: 'Customer Portal',
-    link: 'https://billing.stripe.com/p/login/14k3ez8zT1YR6qcfYY',
-    target_blank: true,
+    title: 'Privacy',
+    link: '/privacy',
   },
 ]
 
+const clientPortalUrl = 'https://billing.stripe.com/p/login/14k3ez8zT1YR6qcfYY'
+
 const linkClass =
   'text-small font-medium text-copy transition-theme hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+
+const secondaryLinkClass =
+  'text-smaller text-copy-muted transition-theme hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
 ---
 
-<nav aria-label='Footer'>
-  <ul class='flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-6 lg:flex-col lg:items-end lg:gap-x-0 lg:gap-y-3'>
-    {footerList.map((item) => (
+<nav class='flex flex-col items-center gap-3 lg:items-end' aria-label='Footer'>
+  <ul class='flex flex-wrap items-center justify-center gap-x-5 gap-y-2 sm:gap-x-6 lg:justify-end'>
+    {primaryLinks.map((item) => (
       <li>
-        <a
-          id={item.id}
-          href={item.link}
-          target={item.target_blank ? '_blank' : undefined}
-          rel={item.target_blank ? 'noopener noreferrer' : undefined}
-          class={linkClass}
-        >
+        <a id={item.id} href={item.link} class={linkClass}>
           {item.title}
         </a>
       </li>
     ))}
   </ul>
+
+  <a href={clientPortalUrl} target='_blank' rel='noopener noreferrer' class={secondaryLinkClass}>
+    Customer Portal
+  </a>
 </nav>
