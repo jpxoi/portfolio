@@ -151,9 +151,7 @@ textarea {
     input,
     textarea,
     [data-nav-menu],
-    [data-nav-menu] a,
-    .services__modal,
-
+    [data-nav-menu] a
   ) {
     transition-property: background-color, border-color, color, fill, stroke, box-shadow, outline-color;
     transition-duration: var(--theme-transition-duration);
@@ -241,49 +239,6 @@ textarea {
   }
   100% {
     transform: scale(0.9);
-  }
-}
-
-/*=============== SERVICES ===============*/
-/* Services modal */
-.services__modal {
-  transform: scale(0.96);
-  transition:
-    opacity var(--theme-transition-duration) var(--theme-transition-timing),
-    transform var(--theme-transition-duration) var(--theme-transition-timing),
-    overlay var(--theme-transition-duration) var(--theme-transition-timing) allow-discrete,
-    display var(--theme-transition-duration) var(--theme-transition-timing) allow-discrete;
-}
-
-.services__modal:open,
-.services__modal[open] {
-  transform: scale(1);
-}
-
-@starting-style {
-  .services__modal:open,
-  .services__modal[open] {
-    transform: scale(0.96);
-  }
-}
-
-.services__modal::backdrop {
-  transition:
-    background-color var(--theme-transition-duration) var(--theme-transition-timing),
-    backdrop-filter var(--theme-transition-duration) var(--theme-transition-timing),
-    overlay var(--theme-transition-duration) var(--theme-transition-timing) allow-discrete,
-    display var(--theme-transition-duration) var(--theme-transition-timing) allow-discrete;
-}
-
-.services__modal:open::backdrop,
-.services__modal[open]::backdrop {
-  @apply bg-[hsla(var(--second-hue),28%,16%,0.7)] backdrop-blur-xs;
-}
-
-@starting-style {
-  .services__modal:open::backdrop,
-  .services__modal[open]::backdrop {
-    @apply bg-transparent backdrop-blur-none;
   }
 }
 
