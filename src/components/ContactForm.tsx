@@ -191,6 +191,13 @@ export default function ContactForm() {
         <button type='submit' className={submitButtonClass} disabled={isSubmitting}>
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
+
+        <p className='text-copy-muted text-smaller mt-4 max-w-lg leading-relaxed'>
+          The details you submit are used only to respond to your enquiry.{' '}
+          <a href='/privacy' className='text-primary font-medium underline-offset-2 hover:underline'>
+            Privacy Policy
+          </a>
+        </p>
       </form>
     </div>
   )
