@@ -18,6 +18,9 @@ export interface Project {
   tagline: string
   description: string
   link?: string
+  linkLabel?: string
+  secondaryLink?: string
+  secondaryLinkLabel?: string
   github?: string
   githubLabel?: string
   stack: string[]
@@ -28,14 +31,12 @@ export interface Project {
       title: string
       description: string
     }[]
+    decisions: {
+      title: string
+      description: string
+    }[]
     engineering: string[]
   }
-}
-
-export interface AboutInfo {
-  icon: BoxIcon
-  title: string
-  subtitle: string
 }
 
 export interface Contact {

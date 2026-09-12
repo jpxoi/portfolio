@@ -1,6 +1,4 @@
 ---
-import { aboutInfo } from '../data/about'
-import AboutBox from './AboutBox.astro'
 import PageSection from './PageSection.astro'
 import SectionHeading from './SectionHeading.astro'
 import SiteContainer from './SiteContainer.astro'
@@ -32,21 +30,15 @@ const imgFallback = imgWebp
       />
     </picture>
 
-    <div class='text-center lg:text-left'>
-      <div class='xs:grid-cols-3 mb-8 grid grid-cols-2 gap-2 sm:mx-auto sm:grid-cols-3 sm:justify-center lg:mx-0 lg:justify-start'>
-        {aboutInfo.map((info) => (
-          <AboutBox {...info} />
-        ))}
-      </div>
-
+    <div class='mx-auto max-w-xl text-center lg:mx-0 lg:text-left'>
       <p class='text-copy text-small mb-4 leading-relaxed text-pretty lg:mb-6'>
-        Full-stack software engineer and Computer Science student at The University of Manchester (UoM), focused on
-        building scalable web platforms, AI-powered applications and cloud-based digital products.
+        I&apos;m a software engineer and Computer Science graduate from The University of Manchester. I enjoy turning
+        complex operational problems into software that feels clear, dependable and genuinely useful to the people
+        working with it.
       </p>
       <p class='text-copy-muted text-small leading-relaxed text-pretty'>
-        I work across modern web technologies, backend systems, databases and infrastructure, combining technical
-        problem-solving with a product-oriented approach to create practical, reliable and user-focused software for
-        real-world business needs.
+        My work sits between engineering and product: understanding how a business actually operates, making thoughtful
+        technical decisions and carrying an idea through to a maintainable product that teams can rely on.
       </p>
     </div>
   </SiteContainer>
