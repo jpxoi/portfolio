@@ -4,28 +4,33 @@ import type { NavItem } from '../types'
 export const NAV_ITEMS: NavItem[] = [
   {
     route: '#home',
-    alt: 'home button',
+    label: 'Home',
+    alt: 'Go to home',
     icon: HomeAlt,
     defaultActive: true,
   },
   {
-    route: '#about',
-    alt: 'about button',
-    icon: User,
-  },
-  {
     route: '#projects',
-    alt: 'projects button',
+    label: 'Projects',
+    alt: 'Go to projects',
     icon: CodeAlt,
   },
   {
+    route: '#about',
+    label: 'About',
+    alt: 'Go to about',
+    icon: User,
+  },
+  {
     route: '#skills',
-    alt: 'skills button',
+    label: 'Skills',
+    alt: 'Go to skills',
     icon: Book,
   },
   {
     route: '#contact',
-    alt: 'contact button',
+    label: 'Contact',
+    alt: 'Go to contact',
     icon: PaperPlane,
   },
 ]

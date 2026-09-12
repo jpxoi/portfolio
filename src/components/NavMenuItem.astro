@@ -1,23 +1,24 @@
 ---
 import type { NavItem } from '../types'
 
-const { route, alt, icon: Icon, defaultActive }: NavItem = Astro.props as NavItem
+const { route, label, alt, icon: Icon, defaultActive }: NavItem = Astro.props as NavItem
 
 const classes = [
-  'flex rounded-full p-2 transition-theme',
+  'flex items-center rounded-full p-2 transition-theme lg:rounded-none lg:p-0 lg:text-small lg:font-medium',
   'text-copy-muted',
   'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
   'hover:text-primary',
-  'nav-active:bg-nav-item-active nav-active:text-primary',
-  'nav-active:hover:bg-nav-item-active-hover',
+  'nav-active:bg-nav-item-active nav-active:text-primary lg:nav-active:bg-transparent',
+  'nav-active:hover:bg-nav-item-active-hover lg:nav-active:hover:bg-transparent',
   defaultActive && 'active-link',
 ]
   .filter(Boolean)
   .join(' ')
 ---
 
-<li>
+<li class:list={[route === '#home' && 'lg:hidden']}>
   <a href={route} class={classes} aria-label={alt} {...(defaultActive && { 'aria-current': 'location' })}>
-    <Icon className='size-5' color='currentColor' />
+    <Icon className='size-5 lg:hidden' color='currentColor' aria-hidden='true' />
+    <span class='hidden lg:inline'>{label}</span>
   </a>
 </li>

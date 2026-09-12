@@ -5,9 +5,9 @@ import NavMenuItem from './NavMenuItem.astro'
 
 <div
   data-nav-menu
-  class='bg-nav-glass shadow-nav-glass max-xs:px-6 fixed right-0 bottom-[max(1rem,env(safe-area-inset-bottom))] left-0 z-50 mx-auto w-9/10 rounded-full px-9 py-4 backdrop-blur-lg sm:w-82'
+  class='bg-nav-glass shadow-nav-glass max-xs:px-6 fixed right-0 bottom-[max(1rem,env(safe-area-inset-bottom))] left-0 z-50 mx-auto w-9/10 rounded-full px-9 py-4 backdrop-blur-lg sm:w-82 lg:static lg:mx-0 lg:w-auto lg:rounded-none lg:bg-transparent lg:px-0 lg:py-0 lg:shadow-none lg:backdrop-blur-none'
 >
-  <ul class='flex items-center justify-between'>
+  <ul class='flex items-center justify-between lg:gap-7'>
     {NAV_ITEMS.map((item) => (
       <NavMenuItem {...item} />
     ))}

@@ -4,6 +4,7 @@ export type BoxIcon = React.ForwardRefExoticComponent<BoxIconProps & React.RefAt
 
 export interface NavItem {
   route: string
+  label: string
   alt: string
   icon: BoxIcon
   defaultActive?: boolean
