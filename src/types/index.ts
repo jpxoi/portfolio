@@ -12,12 +12,24 @@ export interface NavItem {
 
 export interface Project {
   id: string
+  slug?: string
+  imageId?: string
   name: string
   tagline: string
   description: string
   link?: string
   github?: string
+  githubLabel?: string
   stack: string[]
+  caseStudy: {
+    challenge: string
+    solution: string
+    highlights: {
+      title: string
+      description: string
+    }[]
+    engineering: string[]
+  }
 }
 
 export interface AboutInfo {
