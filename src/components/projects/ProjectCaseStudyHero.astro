@@ -1,0 +1,104 @@
+---
+import { ArrowLeftStroke, Github, Globe } from '@boxicons/react'
+import { CDN_URL } from '../../constants'
+import type { Project } from '../../types'
+
+interface Props {
+  project: Project
+}
+
+const { project }: Props = Astro.props
+const {
+  name,
+  tagline,
+  description,
+  link,
+  linkLabel = 'Live project',
+  secondaryLink,
+  secondaryLinkLabel = 'Related site',
+  github,
+  githubLabel = 'Source code',
+  stack,
+} = project
+
+const imageId = project.imageId ?? project.id
+const projectImageBase = `${CDN_URL}/projects/${imageId}`
+const image = `${projectImageBase}/card-1920.webp`
+
+const imgAvifSrcSet = [
+  `${projectImageBase}/card-768.avif 768w`,
+  `${projectImageBase}/card-1280.avif 1280w`,
+  `${projectImageBase}/card-1920.avif 1920w`,
+].join(', ')
+
+const imgWebpSrcSet = [
+  `${projectImageBase}/card-768.webp 768w`,
+  `${projectImageBase}/card-1280.webp 1280w`,
+  `${projectImageBase}/card-1920.webp 1920w`,
+].join(', ')
+
+const actionClass =
+  'border-copy-muted/15 bg-nav-glass text-copy hover:border-copy-muted/30 hover:text-primary transition-theme inline-flex items-center gap-2 rounded-full border px-4 py-2 text-small font-medium shadow-nav-glass backdrop-blur-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+
+const stackTagClass =
+  'border-copy-muted/15 bg-surface/35 text-copy-muted inline-flex items-center rounded-sm border px-2 py-1 text-tiny font-normal'
+---
+
+<a
+  href='/#projects'
+  class='text-copy-muted hover:text-primary mb-10 inline-flex items-center gap-1.5 rounded-sm text-small font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+>
+  <ArrowLeftStroke className='size-4.5' aria-hidden='true' />
+  All projects
+</a>
+
+<header class='mx-auto max-w-4xl text-center'>
+  <p class='text-copy-muted text-smaller mb-4 font-semibold tracking-[0.14em] uppercase'>Case Study</p>
+
+  <h1 class='text-display text-title leading-tight text-balance'>{name}</h1>
+  <p class='text-primary text-h3 mt-3 font-medium text-balance'>{tagline}</p>
+  <p class='text-copy-muted text-small mx-auto mt-5 max-w-2xl leading-relaxed text-pretty'>{description}</p>
+
+  {(link || secondaryLink || github) && (
+    <div class='mt-7 flex flex-wrap justify-center gap-3'>
+      {link && (
+        <a href={link} target='_blank' rel='noopener noreferrer' class={actionClass}>
+          <Globe className='size-4.5' aria-hidden='true' />
+          {linkLabel}
+        </a>
+      )}
+      {secondaryLink && (
+        <a href={secondaryLink} target='_blank' rel='noopener noreferrer' class={actionClass}>
+          <Globe className='size-4.5' aria-hidden='true' />
+          {secondaryLinkLabel}
+        </a>
+      )}
+      {github && (
+        <a href={github} target='_blank' rel='noopener noreferrer' class={actionClass}>
+          <Github className='size-4.5' aria-hidden='true' />
+          {githubLabel}
+        </a>
+      )}
+    </div>
+  )}
+
+  <ul class='mt-7 flex flex-wrap justify-center gap-1.5' aria-label='Technologies used'>
+    {stack.map((item) => (
+      <li class={stackTagClass}>{item}</li>
+    ))}
+  </ul>
+</header>
+
+<picture class='border-copy-muted/10 bg-surface mt-12 block aspect-video overflow-hidden rounded-2xl border shadow-[0_8px_32px_hsla(var(--second-hue),48%,8%,0.12)] lg:mt-16'>
+  <source srcset={imgAvifSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/avif' />
+  <source srcset={imgWebpSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/webp' />
+  <img
+    src={image}
+    alt={`${name} — ${tagline}`}
+    width={1920}
+    height={1080}
+    class='h-full w-full object-cover'
+    loading='eager'
+    fetchpriority='high'
+  />
+</picture>

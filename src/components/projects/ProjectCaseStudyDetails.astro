@@ -1,0 +1,58 @@
+---
+import { CheckCircle } from '@boxicons/react'
+import type { Project } from '../../types'
+
+interface Props {
+  caseStudy: Project['caseStudy']
+}
+
+const { caseStudy }: Props = Astro.props
+---
+
+<section class='mt-18 lg:mt-24'>
+  <div class='mx-auto mb-9 max-w-2xl text-center'>
+    <p class='text-copy-muted text-smaller mb-2 font-semibold tracking-[0.14em] uppercase'>Product</p>
+    <h2 class='text-title text-h2'>Key capabilities</h2>
+  </div>
+
+  <div class='grid gap-4 sm:grid-cols-2'>
+    {caseStudy.highlights.map((highlight) => (
+      <article class='border-copy-muted/10 bg-surface rounded-2xl border p-6 sm:p-7'>
+        <h3 class='text-title text-h3 mb-2'>{highlight.title}</h3>
+        <p class='text-copy-muted text-small leading-relaxed text-pretty'>{highlight.description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class='border-copy-muted/10 bg-surface/40 mt-18 rounded-3xl border px-6 py-10 sm:px-10 lg:mt-24 lg:px-14 lg:py-14'>
+  <div class='mx-auto mb-9 max-w-2xl text-center'>
+    <p class='text-copy-muted text-smaller mb-2 font-semibold tracking-[0.14em] uppercase'>Rationale</p>
+    <h2 class='text-title text-h2'>Key product decisions</h2>
+  </div>
+
+  <div class='grid gap-x-12 gap-y-9 sm:grid-cols-2'>
+    {caseStudy.decisions.map((decision) => (
+      <article>
+        <h3 class='text-title text-h3 mb-2'>{decision.title}</h3>
+        <p class='text-copy-muted text-small leading-relaxed text-pretty'>{decision.description}</p>
+      </article>
+    ))}
+  </div>
+</section>
+
+<section class='mx-auto mt-18 max-w-3xl lg:mt-24'>
+  <div class='mb-8 text-center'>
+    <p class='text-copy-muted text-smaller mb-2 font-semibold tracking-[0.14em] uppercase'>Implementation</p>
+    <h2 class='text-title text-h2'>Engineering approach</h2>
+  </div>
+
+  <ul class='grid gap-4'>
+    {caseStudy.engineering.map((item) => (
+      <li class='text-copy text-small flex items-start gap-3 leading-relaxed'>
+        <CheckCircle className='text-primary mt-0.5 size-5 min-w-5' color='currentColor' aria-hidden='true' />
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</section>
