@@ -4,6 +4,7 @@ import { CAL_BOOKING_LINK, CAL_BOOKING_NAMESPACE, CAL_EMBED_CONFIG, CDN_URL } fr
 import { HERO_LONGEST_ROLE, HERO_ROLES } from '../lib/hero-typewriter'
 import Button from './Button.astro'
 import CalEmbedProvider from './CalEmbedProvider.astro'
+import CvMenu from './CvMenu.astro'
 import HeroSocialLink from './HeroSocialLink.astro'
 import PageSection from './PageSection.astro'
 import SiteContainer from './SiteContainer.astro'
@@ -31,7 +32,7 @@ const handleClass =
         <h1 class='text-display text-title leading-tight'>Jean Paul Fernandez</h1>
 
         <h2
-          class='text-primary text-small mt-3 mb-6 grid font-medium transition-opacity duration-500 ease-in-out lg:mb-7'
+          class='text-primary text-small mt-3 grid font-medium transition-opacity duration-500 ease-in-out'
           aria-live='polite'
         >
           <span class='invisible col-start-1 row-start-1 block' aria-hidden='true'>
@@ -41,6 +42,11 @@ const handleClass =
             {HERO_ROLES[0]}
           </span>
         </h2>
+
+        <p class='text-copy-muted text-small mx-auto mt-3 mb-6 max-w-lg leading-relaxed text-pretty lg:mx-0 lg:mb-7'>
+          I build scalable web platforms, APIs and React Native apps that turn complex business and operational needs
+          into reliable software solutions.
+        </p>
 
         <div class='flex flex-col items-center gap-5 lg:items-start'>
           <div class='xs:flex-row flex w-full max-w-xs flex-col justify-center gap-3 sm:max-w-none lg:justify-start'>
@@ -53,16 +59,7 @@ const handleClass =
               Let&apos;s Talk
             </Button>
 
-            <Button
-              href={`${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`}
-              target='_blank'
-              download='Jean_Paul_Fernandez_CV.pdf'
-              rel='noreferrer'
-              variant='ghost'
-              class='xs:w-auto w-full justify-center'
-            >
-              Download CV
-            </Button>
+            <CvMenu />
           </div>
 
           <div class='flex flex-wrap items-center justify-center gap-2 lg:justify-start'>

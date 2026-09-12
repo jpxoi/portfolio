@@ -1,0 +1,43 @@
+---
+import { ChevronDown } from '@boxicons/react'
+import { CDN_URL } from '../constants'
+
+const cvLinks = [
+  {
+    label: 'English',
+    href: `${CDN_URL}/documents/Jean_Paul_Fernandez_CV.pdf`,
+  },
+  {
+    label: 'Español',
+    href: `${CDN_URL}/documents/Jean_Paul_Fernandez_CV_ES.pdf`,
+  },
+]
+
+const summaryClass =
+  'border-copy-muted/15 bg-nav-glass text-copy shadow-nav-glass hover:border-copy-muted/30 hover:text-primary transition-theme flex w-full cursor-pointer list-none items-center justify-center gap-1.5 rounded-full border px-5 py-2.5 text-small font-medium backdrop-blur-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary [&::-webkit-details-marker]:hidden'
+
+const linkClass =
+  'text-copy hover:bg-surface hover:text-primary transition-theme flex items-center justify-between gap-4 rounded-lg px-3 py-2 text-small focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-primary'
+---
+
+<details class='group xs:w-auto relative w-full'>
+  <summary class={summaryClass}>
+    View CV
+    <ChevronDown
+      className='size-4 transition-transform duration-200 group-open:rotate-180'
+      color='currentColor'
+      aria-hidden='true'
+    />
+  </summary>
+
+  <div class='border-copy-muted/15 bg-page shadow-nav-glass absolute top-full left-1/2 z-20 mt-2 w-44 -translate-x-1/2 rounded-xl border p-1.5'>
+    {cvLinks.map((cv) => (
+      <a href={cv.href} target='_blank' rel='noopener noreferrer' class={linkClass}>
+        <span>{cv.label}</span>
+        <span class='text-copy-muted text-tiny' aria-hidden='true'>
+          PDF
+        </span>
+      </a>
+    ))}
+  </div>
+</details>
