@@ -616,14 +616,16 @@ export const projects: Project[] = [
       },
       details: [
         {
-          key: 'member-identity',
-          alt: 'Member identity and QR credential in Pastoral Digital',
-          caption: 'Each member has a digital ID tied to their pastoral record, category and schedule.',
+          key: 'attendance-records',
+          alt: 'Member attendance history and event records in Pastoral Digital',
+          caption:
+            'Members and coordinators read the same attendance: personal history on one side, the event record on the other.',
         },
         {
-          key: 'attendance-check-in',
-          alt: 'QR attendance check-in workflow in Pastoral Digital',
-          caption: 'Operators scan a credential and see the recorded result, not just an empty camera view.',
+          key: 'sunday-participation',
+          alt: 'Sunday participation evidence review in Pastoral Digital',
+          caption:
+            'Coordinators review Sunday participation evidence from the operations desk, against the same member register.',
         },
       ],
     },
