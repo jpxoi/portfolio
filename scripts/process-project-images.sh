@@ -103,6 +103,40 @@ destination_directory_for() {
   fi
 }
 
+# Canonicalize a path that may not exist yet, without creating directories.
+# Walks up to the nearest existing ancestor, resolves it with pwd -P, then
+# re-appends the missing components. This matches mkdir -p for dry runs
+# whose immediate parent has not been created yet.
+resolve_missing_directory() {
+  local path=$1
+  local missing_suffix=
+  local current=$path
+  local parent
+
+  while [[ ! -d $current ]]; do
+    if [[ $current == '/' || $current == '.' ]]; then
+      echo "Error: cannot resolve output directory: $path" >&2
+      exit 1
+    fi
+
+    parent=$(dirname "$current")
+    if [[ $parent == "$current" ]]; then
+      echo "Error: cannot resolve output directory: $path" >&2
+      exit 1
+    fi
+
+    if [[ -n $missing_suffix ]]; then
+      missing_suffix="$(basename "$current")/$missing_suffix"
+    else
+      missing_suffix=$(basename "$current")
+    fi
+
+    current=$parent
+  done
+
+  printf '%s/%s' "$(cd "$current" && pwd -P)" "$missing_suffix"
+}
+
 clean_output=false
 dry_run=false
 positional_arguments=()
@@ -198,13 +232,7 @@ input_directory=$(cd "$input_directory" && pwd -P)
 if [[ -d $output_directory ]]; then
   output_directory=$(cd "$output_directory" && pwd -P)
 elif [[ $dry_run == true ]]; then
-  output_parent=$(dirname "$output_directory")
-  output_name=$(basename "$output_directory")
-  if [[ ! -d $output_parent ]]; then
-    echo "Error: output directory parent does not exist: $output_parent" >&2
-    exit 1
-  fi
-  output_directory="$(cd "$output_parent" && pwd -P)/$output_name"
+  output_directory=$(resolve_missing_directory "$output_directory")
 else
   mkdir -p "$output_directory"
   output_directory=$(cd "$output_directory" && pwd -P)
