@@ -67,6 +67,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
+    if (isSubmitting) return
 
     const nextErrors = validateContactForm(values)
     setErrors(nextErrors)
