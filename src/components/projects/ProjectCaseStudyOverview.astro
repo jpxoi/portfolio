@@ -1,11 +1,14 @@
 ---
 import type { Project } from '../../types'
+import ProjectCaseStudyMedia from './ProjectCaseStudyMedia.astro'
 
 interface Props {
-  caseStudy: Project['caseStudy']
+  project: Project
 }
 
-const { caseStudy }: Props = Astro.props
+const { project }: Props = Astro.props
+const { caseStudy } = project
+const primaryDetailImage = project.media.details?.[0]
 ---
 
 <div class='mt-16 grid gap-12 lg:mt-22 lg:grid-cols-2 lg:gap-16'>
@@ -21,3 +24,5 @@ const { caseStudy }: Props = Astro.props
     <p class='text-copy text-small leading-relaxed text-pretty'>{caseStudy.solution}</p>
   </section>
 </div>
+
+{primaryDetailImage && <ProjectCaseStudyMedia project={project} image={primaryDetailImage} />}

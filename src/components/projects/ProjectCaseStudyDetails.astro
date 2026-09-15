@@ -1,12 +1,15 @@
 ---
 import { CheckCircle } from '@boxicons/react'
 import type { Project } from '../../types'
+import ProjectCaseStudyMedia from './ProjectCaseStudyMedia.astro'
 
 interface Props {
-  caseStudy: Project['caseStudy']
+  project: Project
 }
 
-const { caseStudy }: Props = Astro.props
+const { project }: Props = Astro.props
+const { caseStudy } = project
+const supportingDetailImages = project.media.details?.slice(1) ?? []
 ---
 
 <section class='mt-18 lg:mt-24'>
@@ -24,6 +27,10 @@ const { caseStudy }: Props = Astro.props
     ))}
   </div>
 </section>
+
+{supportingDetailImages.map((image) => (
+  <ProjectCaseStudyMedia project={project} image={image} />
+))}
 
 <section class='border-copy-muted/10 bg-surface/40 mt-18 rounded-3xl border px-6 py-10 sm:px-10 lg:mt-24 lg:px-14 lg:py-14'>
   <div class='mx-auto mb-9 max-w-2xl text-center'>

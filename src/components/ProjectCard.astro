@@ -1,30 +1,17 @@
 ---
 import { Globe, Github } from '@boxicons/react'
 import type { Project } from '../types'
-import { CDN_URL } from '../constants'
+import { getProjectImageSources } from '../utils/projectImages'
 
 interface Props extends Project {}
 
-const { id, slug = id, imageId = id, name, tagline, description, link, github, stack } = Astro.props
+const project = Astro.props
+const { id, slug = id, name, tagline, description, link, github, stack, media } = project
 
 const fullTitle = `${name} | ${tagline}`
 const caseStudyPath = `/projects/${slug}`
 
-const projectImageBase = `${CDN_URL}/projects/${imageId}`
-
-const imgAvifSrcSet = [
-  `${projectImageBase}/card-768.avif 768w`,
-  `${projectImageBase}/card-1280.avif 1280w`,
-  `${projectImageBase}/card-1920.avif 1920w`,
-].join(', ')
-
-const imgWebpSrcSet = [
-  `${projectImageBase}/card-768.webp 768w`,
-  `${projectImageBase}/card-1280.webp 1280w`,
-  `${projectImageBase}/card-1920.webp 1920w`,
-].join(', ')
-
-const imgFallback = `${projectImageBase}/card-1920.webp`
+const imageSources = getProjectImageSources(project, media.cover.key)
 
 const imgSizes = '(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 768px'
 
@@ -43,11 +30,11 @@ const stackTagClass =
       class='aspect-video overflow-hidden rounded-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
     >
       <picture>
-        <source srcset={imgAvifSrcSet} sizes={imgSizes} type='image/avif' />
-        <source srcset={imgWebpSrcSet} sizes={imgSizes} type='image/webp' />
+        <source srcset={imageSources.avifSrcSet} sizes={imgSizes} type='image/avif' />
+        <source srcset={imageSources.webpSrcSet} sizes={imgSizes} type='image/webp' />
         <img
-          src={imgFallback}
-          alt={fullTitle}
+          src={imageSources.fallback}
+          alt={media.cover.alt}
           width={1920}
           height={1080}
           class='h-full w-full scale-105 object-cover transition-transform duration-300 ease-out group-hover:scale-100'

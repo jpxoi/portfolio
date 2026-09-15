@@ -1,7 +1,7 @@
 ---
 import { ArrowLeftStroke, Github, Globe } from '@boxicons/react'
-import { CDN_URL } from '../../constants'
 import type { Project } from '../../types'
+import { getProjectImageSources } from '../../utils/projectImages'
 
 interface Props {
   project: Project
@@ -19,23 +19,10 @@ const {
   github,
   githubLabel = 'Source code',
   stack,
+  media,
 } = project
 
-const imageId = project.imageId ?? project.id
-const projectImageBase = `${CDN_URL}/projects/${imageId}`
-const image = `${projectImageBase}/card-1920.webp`
-
-const imgAvifSrcSet = [
-  `${projectImageBase}/card-768.avif 768w`,
-  `${projectImageBase}/card-1280.avif 1280w`,
-  `${projectImageBase}/card-1920.avif 1920w`,
-].join(', ')
-
-const imgWebpSrcSet = [
-  `${projectImageBase}/card-768.webp 768w`,
-  `${projectImageBase}/card-1280.webp 1280w`,
-  `${projectImageBase}/card-1920.webp 1920w`,
-].join(', ')
+const imageSources = getProjectImageSources(project, media.cover.key)
 
 const actionClass =
   'border-copy-muted/15 bg-nav-glass text-copy hover:border-copy-muted/30 hover:text-primary transition-theme inline-flex items-center gap-2 rounded-full border px-4 py-2 text-small font-medium shadow-nav-glass backdrop-blur-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
@@ -90,11 +77,11 @@ const stackTagClass =
 </header>
 
 <picture class='border-copy-muted/10 bg-surface mt-12 block aspect-video overflow-hidden rounded-2xl border shadow-[0_8px_32px_hsla(var(--second-hue),48%,8%,0.12)] lg:mt-16'>
-  <source srcset={imgAvifSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/avif' />
-  <source srcset={imgWebpSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/webp' />
+  <source srcset={imageSources.avifSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/avif' />
+  <source srcset={imageSources.webpSrcSet} sizes='(max-width: 1024px) 100vw, 1024px' type='image/webp' />
   <img
-    src={image}
-    alt={`${name} — ${tagline}`}
+    src={imageSources.fallback}
+    alt={media.cover.alt}
     width={1920}
     height={1080}
     class='h-full w-full object-cover'
