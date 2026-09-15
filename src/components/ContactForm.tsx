@@ -93,11 +93,15 @@ export default function ContactForm() {
         }),
       })
 
-      const data = (await response.json().catch(() => null)) as { code?: number; message?: string } | null
-
-      if (!response.ok || (typeof data?.code === 'number' && data.code !== 200)) {
-        throw new Error(data?.message || 'Something went wrong while sending your message.')
+      if (!response.ok) {
+        const errorBody = (await response.json().catch(() => null)) as { message?: string } | null
+        throw new Error(errorBody?.message || 'Something went wrong while sending your message.')
       }
+
+      const data = (await response.json()) as { code?: number; message?: string }
+
+      if (typeof data.code === 'number' && data.code !== 200)
+        throw new Error(data.message || 'Something went wrong while sending your message.')
 
       setValues(initialContactFormValues)
       setErrors({})
