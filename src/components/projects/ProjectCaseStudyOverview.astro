@@ -1,0 +1,28 @@
+---
+import type { Project } from '../../types'
+import ProjectCaseStudyMedia from './ProjectCaseStudyMedia.astro'
+
+interface Props {
+  project: Project
+}
+
+const { project }: Props = Astro.props
+const { caseStudy } = project
+const primaryDetailImage = project.media.details?.[0]
+---
+
+<div class='mt-16 grid gap-12 lg:mt-22 lg:grid-cols-2 lg:gap-16'>
+  <section>
+    <p class='text-copy-muted text-smaller mb-2 font-semibold tracking-[0.14em] uppercase'>Context</p>
+    <h2 class='text-title text-h2 mb-4'>The challenge</h2>
+    <p class='text-copy text-small leading-relaxed text-pretty'>{caseStudy.challenge}</p>
+  </section>
+
+  <section>
+    <p class='text-copy-muted text-smaller mb-2 font-semibold tracking-[0.14em] uppercase'>Approach</p>
+    <h2 class='text-title text-h2 mb-4'>The solution</h2>
+    <p class='text-copy text-small leading-relaxed text-pretty'>{caseStudy.solution}</p>
+  </section>
+</div>
+
+{primaryDetailImage && <ProjectCaseStudyMedia project={project} image={primaryDetailImage} />}

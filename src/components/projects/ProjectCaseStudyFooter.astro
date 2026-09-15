@@ -1,0 +1,26 @@
+---
+import { ArrowRightStroke } from '@boxicons/react'
+import type { Project } from '../../types'
+import Button from '../Button.astro'
+
+interface Props {
+  nextProject: Project
+}
+
+const { nextProject }: Props = Astro.props
+const nextProjectPath = `/projects/${nextProject.slug ?? nextProject.id}`
+---
+
+<section class='border-copy-muted/15 mt-18 border-t pt-12 text-center lg:mt-24 lg:pt-16'>
+  <p class='text-copy-muted text-small'>Have a similar product or operational challenge?</p>
+  <div class='mt-5 flex flex-wrap items-center justify-center gap-4'>
+    <Button href='/#contact'>Let&apos;s Talk</Button>
+    <a
+      href={nextProjectPath}
+      class='text-copy hover:text-primary inline-flex items-center gap-1.5 rounded-sm text-small font-medium transition-theme focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+    >
+      Next: {nextProject.name}
+      <ArrowRightStroke className='size-4.5' aria-hidden='true' />
+    </a>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+---
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import Prose from '../components/Prose.astro'
+import SiteContainer from '../components/SiteContainer.astro'
+import Layout from './Layout.astro'
+
+interface Props {
+  title: string
+  description: string
+  canonicalPath: string
+  updated: string
+  updatedIso: string
+}
+
+const { title, description, canonicalPath, updated, updatedIso } = Astro.props
+---
+
+<Layout title={`${title} | Jean Paul Fernandez`} description={description} canonicalPath={canonicalPath}>
+  <Header variant='alt' />
+  <main class='bg-page overflow-hidden'>
+    <SiteContainer class='max-w-4xl! pt-28 pb-24 lg:pt-32'>
+      <article>
+        <header class='border-copy-muted/15 mb-10 border-b pb-8'>
+          <p class='text-copy-muted text-smaller mb-2 font-medium tracking-wide uppercase'>Legal</p>
+          <h1 class='text-title text-h1 leading-tight font-semibold text-balance'>{title}</h1>
+          <p class='text-copy-muted text-small mt-3'>
+            Last updated: <time datetime={updatedIso}>{updated}</time>
+          </p>
+        </header>
+
+        <Prose>
+          <slot />
+        </Prose>
+      </article>
+    </SiteContainer>
+  </main>
+  <Footer />
+</Layout>

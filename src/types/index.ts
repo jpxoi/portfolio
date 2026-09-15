@@ -4,25 +4,50 @@ export type BoxIcon = React.ForwardRefExoticComponent<BoxIconProps & React.RefAt
 
 export interface NavItem {
   route: string
+  label: string
   alt: string
   icon: BoxIcon
   defaultActive?: boolean
 }
 
+export interface ProjectImage {
+  key: string
+  alt: string
+  caption?: string
+}
+
+export interface ProjectMedia {
+  cover: ProjectImage
+  details?: ProjectImage[]
+}
+
 export interface Project {
   id: string
+  slug?: string
   name: string
   tagline: string
   description: string
+  media: ProjectMedia
   link?: string
+  linkLabel?: string
+  secondaryLink?: string
+  secondaryLinkLabel?: string
   github?: string
+  githubLabel?: string
   stack: string[]
-}
-
-export interface AboutInfo {
-  icon: BoxIcon
-  title: string
-  subtitle: string
+  caseStudy: {
+    challenge: string
+    solution: string
+    highlights: {
+      title: string
+      description: string
+    }[]
+    decisions: {
+      title: string
+      description: string
+    }[]
+    engineering: string[]
+  }
 }
 
 export interface Contact {

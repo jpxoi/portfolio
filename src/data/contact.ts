@@ -7,7 +7,7 @@ export const contactData: Contact[] = [
     id: 'email-contact-card-icon',
     title: 'Email',
     link: 'mailto:hello@jpxoi.com',
-    cta: 'Write me',
+    cta: 'Email me',
     icon: Envelope,
   },
   {

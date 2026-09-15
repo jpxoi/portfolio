@@ -4,11 +4,21 @@ import { Font } from 'astro:assets'
 import { CDN_URL } from '../constants'
 import { buildThemeHeadScript } from '../lib/theme'
 
+interface Props {
+  title?: string
+  description?: string
+  canonicalPath?: string
+  image?: string
+  imageAlt?: string
+  imageWidth?: number
+  imageHeight?: number
+}
+
 const site = {
   name: 'Jean Paul Fernandez',
-  title: 'Jean Paul Fernandez | Full-Stack Software Engineer',
+  title: 'Jean Paul Fernandez | Software Engineer',
   description:
-    'Full-stack software engineer and Computer Science student at The University of Manchester, focused on building scalable web platforms, AI-powered applications and cloud-based digital products for real-world business needs.',
+    'Software engineer and Computer Science graduate from The University of Manchester, building scalable web platforms, APIs, AI-powered applications and React Native solutions for real-world business needs.',
   url: 'https://jpxoi.com/',
   domain: 'jpxoi.com',
   image: `${CDN_URL}/portfolio/opengraph/default.png`,
@@ -16,8 +26,20 @@ const site = {
   author: 'Jean Paul Fernandez',
   handle: '@jpxoi',
   keywords:
-    'Jean Paul Fernandez, software engineer, full-stack software engineer, full-stack developer, computer science student, University of Manchester, Next.js developer, TypeScript developer, Python developer, AI applications, web development, backend systems, cloud infrastructure, product engineering',
+    'Jean Paul Fernandez, software engineer, full-stack software engineer, full-stack developer, computer science graduate, University of Manchester, Next.js developer, TypeScript developer, Python developer, React Native developer, AI applications, web development, backend systems, cloud infrastructure, product engineering',
 }
+
+const {
+  title = site.title,
+  description = site.description,
+  canonicalPath = '/',
+  image = site.image,
+  imageAlt = site.imageAlt,
+  imageWidth = 1200,
+  imageHeight = 630,
+}: Props = Astro.props
+
+const canonicalUrl = new URL(canonicalPath, site.url).toString()
 ---
 
 <html lang='en' class='dark bg-page scroll-smooth scheme-light dark:scheme-dark'>
@@ -35,31 +57,31 @@ const site = {
     <meta name='apple-mobile-web-app-title' content='Jean Paul Fernandez' />
     <link rel='manifest' href='/site.webmanifest?v=20260602' />
 
-    <link rel='canonical' href={site.url} />
+    <link rel='canonical' href={canonicalUrl} />
 
-    <title>{site.title}</title>
-    <meta name='description' content={site.description} />
+    <title>{title}</title>
+    <meta name='description' content={description} />
     <meta name='keywords' content={site.keywords} />
     <meta name='author' content={site.author} />
     <meta name='copyright' content={site.author} />
 
-    <meta property='og:url' content={site.url} />
+    <meta property='og:url' content={canonicalUrl} />
     <meta property='og:type' content='website' />
-    <meta property='og:title' content={site.title} />
-    <meta property='og:description' content={site.description} />
-    <meta property='og:image' content={site.image} />
-    <meta property='og:image:width' content='1200' />
-    <meta property='og:image:height' content='630' />
-    <meta property='og:image:alt' content={site.imageAlt} />
+    <meta property='og:title' content={title} />
+    <meta property='og:description' content={description} />
+    <meta property='og:image' content={image} />
+    <meta property='og:image:width' content={String(imageWidth)} />
+    <meta property='og:image:height' content={String(imageHeight)} />
+    <meta property='og:image:alt' content={imageAlt} />
     <meta property='og:site_name' content={site.name} />
 
     <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:image' content={site.image} />
-    <meta name='twitter:image:alt' content={site.imageAlt} />
+    <meta name='twitter:image' content={image} />
+    <meta name='twitter:image:alt' content={imageAlt} />
     <meta name='twitter:domain' content={site.domain} />
-    <meta name='twitter:url' content={site.url} />
-    <meta name='twitter:title' content={site.title} />
-    <meta name='twitter:description' content={site.description} />
+    <meta name='twitter:url' content={canonicalUrl} />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
     <meta name='twitter:site' content={site.handle} />
     <meta name='twitter:creator' content={site.handle} />
   </head>

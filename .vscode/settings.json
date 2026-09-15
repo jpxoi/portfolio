@@ -22,5 +22,8 @@
   "search.exclude": {
     "pnpm-lock.yaml": true,
     "pnpm-workspace.yaml": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   }
 }

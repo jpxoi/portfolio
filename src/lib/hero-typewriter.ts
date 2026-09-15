@@ -1,4 +1,4 @@
-export const HERO_ROLES = ['Software Engineer', 'Full-stack Developer', 'AI Engineer'] as const
+export const HERO_ROLES = ['Software Engineer', 'Full-Stack Engineer', 'AI Engineer'] as const
 
 export const HERO_LONGEST_ROLE = HERO_ROLES.reduce((longest, role) => (role.length > longest.length ? role : longest))
 

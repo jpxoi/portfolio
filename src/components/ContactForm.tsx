@@ -67,6 +67,7 @@ export default function ContactForm() {
 
   const handleSubmit = async (event: SubmitEvent<HTMLFormElement>): Promise<void> => {
     event.preventDefault()
+    if (isSubmitting) return
 
     const nextErrors = validateContactForm(values)
     setErrors(nextErrors)
@@ -93,11 +94,15 @@ export default function ContactForm() {
         }),
       })
 
-      const data = (await response.json().catch(() => null)) as { code?: number; message?: string } | null
-
-      if (!response.ok || (typeof data?.code === 'number' && data.code !== 200)) {
-        throw new Error(data?.message || 'Something went wrong while sending your message.')
+      if (!response.ok) {
+        const errorBody = (await response.json().catch(() => null)) as { message?: string } | null
+        throw new Error(errorBody?.message || 'Something went wrong while sending your message.')
       }
+
+      const data = (await response.json()) as { code?: number; message?: string }
+
+      if (typeof data.code === 'number' && data.code !== 200)
+        throw new Error(data.message || 'Something went wrong while sending your message.')
 
       setValues(initialContactFormValues)
       setErrors({})
@@ -111,87 +116,91 @@ export default function ContactForm() {
   }
 
   return (
-    <div>
-      <h3 className='text-h3 mb-6 text-center lg:text-left'>Write me about your project</h3>
+    <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate aria-busy={isSubmitting}>
+      <div className='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
+        <label htmlFor='contact-honeypot'>Leave empty</label>
+        <input type='text' id='contact-honeypot' name='_gotcha' tabIndex={-1} autoComplete='off' />
+      </div>
 
-      <form onSubmit={handleSubmit} className='w-full' name='contactForm' noValidate aria-busy={isSubmitting}>
-        <div className='absolute left-[-9999px] h-0 w-0 overflow-hidden' aria-hidden='true'>
-          <label htmlFor='contact-honeypot'>Leave empty</label>
-          <input type='text' id='contact-honeypot' name='_gotcha' tabIndex={-1} autoComplete='off' />
-        </div>
+      <div className='relative mb-8 h-16'>
+        <label htmlFor='name' className={getLabelClasses(Boolean(errors.name))}>
+          Name
+        </label>
+        <input
+          type='text'
+          placeholder='Your name'
+          className={getInputClasses(Boolean(errors.name))}
+          id='name'
+          name='name'
+          autoComplete='name'
+          value={values.name}
+          onChange={handleChange('name')}
+          disabled={isSubmitting}
+          aria-invalid={errors.name ? 'true' : 'false'}
+          aria-describedby={errors.name ? 'name-error' : undefined}
+          required
+        />
+      </div>
+      {errors.name ? <FieldError id='name-error' message={errors.name} /> : null}
 
-        <div className='relative mb-8 h-16'>
-          <label htmlFor='name' className={getLabelClasses(Boolean(errors.name))}>
-            Full Name
-          </label>
-          <input
-            type='text'
-            placeholder='Insert your name'
-            className={getInputClasses(Boolean(errors.name))}
-            id='name'
-            name='name'
-            autoComplete='name'
-            value={values.name}
-            onChange={handleChange('name')}
-            disabled={isSubmitting}
-            aria-invalid={errors.name ? 'true' : 'false'}
-            aria-describedby={errors.name ? 'name-error' : undefined}
-            required
-          />
-        </div>
-        {errors.name ? <FieldError id='name-error' message={errors.name} /> : null}
+      <div className='relative mb-8 h-16'>
+        <label htmlFor='email' className={getLabelClasses(Boolean(errors.email))}>
+          Email
+        </label>
+        <input
+          type='email'
+          placeholder='Your email'
+          className={getInputClasses(Boolean(errors.email))}
+          id='email'
+          name='email'
+          autoComplete='email'
+          value={values.email}
+          onChange={handleChange('email')}
+          disabled={isSubmitting}
+          aria-invalid={errors.email ? 'true' : 'false'}
+          aria-describedby={errors.email ? 'email-error' : undefined}
+          required
+        />
+      </div>
+      {errors.email ? <FieldError id='email-error' message={errors.email} /> : null}
 
-        <div className='relative mb-8 h-16'>
-          <label htmlFor='email' className={getLabelClasses(Boolean(errors.email))}>
-            Email
-          </label>
-          <input
-            type='email'
-            placeholder='Insert your email'
-            className={getInputClasses(Boolean(errors.email))}
-            id='email'
-            name='email'
-            autoComplete='email'
-            value={values.email}
-            onChange={handleChange('email')}
-            disabled={isSubmitting}
-            aria-invalid={errors.email ? 'true' : 'false'}
-            aria-describedby={errors.email ? 'email-error' : undefined}
-            required
-          />
-        </div>
-        {errors.email ? <FieldError id='email-error' message={errors.email} /> : null}
+      <div className='relative mb-8 h-44'>
+        <label htmlFor='message' className={getLabelClasses(Boolean(errors.message))}>
+          Message
+        </label>
+        <textarea
+          placeholder='Describe your project'
+          className={getInputClasses(Boolean(errors.message))}
+          id='message'
+          name='message'
+          value={values.message}
+          onChange={handleChange('message')}
+          disabled={isSubmitting}
+          minLength={MIN_MESSAGE_LENGTH}
+          aria-invalid={errors.message ? 'true' : 'false'}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          cols={30}
+          rows={10}
+          required
+        />
+      </div>
+      {errors.message ? <FieldError id='message-error' message={errors.message} /> : null}
 
-        <div className='relative mb-8 h-44'>
-          <label htmlFor='message' className={getLabelClasses(Boolean(errors.message))}>
-            Message
-          </label>
-          <textarea
-            placeholder='Describe your project'
-            className={getInputClasses(Boolean(errors.message))}
-            id='message'
-            name='message'
-            value={values.message}
-            onChange={handleChange('message')}
-            disabled={isSubmitting}
-            minLength={MIN_MESSAGE_LENGTH}
-            aria-invalid={errors.message ? 'true' : 'false'}
-            aria-describedby={errors.message ? 'message-error' : undefined}
-            cols={30}
-            rows={10}
-            required
-          />
-        </div>
-        {errors.message ? <FieldError id='message-error' message={errors.message} /> : null}
+      {feedback.state === 'success' || feedback.state === 'error' ? (
+        <ContactFormStatus kind={feedback.state} message={feedback.message} />
+      ) : null}
 
-        {feedback.state === 'success' || feedback.state === 'error' ? (
-          <ContactFormStatus kind={feedback.state} message={feedback.message} />
-        ) : null}
+      <p className='text-copy-muted text-smaller mb-4 leading-relaxed'>
+        Your details are used to manage and respond to this enquiry and may be retained as described in the{' '}
+        <a href='/privacy' className='text-primary font-medium underline-offset-2 hover:underline'>
+          privacy policy
+        </a>
+        .
+      </p>
 
-        <button type='submit' className={submitButtonClass} disabled={isSubmitting}>
-          {isSubmitting ? 'Sending...' : 'Send Message'}
-        </button>
-      </form>
-    </div>
+      <button type='submit' className={submitButtonClass} disabled={isSubmitting}>
+        {isSubmitting ? 'Sending...' : 'Send Message'}
+      </button>
+    </form>
   )
 }
