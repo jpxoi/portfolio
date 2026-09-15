@@ -7,6 +7,26 @@ export const projects: Project[] = [
     tagline: 'Loyalty & Campaign Management Platform',
     description:
       'Customer and operations platform for validating fuel purchases, issuing campaign entries and resolving exceptional cases safely.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'Fortuna Grifo customer and campaign management platform',
+      },
+      details: [
+        {
+          key: 'receipt-submission',
+          alt: 'Customer receipt submission and validation workflow in Fortuna Grifo',
+          caption:
+            'Participants submit fuel receipts through a guided flow that keeps delayed validations visible and traceable.',
+        },
+        {
+          key: 'admin-validation',
+          alt: 'Administrative receipt validation interface in Fortuna Grifo',
+          caption:
+            'Operations teams review exceptional cases and enforce campaign restrictions from a controlled workspace.',
+        },
+      ],
+    },
     link: 'https://sorteo.fortuna.pe',
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Drizzle ORM', 'PostgreSQL', 'Redis'],
     caseStudy: {
@@ -75,11 +95,29 @@ export const projects: Project[] = [
   },
   {
     id: 'bioeasy-galenos',
-    imageId: 'bg-landing',
     name: 'Bioeasy Galenos',
     tagline: 'Learning Platform & Digital Experience',
     description:
       'A secure LMS for managing students, enrolments and protected academic content, supported by a public marketing experience.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'Bioeasy Galenos learning campus',
+      },
+      details: [
+        {
+          key: 'learning-content',
+          alt: 'Protected learning content inside the Bioeasy Galenos campus',
+          caption:
+            'Students access structured course resources according to their active enrolments and content permissions.',
+        },
+        {
+          key: 'campus-administration',
+          alt: 'Bioeasy Galenos campus administration interface',
+          caption: 'Staff manage students, enrolments and course content from the same operational platform.',
+        },
+      ],
+    },
     link: 'https://campus.bgmedicina.com',
     linkLabel: 'Open campus',
     secondaryLink: 'https://bgmedicina.com',
@@ -156,6 +194,30 @@ export const projects: Project[] = [
     tagline: 'Association Operations Platform',
     description:
       'Operations platform for formal member records, controlled printing, signed evidence and real-time event attendance.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'APEULA association operations platform',
+      },
+      details: [
+        {
+          key: 'live-attendance',
+          alt: 'Real-time event attendance workspace in APEULA',
+          caption: 'Event-scoped SSE updates keep attendance operators synchronized as members check in.',
+        },
+        {
+          key: 'printing-workflow',
+          alt: 'Registry-book printing workflow in APEULA',
+          caption: 'Controlled queues coordinate folio reservation, original-form printing and signed evidence.',
+        },
+        {
+          key: 'audit-trail',
+          alt: 'Operational audit trail in APEULA',
+          caption:
+            'Append-only history records who performed sensitive membership, printing and attendance operations.',
+        },
+      ],
+    },
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Drizzle ORM', 'PostgreSQL', 'Upstash Realtime'],
     caseStudy: {
       challenge:
@@ -227,6 +289,12 @@ export const projects: Project[] = [
     tagline: 'Real-Time Lecture Transcription',
     description:
       'AI-powered platform for continuous live transcription, multilingual audience access, contextual Q&A and post-session intelligence.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'Onvoice real-time lecture transcription platform',
+      },
+    },
     link: 'https://beta.onvoice.uk',
     stack: ['Next.js', 'TypeScript', 'OpenAI Realtime', 'Convex', 'Gemini', 'Redis'],
     caseStudy: {
@@ -311,6 +379,12 @@ export const projects: Project[] = [
     tagline: 'Peruvian Data API',
     description:
       'Developer platform for Peruvian identity, tax, vehicle, insurance and official exchange-rate data through one API.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'Yupay Peruvian data API developer platform',
+      },
+    },
     link: 'https://www.yupay.dev',
     stack: ['React', 'TypeScript', 'Vite', 'Hono', 'Turso', 'Redis'],
     caseStudy: {
@@ -388,6 +462,12 @@ export const projects: Project[] = [
     tagline: 'AI Pull Request Generator',
     description:
       'Developer CLI that turns git diffs and recent commits into structured pull request content across multiple LLM providers.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'prgen generating a pull request from local Git context',
+      },
+    },
     link: 'https://pypi.org/project/prgen-cli',
     github: 'https://github.com/jpxoi/prgen',
     stack: ['Python', 'CLI', 'LLMs', 'OpenAI', 'Gemini', 'Ollama'],
@@ -459,6 +539,12 @@ export const projects: Project[] = [
     tagline: 'Local WhatsApp Voice Note Transcription',
     description:
       'Cross-platform CLI that detects and transcribes WhatsApp voice notes locally with hardware-accelerated Whisper, keeping audio on-device.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'WA Transcriber system health check running in a terminal',
+      },
+    },
     link: 'https://pypi.org/project/wa-transcriber',
     github: 'https://github.com/jpxoi/wa-transcriber',
     stack: ['Python', 'CLI', 'OpenAI Whisper', 'PyTorch', 'Watchdog', 'FFmpeg'],
@@ -524,6 +610,25 @@ export const projects: Project[] = [
     tagline: 'Community Operations & Attendance Platform',
     description:
       'Progressive web app for member identity, QR attendance, event operations and evidence-based participation records.',
+    media: {
+      cover: {
+        key: 'cover',
+        alt: 'Pastoral Digital mobile community operations platform',
+      },
+      details: [
+        {
+          key: 'member-identity',
+          alt: 'Member identity and QR credential in Pastoral Digital',
+          caption:
+            'Each member carries an installable digital identity connected to their pastoral record and schedule.',
+        },
+        {
+          key: 'attendance-check-in',
+          alt: 'QR attendance check-in workflow in Pastoral Digital',
+          caption: 'Operators validate event attendance quickly with immediate visual and audio feedback.',
+        },
+      ],
+    },
     link: 'https://id.pastoralmarianaps.net.pe',
     github: 'https://github.com/jpxoi/pastoral-digital-app',
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Drizzle ORM', 'PostgreSQL'],

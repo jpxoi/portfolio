@@ -10,13 +10,24 @@ export interface NavItem {
   defaultActive?: boolean
 }
 
+export interface ProjectImage {
+  key: string
+  alt: string
+  caption?: string
+}
+
+export interface ProjectMedia {
+  cover: ProjectImage
+  details?: ProjectImage[]
+}
+
 export interface Project {
   id: string
   slug?: string
-  imageId?: string
   name: string
   tagline: string
   description: string
+  media: ProjectMedia
   link?: string
   linkLabel?: string
   secondaryLink?: string
