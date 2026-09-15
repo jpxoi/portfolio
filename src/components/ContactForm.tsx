@@ -191,7 +191,7 @@ export default function ContactForm() {
       ) : null}
 
       <p className='text-copy-muted text-smaller mb-4 leading-relaxed'>
-        Your details are used only to respond to this enquiry. See the{' '}
+        Your details are used to manage and respond to this enquiry and may be retained as described in the{' '}
         <a href='/privacy' className='text-primary font-medium underline-offset-2 hover:underline'>
           privacy policy
         </a>
