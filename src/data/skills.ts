@@ -97,8 +97,8 @@ export const skillsData = [
       },
       {
         name: 'Express.js',
-        icon: `${SKILL_ICONS_CDN_URL}/icons/express/default.svg`,
-        invertInDark: true,
+        icon: `${SKILL_ICONS_CDN_URL}/icons/expressdotjs/default.svg`,
+        alticon: `${SKILL_ICONS_CDN_URL}/icons/expressdotjs/light.svg`,
       },
       {
         name: 'Flask',
