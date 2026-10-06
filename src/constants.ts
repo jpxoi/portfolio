@@ -1,5 +1,5 @@
 export const CDN_URL = 'https://cdn.jpxoi.com'
-export const SKILL_ICONS_CDN_URL = 'https://cdn.jsdelivr.net/gh/glincker/thesvg@main/public'
+export const SKILL_ICONS_CDN_URL = 'https://thesvg.org'
 export const CAL_BOOKING_LINK = 'jpxoi/15min'
 export const CAL_BOOKING_NAMESPACE = '15min'
 export const CAL_BOOKING_URL = `https://cal.com/${CAL_BOOKING_LINK}`

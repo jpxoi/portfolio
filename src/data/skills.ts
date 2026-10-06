@@ -1,4 +1,4 @@
-import { CDN_URL, SKILL_ICONS_CDN_URL } from '../constants'
+import { SKILL_ICONS_CDN_URL } from '../constants'
 
 export const skillsData = [
   {
@@ -134,8 +134,8 @@ export const skillsData = [
     skills: [
       {
         name: 'AWS',
-        icon: `${CDN_URL}/icons/aws-dark.svg`,
-        alticon: `${CDN_URL}/icons/aws-light.svg`,
+        icon: `${SKILL_ICONS_CDN_URL}/icons/amazon-web-services/default.svg`,
+        alticon: `${SKILL_ICONS_CDN_URL}/icons/amazon-web-services/light.svg`,
       },
       {
         name: 'Azure',
