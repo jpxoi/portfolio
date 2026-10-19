@@ -5,7 +5,7 @@ export default [
   { ignores: ['.astro/**', 'dist/**'] },
   ...tseslint.configs.recommended.map((config) => ({
     ...config,
-    files: ['**/*.ts'],
+    files: ['**/*.ts', '**/*.tsx'],
   })),
   // add more generic rule sets here, such as:
   // js.configs.recommended,
